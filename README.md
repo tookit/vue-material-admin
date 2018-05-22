@@ -5,6 +5,13 @@ Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Mate
 And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
 Vuetify is Awesome.
 
+### Demo
+[http://vma.isocked.com/#/dashboard](http://vma.isocked.com/#/dashboard) 
+
+### Preview
+![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
+
+###
 ### Project Structure
 ```bash
 ├── build
