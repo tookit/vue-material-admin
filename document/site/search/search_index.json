@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Thanks\n\n\nThank you for purchasing. Feel free to \ncontact\n me if you have any questions.\n\n\nAlso, \nemail\n me if you have any feature requests or advices, I'll be glad to know.\n\n\nRate it if you like it, it helps for more updates, thank you so much!\n\n\nIntroduction\n\n\nJian (meas \nsimple\n in Chinese) is \nVue\n Based Material Design Admin Template.\nAnd use \nVuetifyjs\n as base framework.\nVuetify is Awesome.\n\n\nProject Structure\n\n\n\u251c\u2500\u2500 build\n\u251c\u2500\u2500 config (Webpack)\n\u251c\u2500\u2500 src\n\u2502   \u251c\u2500\u2500 api\n\u2502   \u251c\u2500\u2500 components\n\u2502   \u251c\u2500\u2500 mixins\n\u2502   \u251c\u2500\u2500 pages (or views)\n\u2502   \u251c\u2500\u2500 router\n\u2502   \u251c\u2500\u2500 util\n\u2502   \u251c\u2500\u2500 theme\n\u2502   \u2502   \u251c\u2500\u2500 default.styl\n\u2502   \u2514\u2500\u2500 App.vue\n\u2502   \u2514\u2500\u2500 event.js\n\u2502   \u2514\u2500\u2500 main.js\n\u251c\u2500\u2500 dist\n\u251c\u2500\u2500 release\n\u251c\u2500\u2500 static (or asset)\n\u251c\u2500\u2500 mock (or script to build mock data)\n\u251c\u2500\u2500 node_modules\n\u251c\u2500\u2500 test\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 package.json\n\u251c\u2500\u2500 index.html\n\u2514\u2500\u2500 .gitignore\n\n\n\n\nHow to start\n\n\nBuild Setup\n\n\n# install dependencies\nnpm install\n\n# serve with hot reload at localhost:8080\nnpm run dev\n\n# build for production with minification\nnpm run build\n\n# build for production and view the bundle analyzer report\nnpm run build --report\n\n# run unit tests\nnpm run unit\n\n# run e2e tests\nnpm run e2e\n\n# run all tests\nnpm test\n\n\n\n\nFor a detailed explanation on how things work, check out the \nguide\n and \ndocs for vue-loader\n.\n\n\nReference\n\n\n\n\nVuetifyjs\n\n\nVue\n\n\nECharts\n\n\nStylus", 
+            "title": "Getting Start"
+        }, 
+        {
+            "location": "/#thanks", 
+            "text": "Thank you for purchasing. Feel free to  contact  me if you have any questions.  Also,  email  me if you have any feature requests or advices, I'll be glad to know.  Rate it if you like it, it helps for more updates, thank you so much!", 
+            "title": "Thanks"
+        }, 
+        {
+            "location": "/#introduction", 
+            "text": "Jian (meas  simple  in Chinese) is  Vue  Based Material Design Admin Template.\nAnd use  Vuetifyjs  as base framework.\nVuetify is Awesome.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/#project-structure", 
+            "text": "\u251c\u2500\u2500 build\n\u251c\u2500\u2500 config (Webpack)\n\u251c\u2500\u2500 src\n\u2502   \u251c\u2500\u2500 api\n\u2502   \u251c\u2500\u2500 components\n\u2502   \u251c\u2500\u2500 mixins\n\u2502   \u251c\u2500\u2500 pages (or views)\n\u2502   \u251c\u2500\u2500 router\n\u2502   \u251c\u2500\u2500 util\n\u2502   \u251c\u2500\u2500 theme\n\u2502   \u2502   \u251c\u2500\u2500 default.styl\n\u2502   \u2514\u2500\u2500 App.vue\n\u2502   \u2514\u2500\u2500 event.js\n\u2502   \u2514\u2500\u2500 main.js\n\u251c\u2500\u2500 dist\n\u251c\u2500\u2500 release\n\u251c\u2500\u2500 static (or asset)\n\u251c\u2500\u2500 mock (or script to build mock data)\n\u251c\u2500\u2500 node_modules\n\u251c\u2500\u2500 test\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 package.json\n\u251c\u2500\u2500 index.html\n\u2514\u2500\u2500 .gitignore", 
+            "title": "Project Structure"
+        }, 
+        {
+            "location": "/#how-to-start", 
+            "text": "", 
+            "title": "How to start"
+        }, 
+        {
+            "location": "/#build-setup", 
+            "text": "# install dependencies\nnpm install\n\n# serve with hot reload at localhost:8080\nnpm run dev\n\n# build for production with minification\nnpm run build\n\n# build for production and view the bundle analyzer report\nnpm run build --report\n\n# run unit tests\nnpm run unit\n\n# run e2e tests\nnpm run e2e\n\n# run all tests\nnpm test  For a detailed explanation on how things work, check out the  guide  and  docs for vue-loader .", 
+            "title": "Build Setup"
+        }, 
+        {
+            "location": "/#reference", 
+            "text": "Vuetifyjs  Vue  ECharts  Stylus", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/components/", 
+            "text": "Components\n\n\nSince the Template is built on veutify, you can go \nhttps://vuetifyjs.com/en/getting-started/quick-start\n to find a complete documentation \n\n\nVuetify", 
+            "title": "Components"
+        }, 
+        {
+            "location": "/components/#components", 
+            "text": "Since the Template is built on veutify, you can go  https://vuetifyjs.com/en/getting-started/quick-start  to find a complete documentation", 
+            "title": "Components"
+        }, 
+        {
+            "location": "/components/#vuetify", 
+            "text": "", 
+            "title": "Vuetify"
+        }
+    ]
+}
