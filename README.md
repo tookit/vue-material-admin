@@ -1,8 +1,38 @@
-# vue-md
+# Vue Material Admin
 
-> A Vue.js project
+### Introduction
+Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
+And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
+Vuetify is Awesome.
 
-## Build Setup
+### Project Structure
+```bash
+├── build
+├── config (Webpack)
+├── src
+│   ├── api
+│   ├── components
+│   ├── mixins
+│   ├── pages (or views)
+│   ├── router
+│   ├── util
+│   ├── theme
+│   │   ├── default.styl
+│   └── App.vue
+│   └── event.js
+│   └── main.js
+├── dist
+├── release
+├── static (or asset)
+├── mock (or script to build mock data)
+├── node_modules
+├── test
+├── README.md
+├── package.json
+├── index.html
+└── .gitignore
+
+### Build Setup
 
 ``` bash
 # install dependencies
@@ -28,3 +58,10 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+### Reference
+
+* [Vuetifyjs](https://vuetifyjs.com/)
+* [Vue](https://vuejs.org/index.html/)
+* [ECharts](http://echarts.baidu.com/option.html)
+* [Stylus](http://stylus-lang.com/)
