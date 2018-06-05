@@ -17,6 +17,9 @@
         >
       </v-text-field>
       <v-spacer></v-spacer>
+      <v-btn icon href="https://github.com/tookit/vue-material-admin">
+        <v-icon>fa fa-github</v-icon>
+      </v-btn>
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
       </v-btn>
