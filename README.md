@@ -80,8 +80,9 @@ If you find this project useful, you can buy author a glass of juice :tropical_d
 [Paypal Me](https://www.paypal.me/tookit)
 
 [Buy me a coffee](https://www.buymeacoffee.com/tookit)
+
 <a href="https://www.buymeacoffee.com/tookit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## License
 
-[MIT]
+[MIT](https://github.com/tookit/vue-material-admin/blob/master/LICENSE)
