@@ -17,7 +17,7 @@
         >
       </v-text-field>
       <v-spacer></v-spacer>
-      <v-btn  href="mailto:wangqiangshen@gmail.com">
+      <v-btn href="mailto:wangqiangshen@gmail.com">
         Hire Me
       </v-btn>      
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
