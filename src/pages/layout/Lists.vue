@@ -192,7 +192,7 @@
           <v-widget title="Long dark list with scroll" class="mt-3">
             <div slot="widget-content" style="max-height: 250px; overflow-y: scroll">
               <v-list dense dark>
-                <v-list-tile avatar v-for="item in allUsers" :key="item.title" @click="handleClick" height="300">
+                <v-list-tile avatar v-for="item in allUsers" :key="item.title" @click="handleClick">
                   <v-list-tile-action>
                     <v-icon color="pink">star</v-icon>
                   </v-list-tile-action>
