@@ -55,7 +55,7 @@
                 </v-list-tile>
               </v-list>
             </div>
-          </v-widget>  
+          </v-widget>
           <v-widget title="Three line" class="mt-3">
             <div slot="widget-content">
               <v-list three-line>
@@ -74,7 +74,7 @@
                 </template>
               </v-list>
             </div>
-          </v-widget>                 
+          </v-widget>
         </v-flex>
         <v-flex lg4>
          <v-widget title="Complex">
@@ -135,7 +135,7 @@
                 </v-list-tile>
               </v-list>
             </div>
-          </v-widget>  
+          </v-widget>
          <v-widget title="Complex (Three-line)" class="mt-3">
             <div slot="widget-content">
               <v-list three-line subheader>
@@ -188,7 +188,24 @@
                 </v-list-tile>
               </v-list>
             </div>
-          </v-widget>  
+          </v-widget>
+          <v-widget title="Long dark list with scroll" class="mt-3">
+            <div slot="widget-content" style="max-height: 250px; overflow-y: scroll">
+              <v-list dense dark>
+                <v-list-tile avatar v-for="item in allUsers" :key="item.title" @click="handleClick">
+                  <v-list-tile-action>
+                    <v-icon color="pink">star</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title v-text="item.name"></v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-avatar>
+                    <img :src="item.avatar">
+                  </v-list-tile-avatar>
+                </v-list-tile>
+              </v-list>
+            </div>
+          </v-widget>
         </v-flex>
         <v-flex lg4>
           <v-widget title="Expandable list">
@@ -217,7 +234,7 @@
                 </v-list-group>
               </v-list>
             </div>
-          </v-widget>          
+          </v-widget>
           <v-card class="mt-3">
             <v-card-media src="/static/bg/15.jpg" height="300px">
               <v-layout column class="media">
@@ -290,7 +307,7 @@
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
-          </v-card>      
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>
@@ -310,7 +327,7 @@ export default {
       sound: false,
       video: false,
       widgets: true,
-      invites: false,      
+      invites: false,
       folders: [
         { icon: 'folder', iconClass: 'grey lighten-1 white--text', title: 'Photos', subtitle: 'Jan 9, 2014' },
         { icon: 'folder', iconClass: 'grey lighten-1 white--text', title: 'Recipes', subtitle: 'Jan 17, 2014' },
@@ -385,14 +402,17 @@ export default {
         { avatar: 'https://randomuser.me/api/portraits/men/4.jpg', title: 'Birthday gift', subtitle: "<span class='text--primary'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?" },
         { divider: true, inset: true },
         { avatar: 'https://randomuser.me/api/portraits/men/5.jpg', title: 'Recipe to try', subtitle: "<span class='text--primary'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos." }
-      ]            
+      ]
     };
   },
   computed: {
     users () {
       return getUser(3);
+    },
+    allUsers () {
+      return getUser();
     }
-  },  
+  },
   methods: {
     handleClick (e) {
       return false;
