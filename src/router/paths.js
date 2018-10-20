@@ -585,6 +585,16 @@ export default [
     )
   },
   {
+    path: '/widgets/chart2',
+    meta: { breadcrumb: true },
+    name: 'components/chart2',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      /* webpackMode: "lazy-once" */
+      `@/pages/widgets/Chart2.vue`
+    )
+  },  
+  {
     path: '/widgets/list',
     meta: { breadcrumb: true },
     name: 'components/widget-list',
