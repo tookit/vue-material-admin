@@ -593,6 +593,16 @@ export default [
       /* webpackMode: "lazy-once" */
       `@/pages/widgets/Chart2.vue`
     )
+  }, 
+  {
+    path: '/widgets/book',
+    meta: { breadcrumb: true },
+    name: 'components/book',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      /* webpackMode: "lazy-once" */
+      `@/pages/widgets/Book.vue`
+    )
   },  
   {
     path: '/widgets/list',

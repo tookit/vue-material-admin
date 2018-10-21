@@ -9,6 +9,10 @@ import './theme/default.styl';
 import VeeValidate from 'vee-validate';
 import colors from 'vuetify/es5/util/colors';
 import Truncate from 'lodash.truncate';
+import VueFire from 'vuefire';
+
+Vue.use(VueFire);
+
 Vue.config.productionTip = false;
 // Helpers
 // Global filters
