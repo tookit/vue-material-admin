@@ -1,1 +1,1 @@
-
+export * from '../../api/config';

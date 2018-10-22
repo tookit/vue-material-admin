@@ -350,7 +350,7 @@
 </template>
 
 <script>
-import EChart from '@/components/chart2/echart';
+import EChart from '@/components/chart/echart';
 import {
   StackData2, 
   SinData2,
@@ -358,7 +358,6 @@ import {
   campaignData2,
   locationData2,
 } from '@/api/chart2'; 
-import articlesRef from '@/api/config';
 import Material from 'vuetify/es5/util/colors';
 import MiniChart from '@/components/widgets/chart/MiniChart';
 import BoxChart from '@/components/widgets/chart/BoxChart';

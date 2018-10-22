@@ -36,7 +36,7 @@ const Menu =  [
       { name: 'statistic', title: 'Statistic', badge: 'new', component: 'components/statistic' },
       { name: 'chart', title: 'Chart', component: 'components/chart' },
       { name: 'list', title: 'List', component: 'components/widget-list' },
-      { name: 'book', title: 'Book', component: 'components/book' },
+      { name: 'chart2', title: 'Book', component: 'components/chart2' },
       { name: 'chart2', title: 'Chart3', component: 'components/chart2' }
       // { name: 'post', title: 'Post', component: 'components/widget-post' },
     ]

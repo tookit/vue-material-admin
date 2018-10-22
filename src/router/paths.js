@@ -597,7 +597,7 @@ export default [
   {
     path: '/widgets/book',
     meta: { breadcrumb: true },
-    name: 'components/book',
+    name: 'components/chart2',
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
