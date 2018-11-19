@@ -13,7 +13,7 @@ Vuetify is Awesome.
 
 ###
 ### Project Structure
-```bash
+``` bash
 ├── build
 ├── config (Webpack)
 ├── src
@@ -38,6 +38,7 @@ Vuetify is Awesome.
 ├── package.json
 ├── index.html
 └── .gitignore
+```
 
 ### Build Setup
 
