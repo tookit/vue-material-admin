@@ -118,7 +118,7 @@
                 <div class="caption"> <v-icon>trending_up</v-icon>  20%</div>
               </div>
             </v-card-title>
-            <v-card-media class="white--text">
+            <v-responsive class="white--text">
               <e-chart 
                 ref="chart"
                 :path-option="[
@@ -139,7 +139,7 @@
                 width="100%"
               >
               </e-chart>
-            </v-card-media>
+            </v-responsive>
             <v-card-text class="white">
               <div class="layout row align-center ma-0">
                 <div class="grey--text">
@@ -171,7 +171,7 @@
                 <div class="caption"> <v-icon>trending_up</v-icon>  20%</div>
               </div>
             </v-card-title>
-            <v-card-media
+            <v-responsive
               class="white--text"
             >
               <e-chart 
@@ -188,7 +188,7 @@
                 width="100%"
               >
               </e-chart>
-            </v-card-media>
+            </v-responsive>
             <v-card-text class="white">
               <div class="layout row align-center ma-0">
                 <div class="grey--text">
@@ -220,7 +220,7 @@
                 <div class="caption"> <v-icon>trending_up</v-icon>  20%</div>
               </div>
             </v-card-title>
-            <v-card-media
+            <v-responsive
             >
               <e-chart 
               :path-option="[
@@ -239,7 +239,7 @@
               width="100%"
               >
               </e-chart>
-            </v-card-media>    
+            </v-responsive>    
             <v-card-text class="white">
               <div class="layout row align-center ma-0">
                 <div class="grey--text">
@@ -305,7 +305,7 @@
           </v-widget>             
         </v-flex>
         <v-flex lg12 sm12>
-          <v-tabs v-model="selectedTab" @input="handleTabChange">
+          <v-tabs v-model="selectedTab" @change="handleTabChange">
             <v-tab ripple href="#tab-1">
               Sales
             </v-tab>
@@ -313,7 +313,7 @@
               Visit
             </v-tab>
             <v-tabs-items v-model="selectedTab">
-              <v-tab-item id="tab-1" class="d-block">
+              <v-tab-item value="tab-1" class="d-block">
                 <v-card>
                   <e-chart 
                   :path-option="[
@@ -328,7 +328,7 @@
                   </e-chart>     
                 </v-card>              
               </v-tab-item>
-              <v-tab-item id="tab-2">
+              <v-tab-item value="tab-2">
                 <v-card>
                   <e-chart 
                   :path-option="[
