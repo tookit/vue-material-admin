@@ -1,15 +1,10 @@
-<template>
+  <template>
   <v-layout row class="align-center layout px-4 pt-4 app--page-header">
     <div class="page-header-left">
       <h3 class="pr-3">{{title}}</h3>
     </div>
-    <v-breadcrumbs divider="-">
-      <v-breadcrumbs-item>
-      <v-icon larg>home</v-icon>
-      </v-breadcrumbs-item>
-      <v-breadcrumbs-item v-for="(item,key) in breadcrumbs" :key="key">
-      {{ item }}
-      </v-breadcrumbs-item>
+    <v-breadcrumbs divider="-" :items="breadcrumbs">
+
     </v-breadcrumbs>
     <v-spacer></v-spacer>
     <div class="page-header-right">

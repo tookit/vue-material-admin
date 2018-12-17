@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     classes () {
-      const classes = this.addBackgroundColorClassChecks({
+      const classes = {
         'circle-sm': this.small,
         'circle-lg': this.medium,
         'circle-xl': this.large,
@@ -25,7 +25,7 @@ export default {
         'circle-pill': this.pill,
         'theme--light': this.light,
         'theme--dark': this.dark        
-      });
+      };
       return classes;
     }
   },

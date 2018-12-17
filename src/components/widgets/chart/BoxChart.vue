@@ -7,14 +7,14 @@
         <div class="caption"> <v-icon>trending_up</v-icon>  {{subTitle}}</div>
       </div>
     </v-card-title>
-    <v-card-media class="white--text">
+    <v-responsive class="white--text">
       <e-chart 
       :path-option="computeChartOption"
       height="308px"
       width="100%"
       >
       </e-chart>
-    </v-card-media>    
+    </v-responsive>    
   </v-card>    
 </template>
 
