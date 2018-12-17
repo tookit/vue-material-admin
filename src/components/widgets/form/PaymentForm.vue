@@ -12,7 +12,7 @@
         <i class="fa fa-paypal display-3"></i>
       </a>      
     </div>
-    <v-subheader class="pa-0 mt-3">Payment Detial</v-subheader>
+    <v-subheader class="pa-0 mt-3">Payment Detail</v-subheader>
     <div class="d-flex my-2">
       <v-select
         :items="cardTypes"
