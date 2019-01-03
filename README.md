@@ -1,5 +1,12 @@
 # Vue Material Admin
 
+### Plan and features
+* will create a new template by vue-cli 3.x 
+* will remove some useless code becuase of the vuetify framework updates  
+* may add vue-nuxt support
+* may add vuex support and sample code
+* will refactor the whole code 
+
 ### Introduction
 Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
 And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
