@@ -17,8 +17,7 @@ export default [
     name: 'NotFound',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/NotFound.vue`
+      `@/views/NotFound.vue`
     )
   },
   {
@@ -29,8 +28,7 @@ export default [
     name: 'AccessDenied',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Deny.vue`
+      `@/views/Deny.vue`
     )
   },
   {
@@ -41,8 +39,7 @@ export default [
     name: 'ServerError',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Error.vue`
+      `@/views/Error.vue`
     )
   },
   {
@@ -53,8 +50,7 @@ export default [
     name: 'Login',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Login.vue`
+      `@/views/Login.vue`
     )
   },
   {
@@ -71,21 +67,10 @@ export default [
     name: 'Dashboard',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Dashboard.vue`
+      `@/views/Dashboard.vue`
     )
   },
 
-  // {
-  //   path: '/calendar',
-  //   meta: { breadcrumb: true },
-  //   name: 'Calendar',
-  //   component: (a) => import(
-  //     /* webpackChunkName: "routes" */
-  //     /* webpackMode: "lazy-once" */
-  //     `@/pages/Calendar.vue`
-  //   )
-  // },
   {
     path: '/media',
     meta: { },
@@ -93,8 +78,7 @@ export default [
     props: (route) => ({ type: route.query.type }),
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Media.vue`
+      `@/views/Media.vue`
     )
   },  
   {
@@ -121,7 +105,6 @@ export default [
         components: {
           default: () => import(
             /* webpackChunkName: "routes" */
-            /* webpackMode: "lazy-once" */
             `@/components/chat/ChatMessaging.vue`
           ),  
         }   
@@ -135,7 +118,6 @@ export default [
         components: {
           default: () => import(
             /* webpackChunkName: "routes" */
-            /* webpackMode: "lazy-once" */
             `@/components/chat/ChatContact.vue`
           ),  
 
@@ -151,7 +133,6 @@ export default [
     name: 'Mail',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
       `@/components/email/Layout.vue`
     ),
     redirect: {
@@ -166,7 +147,6 @@ export default [
         name: 'MailIndex',
         component: () => import(
           /* webpackChunkName: "routes" */
-          /* webpackMode: "lazy-once" */
           `@/components/email/List.vue`
         ),        
       },
@@ -178,7 +158,6 @@ export default [
         name: 'MailDetail',
         component: () => import(
           /* webpackChunkName: "routes" */
-          /* webpackMode: "lazy-once" */
           `@/components/email/Reply.vue`
         ),        
       }      
@@ -190,8 +169,7 @@ export default [
     name: 'components/alerts',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Alert.vue`
+      `@/views/ui/Alert.vue`
     )
   },
   {
@@ -200,8 +178,7 @@ export default [
     name: 'components/avatars',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Avatar.vue`
+      `@/views/ui/Avatar.vue`
     )
   },
   {
@@ -210,8 +187,7 @@ export default [
     name: 'components/badges',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Badge.vue`
+      `@/views/ui/Badge.vue`
     )
   },
   {
@@ -220,8 +196,7 @@ export default [
     name: 'components/buttons',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Button.vue`
+      `@/views/ui/Button.vue`
     )
   },
   {
@@ -230,8 +205,7 @@ export default [
     name: 'components/parallax',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Parallax.vue`
+      `@/views/ui/Parallax.vue`
     )
   },
   {
@@ -240,8 +214,7 @@ export default [
     name: 'components/snackbar',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Snackbar.vue`
+      `@/views/ui/Snackbar.vue`
     )
   },
   {
@@ -251,7 +224,7 @@ export default [
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
-      `@/pages/ui/Chip.vue`
+      `@/views/ui/Chip.vue`
     )
   },
   {
@@ -260,8 +233,7 @@ export default [
     name: 'components/cards',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Cards.vue`
+      `@/views/ui/Cards.vue`
     )
   },
   {
@@ -270,8 +242,7 @@ export default [
     name: 'components/tables',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Tables.vue`
+      `@/views/ui/Tables.vue`
     )
   },
   {
@@ -280,8 +251,7 @@ export default [
     name: 'components/carousels',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Carousels.vue`
+      `@/views/ui/Carousels.vue`
     )
   },
   {
@@ -290,8 +260,7 @@ export default [
     name: 'components/dialogs',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Dialogs.vue`
+      `@/views/ui/Dialogs.vue`
     )
   },
   {
@@ -300,8 +269,7 @@ export default [
     name: 'components/icons',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Icon.vue`
+      `@/views/ui/Icon.vue`
     )
   },
   {
@@ -310,8 +278,7 @@ export default [
     name: 'components/progress',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Progress.vue`
+      `@/views/ui/Progress.vue`
     )
   },
   {
@@ -320,8 +287,7 @@ export default [
     name: 'components/sliders',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Slider.vue`
+      `@/views/ui/Slider.vue`
     )
   },
   {
@@ -330,8 +296,7 @@ export default [
     name: 'components/tooltips',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Tooltip.vue`
+      `@/views/ui/Tooltip.vue`
     )
   },
   {
@@ -340,8 +305,7 @@ export default [
     name: 'components/paginations',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Pagination.vue`
+      `@/views/ui/Pagination.vue`
     )
   },
   {
@@ -350,8 +314,7 @@ export default [
     name: 'pickers/datepicker',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Datepicker.vue`
+      `@/views/ui/Datepicker.vue`
     )
   },
   {
@@ -360,8 +323,7 @@ export default [
     name: 'components/typography',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Typography.vue`
+      `@/views/ui/Typography.vue`
     )
   },
   {
@@ -370,8 +332,7 @@ export default [
     name: 'components/color',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Colors.vue`
+      `@/views/ui/Colors.vue`
     )
   },
   {
@@ -380,8 +341,7 @@ export default [
     name: 'pickers/timepicker',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/ui/Timepicker.vue`
+      `@/views/ui/Timepicker.vue`
     )
   },
   {
@@ -390,8 +350,7 @@ export default [
     name: 'components/bottom-sheets',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/BottomSheets.vue`
+      `@/views/layout/BottomSheets.vue`
     )
   },
   {
@@ -400,8 +359,7 @@ export default [
     name: 'components/expansion-panels',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/ExpansionPanels.vue`
+      `@/views/layout/ExpansionPanels.vue`
     )
   },
   {
@@ -410,8 +368,7 @@ export default [
     name: 'components/footer',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Footers.vue`
+      `@/views/layout/Footers.vue`
     )
   },
   {
@@ -420,8 +377,7 @@ export default [
     name: 'components/timeline',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Timeline.vue`
+      `@/views/layout/Timeline.vue`
     )
   },
   {
@@ -430,8 +386,7 @@ export default [
     name: 'components/lists',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Lists.vue`
+      `@/views/layout/Lists.vue`
     )
   },
   {
@@ -440,8 +395,7 @@ export default [
     name: 'components/toolbar',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Toolbar.vue`
+      `@/views/layout/Toolbar.vue`
     )
   },
   {
@@ -450,8 +404,7 @@ export default [
     name: 'components/jumbotrons',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Jumbotrons.vue`
+      `@/views/layout/Jumbotrons.vue`
     )
   },
   {
@@ -460,8 +413,7 @@ export default [
     name: 'components/menus',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Menus.vue`
+      `@/views/layout/Menus.vue`
     )
   },
   {
@@ -470,8 +422,7 @@ export default [
     name: 'components/navigation-drawers',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/NavigationDrawers.vue`
+      `@/views/layout/NavigationDrawers.vue`
     )
   },
   {
@@ -480,8 +431,7 @@ export default [
     name: 'components/tabs',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/layout/Tabs.vue`
+      `@/views/layout/Tabs.vue`
     )
   },
   {
@@ -490,8 +440,7 @@ export default [
     name: 'components/basic-forms',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/BasicForms.vue`
+      `@/views/form/BasicForms.vue`
     )
   },
   {
@@ -500,8 +449,7 @@ export default [
     name: 'components/selects',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/Selects.vue`
+      `@/views/form/Selects.vue`
     )
   },
   {
@@ -509,9 +457,7 @@ export default [
     meta: { breadcrumb: true },
     name: 'components/editors',
     component: () => import(
-      /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/Editors.vue`
+      `@/views/form/Editors.vue`
     )
   },
   {
@@ -520,8 +466,7 @@ export default [
     name: 'components/selection-controls',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/SelectionControls.vue`
+      `@/views/form/SelectionControls.vue`
     )
   },
   {
@@ -530,8 +475,7 @@ export default [
     name: 'components/text-fields',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/TextFields.vue`
+      `@/views/form/TextFields.vue`
     )
   },
   {
@@ -540,8 +484,7 @@ export default [
     name: 'components/steppers',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/form/Steppers.vue`
+      `@/views/form/Steppers.vue`
     )
   },
   {
@@ -550,8 +493,7 @@ export default [
     name: 'components/social',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/widgets/Social.vue`
+      `@/views/widgets/Social.vue`
     )
   },
   {
@@ -560,8 +502,7 @@ export default [
     name: 'components/widget-post',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/widgets/Post.vue`
+      `@/views/widgets/Post.vue`
     )
   },
   {
@@ -570,8 +511,7 @@ export default [
     name: 'components/statistic',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/widgets/Statistic.vue`
+      `@/views/widgets/Statistic.vue`
     )
   },
   {
@@ -580,8 +520,7 @@ export default [
     name: 'components/chart',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/widgets/Chart.vue`
+      `@/views/widgets/Chart.vue`
     )
   },
   {
@@ -590,8 +529,7 @@ export default [
     name: 'components/widget-list',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/widgets/List.vue`
+      `@/views/widgets/List.vue`
     )
   },
 ];

@@ -43,7 +43,6 @@
                   <v-list-tile-content>
                     <v-list-tile-title><span>{{ subItem.title }}</span></v-list-tile-title>
                   </v-list-tile-content>
-                  <!-- <v-circle class="white--text pa-0 circle-pill" v-if="subItem.badge" color="red" disabled="disabled">{{ subItem.badge }}</v-circle> -->
                   <v-list-tile-action v-if="subItem.action">
                     <v-icon :class="[subItem.actionClass || 'success--text']">{{ subItem.action }}</v-icon>
                   </v-list-tile-action>
@@ -60,11 +59,9 @@
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile-content>
-              <!-- <v-circle class="white--text pa-0 chip--x-small" v-if="item.badge" :color="item.color || 'primary'" disabled="disabled">{{ item.badge }}</v-circle> -->
               <v-list-tile-action v-if="item.subAction">
                 <v-icon class="success--text">{{ item.subAction }}</v-icon>
               </v-list-tile-action>
-              <!-- <v-circle class="caption blue lighten-2 white--text mx-0" v-else-if="item.chip" label="label" small="small">{{ item.chip }}</v-circle> -->
             </v-list-tile>
         </template>
       </v-list>        

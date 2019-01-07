@@ -38,7 +38,7 @@
     <template v-else>
       <transition>
         <keep-alive>
-          <router-view :key="$route.fullpath"></router-view>
+          <router-view></router-view>
         </keep-alive>
       </transition>
     </template>

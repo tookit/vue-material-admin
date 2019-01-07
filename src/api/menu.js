@@ -36,7 +36,6 @@ const Menu =  [
       { name: 'statistic', title: 'Statistic', badge: 'new', component: 'components/statistic' },
       { name: 'chart', title: 'Chart', component: 'components/chart' },
       { name: 'list', title: 'List', component: 'components/widget-list' },
-      // { name: 'post', title: 'Post', component: 'components/widget-post' },
     ]
   },  
   { header: 'UI Elements' },
@@ -90,7 +89,6 @@ const Menu =  [
       { name: 'lists', title: 'Lists', component: 'components/lists' },
       { name: 'jumbotrons', title: 'Jumbotrons', badge: 'new', component: 'components/jumbotrons' },
       { name: 'menus', title: 'Menus', component: 'components/menus' },
-      // { name: 'navigation-drawers', title: 'Navigation drawers', component: 'components/navigation-drawers' },
       { name: 'tabs', title: 'Tabs', component: 'components/tabs' },
       { name: 'toolbar', title: 'Toolbars', component: 'components/toolbar' },
       { name: 'timeline', title: 'Timeline', component: 'components/timeline' },

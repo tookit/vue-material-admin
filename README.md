@@ -1,25 +1,25 @@
+
 # Vue Material Admin
 
-### Plan and features
+## Plan and features
 * will create a new template by vue-cli 3.x 
 * will remove some useless code becuase of the vuetify framework updates  
 * may add vue-nuxt support
 * may add vuex support and sample code
 * will refactor the whole code 
 
-### Introduction
+## Introduction
 Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
 And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
 Vuetify is Awesome.
 
-### Demo
+## Demo
 [http://vma.isocked.com/#/dashboard](http://vma.isocked.com/#/dashboard) 
 
-### Preview
+## Preview
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
 
-###
-### Project Structure
+## Project Structure
 ``` bash
 ├── build
 ├── config (Webpack)
@@ -27,7 +27,7 @@ Vuetify is Awesome.
 │   ├── api
 │   ├── components
 │   ├── mixins
-│   ├── pages (or views)
+│   ├── views (or views)
 │   ├── router
 │   ├── util
 │   ├── theme
@@ -47,32 +47,34 @@ Vuetify is Awesome.
 └── .gitignore
 ```
 
-### Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## Project setup
+```
+yarn install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
 
 ### Reference
 
