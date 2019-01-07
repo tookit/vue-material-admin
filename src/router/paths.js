@@ -223,7 +223,6 @@ export default [
     name: 'components/chips',
     component: () => import(
       /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
       `@/views/ui/Chip.vue`
     )
   },
