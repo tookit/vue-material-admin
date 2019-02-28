@@ -6,8 +6,8 @@
     app
     >
     <v-toolbar-title class="ml-0 pl-3">
-      <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
+      <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
       <v-text-field
         flat
         solo-inverted
@@ -17,11 +17,14 @@
         >
       </v-text-field>
       <v-spacer></v-spacer>
-      <v-btn href="mailto:wangqiangshen@gmail.com">
-        Hire Me
-      </v-btn>      
+      <v-toolbar-items>
+        <v-btn flat href="mailto:wangqiangshen@gmail.com">
+          Hire Me
+        </v-btn>   
+      </v-toolbar-items>
+    
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
-        <v-icon>fa fa-github</v-icon>
+        <v-icon class="fa-2x">fa-github</v-icon>
       </v-btn>
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
