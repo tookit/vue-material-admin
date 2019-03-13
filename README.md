@@ -24,7 +24,7 @@ Vuetify is Awesome.
 If there is any idea or advice may help improve the channel, pls leave your mesage.
 Thanks
 
-[https://discord.gg/yzMcpG] (https://discord.gg/yzMcpG)
+[https://discord.gg/9nsyEES] (https://discord.gg/9nsyEES)
 ## Demo
 [http://vma.isocked.com/#/dashboard](http://vma.isocked.com/#/dashboard) 
 
