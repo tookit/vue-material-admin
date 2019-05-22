@@ -20,11 +20,7 @@
                 {{item.title}}
               </h3>
               <div class="post--desc py-2 text--secondary">
-                {{ item.desc | 
-                  truncate({
-                    length: 150
-                  })
-                }}
+                {{ item.desc     }}
               </div>
               <div class="post--meta o-flex justify-space-between">
                 <div class="post--author caption grey--text text--darken-1">

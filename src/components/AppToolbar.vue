@@ -5,23 +5,24 @@
     dark
     app
     >
-    <v-toolbar-title class="ml-0 pl-3">
-      <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
+    <v-toolbar-title>
+      <v-toolbar-side-icon @click="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        prepend-icon="search"
-        label="Search"
-        class="hidden-sm-and-down"
-        >
-      </v-text-field>
-      <v-spacer></v-spacer>
-      <v-btn href="mailto:wangqiangshen@gmail.com">
+    <!-- <v-text-field
+      flat
+      solo-inverted
+      prepend-inner-icon="search"
+      label="Search"
+      class="hidden-sm-and-down"
+      >
+    </v-text-field> -->
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
+      <v-btn flat href="mailto:wangqiangshen@gmail.com">
         Hire Me
       </v-btn>      
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
-        <v-icon>fa fa-github</v-icon>
+        <v-icon class="fa-2x">fa-github</v-icon>
       </v-btn>
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
@@ -52,6 +53,8 @@
           </v-list-tile>
         </v-list>
       </v-menu>
+    </v-toolbar-items>
+
   </v-toolbar>
 </template>
 <script>
@@ -97,7 +100,7 @@ export default {
   },
   methods: {
     handleDrawerToggle () {
-      window.getApp.$emit('APP_DRAWER_TOGGLED');
+      this.$emit('side-icon-click');
     },
     handleFullScreen () {
       Util.toggleFullScreen();

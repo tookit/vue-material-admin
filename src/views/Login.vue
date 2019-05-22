@@ -1,5 +1,5 @@
 <template>
-  <v-app id="login" class="primary">
+  <v-app class="split-bg">
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
@@ -15,7 +15,7 @@
                   <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password" v-model="model.password"></v-text-field>
                 </v-form>
               </v-card-text>
-              <v-card-actions>
+              <div class="login-btn">
                 <v-btn icon>
                   <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
                 </v-btn>
@@ -27,7 +27,7 @@
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
-              </v-card-actions>
+              </div>
             </v-card>
           </v-flex>
         </v-layout>
@@ -41,10 +41,11 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: 'admin@isockde.com',
+      username: 'admin@isocke.com',
       password: 'password'
     }
   }),
+
 
   methods: {
     login () {
@@ -58,7 +59,7 @@ export default {
 };
 </script>
 <style scoped lang="css">
-  #login {
+  .split-bg {
     height: 50%;
     width: 100%;
     position: absolute;
