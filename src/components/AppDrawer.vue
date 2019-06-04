@@ -4,7 +4,7 @@
     :mini-variant.sync="mini"
     app
     v-model="showDrawer"
-    width="260"
+    :width="drawWidth"
     >
     <v-toolbar color="primary darken-1" dark>
       <img v-bind:src="computeLogo" height="36" alt="Vue Material Admin Template">
@@ -115,15 +115,21 @@ export default {
       type: Boolean,
       default: true
     },
+    drawWidth: {
+      type:[Number,String],
+      default: '260'
+    },
     showDrawer: Boolean
   },
-  data: () => ({
-    mini: false,
-    menus: menu,
-    scrollSettings: {
-      maxScrollbarLength: 160
+  data () {
+    return {
+      mini: false,
+      menus: menu,
+      scrollSettings: {
+        maxScrollbarLength: 160
+      }
     }
-  }),
+  },
   computed: {
     computeGroupActive() {
       return true
@@ -156,7 +162,6 @@ export default {
 <style lang="stylus">
 #appDrawer {
   overflow: hidden;
-
   .drawer-menu--scroll {
     height: calc(100vh - 48px);
     overflow: auto;

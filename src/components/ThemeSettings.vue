@@ -1,6 +1,6 @@
 <template>
-<div id="themeSetting">
-  <v-toolbar color="blue" dark>
+<div class="themeSetting">
+  <v-toolbar color="blue">
     <v-toolbar-title>
       Theme Settings
     </v-toolbar-title>
@@ -21,7 +21,7 @@
                 </span>
                 <span class="color-option--item--header sideNav" :class="option.value.sideNav"></span>
                 <span class="color-option--item--header mainNav" :class="option.value.mainNav"></span>
-                <span class="sideMenu" :class="option.value.sideManu"></span>
+                <span class="sideMenu" :class="option.value.sideMenu"></span>
               </span>
             </label>
           </v-layout>
@@ -47,7 +47,6 @@
   </v-container>
 </div>
 </template>
-
 <script>
 import colors from 'vuetify/es5/util/colors';
 export default {
@@ -66,23 +65,15 @@ export default {
           value: {
             sideNav: 'blue',
             mainNav: 'blue',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
-        // {
-        //   key: 'lightBlue',
-        //   value: {
-        //     sideNav: 'blue',
-        //     mainNav: 'white',
-        //     sideManu: 'blue lighten-1'
-        //   }
-        // },
         {
           key: 'teal',
           value: {
             sideNav: 'teal',
             mainNav: 'teal',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -90,7 +81,7 @@ export default {
           value: {
             sideNav: 'red',
             mainNav: 'red',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -98,7 +89,7 @@ export default {
           value: {
             sideNav: 'orange',
             mainNav: 'orange',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -106,7 +97,7 @@ export default {
           value: {
             sideNav: 'purple',
             mainNav: 'purple',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -114,7 +105,7 @@ export default {
           value: {
             sideNav: 'indigo',
             mainNav: 'indigo',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -122,7 +113,7 @@ export default {
           value: {
             sideNav: 'cyan',
             mainNav: 'cyan',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -130,7 +121,7 @@ export default {
           value: {
             sideNav: 'pink',
             mainNav: 'pink',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         },
         {
@@ -138,7 +129,7 @@ export default {
           value: {
             sideNav: 'green',
             mainNav: 'green',
-            sideManu: 'white'
+            sideMenu: 'white'
           }
         }
       ];
@@ -148,7 +139,6 @@ export default {
     themeColor: {
       handler (val) {
         this.$vuetify.theme.primary = this.colors[val].base;
-        
       },
       immediate: true
     },

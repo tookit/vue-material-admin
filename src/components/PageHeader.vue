@@ -4,7 +4,6 @@
       <h3 class="pr-3">{{title}}</h3>
     </div>
     <v-breadcrumbs divider="-" :items="breadcrumbs">
-
     </v-breadcrumbs>
     <v-spacer></v-spacer>
     <div class="page-header-right">
