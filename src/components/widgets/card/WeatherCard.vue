@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-media src="/static/nature/n5.jpeg" height="350">
+    <v-responsive src="/static/nature/n5.jpeg" height="350">
       <v-layout column class="media ma-0">
         <v-card-title>
           <v-btn dark icon>
@@ -19,7 +19,7 @@
           <div class="display-1 pl-5 pt-5">Ali Conners</div>
         </v-card-title>
       </v-layout>
-    </v-card-media>
+    </v-responsive>
     <v-list two-line>
       <v-list-tile href="#">
         <v-list-tile-content>

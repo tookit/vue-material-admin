@@ -2,14 +2,14 @@
   <v-container fluid fill-height class="pa-0 ma-0 white" id="profile">
     <v-layout column class="pa-0 ma-0">
       <v-card class="elevation-0">
-        <v-card-media height="380" src="/static/bg/4.jpg">
+        <v-responisve height="380" src="/static/bg/4.jpg">
           <v-layout column align-center justify-center>
             <v-avatar size="200" class="mx-5">
               <img :src="user.avatar" :alt="user.name">
             </v-avatar>
             <h1 class="white--text">{{user.name}}</h1>
           </v-layout>
-        </v-card-media>
+        </v-responisve>
         <v-card-text class="pa-0">
           <v-layout row wrap class="grey lighten-4 pa-3">
             <v-flex xs4>

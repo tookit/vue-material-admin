@@ -36,9 +36,9 @@
                 :key="'folder'+ index"
               >
                 <v-card flat tile>
-                  <v-card-media height="150px">
+                  <v-responsive height="150px">
                     <v-icon size="135" class="mx-auto" color="indigo">folder</v-icon>  
-                  </v-card-media>
+                  </v-responsive>
                   <v-divider></v-divider>
                   <v-card-title>
                     {{item.name}}
@@ -55,13 +55,13 @@
               >
                 <a @click="showDetail(item)" class="d-flex">
                   <v-card flat tile>
-                    <v-card-media
+                    <v-responsive
                       height="150px"
                       width="150px"
                     >
                       <img :src="item.path" alt="" v-if="isImage(item)">
                       <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>  
-                    </v-card-media>
+                    </v-responsive>
                     <v-divider></v-divider>
                     <v-card-title>
                       {{item.fileName}}

@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-media src="/static/nature/n3.jpeg" :height="imageHeight" class="white--text">
+    <v-responsive src="/static/nature/n3.jpeg" :height="imageHeight" class="white--text">
       <v-layout row justify-space-between class="ma-0">
         <v-flex xs2>
           <v-icon color="white">favorite</v-icon>
@@ -9,7 +9,7 @@
           <v-icon color="white">share</v-icon>
         </v-flex>
       </v-layout>
-    </v-card-media>
+    </v-responsive>
     <v-card-text>
       <div class="post--item">
         <div class="post--title">
