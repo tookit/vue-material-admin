@@ -1,81 +1,93 @@
-const range = (start, end) => new Array(end - start).fill(start).map((el, i) => start + i);
+const range = (start, end) => new Array(end - start).fill(start).map((el, i) => start + i)
 
-const shortMonth = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-];
+const shortMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const monthVisitData = shortMonth.map(m => {
   return {
-    'month': m,
-    'Unique Visit': Math.floor(Math.random() * 1000) + 200,
-    'Page View': Math.floor(Math.random() * 1000) + 250,
-  };
-});
+    month: m,
+    "Unique Visit": Math.floor(Math.random() * 1000) + 200,
+    "Page View": Math.floor(Math.random() * 1000) + 250
+  }
+})
 
 const campaignData = [
   {
     value: 335,
-    name: 'Website'
+    name: "Website"
   },
   {
     value: 310,
-    name: 'Email'
+    name: "Email"
   },
   {
     value: 234,
-    name: 'Ads'
+    name: "Ads"
   },
   {
     value: 135,
-    name: 'Video'
+    name: "Video"
   },
   {
     value: 1548,
-    name: 'Search'
+    name: "Search"
   }
-];
+]
 const locationData = [
   {
     value: 50,
-    name: 'China'
+    name: "China"
   },
   {
     value: 35,
-    name: 'USA'
+    name: "USA"
   },
   {
     value: 25,
-    name: 'EU'
+    name: "EU"
   },
   {
     value: 10,
-    name: 'Russia'
+    name: "Russia"
   },
   {
     value: 10,
-    name: 'Other'
+    name: "Other"
   }
-];
+]
 
-const StackMainData = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
+const StackMainData = [
+  220,
+  182,
+  191,
+  234,
+  290,
+  330,
+  310,
+  123,
+  442,
+  321,
+  90,
+  149,
+  210,
+  122,
+  133,
+  334,
+  198,
+  123,
+  125,
+  220
+]
 const StackData = StackMainData.map((item, key) => {
   return {
-    'label': key + 'D',
-    'max': 500,
-    'sales': item,
-  };
-});   
+    label: key + "D",
+    max: 500,
+    sales: item
+  }
+})
 const SinData = range(1, 12).map(i => {
   return {
-    'cate': 'Cat' + i,
-    'value': ((Math.sin(i / 5) * (i / 5 - 0.1) + i / 6) * 5)
-  };
-});
+    cate: "Cat" + i,
+    value: (Math.sin(i / 5) * (i / 5 - 0.1) + i / 6) * 5
+  }
+})
 
-
-export {
-  monthVisitData,
-  campaignData,
-  locationData,
-  StackData,
-  SinData,
-};
+export { monthVisitData, campaignData, locationData, StackData, SinData }

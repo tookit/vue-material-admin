@@ -10,8 +10,8 @@
           <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
           <v-divider v-else-if="item.divider" :key="index"></v-divider>
           <v-list-tile avatar v-else :key="item.title" @click="handleClick">
-            <v-list-tile-avatar >
-              <img :src="item.avatar">
+            <v-list-tile-avatar>
+              <img :src="item.avatar" />
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title v-html="item.title"></v-list-tile-title>
@@ -27,17 +27,15 @@
   </v-card>
 </template>
 <script>
-import messages from '@/api/message';
+import messages from "@/api/message"
 export default {
-
   data: () => ({
     items: messages
   }),
   methods: {
-    handleClick: (e) => {
-      console.log(e);
+    handleClick: e => {
+      console.log(e)
     }
-  },
-
-};
+  }
+}
 </script>

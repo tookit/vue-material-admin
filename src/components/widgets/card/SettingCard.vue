@@ -63,13 +63,13 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       notifications: false,
       sound: false,
       video: false,
       invites: false
-    };
+    }
   }
-};
+}
 </script>

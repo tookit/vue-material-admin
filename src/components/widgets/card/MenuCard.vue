@@ -9,13 +9,7 @@
       </v-btn>
     </v-toolbar>
     <v-list>
-      <v-list-group
-        v-model="item.active"
-        v-for="item in items"
-        :key="item.title"
-        :prepend-icon="item.action"
-        no-action
-      >
+      <v-list-group v-model="item.active" v-for="item in items" :key="item.title" :prepend-icon="item.action" no-action>
         <v-list-tile slot="activator">
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -36,63 +30,47 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       items: [
         {
-          action: 'local_activity',
-          title: 'Attractions',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "local_activity",
+          title: "Attractions",
+          items: [{ title: "List Item" }]
         },
         {
-          action: 'restaurant',
-          title: 'Dining',
+          action: "restaurant",
+          title: "Dining",
           active: true,
-          items: [
-            { title: 'Breakfast & brunch' },
-            { title: 'New American' },
-            { title: 'Sushi' }
-          ]
+          items: [{ title: "Breakfast & brunch" }, { title: "New American" }, { title: "Sushi" }]
         },
         {
-          action: 'school',
-          title: 'Education',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "school",
+          title: "Education",
+          items: [{ title: "List Item" }]
         },
         {
-          action: 'directions_run',
-          title: 'Family',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "directions_run",
+          title: "Family",
+          items: [{ title: "List Item" }]
         },
         {
-          action: 'healing',
-          title: 'Health',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "healing",
+          title: "Health",
+          items: [{ title: "List Item" }]
         },
         {
-          action: 'content_cut',
-          title: 'Office',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "content_cut",
+          title: "Office",
+          items: [{ title: "List Item" }]
         },
         {
-          action: 'local_offer',
-          title: 'Promotions',
-          items: [
-            { title: 'List Item' }
-          ]
+          action: "local_offer",
+          title: "Promotions",
+          items: [{ title: "List Item" }]
         }
       ]
-    };
+    }
   }
-};
+}
 </script>

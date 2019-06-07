@@ -9,19 +9,17 @@
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "register-service-worker": "^1.5.2",
-    "roboto-fontface": "*",
     "lodash.truncate": "^4.4.2",
     "nprogress": "^0.2.0",
     "quill": "^1.3.6",
+    "register-service-worker": "^1.5.2",
+    "roboto-fontface": "*",
     "vee-validate": "^2.1.4",
     "vue": "^2.5.21",
-    "vue-router": "^3.0.1",
-    "vuetify": "^1.3.0",
-    "vuex": "^3.0.1",
-    "vue-fullcalendar": "^1.0.9",
     "vue-perfect-scrollbar": "^0.1.0",
-    "vue-quill-editor": "^3.0.6"
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.14",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",

@@ -1,74 +1,93 @@
-
 <template>
   <v-card>
     <v-card-text>
       <div class="layout row ma-0 align-center justify-space-between">
         <div class="text-box">
-          <div class="subheading pb-2">{{title}}</div>
-          <span class="grey--text">{{subTitle}} <v-icon small :color="iconColor">{{icon}}</v-icon></span>
+          <div class="subheading pb-2">{{ title }}</div>
+          <span class="grey--text"
+            >{{ subTitle }} <v-icon small :color="iconColor">{{ icon }}</v-icon></span
+          >
         </div>
         <div class="chart">
-          <e-chart 
-            :path-option="computeChartOption"
-            height="68px"
-            width="100%"
-            >
-          </e-chart>
+          <e-chart :path-option="computeChartOption" height="68px" width="100%"> </e-chart>
         </div>
       </div>
     </v-card-text>
-  </v-card>     
+  </v-card>
 </template>
 
 <script>
-import EChart from '@/components/chart/echart';
+import EChart from "@/components/chart/echart"
 export default {
   components: {
     EChart
   },
   props: {
-    title: String,
-    subTitle: String,
-    icon: String,
+    title: {
+      type: String,
+      default: ""
+    },
+    subTitle: {
+      type: String,
+      default: ""
+    },
+    icon: {
+      type: String,
+      default: ""
+    },
     iconColor: {
       type: String,
-      default: 'success',
+      default: "success"
     },
-    type: String,
-    chartColor: String,
-    data: Array,
+    type: {
+      type: String,
+      default: "line"
+    },
+    chartColor: {
+      type: String,
+      default: ""
+    },
+    data: {
+      type: Array,
+      default: () => []
+    }
   },
-  data () {
+  data() {
     return {
       defaultOption: [
-        ['dataset.source', this.data],
-        ['xAxis.show', false],
-        ['yAxis.show', false],
-        ['color', [this.chartColor]],
+        ["dataset.source", this.data],
+        ["xAxis.show", false],
+        ["yAxis.show", false],
+        ["color", [this.chartColor]]
       ]
-    };
+    }
   },
 
-  computed: {
-    computeChartOption () {
-      switch (this.type) {
-        case 'bar':
-          this.defaultOption.push(['series[0].type', 'bar']);
-          break;
-        case 'area':
-          this.defaultOption.push(['series[0].type', 'line']);
-          this.defaultOption.push(['series[0].areaStyle', {}]);
-          break;
-        default:
-          break;
+  watch: {
+    type: {
+      deep: true,
+      handler: function (newVal) {
+        switch (newVal) {
+          case "bar":
+            this.defaultOption.push(["series[0].type", "bar"])
+            break
+          case "area":
+            this.defaultOption.push(["series[0].type", "line"])
+            this.defaultOption.push(["series[0].areaStyle", {}])
+            break
+          default:
+            break
+        }
+        return this.defaultOption        
       }
-      return this.defaultOption;
+    }
+  },
+  computed: {
+    computeChartOption() {
+      return this.defaultOption
     }
   }
-
-};
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

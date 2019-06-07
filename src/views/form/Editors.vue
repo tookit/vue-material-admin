@@ -6,12 +6,7 @@
           <h3 class="pa-0">Awesome Quill Editor &nbsp;&nbsp;<a href="https://quilljs.com">Offical Website</a></h3>
         </v-flex>
         <v-flex sm12>
-          <quill-editor 
-            class="quill"
-            :content="content"
-            :options="editorOption"
-          >
-          </quill-editor>      
+          <quill-editor class="quill" :content="content" :options="editorOption"> </quill-editor>
         </v-flex>
       </v-layout>
     </v-container>
@@ -19,30 +14,26 @@
 </template>
 
 <script>
-import 'quill/dist/quill.core.css';
-import 'quill/dist/quill.snow.css';
-import 'quill/dist/quill.bubble.css';
-import { quillEditor } from 'vue-quill-editor';
+import "quill/dist/quill.core.css"
+import "quill/dist/quill.snow.css"
+import "quill/dist/quill.bubble.css"
+import { quillEditor } from "vue-quill-editor"
 export default {
   components: {
     quillEditor
   },
-  data () {
+  data() {
     return {
-      content: 'Compose Epic Story...',
-      editorOption: {
-
-      }
-    };
+      content: "Compose Epic Story...",
+      editorOption: {}
+    }
   },
-  computed: {
-  },  
+  computed: {},
 
-  methods: {
-  }
-};
+  methods: {}
+}
 </script>
 <style lang="stylus" scoped>
-  .quill
-    height : 520px
+.quill
+  height : 520px
 </style>

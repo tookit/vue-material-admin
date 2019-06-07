@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.11-browsers
+    working_directory: ~/workspace  
+    steps:
+      - run: echo "==================== Build Starting =============================="
+      - checkout
+      - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-      
+      - run: yarn install
+      - run: yarn build
+      - run: ls -al
+      - run:
+          name: Deploy Over SSH
+          command: scp -o "StrictHostKeyChecking no" -r ~/workspace/dist $user@$host:/var/www/dev.vma.com/      
+      - run: echo "==================== Build Finished =============================="
+  test:
+    docker:
+      - image: circleci/node:10.11-browsers
+    steps:
+      - checkout
+      - run: ls -a;
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
