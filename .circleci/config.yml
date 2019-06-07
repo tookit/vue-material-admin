@@ -3,17 +3,41 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.11-browsers
+    working_directory: /tmp/workspace  
     steps:
+      - run: echo "==================== Build Starting =============================="
       - checkout
-      - run: echo "hellow"
+      - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-      
+      - run: yarn install
+      - run: yarn build
+      - run: echo "==================== Build Finished =============================="
   test:
     docker:
       - image: circleci/node:10.11-browsers
     steps:
       - checkout
       - run: echo "hellow"
+  deploy:
+    machine:
+      timezone:
+        Asia/Shanghai 
+      enabled: true
+    working_directory: /tmp/workspace
+    steps:
+      - run: echo "==================== Deploy Starting =============================="
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: pwd && ls -al
+      - run:
+          name: Deploy Over SSH
+          command: rsync -avz /tmp/workspace/dist $user@$host:/var/www/dev.vma.com/
+      - run: echo "====================Deploy Finished =============================="      
 workflows:
   version: 2
-  build_and_test:
+  build_and_deploy:
     jobs:
       - build
+      - deploay
