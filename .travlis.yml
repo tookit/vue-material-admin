@@ -3,3 +3,4 @@ node_js: 10
 script: npm run test
 notifications:
   email: false
+
