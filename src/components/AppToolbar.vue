@@ -3,8 +3,7 @@
     <v-toolbar-title>
       <v-toolbar-side-icon @click="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-text-field flat solo-inverted prepend-inner-icon="search" label="Search" full-width></v-text-field>
+    <v-text-field flat solo-inverted prepend-inner-icon="search" label="Search" clearable class="search"></v-text-field>
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn flat href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
@@ -104,3 +103,5 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped></style>

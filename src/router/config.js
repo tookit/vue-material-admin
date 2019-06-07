@@ -51,11 +51,12 @@ export const protectedRoute = [
     path: "/cms",
     component: DefaultLayout,
     redirect: "/cms/table",
+    meta: { title: "cms" },
     children: [
       {
         path: "/cms/table",
-
         name: "ListTable",
+        meta: { title: "CMS Table" },
         component: () => import(/* webpackChunkName: "table" */ "@/views/list/Table.vue")
       }
     ]
@@ -65,26 +66,31 @@ export const protectedRoute = [
   {
     path: "/widgets",
     component: DefaultLayout,
+    meta: { title: "Widget" },
     redirect: "/widgets/chart",
     children: [
       {
         path: "/widgets/chart",
         name: "ChartWidget",
+        meta: { title: "Chart Widget" },
         component: () => import(/* webpackChunkName: "chart-widget" */ "@/views/widgets/Chart.vue")
       },
       {
         path: "/widgets/list",
         name: "ListWidget",
+        meta: { title: "List Widget" },
         component: () => import(/* webpackChunkName: "list-widget" */ "@/views/widgets/List.vue")
       },
       {
         path: "/widgets/social",
         name: "SocialWidget",
+        meta: { title: "Social Widget" },
         component: () => import(/* webpackChunkName: "social-widget" */ "@/views/widgets/Social.vue")
       },
       {
         path: "/widgets/statistic",
         name: "StatisticWidget",
+        meta: { title: "Statistic Widget" },
         component: () => import(/* webpackChunkName: "statistic-widget" */ "@/views/widgets/Statistic.vue")
       }
     ]
@@ -93,7 +99,7 @@ export const protectedRoute = [
   //media
   {
     path: "/media",
-    meta: {},
+    meta: { title: "Media" },
     name: "Media",
     props: route => ({ type: route.query.type }),
     component: () => import(/* webpackChunkName: "routes" */ `@/views/Media.vue`)

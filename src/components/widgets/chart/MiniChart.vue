@@ -23,16 +23,34 @@ export default {
     EChart
   },
   props: {
-    title: String,
-    subTitle: String,
-    icon: String,
+    title: {
+      type: String,
+      default: ""
+    },
+    subTitle: {
+      type: String,
+      default: ""
+    },
+    icon: {
+      type: String,
+      default: ""
+    },
     iconColor: {
       type: String,
       default: "success"
     },
-    type: String,
-    chartColor: String,
-    data: Array
+    type: {
+      type: String,
+      default: "line"
+    },
+    chartColor: {
+      type: String,
+      default: ""
+    },
+    data: {
+      type: Array,
+      default: () => []
+    }
   },
   data() {
     return {
@@ -45,19 +63,27 @@ export default {
     }
   },
 
+  watch: {
+    type: {
+      deep: true,
+      handler: function (newVal) {
+        switch (newVal) {
+          case "bar":
+            this.defaultOption.push(["series[0].type", "bar"])
+            break
+          case "area":
+            this.defaultOption.push(["series[0].type", "line"])
+            this.defaultOption.push(["series[0].areaStyle", {}])
+            break
+          default:
+            break
+        }
+        return this.defaultOption        
+      }
+    }
+  },
   computed: {
     computeChartOption() {
-      switch (this.type) {
-        case "bar":
-          this.defaultOption.push(["series[0].type", "bar"])
-          break
-        case "area":
-          this.defaultOption.push(["series[0].type", "line"])
-          this.defaultOption.push(["series[0].areaStyle", {}])
-          break
-        default:
-          break
-      }
       return this.defaultOption
     }
   }

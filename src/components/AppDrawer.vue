@@ -8,11 +8,11 @@
     </v-toolbar>
     <vue-perfect-scrollbar class="drawer-menu--scroll" :settings="scrollSettings">
       <v-list dense expand>
-        <template v-for="(item, i) in menus">
+        <template v-for="item in menus">
           <!--group with subitems-->
           <v-list-group
             v-if="item.items"
-            :key="item.name"
+            :key="item.title"
             :group="item.group"
             :prepend-icon="item.icon"
             no-action="no-action"
@@ -22,7 +22,7 @@
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <template v-for="(subItem, i) in item.items">
+            <template v-for="subItem in item.items">
               <!--sub group-->
               <v-list-group v-if="subItem.items" :key="subItem.name" :group="subItem.group" sub-group="sub-group">
                 <v-list-tile slot="activator" ripple="ripple">
@@ -31,8 +31,8 @@
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile
-                  v-for="(grand, i) in subItem.children"
-                  :key="i"
+                  v-for="grand in subItem.children"
+                  :key="grand.name"
                   :to="genChildTarget(item, grand)"
                   :href="grand.href"
                   ripple="ripple"
@@ -45,7 +45,7 @@
               <!--child item-->
               <v-list-tile
                 v-else
-                :key="i"
+                :key="subItem.name"
                 :to="genChildTarget(item, subItem)"
                 :href="subItem.href"
                 :disabled="subItem.disabled"
@@ -63,8 +63,8 @@
               </v-list-tile>
             </template>
           </v-list-group>
-          <v-subheader v-else-if="item.header" :key="i">{{ item.header }}</v-subheader>
-          <v-divider v-else-if="item.divider" :key="i"></v-divider>
+          <v-subheader v-else-if="item.header" :key="item.name">{{ item.header }}</v-subheader>
+          <v-divider v-else-if="item.divider" :key="item.name"></v-divider>
           <!--top-level link-->
           <v-list-tile
             v-else
