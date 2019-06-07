@@ -16,6 +16,10 @@ jobs:
 
     working_directory: ~/repo
 
+    filter:
+      branches:
+        only: dev
+
     steps:
       - checkout
 
