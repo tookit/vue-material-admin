@@ -1,15 +1,18 @@
 import { AuthLayout, DefaultLayout, ChatLayout } from "@/components/layouts"
 
 export const publicRoute = [
+  { path: "*", component: () => import(/* webpackChunkName: "errors-404" */ "@/views/error/NotFound.vue") },
   {
     path: "/auth",
     component: AuthLayout,
+    meta: { title: "Login" },
     redirect: "/auth/login",
     hidden: true,
     children: [
       {
         path: "login",
         name: "login",
+        meta: { title: "Login" },
         component: () => import(/* webpackChunkName: "login" */ "@/views/auth/Login.vue")
       }
     ]
@@ -17,11 +20,15 @@ export const publicRoute = [
 
   {
     path: "/404",
+    name: "404",
+    meta: { title: "Not Found" },
     component: () => import(/* webpackChunkName: "errors-404" */ "@/views/error/NotFound.vue")
   },
 
   {
     path: "/500",
+    name: "500",
+    meta: { title: "Server Error" },
     component: () => import(/* webpackChunkName: "errors-500" */ "@/views/error/Error.vue")
   }
 ]
@@ -30,17 +37,20 @@ export const protectedRoute = [
   {
     path: "/",
     component: DefaultLayout,
+    meta: { title: "Home", group: "apps", icon: "" },
     redirect: "/dashboard",
     children: [
       {
         path: "/dashboard",
         name: "Dashboard",
+        meta: { title: "Home", group: "apps", icon: "dashboard" },
         component: () => import(/* webpackChunkName: "dashboard" */ "@/views/Dashboard.vue")
       },
 
       {
         path: "/403",
         name: "Forbidden",
+        meta: { title: "Access Denied", hiddenInMenu: true },
         component: () => import(/* webpackChunkName: "error-403" */ "@/views/error/Deny.vue")
       }
     ]
@@ -51,7 +61,7 @@ export const protectedRoute = [
     path: "/cms",
     component: DefaultLayout,
     redirect: "/cms/table",
-    meta: { title: "cms" },
+    meta: { title: "CMS", icon: "view_compact", group: "cms" },
     children: [
       {
         path: "/cms/table",
@@ -66,7 +76,7 @@ export const protectedRoute = [
   {
     path: "/widgets",
     component: DefaultLayout,
-    meta: { title: "Widget" },
+    meta: { title: "Widget", icon: "widgets", group: "advance" },
     redirect: "/widgets/chart",
     children: [
       {
@@ -99,7 +109,7 @@ export const protectedRoute = [
   //media
   {
     path: "/media",
-    meta: { title: "Media" },
+    meta: { title: "Media", group: "apps", icon: "media" },
     name: "Media",
     props: route => ({ type: route.query.type }),
     component: () => import(/* webpackChunkName: "routes" */ `@/views/Media.vue`)
@@ -113,16 +123,13 @@ export const protectedRoute = [
     redirect: {
       path: "/chat/messaging"
     },
+    meta: { title: "Chat", group: "apps", icon: "chat_bubble" },
     children: [
       {
         path: "/chat/messaging/:uuid?",
         name: "ChatMessaging",
         props: true,
-        components: {
-          default: () =>
-            import(/* webpackChunkName: "routes" */
-            `@/components/chat/ChatMessaging.vue`)
-        }
+        components: () => import(/* webpackChunkName: "chat-messaging" */ `@/components/chat/ChatMessaging.vue`)
       },
       {
         path: "/chat/contact/:uuid?",
@@ -130,11 +137,7 @@ export const protectedRoute = [
           public: true
         },
         name: "ChatContact",
-        components: {
-          default: () =>
-            import(/* webpackChunkName: "routes" */
-            `@/components/chat/ChatContact.vue`)
-        }
+        components: () => import(/* webpackChunkName: "chat-contact" */ `@/components/chat/ChatContact.vue`)
       }
     ]
   },
