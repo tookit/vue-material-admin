@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer class="appDrawer" :mini-variant.sync="mini" app v-model="showDrawer" :width="drawWidth">
+  <v-navigation-drawer class="app--drawer" :mini-variant.sync="mini" app v-model="showDrawer" :width="drawWidth">
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">
@@ -147,12 +147,10 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-#appDrawer {
-  overflow: hidden;
-  .drawer-menu--scroll {
-    height: calc(100vh - 48px);
-    overflow: auto;
-  }
-}
+<style lang="stylus" scoped>
+.app--drawer 
+  overflow: hidden
+  .drawer-menu--scroll 
+    height: calc(100vh - 48px)
+    overflow: auto
 </style>

@@ -39,10 +39,6 @@ export default {
   },
   created() {
     // add app events
-    AppEvents.forEach(item => {
-      this.$on(item.name, item.callback)
-    })
-    window.getApp = this
   },
   methods: {
     openThemeSettings() {

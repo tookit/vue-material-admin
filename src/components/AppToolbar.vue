@@ -67,23 +67,19 @@ export default {
           icon: "account_circle",
           href: "#",
           title: "Profile",
-          click: e => {
-            console.log(e)
-          }
+          click: this.handleProfile
         },
         {
           icon: "settings",
           href: "#",
           title: "Settings",
-          click: () => {}
+          click: this.handleSetting
         },
         {
           icon: "fullscreen_exit",
           href: "#",
           title: "Logout",
-          click: () => {
-            window.getApp.$emit("APP_LOGOUT")
-          }
+          click: this.handleLogut
         }
       ]
     }
@@ -99,6 +95,16 @@ export default {
     },
     handleFullScreen() {
       Util.toggleFullScreen()
+    },
+    handleLogut() {
+      //handle logout
+      this.$router.push('/auth/login')
+    },
+    handleSetting() {
+
+    },
+    handleProfile() {
+      
     }
   }
 }

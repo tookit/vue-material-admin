@@ -49,7 +49,6 @@ export default {
         }
       })
       this.breadcrumbs = breadcrumbs.concat(appends)
-      console.log(this.breadcrumbs)
     }
   },
   created () {

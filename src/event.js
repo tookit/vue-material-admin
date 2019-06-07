@@ -8,12 +8,11 @@ export default [
   {
     name: "APP_LOGOUT",
     callback: () => {
-      this.snackbar = {
+      this.$snackbar = {
         show: true,
         color: "green",
         text: "Logout successfully."
       }
-      this.$router.replace({ path: "/login" })
     }
   },
   {
