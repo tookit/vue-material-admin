@@ -10,8 +10,8 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text class="">
-              <payment-form></payment-form>     
-            </v-card-text>       
+              <payment-form></payment-form>
+            </v-card-text>
           </v-card>
           <v-card>
             <v-toolbar color="success" dark flat dense cad>
@@ -20,10 +20,10 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text class="">
-              <shipment-form></shipment-form>     
-            </v-card-text>       
+              <shipment-form></shipment-form>
+            </v-card-text>
           </v-card>
-        </v-flex>           
+        </v-flex>
         <v-flex lg6>
           <event-form></event-form>
         </v-flex>
@@ -33,11 +33,11 @@
 </template>
 
 <script>
-import VWidget from '@/components/VWidget';
-import EventForm from '@/components/widgets/form/EventForm';
-import ContactForm from '@/components/widgets/form/ContactForm';
-import PaymentForm from '@/components/widgets/form/PaymentForm';
-import ShipmentForm from '@/components/widgets/form/ShipmentForm';
+import VWidget from "@/components/VWidget"
+import EventForm from "@/components/widgets/form/EventForm"
+import ContactForm from "@/components/widgets/form/ContactForm"
+import PaymentForm from "@/components/widgets/form/PaymentForm"
+import ShipmentForm from "@/components/widgets/form/ShipmentForm"
 export default {
   components: {
     VWidget,
@@ -46,13 +46,10 @@ export default {
     ShipmentForm,
     EventForm
   },
-  data () {
-    return {
-    };
+  data() {
+    return {}
   },
-  computed: {
-  },  
-  methods: {
-  }
-};
+  computed: {},
+  methods: {}
+}
 </script>

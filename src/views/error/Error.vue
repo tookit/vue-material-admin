@@ -3,7 +3,7 @@
     <v-container fluid fill-height>
       <v-layout align-center justify-center row>
         <div class="mr-3 hidden-sm-and-down">
-          <img src="/static/error/500.svg" alt>
+          <img src="/static/error/500.svg" alt />
         </div>
         <div class="text-md-center">
           <h1>500</h1>
@@ -21,7 +21,7 @@
 export default {
   methods: {
     goHome() {
-      this.$router.push({ path: '/' })
+      this.$router.push({ path: "/" })
     }
   }
 }

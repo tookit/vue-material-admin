@@ -14,13 +14,7 @@
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
       </v-btn>
-      <v-menu
-        offset-y
-        origin="center center"
-        class="elelvation-1"
-        :nudge-bottom="14"
-        transition="scale-transition"
-      >
+      <v-menu offset-y origin="center center" class="elelvation-1" :nudge-bottom="14" transition="scale-transition">
         <v-btn icon flat slot="activator">
           <v-badge color="red" overlap>
             <span slot="badge">3</span>
@@ -32,12 +26,12 @@
       <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
         <v-btn icon large flat slot="activator">
           <v-avatar size="30px">
-            <img src="/static/avatar/man_4.jpg" alt="Michael Wang">
+            <img src="/static/avatar/man_4.jpg" alt="Michael Wang" />
           </v-avatar>
         </v-btn>
         <v-list class="pa-0">
           <v-list-tile
-            v-for="(item,index) in items"
+            v-for="(item, index) in items"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
             @click="item.click"
@@ -60,53 +54,53 @@
   </v-toolbar>
 </template>
 <script>
-import NotificationList from "@/components/widgets/list/NotificationList";
-import Util from "@/util";
+import NotificationList from "@/components/widgets/list/NotificationList"
+import Util from "@/util"
 export default {
-  name: "app-toolbar",
+  name: "AppToolbar",
   components: {
     NotificationList
   },
-  data: () => ({
-    items: [
-      {
-        icon: "account_circle",
-        href: "#",
-        title: "Profile",
-        click: e => {
-          console.log(e);
+  data() {
+    return {
+      items: [
+        {
+          icon: "account_circle",
+          href: "#",
+          title: "Profile",
+          click: e => {
+            console.log(e)
+          }
+        },
+        {
+          icon: "settings",
+          href: "#",
+          title: "Settings",
+          click: () => {}
+        },
+        {
+          icon: "fullscreen_exit",
+          href: "#",
+          title: "Logout",
+          click: () => {
+            window.getApp.$emit("APP_LOGOUT")
+          }
         }
-      },
-      {
-        icon: "settings",
-        href: "#",
-        title: "Settings",
-        click: e => {
-          console.log(e);
-        }
-      },
-      {
-        icon: "fullscreen_exit",
-        href: "#",
-        title: "Logout",
-        click: e => {
-          window.getApp.$emit("APP_LOGOUT");
-        }
-      }
-    ]
-  }),
+      ]
+    }
+  },
   computed: {
     toolbarColor() {
-      return this.$vuetify.options.extra.mainNav;
+      return this.$vuetify.options.extra.mainNav
     }
   },
   methods: {
     handleDrawerToggle() {
-      this.$emit("side-icon-click");
+      this.$emit("side-icon-click")
     },
     handleFullScreen() {
-      Util.toggleFullScreen();
+      Util.toggleFullScreen()
     }
   }
-};
+}
 </script>

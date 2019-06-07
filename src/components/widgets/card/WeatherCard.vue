@@ -64,12 +64,10 @@
           <v-list-tile-sub-title>Orlando, FL 79938</v-list-tile-sub-title>
         </v-list-tile-content>
       </v-list-tile>
-    </v-list>    
-  </v-card>   
+    </v-list>
+  </v-card>
 </template>
 
 <script>
-export default {
-  
-};
+export default {}
 </script>

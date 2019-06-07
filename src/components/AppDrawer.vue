@@ -1,13 +1,7 @@
 <template>
-  <v-navigation-drawer
-    class="appDrawer"
-    :mini-variant.sync="mini"
-    app
-    v-model="showDrawer"
-    :width="drawWidth"
-    >
+  <v-navigation-drawer class="appDrawer" :mini-variant.sync="mini" app v-model="showDrawer" :width="drawWidth">
     <v-toolbar color="primary darken-1" dark>
-      <img v-bind:src="computeLogo" height="36" alt="Vue Material Admin Template">
+      <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
@@ -30,12 +24,7 @@
             </v-list-tile>
             <template v-for="(subItem, i) in item.items">
               <!--sub group-->
-              <v-list-group
-                v-if="subItem.items"
-                :key="subItem.name"
-                :group="subItem.group"
-                sub-group="sub-group"
-              >
+              <v-list-group v-if="subItem.items" :key="subItem.name" :group="subItem.group" sub-group="sub-group">
                 <v-list-tile slot="activator" ripple="ripple">
                   <v-list-tile-content>
                     <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
@@ -103,10 +92,10 @@
   </v-navigation-drawer>
 </template>
 <script>
-import menu from '@/api/menu'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import menu from "@/api/menu"
+import VuePerfectScrollbar from "vue-perfect-scrollbar"
 export default {
-  name: 'app-drawer',
+  name: "AppDrawer",
   components: {
     VuePerfectScrollbar
   },
@@ -116,12 +105,12 @@ export default {
       default: true
     },
     drawWidth: {
-      type:[Number,String],
-      default: '260'
+      type: [Number, String],
+      default: "260"
     },
     showDrawer: Boolean
   },
-  data () {
+  data() {
     return {
       mini: false,
       menus: menu,
@@ -135,7 +124,7 @@ export default {
       return true
     },
     computeLogo() {
-      return '/static/m.png'
+      return "/static/m.png"
     },
 
     sideToolbarColor() {
@@ -157,7 +146,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="stylus">
 #appDrawer {

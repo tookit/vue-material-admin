@@ -71,11 +71,9 @@
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
-  </v-card>   
+  </v-card>
 </template>
 
 <script>
-export default {
-  
-};
+export default {}
 </script>

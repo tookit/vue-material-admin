@@ -3,7 +3,7 @@
     <div>
       <v-btn icon large flat slot="activator">
         <v-avatar>
-          <img src="/static/avatar/man_4.jpg" alt="Micahel Wang">
+          <img src="/static/avatar/man_4.jpg" alt="Micahel Wang" />
         </v-avatar>
       </v-btn>
     </div>
@@ -14,24 +14,22 @@
           <v-icon :color="item.iconColor" class="mini-icon" size="36">{{ item.icon }}</v-icon>
         </v-list-tile>
       </template>
-    </v-list>          
-</div>
+    </v-list>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
     items: {
-      type: Array,
+      type: Array
     }
-  },
-
-};
+  }
+}
 </script>
 
 <style lang="stylus">
-  .mini-tile
-    a.list__tile--active
-      background:hsla(0,0%,100%,.12)
- 
+.mini-tile
+  a.list__tile--active
+    background:hsla(0,0%,100%,.12)
 </style>

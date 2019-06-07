@@ -1,6 +1,6 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-import "../theme/default.styl";
+import Vue from "vue"
+import Vuetify from "vuetify/lib"
+import "../theme/default.styl"
 Vue.use(Vuetify, {
   theme: {
     primary: "#ee44aa",
@@ -11,6 +11,5 @@ Vue.use(Vuetify, {
     success: "#4CAF50",
     warning: "#FFC107"
   },
-  customProperties: true,
-  iconfont: "fa4"
-});
+  customProperties: true
+})

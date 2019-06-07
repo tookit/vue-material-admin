@@ -10,29 +10,26 @@
         </v-flex>
         <v-flex lg4>
           <setting-card></setting-card>
-        </v-flex>        
+        </v-flex>
       </v-layout>
     </v-container>
   </div>
 </template>
 
 <script>
-import ProfileCard from '@/components/widgets/card/ProfileCard';
-import MenuCard from '@/components/widgets/card/MenuCard';
-import SettingCard from '@/components/widgets/card/SettingCard';
+import ProfileCard from "@/components/widgets/card/ProfileCard"
+import MenuCard from "@/components/widgets/card/MenuCard"
+import SettingCard from "@/components/widgets/card/SettingCard"
 export default {
   components: {
     ProfileCard,
     MenuCard,
     SettingCard
   },
-  data () {
-    return {
-    };
+  data() {
+    return {}
   },
-  computed: {
-  },  
-  methods: {
-  }
-};
+  computed: {},
+  methods: {}
+}
 </script>

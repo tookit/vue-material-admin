@@ -37,13 +37,7 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        modifyVars: {
-          /*
-          'primary-color': '#F5222D',
-          'link-color': '#F5222D',
-          'border-radius-base': '4px',
-          */
-        },
+        modifyVars: {},
         javascriptEnabled: true
       }
     }
@@ -60,5 +54,6 @@ module.exports = {
     // }
   },
 
-  lintOnSave: undefined
+  assetsDir: 'static',
+  runtimeCompiler: true
 }
