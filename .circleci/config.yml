@@ -16,7 +16,7 @@ jobs:
       - run: ls -al
       - run:
           name: Deploy Over SSH
-          command: scp -avz ~/workspace/dist $user@$host:/var/www/dev.vma.com/      
+          command: scp -r ~/workspace/dist $user@$host:/var/www/dev.vma.com/      
       - run: echo "==================== Build Finished =============================="
   test:
     docker:
