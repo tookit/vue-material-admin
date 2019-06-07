@@ -1,13 +1,19 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
       - image: circleci/node:10.11-browsers
-    working_directory: ~/repo
-    filter:
-      branches:
-        only: 
-          - dev
     steps:
       - checkout
-      - run: yarn install
+      - run: echo "hellow"
+  test:
+    docker:
+      - image: circleci/node:10.11-browsers
+    steps:
+      - checkout
+      - run: echo "hellow"
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
