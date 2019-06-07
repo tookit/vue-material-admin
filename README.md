@@ -1,6 +1,8 @@
 
 # Vue Material Admin
 
+[![CircleCI](https://circleci.com/gh/tookit/vue-material-admin/tree/dev.svg?style=svg)](https://circleci.com/gh/tookit/vue-material-admin/tree/dev)
+
 ## Plan and features
 * will create a new template by vue-cli 3.x 
 * will remove some useless code becuase of the vuetify framework updates  
