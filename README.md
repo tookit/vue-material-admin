@@ -16,8 +16,8 @@ And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
 Vuetify is Awesome.
 
 ## Demo
-[http://vma.isocked.com/#/dashboard](http://vma.isocked.com/#/dashboard) 
-
+[http://vma.isocked.com/#/dashboard] (Old) 
+[http://dev-vma.isocked.com/#/dashboard] (dev) 
 ## Preview
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
 
