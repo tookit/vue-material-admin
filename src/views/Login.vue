@@ -56,7 +56,7 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: "admin@isocke.com",
+      username: "admin@isocked.com",
       password: "password"
     }
   }),
