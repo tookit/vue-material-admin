@@ -1,8 +1,6 @@
 <template>
   <div class="chat-contact">
-    <v-toolbar flat dense class="chat-contact--toolbar">
-      <v-text-field flat solo full-width prepend-icon="search" label="Search"></v-text-field>
-    </v-toolbar>
+    <v-text-field solo clearable prepend-inner-icon="search" hide-details label="Search"></v-text-field>
     <vue-perfect-scrollbar class="chat-history--scrollbar">
       <v-divider></v-divider>
       <v-list two-line class="chat-contact--list">

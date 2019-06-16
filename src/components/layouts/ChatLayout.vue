@@ -1,5 +1,5 @@
 <template>
-  <v-app id="chat" class="chat">
+  <v-app class="chat">
     <template v-if="!$vuetify.breakpoint.smAndDown">
       <v-navigation-drawer class="pa-0 chat-drawer primary" fixed permanent app width="68">
         <chat-menu :items="menus" class="chat-drawer--menu"> </chat-menu>
