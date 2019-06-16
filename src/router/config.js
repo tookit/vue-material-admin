@@ -129,7 +129,7 @@ export const protectedRoute = [
         path: "/chat/messaging/:uuid?",
         name: "ChatMessaging",
         props: true,
-        components: () => import(/* webpackChunkName: "chat-messaging" */ `@/components/chat/ChatMessaging.vue`)
+        component: () => import(/* webpackChunkName: "chat-messaging" */ `@/components/chat/ChatMessaging.vue`)
       },
       {
         path: "/chat/contact/:uuid?",
@@ -137,7 +137,7 @@ export const protectedRoute = [
           public: true
         },
         name: "ChatContact",
-        components: () => import(/* webpackChunkName: "chat-contact" */ `@/components/chat/ChatContact.vue`)
+        component: () => import(/* webpackChunkName: "chat-contact" */ `@/components/chat/ChatContact.vue`)
       }
     ]
   },

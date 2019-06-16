@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-router.afterEach((to, from) => {
+router.afterEach(() => {
   NProgress.done()
 })
 

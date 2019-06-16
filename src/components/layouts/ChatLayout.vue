@@ -5,9 +5,7 @@
         <chat-menu :items="menus" class="chat-drawer--menu"> </chat-menu>
       </v-navigation-drawer>
       <v-content class="chat-main">
-        <transition>
-          <router-view></router-view>
-        </transition>
+        <router-view />
       </v-content>
     </template>
     <template v-else>
