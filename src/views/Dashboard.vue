@@ -4,16 +4,21 @@
       <v-layout row wrap>
         <!-- mini statistic start -->
         <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-facebook" title="100+" sub-title="Likes" color="indigo"> </mini-statistic>
+          <mini-statistic icon="fa fa-facebook" title="100+" sub-title="Likes" color="indigo"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-google" title="150+" sub-title="Connections" color="red"> </mini-statistic>
+          <mini-statistic icon="fa fa-google" title="150+" sub-title="Connections" color="red"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-twitter" title="200+" sub-title="Followers" color="light-blue"> </mini-statistic>
+          <mini-statistic
+            icon="fa fa-twitter"
+            title="200+"
+            sub-title="Followers"
+            color="light-blue"
+          ></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"> </mini-statistic>
+          <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"></mini-statistic>
         </v-flex>
         <!-- mini statistic  end -->
         <v-flex lg8 sm12 xs12>
@@ -41,8 +46,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
@@ -72,14 +76,13 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
         <!-- social/weather card start -->
         <v-flex lg4 sm12 xs12>
-          <profile-card> </profile-card>
+          <profile-card></profile-card>
         </v-flex>
         <v-flex lg4 sm12 xs12>
           <box-chart
@@ -90,8 +93,7 @@
             :data="siteTrafficData"
             :chart-color="[color.indigo.lighten1]"
             type="line"
-          >
-          </box-chart>
+          ></box-chart>
           <box-chart
             class="mt-4"
             card-color="pink"
@@ -102,13 +104,17 @@
             :chart-color="[color.pink.darken1, 'rgba(255,255,255,0.3)']"
             gradient
             type="area"
-          >
-          </box-chart>
+          ></box-chart>
         </v-flex>
         <!-- statistic section -->
         <v-flex lg4 sm12 xs12>
-          <linear-statistic title="Sales" sub-title="Sales increase" icon="trending_up" color="success" :value="15">
-          </linear-statistic>
+          <linear-statistic
+            title="Sales"
+            sub-title="Sales increase"
+            icon="trending_up"
+            color="success"
+            :value="15"
+          ></linear-statistic>
           <linear-statistic
             class="my-4"
             title="Orders"
@@ -116,8 +122,7 @@
             icon="trending_up"
             color="pink"
             :value="30"
-          >
-          </linear-statistic>
+          ></linear-statistic>
           <linear-statistic
             class="my-4"
             title="Revenue"
@@ -125,8 +130,7 @@
             icon="trending_up"
             color="primary"
             :value="50"
-          >
-          </linear-statistic>
+          ></linear-statistic>
           <linear-statistic
             class="mt-4"
             title="Cost"
@@ -134,8 +138,7 @@
             icon="trending_down"
             color="orange"
             :value="25"
-          >
-          </linear-statistic>
+          ></linear-statistic>
         </v-flex>
         <!-- Circle statistic -->
         <v-flex lg4 sm12 xs12 v-for="(item, index) in trending" :key="'c-trending' + index">
@@ -146,8 +149,7 @@
             :icon="item.icon.label"
             :color="item.linear.color"
             :value="item.linear.value"
-          >
-          </circle-statistic>
+          ></circle-statistic>
         </v-flex>
         <!-- acitivity/chat widget -->
         <v-flex lg6 sm12 xs12>
