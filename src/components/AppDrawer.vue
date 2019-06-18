@@ -1,7 +1,13 @@
 <template>
-  <v-navigation-drawer class="app--drawer" :mini-variant.sync="mini" app v-model="showDrawer" :width="drawWidth">
+  <v-navigation-drawer
+    class="app--drawer"
+    :mini-variant.sync="mini"
+    app
+    v-model="showDrawer"
+    :width="drawWidth"
+  >
     <v-toolbar color="primary darken-1" dark>
-      <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
+      <img :src="computeLogo" height="36" alt="Vue Material Admin Template">
       <v-toolbar-title class="ml-0 pl-3">
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
@@ -24,7 +30,12 @@
             </v-list-tile>
             <template v-for="subItem in item.items">
               <!--sub group-->
-              <v-list-group v-if="subItem.items" :key="subItem.name" :group="subItem.group" sub-group="sub-group">
+              <v-list-group
+                v-if="subItem.items"
+                :key="subItem.name"
+                :group="subItem.group"
+                sub-group="sub-group"
+              >
                 <v-list-tile slot="activator" ripple="ripple">
                   <v-list-tile-content>
                     <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
@@ -148,9 +159,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.app--drawer
-  overflow: hidden
-  .drawer-menu--scroll
-    height: calc(100vh - 48px)
-    overflow: auto
+.app--drawer {
+  overflow: hidden;
+
+  .drawer-menu--scroll {
+    height: calc(100vh - 48px);
+    overflow: auto;
+  }
+}
 </style>

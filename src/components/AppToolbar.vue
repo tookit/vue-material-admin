@@ -3,7 +3,14 @@
     <v-toolbar-title>
       <v-toolbar-side-icon @click="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
-    <v-text-field flat solo-inverted prepend-inner-icon="search" label="Search" clearable class="search"></v-text-field>
+    <v-text-field
+      flat
+      solo-inverted
+      prepend-inner-icon="search"
+      label="Search"
+      clearable
+      class="search"
+    ></v-text-field>
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn flat href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
@@ -13,7 +20,13 @@
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
       </v-btn>
-      <v-menu offset-y origin="center center" class="elelvation-1" :nudge-bottom="14" transition="scale-transition">
+      <v-menu
+        offset-y
+        origin="center center"
+        class="elelvation-1"
+        :nudge-bottom="14"
+        transition="scale-transition"
+      >
         <v-btn icon flat slot="activator">
           <v-badge color="red" overlap>
             <span slot="badge">3</span>
@@ -25,7 +38,7 @@
       <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
         <v-btn icon large flat slot="activator">
           <v-avatar size="30px">
-            <img src="/static/avatar/man_4.jpg" alt="Michael Wang" />
+            <img src="/static/avatar/man_4.jpg" alt="Michael Wang">
           </v-avatar>
         </v-btn>
         <v-list class="pa-0">
@@ -98,14 +111,10 @@ export default {
     },
     handleLogut() {
       //handle logout
-      this.$router.push('/auth/login')
+      this.$router.push("/auth/login")
     },
-    handleSetting() {
-
-    },
-    handleProfile() {
-      
-    }
+    handleSetting() {},
+    handleProfile() {}
   }
 }
 </script>

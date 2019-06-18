@@ -141,7 +141,8 @@ export default {
         this.$vuetify.dark = val === "dark"
       },
       immediate: true
-    }
+    },
+    updateTheme() {}
   }
 }
 </script>
