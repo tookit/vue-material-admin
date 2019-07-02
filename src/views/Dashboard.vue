@@ -1,5 +1,5 @@
 <template>
-  <div id="pageDashboard">
+  <div class="page--dash">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <!-- mini statistic start -->
@@ -10,12 +10,7 @@
           <mini-statistic icon="fa fa-google" title="150+" sub-title="Connections" color="red"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-twitter"
-            title="200+"
-            sub-title="Followers"
-            color="light-blue"
-          ></mini-statistic>
+          <mini-statistic icon="fa fa-twitter" title="200+" sub-title="Followers" color="light-blue"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"></mini-statistic>
@@ -23,9 +18,7 @@
         <!-- mini statistic  end -->
         <v-flex lg8 sm12 xs12>
           <v-widget title="Site Traffic" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
-            </v-btn>
+            <v-btn icon slot="widget-header-action"> <v-icon class="text--secondary">refresh</v-icon> </v-btn>
             <div slot="widget-content">
               <e-chart
                 :path-option="[
@@ -81,9 +74,7 @@
           </v-widget>
         </v-flex>
         <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
-          <profile-card></profile-card>
-        </v-flex>
+        <v-flex lg4 sm12 xs12> <profile-card></profile-card> </v-flex>
         <v-flex lg4 sm12 xs12>
           <box-chart
             card-color="indigo"
@@ -152,17 +143,13 @@
           ></circle-statistic>
         </v-flex>
         <!-- acitivity/chat widget -->
-        <v-flex lg6 sm12 xs12>
-          <chat-window height="308px"></chat-window>
-        </v-flex>
+        <v-flex lg6 sm12 xs12> <chat-window height="308px"></chat-window> </v-flex>
         <v-flex lg6 sm12 xs12>
           <v-widget title="Activities" content-bg="white">
             <div slot="widget-content">
               <ol class="timeline timeline-activity timeline-point-sm timeline-content-right">
                 <li class="timeline-block" v-for="(item, index) in activity" :key="index">
-                  <div class="timeline-point">
-                    <v-circle dot large :color="item.color"></v-circle>
-                  </div>
+                  <div class="timeline-point"><v-circle dot large :color="item.color"></v-circle></div>
                   <div class="timeline-content">
                     <time datetime="2018" class="subheading">{{ item.timeString }}</time>
                     <div class="py-2 text--secondary" v-html="item.text"></div>
@@ -172,12 +159,8 @@
             </div>
           </v-widget>
         </v-flex>
-        <v-flex lg7 sm12 xs12>
-          <plain-table></plain-table>
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <plain-table-order></plain-table-order>
-        </v-flex>
+        <v-flex lg7 sm12 xs12> <plain-table></plain-table> </v-flex>
+        <v-flex lg5 sm12 xs12> <plain-table-order></plain-table-order> </v-flex>
       </v-layout>
     </v-container>
   </div>
@@ -187,7 +170,6 @@
 import API from "@/api"
 import EChart from "@/components/chart/echart"
 import MiniStatistic from "@/components/widgets/statistic/MiniStatistic"
-import PostListCard from "@/components/widgets/card/PostListCard"
 import ProfileCard from "@/components/widgets/card/ProfileCard"
 import PostSingleCard from "@/components/widgets/card/PostSingleCard"
 import WeatherCard from "@/components/widgets/card/WeatherCard"
@@ -208,7 +190,6 @@ export default {
     VCircle,
     WeatherCard,
     PostSingleCard,
-    PostListCard,
     ProfileCard,
     EChart,
     BoxChart,

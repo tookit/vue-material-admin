@@ -1,16 +1,15 @@
 <template>
   <v-navigation-drawer
+    app
     class="app--drawer"
     :mini-variant.sync="mini"
-    app
-    v-model="showDrawer"
+    v-model="drawer"
     :width="drawWidth"
+    :dark="$vuetify.dark"
   >
     <v-toolbar color="primary darken-1" dark>
-      <img :src="computeLogo" height="36" alt="Vue Material Admin Template">
-      <v-toolbar-title class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">Vue Material</span>
-      </v-toolbar-title>
+      <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
+      <v-toolbar-title class="ml-0 pl-3"> <span class="hidden-sm-and-down">Vue Material</span> </v-toolbar-title>
     </v-toolbar>
     <vue-perfect-scrollbar class="drawer-menu--scroll" :settings="scrollSettings">
       <v-list dense expand>
@@ -30,12 +29,7 @@
             </v-list-tile>
             <template v-for="subItem in item.items">
               <!--sub group-->
-              <v-list-group
-                v-if="subItem.items"
-                :key="subItem.name"
-                :group="subItem.group"
-                sub-group="sub-group"
-              >
+              <v-list-group v-if="subItem.items" :key="subItem.name" :group="subItem.group" sub-group="sub-group">
                 <v-list-tile slot="activator" ripple="ripple">
                   <v-list-tile-content>
                     <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
@@ -125,11 +119,13 @@ export default {
     return {
       mini: false,
       menus: menu,
+      drawer: true,
       scrollSettings: {
         maxScrollbarLength: 160
       }
     }
   },
+
   computed: {
     computeGroupActive() {
       return true
@@ -140,6 +136,14 @@ export default {
 
     sideToolbarColor() {
       return this.$vuetify.options.extra.sideNav
+    }
+  },
+  watch: {
+    showDrawer: {
+      handler(val) {
+        this.drawer = val
+      },
+      immediate: true
     }
   },
   created() {},
@@ -159,12 +163,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.app--drawer {
+.app--drawer 
   overflow: hidden;
-
-  .drawer-menu--scroll {
+  .drawer-menu--scroll 
     height: calc(100vh - 48px);
     overflow: auto;
-  }
-}
+  
+
 </style>

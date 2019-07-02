@@ -4,24 +4,16 @@
       <v-navigation-drawer class="pa-0 chat-drawer primary" fixed permanent app width="68">
         <chat-menu :items="menus" class="chat-drawer--menu"> </chat-menu>
       </v-navigation-drawer>
-      <v-content class="chat-main">
-        <router-view />
-      </v-content>
+      <v-content class="chat-main"> <router-view /> </v-content>
     </template>
     <template v-else>
       <v-toolbar color="primary" fixed dark>
-        <v-btn icon @click="handleClick">
-          <v-icon>keyboard_arrow_left</v-icon>
-        </v-btn>
+        <v-btn icon @click="handleClick"> <v-icon>keyboard_arrow_left</v-icon> </v-btn>
         <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>more_vert</v-icon>
-        </v-btn>
+        <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
       </v-toolbar>
       <v-content class="chat-main">
-        <transition>
-          <router-view></router-view>
-        </transition>
+        <transition> <router-view></router-view> </transition>
       </v-content>
       <v-bottom-nav :value="true" absolute color="primary" app fixed v-if="!hideBottomNav">
         <v-btn dark flat :value="item.to.path" v-for="(item, index) in menus" :key="index" :to="item.to">

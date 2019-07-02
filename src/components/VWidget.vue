@@ -9,9 +9,7 @@
         <slot name="widget-header-action"></slot>
       </v-toolbar>
       <v-divider v-if="enableHeader"></v-divider>
-      <v-card-text :class="contentBg">
-        <slot name="widget-content"></slot>
-      </v-card-text>
+      <v-card-text :class="contentBg"> <slot name="widget-content"></slot> </v-card-text>
     </v-card>
   </div>
 </template>

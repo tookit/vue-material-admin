@@ -6,6 +6,8 @@ import "./plugins/storage"
 import "./plugins/vuetify"
 import "roboto-fontface/css/roboto/roboto-fontface.css"
 import "font-awesome/css/font-awesome.css"
+import "./theme/default.styl"
+
 import App from "./App.vue"
 
 Vue.config.productionTip = false
@@ -15,3 +17,8 @@ const app = new Vue({
   store,
   render: h => h(App)
 }).$mount("#app")
+
+//
+
+
+// app.$vuetify.theme.primary = '#e91e63'

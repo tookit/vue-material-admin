@@ -50,28 +50,6 @@ const Menu = [
     icon: "view_compact",
     items: [{ name: "Table", title: "Basic Table", component: "ListTable" }]
   }
-  // {
-  //   title: 'Forms & Controls',
-  //   group: 'forms',
-  //   component: 'forms',
-  //   icon: 'edit',
-  //   items: [
-  //     { name: 'basic', title: 'General', component: 'components/basic-forms' },
-  //   ]
-  // },
-  // { divider: true },
-  // { header: 'Extras' },
-  // {
-  //   title: 'Pages',
-  //   group: 'extra',
-  //   icon: 'list',
-  //   items: [
-  //     { name: 'Login', title: 'Login', component: 'Login' },
-  //     { name: '404', title: '404', component: 'NotFound' },
-  //     { name: '403', title: '403', component: 'AccessDenied' },
-  //     { name: '500', title: '500', component: 'ServerError' },
-  //   ]
-  // },
 ]
 // reorder menu
 Menu.forEach(item => {

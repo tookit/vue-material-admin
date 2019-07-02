@@ -2,9 +2,7 @@
   <div class="theme--dark py-5 darken-1">
     <div>
       <v-btn icon large flat slot="activator">
-        <v-avatar>
-          <img src="/static/avatar/man_4.jpg" alt="Micahel Wang" />
-        </v-avatar>
+        <v-avatar> <img src="/static/avatar/man_4.jpg" alt="Micahel Wang" /> </v-avatar>
       </v-btn>
     </div>
     <v-list class="mini-menu">

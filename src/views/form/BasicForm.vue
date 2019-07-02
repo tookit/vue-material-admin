@@ -9,9 +9,7 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text class="">
-              <payment-form></payment-form>
-            </v-card-text>
+            <v-card-text class=""> <payment-form></payment-form> </v-card-text>
           </v-card>
           <v-card>
             <v-toolbar color="success" dark flat dense cad>
@@ -19,14 +17,10 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text class="">
-              <shipment-form></shipment-form>
-            </v-card-text>
+            <v-card-text class=""> <shipment-form></shipment-form> </v-card-text>
           </v-card>
         </v-flex>
-        <v-flex lg6>
-          <event-form></event-form>
-        </v-flex>
+        <v-flex lg6> <event-form></event-form> </v-flex>
       </v-layout>
     </v-container>
   </div>

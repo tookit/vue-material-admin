@@ -64,9 +64,7 @@
       <v-spacer></v-spacer>
       <v-slide-x-reverse-transition>
         <v-tooltip left v-if="formHasErrors">
-          <v-btn icon @click="resetForm" slot="activator" class="my-0">
-            <v-icon>refresh</v-icon>
-          </v-btn>
+          <v-btn icon @click="resetForm" slot="activator" class="my-0"> <v-icon>refresh</v-icon> </v-btn>
           <span>Refresh form</span>
         </v-tooltip>
       </v-slide-x-reverse-transition>

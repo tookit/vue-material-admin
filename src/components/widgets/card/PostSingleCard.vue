@@ -2,12 +2,8 @@
   <v-card>
     <v-responsive src="/static/nature/n3.jpeg" :height="imageHeight" class="white--text">
       <v-layout row justify-space-between class="ma-0">
-        <v-flex xs2>
-          <v-icon color="white">favorite</v-icon>
-        </v-flex>
-        <v-flex xs2 class="text-sm-right">
-          <v-icon color="white">share</v-icon>
-        </v-flex>
+        <v-flex xs2> <v-icon color="white">favorite</v-icon> </v-flex>
+        <v-flex xs2 class="text-sm-right"> <v-icon color="white">share</v-icon> </v-flex>
       </v-layout>
     </v-responsive>
     <v-card-text>
@@ -16,12 +12,9 @@
           <h3 class="title">{{ title }}</h3>
         </div>
         <div class="post--meta grey--text text--darken-1 caption my-3">
-          <span class="mr-3">{{ author }}</span>
-          <time>{{ createdAt }}</time>
+          <span class="mr-3">{{ author }}</span> <time>{{ createdAt }}</time>
         </div>
-        <div class="post--desc text--secondary">
-          {{ desc }}
-        </div>
+        <div class="post--desc text--secondary">{{ desc }}</div>
         <div class="post--action align-center justify-space-between mt-2">
           <div class="social">
             <a @click="handleThumb" class="grey--text">
@@ -37,9 +30,7 @@
               <small>50+</small>
             </a>
           </div>
-          <v-btn outline flat color="primary">
-            More
-          </v-btn>
+          <v-btn outline flat color="primary"> More </v-btn>
         </div>
       </div>
     </v-card-text>

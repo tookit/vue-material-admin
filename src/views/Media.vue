@@ -13,12 +13,8 @@
       </v-btn-toggle>
       <v-spacer></v-spacer>
       <v-btn-toggle v-model="view">
-        <v-btn flat value="list">
-          <v-icon color="primary">view_headline</v-icon>
-        </v-btn>
-        <v-btn flat value="grid">
-          <v-icon color="primary">view_list</v-icon>
-        </v-btn>
+        <v-btn flat value="list"> <v-icon color="primary">view_headline</v-icon> </v-btn>
+        <v-btn flat value="grid"> <v-icon color="primary">view_list</v-icon> </v-btn>
       </v-btn-toggle>
     </v-toolbar>
     <v-divider></v-divider>
@@ -33,9 +29,7 @@
                     <v-icon size="135" class="mx-auto" color="indigo">folder</v-icon>
                   </v-responsive>
                   <v-divider></v-divider>
-                  <v-card-title>
-                    {{ item.name }}
-                  </v-card-title>
+                  <v-card-title> {{ item.name }} </v-card-title>
                 </v-card>
               </v-flex>
               <v-flex lg4 sm12 xs12 class="pa-2" v-for="(item, index) in files" :key="index">
@@ -46,9 +40,7 @@
                       <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>
                     </v-responsive>
                     <v-divider></v-divider>
-                    <v-card-title>
-                      {{ item.fileName }}
-                    </v-card-title>
+                    <v-card-title> {{ item.fileName }} </v-card-title>
                   </v-card>
                 </a>
               </v-flex>
@@ -65,9 +57,7 @@
                     <div class="layout row">
                       <div class="flex">{{ item.fileName }}</div>
                       <v-spacer></v-spacer>
-                      <div class="caption">
-                        {{ item ? formateDate(item.ctime) : "" }}
-                      </div>
+                      <div class="caption">{{ item ? formateDate(item.ctime) : "" }}</div>
                     </div>
                   </div>
                 </v-list-tile-content>

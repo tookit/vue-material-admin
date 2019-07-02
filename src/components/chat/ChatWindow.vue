@@ -1,9 +1,7 @@
 <template>
   <v-card class="chat-room">
     <v-toolbar card dense flat class="white chat-room--toolbar" light>
-      <v-btn icon>
-        <v-icon color="text--secondary">keyboard_arrow_left</v-icon>
-      </v-btn>
+      <v-btn icon> <v-icon color="text--secondary">keyboard_arrow_left</v-icon> </v-btn>
       <template v-if="chat.users">
         <v-avatar size="32" class="avatar-stack" v-for="(user_id, index) in chat.users" :key="index">
           <img :src="getAvatar(user_id)" alt="" />
@@ -13,9 +11,7 @@
       <v-toolbar-title> <h4>Chat Channel</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
-        <v-btn icon slot="activator">
-          <v-icon color="text--secondary">add</v-icon>
-        </v-btn>
+        <v-btn icon slot="activator"> <v-icon color="text--secondary">add</v-icon> </v-btn>
         <span>Add user</span>
       </v-tooltip>
     </v-toolbar>
@@ -23,16 +19,12 @@
       <v-card-text class="chat-room--list pa-3">
         <template v-for="(item, index) in chat.messages">
           <div :class="[index % 2 == 0 ? 'reverse' : '']" class="messaging-item layout row my-4" :key="index">
-            <v-avatar class="indigo mx-1" size="40">
-              <img :src="item.user.avatar" alt="" />
-            </v-avatar>
+            <v-avatar class="indigo mx-1" size="40"> <img :src="item.user.avatar" alt="" /> </v-avatar>
             <div class="messaging--body layout column mx-2">
               <p :value="true" :class="[index % 2 == 0 ? 'primary white--text' : 'white']" class="pa-2">
                 {{ item.text }}
               </p>
-              <div class="caption px-2 text--secondary">
-                {{ new Date(item.created_at).toLocaleString() }}
-              </div>
+              <div class="caption px-2 text--secondary">{{ new Date(item.created_at).toLocaleString() }}</div>
             </div>
             <v-spacer></v-spacer>
           </div>

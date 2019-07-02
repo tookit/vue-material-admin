@@ -13,13 +13,11 @@
               <span v-else class="white--text headline">{{ firstLetter(item.title) }}</span>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title> {{ computeTitle(item) }}</v-list-tile-title>
+              <v-list-tile-title>{{ computeTitle(item) }}</v-list-tile-title>
               <v-list-tile-sub-title>Some Latest message</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-list-tile-action-text>
-                {{ formatChatTime(item.created_at) }}
-              </v-list-tile-action-text>
+              <v-list-tile-action-text>{{ formatChatTime(item.created_at) }}</v-list-tile-action-text>
               <v-circle dot small :color="chatStatusColor(item)"></v-circle>
             </v-list-tile-action>
           </v-list-tile>

@@ -1,7 +1,9 @@
 <template>
   <v-card class="elevation-0">
     <v-toolbar card dense color="transparent">
-      <v-toolbar-title><h4>Notification</h4></v-toolbar-title>
+      <v-toolbar-title>
+        <h4>Notification</h4>
+      </v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
@@ -16,9 +18,7 @@
             <v-list-tile-content>
               <v-list-tile-sub-title v-html="item.title"></v-list-tile-sub-title>
             </v-list-tile-content>
-            <v-list-tile-action class="caption">
-              {{ item.timeLabel }}
-            </v-list-tile-action>
+            <v-list-tile-action class="caption">{{ item.timeLabel }}</v-list-tile-action>
           </v-list-tile>
         </template>
       </v-list>

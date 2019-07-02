@@ -4,9 +4,7 @@
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>Topics</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
+      <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
     </v-toolbar>
     <v-list>
       <v-list-group v-model="item.active" v-for="item in items" :key="item.title" :prepend-icon="item.action" no-action>

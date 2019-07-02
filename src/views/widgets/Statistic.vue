@@ -2,9 +2,7 @@
   <div id="page-statistic">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
-        <v-flex sm12>
-          <h4>Social</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Social</h4> </v-flex>
         <!-- mini statistic start -->
         <v-flex lg3 sm6 xs12>
           <mini-statistic icon="fa fa-facebook" title="100+" sub-title="Likes" color="indigo"></mini-statistic>
@@ -13,20 +11,13 @@
           <mini-statistic icon="fa fa-google" title="150+" sub-title="Connections" color="red"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-twitter"
-            title="200+"
-            sub-title="Followers"
-            color="light-blue"
-          ></mini-statistic>
+          <mini-statistic icon="fa fa-twitter" title="200+" sub-title="Followers" color="light-blue"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"></mini-statistic>
         </v-flex>
         <!-- linear statistic  end -->
-        <v-flex sm12>
-          <h4>Linear Trending</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Linear Trending</h4> </v-flex>
         <v-flex lg4 sm12 v-for="(item, index) in trending" :key="'trending' + index">
           <linear-statistic
             :title="item.subheading"
@@ -37,9 +28,7 @@
           ></linear-statistic>
         </v-flex>
         <!-- circle statistic  end -->
-        <v-flex sm12>
-          <h4>Circle Trending</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Circle Trending</h4> </v-flex>
         <v-flex lg4 sm12 v-for="(item, index) in trending2" :key="'c-trending' + index">
           <circle-statistic
             :title="item.subheading"

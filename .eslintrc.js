@@ -6,8 +6,11 @@ module.exports = {
   },
 
   extends: [
-    "plugin:vue/strongly-recommended",
-    "@vue/prettier"
+    // "plugin:vue/strongly-recommended",
+    // "@vue/prettier"
+    "plugin:vue/essential",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
   ],
 
   rules: {

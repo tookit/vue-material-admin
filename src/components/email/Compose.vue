@@ -4,38 +4,26 @@
       <v-icon color="white">arrow_back</v-icon>
       <v-toolbar-title>Compose</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon color="white">send</v-icon>
-      </v-btn>
+      <v-btn icon> <v-icon color="white">send</v-icon> </v-btn>
     </v-toolbar>
     <v-container fluid class="pa-0 mt-2">
       <v-layout wrap>
-        <v-flex xs2>
-          <v-subheader>To</v-subheader>
-        </v-flex>
+        <v-flex xs2> <v-subheader>To</v-subheader> </v-flex>
         <v-flex xs10 class="text-xs-right">
           <v-chip>
-            <v-avatar>
-              <img src="https://randomuser.me/api/portraits/men/92.jpg" />
-            </v-avatar>
+            <v-avatar> <img src="https://randomuser.me/api/portraits/men/92.jpg" /> </v-avatar>
             Trevor Hansen
           </v-chip>
           <v-chip>
-            <v-avatar>
-              <img src="https://randomuser.me/api/portraits/men/91.jpg" />
-            </v-avatar>
+            <v-avatar> <img src="https://randomuser.me/api/portraits/men/91.jpg" /> </v-avatar>
             Alex Nelson
           </v-chip>
         </v-flex>
         <v-divider></v-divider>
-        <v-flex xs2>
-          <v-subheader>CC</v-subheader>
-        </v-flex>
+        <v-flex xs2> <v-subheader>CC</v-subheader> </v-flex>
         <v-flex xs10 class="text-xs-right">
           <v-chip>
-            <v-avatar>
-              <img src="https://randomuser.me/api/portraits/men/92.jpg" />
-            </v-avatar>
+            <v-avatar> <img src="https://randomuser.me/api/portraits/men/92.jpg" /> </v-avatar>
             John Doe
           </v-chip>
         </v-flex>

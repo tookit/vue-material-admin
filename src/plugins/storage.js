@@ -1,10 +1,10 @@
 import Vue from "vue"
-import Storage from 'vue-ls'
+import Storage from "vue-ls"
 
 const options = {
-  namespace: 'vma__',
-  name: 'ls',
-  storage: 'local', // storage name session, local, memory
+  namespace: "vma__",
+  name: "ls",
+  storage: "local" // storage name session, local, memory
 }
 
-Vue.use(Storage, options);
+Vue.use(Storage, options)

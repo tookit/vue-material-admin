@@ -14,12 +14,8 @@
         </v-btn-toggle>
         <v-spacer></v-spacer>
         <v-btn-toggle v-model="view">
-          <v-btn flat value="list">
-            <v-icon>view_headline</v-icon>
-          </v-btn>
-          <v-btn flat value="grid">
-            <v-icon>view_list</v-icon>
-          </v-btn>
+          <v-btn flat value="list"> <v-icon>view_headline</v-icon> </v-btn>
+          <v-btn flat value="grid"> <v-icon>view_list</v-icon> </v-btn>
         </v-btn-toggle>
       </v-toolbar>
       <v-divider></v-divider>
@@ -37,12 +33,8 @@
           </v-list-tile>
         </v-list>
       </div>
-      <div class="media-content flex transparent">
-        <router-view name="MediaList"></router-view>
-      </div>
-      <div class="media-aside media-detail">
-        <router-view name="MediaDetail"></router-view>
-      </div>
+      <div class="media-content flex transparent"><router-view name="MediaList"></router-view></div>
+      <div class="media-aside media-detail"><router-view name="MediaDetail"></router-view></div>
     </div>
   </div>
 </template>

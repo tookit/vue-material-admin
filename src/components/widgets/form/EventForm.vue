@@ -3,16 +3,12 @@
     <v-toolbar card prominent extended color="primary" dark="">
       <v-toolbar-title class="body-2">Add New Event</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click="closeDialog">
-        <v-icon>close</v-icon>
-      </v-btn>
+      <v-btn icon @click="closeDialog"> <v-icon>close</v-icon> </v-btn>
     </v-toolbar>
     <v-card-text>
       <v-form v-model="valid" ref="form" lazy-validation>
         <v-layout row wrap>
-          <v-flex lg12 sm12>
-            <v-text-field label="Title" name="title" v-model="title"> </v-text-field>
-          </v-flex>
+          <v-flex lg12 sm12> <v-text-field label="Title" name="title" v-model="title"> </v-text-field> </v-flex>
           <v-flex sm6 lg6>
             <v-menu
               class="pr-2"
@@ -123,9 +119,7 @@
               </v-time-picker>
             </v-menu>
           </v-flex>
-          <v-flex lg12 sm12>
-            <v-text-field textarea label="Description"> </v-text-field>
-          </v-flex>
+          <v-flex lg12 sm12> <v-text-field textarea label="Description"> </v-text-field> </v-flex>
           <v-spacer></v-spacer>
         </v-layout>
       </v-form>

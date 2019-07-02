@@ -8,9 +8,7 @@
             >{{ subTitle }} <v-icon small :color="iconColor">{{ icon }}</v-icon></span
           >
         </div>
-        <div class="chart">
-          <e-chart :path-option="computeChartOption" height="68px" width="100%"> </e-chart>
-        </div>
+        <div class="chart"><e-chart :path-option="computeChartOption" height="68px" width="100%"> </e-chart></div>
       </div>
     </v-card-text>
   </v-card>
@@ -66,7 +64,7 @@ export default {
   watch: {
     type: {
       deep: true,
-      handler: function (newVal) {
+      handler: function(newVal) {
         switch (newVal) {
           case "bar":
             this.defaultOption.push(["series[0].type", "bar"])
@@ -78,7 +76,7 @@ export default {
           default:
             break
         }
-        return this.defaultOption        
+        return this.defaultOption
       }
     }
   },

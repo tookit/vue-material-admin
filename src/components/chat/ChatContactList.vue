@@ -1,6 +1,13 @@
 <template>
   <div class="chat-contact">
-    <v-text-field solo clearable prepend-inner-icon="search" hide-details label="Search"></v-text-field>
+    <v-text-field
+      solo
+      clearable
+      prepend-inner-icon="search"
+      hide-details
+      label="Search"
+      @input="handleSearch"
+    ></v-text-field>
     <vue-perfect-scrollbar class="chat-history--scrollbar">
       <v-divider></v-divider>
       <v-list two-line class="chat-contact--list">
@@ -13,14 +20,10 @@
               <span v-else class="white--text headline">{{ firstLetter(item.name) }}</span>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title>
-                {{ item.name }}
-              </v-list-tile-title>
+              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
               <v-list-tile-sub-title>{{ item.jobTitle }}</v-list-tile-sub-title>
             </v-list-tile-content>
-            <v-list-tile-action>
-              <v-circle dot small :color="userStatusColor(item)"></v-circle>
-            </v-list-tile-action>
+            <v-list-tile-action> <v-circle dot small :color="userStatusColor(item)"></v-circle> </v-list-tile-action>
           </v-list-tile>
         </template>
       </v-list>
@@ -37,12 +40,12 @@ export default {
     VuePerfectScrollbar,
     VCircle
   },
-  data: () => ({}),
-  computed: {
-    users() {
-      return getUser()
+  data() {
+    return {
+      users: getUser()
     }
   },
+  computed: {},
   methods: {
     contactRoute(id) {
       return "/chat/contact/" + id
@@ -52,6 +55,14 @@ export default {
     },
     userStatusColor(item) {
       return item.active ? "green" : "grey"
+    },
+    handleSearch(q) {
+      if (q.length > 3) {
+        this.users.filter(u => {
+          const name = u.name.toLowerCase()
+          return name.startsWith(q) === true
+        })
+      }
     }
   }
 }

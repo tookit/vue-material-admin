@@ -38,13 +38,9 @@
                   </span>
                 </div>
                 <div class="chart">
-                  <v-progress-circular
-                    :size="60"
-                    :width="5"
-                    :rotate="360"
-                    :value="10"
-                    color="success"
-                  >10</v-progress-circular>
+                  <v-progress-circular :size="60" :width="5" :rotate="360" :value="10" color="success"
+                    >10</v-progress-circular
+                  >
                 </div>
               </div>
             </v-card-text>
@@ -110,9 +106,7 @@
               <div class="layout row ma-0">
                 <div class="subheading">Today</div>
                 <v-spacer></v-spacer>
-                <div class="caption">
-                  <v-icon>trending_up</v-icon>20%
-                </div>
+                <div class="caption"><v-icon>trending_up</v-icon>20%</div>
               </div>
             </v-card-title>
             <v-responsive class="white--text">
@@ -144,13 +138,9 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular
-                    :size="100"
-                    :width="15"
-                    :rotate="360"
-                    :value="10"
-                    color="blue"
-                  >10</v-progress-circular>
+                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                    >10</v-progress-circular
+                  >
                 </div>
               </div>
             </v-card-text>
@@ -162,9 +152,7 @@
               <div class="layout row ma-0">
                 <div class="subheading">Today</div>
                 <v-spacer></v-spacer>
-                <div class="caption">
-                  <v-icon>trending_up</v-icon>20%
-                </div>
+                <div class="caption"><v-icon>trending_up</v-icon>20%</div>
               </div>
             </v-card-title>
             <v-responsive class="white--text">
@@ -190,13 +178,9 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular
-                    :size="100"
-                    :width="15"
-                    :rotate="360"
-                    :value="10"
-                    color="blue"
-                  >10</v-progress-circular>
+                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                    >10</v-progress-circular
+                  >
                 </div>
               </div>
             </v-card-text>
@@ -208,9 +192,7 @@
               <div class="layout row ma-0">
                 <div class="subheading">Today</div>
                 <v-spacer></v-spacer>
-                <div class="caption">
-                  <v-icon>trending_up</v-icon>20%
-                </div>
+                <div class="caption"><v-icon>trending_up</v-icon>20%</div>
               </div>
             </v-card-title>
             <v-responsive>
@@ -239,13 +221,9 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular
-                    :size="100"
-                    :width="15"
-                    :rotate="360"
-                    :value="10"
-                    color="blue"
-                  >10</v-progress-circular>
+                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                    >10</v-progress-circular
+                  >
                 </div>
               </div>
             </v-card-text>

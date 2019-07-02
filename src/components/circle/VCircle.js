@@ -22,8 +22,9 @@ export default {
         "circle-dot": this.dot,
         "circle-pill": this.pill,
         "theme--light": this.light,
-        "theme--dark": this.dark
+        "theme--dark": this.dark,
       }
+      classes[this.color] = true
       return classes
     }
   },

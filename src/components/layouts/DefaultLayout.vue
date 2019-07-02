@@ -5,9 +5,7 @@
     <v-content>
       <!-- Page Header -->
       <page-header></page-header>
-      <div class="page-wrapper">
-        <router-view></router-view>
-      </div>
+      <div class="page-wrapper"><router-view></router-view></div>
       <!-- App Footer -->
       <v-footer height="auto" class="white pa-3 app--footer">
         <span class="caption">isocked.com Design &copy; {{ new Date().getFullYear() }}</span>
@@ -49,8 +47,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.page-wrapper {
+<style scoped lang="stylus">
+
+.page-wrapper
   min-height: calc(100vh - 64px - 50px - 81px);
-}
+
 </style>

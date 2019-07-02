@@ -7,9 +7,7 @@
             <div slot="widget-content">
               <v-container fluid>
                 <v-layout row wrap>
-                  <v-flex xs6>
-                    <v-subheader>Standard</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Standard</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -20,9 +18,7 @@
                       single-line
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Standard with focus</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Standard with focus</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -33,9 +29,7 @@
                       class="input-group--focused"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Error</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Error</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -46,9 +40,7 @@
                       item-value="abbr"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Prepend Icon</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Prepend Icon</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -59,9 +51,7 @@
                       item-value="abbr"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Append Icon</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Append Icon</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -72,9 +62,7 @@
                       item-value="abbr"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Auto complete</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Auto complete</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -95,9 +83,7 @@
             <div slot="widget-content">
               <v-container fluid>
                 <v-layout row wrap>
-                  <v-flex xs6>
-                    <v-subheader>Tags</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Tags</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -110,9 +96,7 @@
                       return-object
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Tags and chips</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Tags and chips</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -125,9 +109,7 @@
                       item-text="country"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Rules</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Rules</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Async items"
@@ -145,9 +127,7 @@
                       v-model="select"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Slots - Closable chips</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Slots - Closable chips</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -174,9 +154,7 @@
                       </template>
                     </v-select>
                   </v-flex>
-                  <v-flex xs6>
-                    <v-subheader>Slots</v-subheader>
-                  </v-flex>
+                  <v-flex xs6> <v-subheader>Slots</v-subheader> </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"

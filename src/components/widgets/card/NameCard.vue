@@ -3,12 +3,8 @@
     <v-card :color="color" ref="card" :dark="dark" :img="cardBgImage">
       <v-responsive v-if="showTopNav">
         <v-layout row justify-space-between class="ma-0">
-          <v-flex xs2>
-            <v-icon color="pink">favorite</v-icon>
-          </v-flex>
-          <v-flex xs2 class="text-sm-right">
-            <v-icon>more_vert</v-icon>
-          </v-flex>
+          <v-flex xs2> <v-icon color="pink">favorite</v-icon> </v-flex>
+          <v-flex xs2 class="text-sm-right"> <v-icon>more_vert</v-icon> </v-flex>
         </v-layout>
       </v-responsive>
       <v-card-text>

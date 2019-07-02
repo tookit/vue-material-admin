@@ -2,15 +2,9 @@
   <v-form v-model="valid">
     <v-subheader class="pa-0">Payment Method</v-subheader>
     <div class="layout ma-0 row">
-      <a class="payment-method pa-3 grey--text mr-3">
-        <i class="fa fa-credit-card display-3"></i>
-      </a>
-      <a class="payment-method pa-3 grey--text mr-3">
-        <i class="fa fa-apple display-3"></i>
-      </a>
-      <a class="payment-method pa-3 grey--text mr-3">
-        <i class="fa fa-paypal display-3"></i>
-      </a>
+      <a class="payment-method pa-3 grey--text mr-3"> <i class="fa fa-credit-card display-3"></i> </a>
+      <a class="payment-method pa-3 grey--text mr-3"> <i class="fa fa-apple display-3"></i> </a>
+      <a class="payment-method pa-3 grey--text mr-3"> <i class="fa fa-paypal display-3"></i> </a>
     </div>
     <v-subheader class="pa-0 mt-3">Payment Detail</v-subheader>
     <div class="d-flex my-2">
@@ -57,9 +51,7 @@
       ></v-text-field>
       <v-text-field label="CVV" v-model="form.cvv" mask="###" suffix="CVV"></v-text-field>
     </div>
-    <div class="d-flex">
-      <v-switch label="Save My Card Detials" v-model="saveCard"></v-switch>
-    </div>
+    <div class="d-flex"><v-switch label="Save My Card Detials" v-model="saveCard"></v-switch></div>
     <div class="form-btn">
       <v-btn outline @click="submit" color="primary">Submit</v-btn>
       <v-btn outline @click="clear">Clear</v-btn>

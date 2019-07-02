@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "eslint-fix": "eslint src/**/**/*.vue --fix",
+    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
@@ -16,10 +18,12 @@
     "roboto-fontface": "*",
     "vee-validate": "^2.1.4",
     "vue": "^2.5.21",
+    "vue-ls": "^3.2.1",
     "vue-perfect-scrollbar": "^0.1.0",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.5.14",
-    "vuex": "^3.0.1"
+    "vuetify": "^1.5.16",
+    "vuex": "^3.0.1",
+    "vuex-persist": "^2.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
@@ -29,7 +33,10 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
+    "prettier-eslint-cli": "^5.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-vuetify": "^0.4.6",

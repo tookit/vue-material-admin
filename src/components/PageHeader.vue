@@ -1,7 +1,7 @@
 <template>
   <v-layout row class="align-center layout px-4 pt-4 app--page-header">
     <div class="page-header-left">
-      <h3 class="pr-3">{{ $route.meta.title || '' }}</h3>
+      <h3 class="pr-3">{{ $route.meta.title || "" }}</h3>
     </div>
     <v-breadcrumbs divider="-" :items="breadcrumbs" v-if="breadcrumbs">
       <!-- <template v-slot:item="props">
@@ -10,9 +10,7 @@
     </v-breadcrumbs>
     <v-spacer></v-spacer>
     <div class="page-header-right">
-      <v-btn icon>
-        <v-icon class="text--secondary">refresh</v-icon>
-      </v-btn>
+      <v-btn icon> <v-icon class="text--secondary">refresh</v-icon> </v-btn>
     </div>
   </v-layout>
 </template>
