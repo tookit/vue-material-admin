@@ -41,7 +41,7 @@
                   <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
+                <v-btn block color="primary" @click="handleLogin" :loading="loading">Login</v-btn>
               </div>
             </v-card>
           </v-flex>
@@ -62,7 +62,7 @@ export default {
   }),
 
   methods: {
-    login() {
+    handleLogin() {
       this.loading = true
       setTimeout(() => {
         this.$router.push("/dashboard")
@@ -71,8 +71,9 @@ export default {
   }
 }
 </script>
-<style scoped lang="css">
-.split-bg {
+<style scoped lang="stylus">
+
+.split-bg
   height: 50%;
   width: 100%;
   position: absolute;
@@ -80,5 +81,5 @@ export default {
   left: 0;
   content: "";
   z-index: 0;
-}
+
 </style>

@@ -38,8 +38,12 @@
                   <td>{{ props.item.email }}</td>
                   <td>{{ props.item.phone }}</td>
                   <td>
-                    <v-btn depressed outline icon fab dark color="primary" small> <v-icon>edit</v-icon> </v-btn>
-                    <v-btn depressed outline icon fab dark color="pink" small> <v-icon>delete</v-icon> </v-btn>
+                    <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
+                      <v-icon>edit</v-icon>
+                    </v-btn>
+                    <v-btn depressed outline icon fab dark color="pink" small @click="handleDelete(props.item)">
+                      <v-icon>delete</v-icon>
+                    </v-btn>
                   </td>
                 </template>
               </v-data-table>
@@ -61,6 +65,19 @@
         </v-flex>
       </v-layout>
     </v-container>
+    <v-dialog v-model="dialog" max-width="60vh">
+      <v-card>
+        <v-toolbar card>Edit User</v-toolbar>
+        <v-card-text>
+          <form>
+            <v-text-field v-model="formModel.name" :counter="10" label="Name" required></v-text-field>
+            <v-text-field v-model="formModel.email" label="E-mail" required></v-text-field>
+            <v-divider class="mt-3 mb-3"></v-divider>
+            <v-btn @click="handleSubmit">submit</v-btn>
+          </form>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -69,6 +86,11 @@ import { Items as Users } from "@/api/user"
 export default {
   data() {
     return {
+      formModel: {
+        name: "",
+        email: ""
+      },
+      dialog: false,
       search: "",
       complex: {
         selected: [],
@@ -204,6 +226,15 @@ export default {
         ]
       }
     }
+  },
+  methods: {
+    handleClick(row) {
+      this.formModel = Object.assign(this.formModel, row)
+      this.dialog = true
+    },
+
+    handleDelete(row) {},
+    handleSubmit() {}
   }
 }
 </script>

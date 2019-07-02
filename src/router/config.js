@@ -46,7 +46,13 @@ export const protectedRoute = [
         meta: { title: "Home", group: "apps", icon: "dashboard" },
         component: () => import(/* webpackChunkName: "dashboard" */ "@/views/Dashboard.vue")
       },
-
+      {
+        path: "/media",
+        meta: { title: "Media", group: "apps", icon: "media" },
+        name: "Media",
+        props: route => ({ type: route.query.type }),
+        component: () => import(/* webpackChunkName: "routes" */ `@/views/Media.vue`)
+      },
       {
         path: "/403",
         name: "Forbidden",
@@ -107,13 +113,7 @@ export const protectedRoute = [
   },
 
   //media
-  {
-    path: "/media",
-    meta: { title: "Media", group: "apps", icon: "media" },
-    name: "Media",
-    props: route => ({ type: route.query.type }),
-    component: () => import(/* webpackChunkName: "routes" */ `@/views/Media.vue`)
-  },
+
 
   // chat app
   {
