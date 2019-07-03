@@ -23,7 +23,11 @@
     <div class="layout row">
       <div class="media-aside media-menu">
         <v-list dense class="transparent">
-          <v-list-tile v-for="(item, index) in mediaMenu" :key="index" :to="item.to">
+          <v-list-tile
+            v-for="(item, index) in mediaMenu"
+            :key="index"
+            :to="item.to"
+          >
             <v-list-tile-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -33,8 +37,12 @@
           </v-list-tile>
         </v-list>
       </div>
-      <div class="media-content flex transparent"><router-view name="MediaList"></router-view></div>
-      <div class="media-aside media-detail"><router-view name="MediaDetail"></router-view></div>
+      <div class="media-content flex transparent">
+        <router-view name="MediaList"></router-view>
+      </div>
+      <div class="media-aside media-detail">
+        <router-view name="MediaDetail"></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -42,40 +50,40 @@
 <script>
 export default {
   data: () => ({
-    size: "lg",
-    view: "grid",
-    imageMime: ["image/jpeg", "image/png", "image/svg+xml"],
+    size: 'lg',
+    view: 'grid',
+    imageMime: ['image/jpeg', 'image/png', 'image/svg+xml'],
     mediaMenu: [
       {
-        icon: "photo",
-        title: "Images",
-        to: { path: "/media/image" }
+        icon: 'photo',
+        title: 'Images',
+        to: { path: '/media/image' },
       },
       {
-        icon: "videocam",
-        title: "Video",
-        to: { path: "/media/video" }
+        icon: 'videocam',
+        title: 'Video',
+        to: { path: '/media/video' },
       },
       {
-        icon: "volume_down",
-        title: "Audio",
-        to: { path: "/media/audio" }
+        icon: 'volume_down',
+        title: 'Audio',
+        to: { path: '/media/audio' },
       },
       {
-        icon: "insert_drive_file",
-        title: "Document",
-        to: { path: "/media/doc" }
-      }
-    ]
+        icon: 'insert_drive_file',
+        title: 'Document',
+        to: { path: '/media/doc' },
+      },
+    ],
   }),
   computed: {
     files() {
       return this.$store.state.file.items
-    }
+    },
   },
 
   created() {
-    this.$store.dispatch("listFiles")
+    this.$store.dispatch('listFiles')
   },
 
   methods: {
@@ -83,19 +91,21 @@ export default {
       return this.imageMime.includes(file.fileType)
     },
     mimeIcons(file) {
-      return this.imageMime.includes(file.fileType) ? "image" : "insert_drive_file"
-    }
-  }
+      return this.imageMime.includes(file.fileType)
+        ? 'image'
+        : 'insert_drive_file'
+    },
+  },
 }
 </script>
 <style lang="stylus" scoped>
-.media-menu {
-  min-width:260px;
-  border-right:1px solid #eee;
-  min-height:calc(100vh - 50px - 64px);
-}
-.media-detail {
-  min-width:300px;
-  border-left:1px solid #eee;
-}
+  .media-menu 
+    min-width:260px;
+    border-right:1px solid #eee;
+    min-height:calc(100vh - 50px - 64px);
+
+  .media-detail 
+    min-width:300px;
+    border-left:1px solid #eee;
+
 </style>

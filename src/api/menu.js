@@ -20,12 +20,12 @@ const Menu = [
     target: "_blank",
     icon: "email"
   },
-  // {
-  //   title: 'Media',
-  //   group: 'apps',
-  //   name: 'Media',
-  //   icon: 'perm_media',
-  // },
+  {
+    title: 'Media',
+    group: 'apps',
+    name: 'Media',
+    icon: 'perm_media',
+  },
   {
     title: "Widgets",
     group: "widgets",

@@ -51,7 +51,7 @@ export const protectedRoute = [
         meta: { title: "Media", group: "apps", icon: "media" },
         name: "Media",
         props: route => ({ type: route.query.type }),
-        component: () => import(/* webpackChunkName: "routes" */ `@/views/Media.vue`)
+        component: () => import(/* webpackChunkName: "media" */ `@/views/Media.vue`)
       },
       {
         path: "/403",

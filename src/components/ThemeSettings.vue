@@ -38,13 +38,12 @@
   </div>
 </template>
 <script>
-import colors from "vuetify/es5/util/colors"
-import { mapGetters } from "vuex"
+import colors from 'vuetify/es5/util/colors'
 export default {
   data() {
     return {
-      themeColor: "indigo",
-      sideBarOption: "light",
+      themeColor: 'indigo',
+      sideBarOption: 'light',
       colors: colors
     }
   },
@@ -52,75 +51,75 @@ export default {
     themeColorOptions() {
       return [
         {
-          key: "blue",
+          key: 'blue',
           value: {
-            sideNav: "blue",
-            mainNav: "blue",
-            sideMenu: "white"
+            sideNav: 'blue',
+            mainNav: 'blue',
+            sideMenu: 'white'
           }
         },
         {
-          key: "teal",
+          key: 'teal',
           value: {
-            sideNav: "teal",
-            mainNav: "teal",
-            sideMenu: "white"
+            sideNav: 'teal',
+            mainNav: 'teal',
+            sideMenu: 'white'
           }
         },
         {
-          key: "red",
+          key: 'red',
           value: {
-            sideNav: "red",
-            mainNav: "red",
-            sideMenu: "white"
+            sideNav: 'red',
+            mainNav: 'red',
+            sideMenu: 'white'
           }
         },
         {
-          key: "orange",
+          key: 'orange',
           value: {
-            sideNav: "orange",
-            mainNav: "orange",
-            sideMenu: "white"
+            sideNav: 'orange',
+            mainNav: 'orange',
+            sideMenu: 'white'
           }
         },
         {
-          key: "purple",
+          key: 'purple',
           value: {
-            sideNav: "purple",
-            mainNav: "purple",
-            sideMenu: "white"
+            sideNav: 'purple',
+            mainNav: 'purple',
+            sideMenu: 'white'
           }
         },
         {
-          key: "indigo",
+          key: 'indigo',
           value: {
-            sideNav: "indigo",
-            mainNav: "indigo",
-            sideMenu: "white"
+            sideNav: 'indigo',
+            mainNav: 'indigo',
+            sideMenu: 'white'
           }
         },
         {
-          key: "cyan",
+          key: 'cyan',
           value: {
-            sideNav: "cyan",
-            mainNav: "cyan",
-            sideMenu: "white"
+            sideNav: 'cyan',
+            mainNav: 'cyan',
+            sideMenu: 'white'
           }
         },
         {
-          key: "pink",
+          key: 'pink',
           value: {
-            sideNav: "pink",
-            mainNav: "pink",
-            sideMenu: "white"
+            sideNav: 'pink',
+            mainNav: 'pink',
+            sideMenu: 'white'
           }
         },
         {
-          key: "green",
+          key: 'green',
           value: {
-            sideNav: "green",
-            mainNav: "green",
-            sideMenu: "white"
+            sideNav: 'green',
+            mainNav: 'green',
+            sideMenu: 'white'
           }
         }
       ]
@@ -135,7 +134,7 @@ export default {
     },
     sideBarOption: {
       handler(val) {
-        this.$vuetify.dark = val === "dark"
+        this.$vuetify.dark = val === 'dark'
         console.log(this.$vuetify)
       },
       immediate: true
