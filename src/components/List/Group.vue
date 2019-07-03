@@ -3,9 +3,10 @@
     :group="group"
     :prepend-icon="item.icon"
     :sub-group="subGroup"
+    v-model="expand"
     no-action
   >
-    <template v-slot:activator>
+    <template slot="activator">
       <list-item :text="item.text" />
     </template>
     <template v-for="(child, i) in children">
@@ -27,50 +28,58 @@
 </template>
 
 <script>
-  // Utilities
-  import kebabCase from 'lodash/kebabCase'
-  import ListItem from './Item'
-  export default {
-    components: {
-      ListItem,
+// Utilities
+import kebabCase from 'lodash/kebabCase'
+import ListItem from './Item'
+export default {
+  components: {
+    ListItem,
+  },
+  inheritAttrs: false,
+  props: {
+    item: {
+      type: Object,
+      default: () => ({
+        text: '',
+        group: '',
+        children: [],
+      }),
     },
-    inheritAttrs: false,
-    props: {
-      item: {
-        type: Object,
-        default: () => ({
-          text: '',
-          group: '',
-          children: []
-        })
-      },
-      subGroup: {
-        type: Boolean,
-        default: false
-      }
+    subGroup: {
+      type: Boolean,
+      default: false,
     },
-    computed: {
-      children () {
-        return this.item.children.map(item => ({
-          ...item,
-          to: `${this.item.group}/${item.to}`
-        }))
-      },
-      group () {
-        return this.genGroup(this.item.children)
-      }
+  },
+  computed: {
+    children() {
+      return this.item.children.map(item => ({
+        ...item,
+        to: item.to,
+      }))
     },
-    methods: {
-      genGroup (children) {
-        return children.map(item => {
+    group() {
+      return this.genGroup(this.item.children, this.item)
+    },
+    expand() {
+      const found = this.item.children.filter(
+        item => item.to === this.$route.path
+      )
+      return found.length
+    },
+  },
+  methods: {
+    genGroup(children) {
+      return children
+        .map(item => {
           const parent = item.group || this.item.group
           let group = `${parent}/${kebabCase(item.to)}`
           if (item.children) {
             group = `${group}|${this.genGroup(item.children)}`
           }
           return group
-        }).join('|')
-      }
-    }
-  }
+        })
+        .join('|')
+    },
+  },
+}
 </script>

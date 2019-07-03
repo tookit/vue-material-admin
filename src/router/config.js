@@ -53,6 +53,14 @@ export const protectedRoute = [
         props: route => ({ type: route.query.type }),
         component: () => import(/* webpackChunkName: "media" */ `@/views/Media.vue`)
       },
+
+      {
+        path: "/task",
+        meta: { title: "Task", group: "apps", icon: "media" },
+        name: "Task",
+        props: route => ({ type: route.query.type }),
+        component: () => import(/* webpackChunkName: "task" */ `@/views/Calendar.vue`)
+      },
       {
         path: "/403",
         name: "Forbidden",

@@ -1,65 +1,49 @@
 const Menu = [
   { header: "Apps" },
   {
-    title: "Dashboard",
-    group: "apps",
+    text: "Dashboard",
     icon: "dashboard",
-    name: "Dashboard"
+    to: "/dashboard"
   },
   {
-    title: "Chat",
-    group: "apps",
+    text: "Chat",
     icon: "chat_bubble",
     target: "_blank",
-    name: "Chat"
+    to: "/chat"
   },
   {
-    title: "Inbox",
-    group: "apps",
-    name: "Mail",
+    text: "Inbox",
+    to: "/mail",
     target: "_blank",
     icon: "email"
   },
   {
-    title: 'Media',
-    group: 'apps',
-    name: 'Media',
+    text: 'Media',
+    to: '/media',
     icon: 'perm_media',
   },
   {
-    title: "Widgets",
+    text: "Widgets",
     group: "widgets",
-    component: "widgets",
+    to: "/widgets",
     icon: "widgets",
-    items: [
-      { name: "social", title: "Social", component: "SocialWidget" },
-      {
-        name: "statistic",
-        title: "Statistic",
-        badge: "new",
-        component: "StatisticWidget"
-      },
-      { name: "chart", title: "Chart", component: "ChartWidget" },
-      { name: "list", title: "List", component: "ListWidget" }
+    children: [
+      { to: "/widgets/social", text: "Social" },
+      { to: "/widgets/statistic", text: "Statistic", badge: "new" },
+      { to: "/widgets/chart", text: "Chart" },
+      { to: "/widgets/list", text: "List" }
     ]
   },
   { header: "CMS" },
   {
-    title: "List & Query",
+    text: "List & Query",
     group: "layout",
+    to: "cms",
     icon: "view_compact",
-    items: [{ name: "Table", title: "Basic Table", component: "ListTable" }]
+    children: [
+      { to: "/cms/table", text: "Basic Table" }
+    ]
   }
 ]
-// reorder menu
-Menu.forEach(item => {
-  if (item.items) {
-    item.items.sort((x, y) => {
-      let textA = x.title.toUpperCase()
-      let textB = y.title.toUpperCase()
-      return textA < textB ? -1 : textA > textB ? 1 : 0
-    })
-  }
-})
 
 export default Menu
