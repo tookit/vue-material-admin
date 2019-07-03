@@ -1,7 +1,7 @@
 <template>
   <v-layout row class="align-center layout px-4 pt-4 app--page-header">
     <div class="page-header-left">
-      <h3 class="pr-3">{{ $route.meta.title || "" }}</h3>
+      <h3 class="pr-3">{{ $route.meta.title || '' }}</h3>
     </div>
     <v-breadcrumbs divider="-" :items="breadcrumbs" v-if="breadcrumbs">
       <!-- <template v-slot:item="props">
@@ -19,46 +19,45 @@
 export default {
   data() {
     return {
-      title: "Home",
-      breadcrumbs: []
+      title: 'Home',
+      breadcrumbs: [],
     }
   },
   watch: {
-    "$route.path": function(newVal) {
+    '$route.path': function(newVal) {
       this.computeBreadcrumbs()
-    }
+    },
   },
   methods: {
     computeBreadcrumbs() {
       let breadcrumbs = [
         {
-          text: "Home",
-          href: "/",
-          disabled: false
-        }
+          text: 'Home',
+          href: '/',
+          disabled: false,
+        },
       ]
-      if (this.$route.path !== "/dashboard") {
+      if (this.$route.path !== '/dashboard') {
         let appends = []
         appends = this.$route.matched.map(item => {
           return {
-            text: item.meta.title || "",
-            href: item.path || "/",
-            disabled: item.path === this.$route.path
+            text: item.meta.title || '',
+            href: item.path || '/',
+            disabled: item.path === this.$route.path,
           }
         })
         this.breadcrumbs = breadcrumbs.concat(appends)
       }
-    }
+    },
   },
   created() {
     this.computeBreadcrumbs()
-  }
+  },
 }
 </script>
 <style lang="stylus" scoped>
-.disabled {
-  color: grey;
-  pointer-events: none;
-  text-decoration: blink;
-}
+.disabled
+  color: grey
+  pointer-events: none
+  text-decoration: blink
 </style>

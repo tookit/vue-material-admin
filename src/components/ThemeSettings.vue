@@ -1,6 +1,8 @@
 <template>
   <div class="themeSetting">
-    <v-toolbar color="primary"> <v-toolbar-title class="white--text">Theme Settings</v-toolbar-title> </v-toolbar>
+    <v-toolbar color="primary">
+      <v-toolbar-title class="white--text">Theme Settings</v-toolbar-title>
+    </v-toolbar>
     <v-container>
       <v-layout column>
         <v-flex>
@@ -12,11 +14,24 @@
                 v-for="(option, index) in themeColorOptions"
                 :key="index"
               >
-                <input type="radio" name="color" :value="option.key" v-model="themeColor" />
+                <input
+                  type="radio"
+                  name="color"
+                  :value="option.key"
+                  v-model="themeColor"
+                />
                 <span class="color-option--item bg">
-                  <span class="overlay"> <span class="material-icons">check</span> </span>
-                  <span class="color-option--item--header sideNav" :class="option.value.sideNav"></span>
-                  <span class="color-option--item--header mainNav" :class="option.value.mainNav"></span>
+                  <span class="overlay">
+                    <span class="material-icons">check</span>
+                  </span>
+                  <span
+                    class="color-option--item--header sideNav"
+                    :class="option.value.sideNav"
+                  ></span>
+                  <span
+                    class="color-option--item--header mainNav"
+                    :class="option.value.mainNav"
+                  ></span>
                   <span class="sideMenu" :class="option.value.sideMenu"></span>
                 </span>
               </label>
@@ -44,7 +59,7 @@ export default {
     return {
       themeColor: 'indigo',
       sideBarOption: 'light',
-      colors: colors
+      colors: colors,
     }
   },
   computed: {
@@ -55,139 +70,135 @@ export default {
           value: {
             sideNav: 'blue',
             mainNav: 'blue',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'teal',
           value: {
             sideNav: 'teal',
             mainNav: 'teal',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'red',
           value: {
             sideNav: 'red',
             mainNav: 'red',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'orange',
           value: {
             sideNav: 'orange',
             mainNav: 'orange',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'purple',
           value: {
             sideNav: 'purple',
             mainNav: 'purple',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'indigo',
           value: {
             sideNav: 'indigo',
             mainNav: 'indigo',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'cyan',
           value: {
             sideNav: 'cyan',
             mainNav: 'cyan',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'pink',
           value: {
             sideNav: 'pink',
             mainNav: 'pink',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'green',
           value: {
             sideNav: 'green',
             mainNav: 'green',
-            sideMenu: 'white'
-          }
-        }
+            sideMenu: 'white',
+          },
+        },
       ]
-    }
+    },
   },
   watch: {
     themeColor: {
       handler(val) {
         this.$vuetify.theme.primary = this.colors[val].base
       },
-      immediate: true
+      immediate: true,
     },
     sideBarOption: {
       handler(val) {
         this.$vuetify.dark = val === 'dark'
         console.log(this.$vuetify)
       },
-      immediate: true
+      immediate: true,
     },
-    updateTheme() {}
-  }
+    updateTheme() {},
+  },
 }
 </script>
 <style lang="stylus" scoped>
 .color-option
   &--label
-    position relative;
-    display block;
-    cursor pointer;
+    position: relative
+    display: block
+    cursor: pointer
 
     & input[type='radio']
-      display none;
+      display: none
 
       &+span
-        position relative;
+        position: relative
 
         &>.overlay
-          display none;
-          position absolute;
-          top 0;
-          bottom 0;
-          right 0;
-          left 0;
-          width 100%;
-          height 100%;
-          background-color rgba(0, 0, 0, 0.3);
-          text-align center;
-          line-height 30px;
-          color #fff;
-
+          display: none
+          position: absolute
+          top: 0
+          bottom: 0
+          right: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background-color: rgba(0, 0, 0, 0.3)
+          text-align: center
+          line-height: 30px
+          color: #fff
       &:checked+span>.overlay
-        display block;
-
+        display: block
     & .bg
-      background-color #f1f1f1;
-
+      background-color: #f1f1f1
   &--item
-    overflow hidden;
-    display block;
-    box-shadow 0 0 2px rgba(0, 0, 0, 0.1);
-    margin-bottom 15px;
+    overflow: hidden
+    display: block
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1)
+    margin-bottom: 15px
 
     &--header
-      height 10px;
-
+      height: 10px
     &>span
-      display block;
-      float left;
-      width 50%;
-      height 20px;
+      display: block
+      float: left
+      width: 50%
+      height: 20px
 </style>

@@ -1,5 +1,6 @@
 {
-  semi: false,
-  singleQuote: true,
-  trailingComma: "es5"
+  "semi": false,
+  "singleQuote": true,
+  "eslintIntegration": true,
+  "trailingComma": "es5"
 }

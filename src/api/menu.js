@@ -1,21 +1,21 @@
 const Menu = [
-  { header: "Apps" },
+  { header: 'Apps' },
   {
-    text: "Dashboard",
-    icon: "dashboard",
-    to: "/dashboard"
+    text: 'Dashboard',
+    icon: 'dashboard',
+    to: '/dashboard',
   },
   {
-    text: "Chat",
-    icon: "chat_bubble",
-    target: "_blank",
-    to: "/chat"
+    text: 'Chat',
+    icon: 'chat_bubble',
+    target: '_blank',
+    to: '/chat',
   },
   {
-    text: "Inbox",
-    to: "/mail",
-    target: "_blank",
-    icon: "email"
+    text: 'Inbox',
+    to: '/mail',
+    target: '_blank',
+    icon: 'email',
   },
   {
     text: 'Media',
@@ -23,27 +23,25 @@ const Menu = [
     icon: 'perm_media',
   },
   {
-    text: "Widgets",
-    group: "widgets",
-    to: "/widgets",
-    icon: "widgets",
+    text: 'Widgets',
+    group: 'widgets',
+    to: '/widgets',
+    icon: 'widgets',
     children: [
-      { to: "/widgets/social", text: "Social" },
-      { to: "/widgets/statistic", text: "Statistic", badge: "new" },
-      { to: "/widgets/chart", text: "Chart" },
-      { to: "/widgets/list", text: "List" }
-    ]
+      { to: '/widgets/social', text: 'Social' },
+      { to: '/widgets/statistic', text: 'Statistic', badge: 'new' },
+      { to: '/widgets/chart', text: 'Chart' },
+      { to: '/widgets/list', text: 'List' },
+    ],
   },
-  { header: "CMS" },
+  { header: 'CMS' },
   {
-    text: "List & Query",
-    group: "layout",
-    to: "cms",
-    icon: "view_compact",
-    children: [
-      { to: "/cms/table", text: "Basic Table" }
-    ]
-  }
+    text: 'List & Query',
+    group: 'layout',
+    to: 'cms',
+    icon: 'view_compact',
+    children: [{ to: '/cms/table', text: 'Basic Table' }],
+  },
 ]
 
 export default Menu
