@@ -3,7 +3,6 @@
     :group="group"
     :prepend-icon="item.icon"
     :sub-group="subGroup"
-    v-model="expand"
     no-action
   >
     <template slot="activator">
