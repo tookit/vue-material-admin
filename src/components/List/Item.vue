@@ -68,11 +68,19 @@ export default {
       default: undefined,
     },
   },
+  data() {
+    return {
+      chipMap: {
+        new: 'primary',
+        updated: 'warning',
+        deprecated: 'black'
+
+      }
+    }
+  },
   computed: {
     chipColor() {
-      if (this.chip === 'new') return 'primary'
-      if (this.chip === 'updated') return 'warning'
-      if (this.chip === 'deprecated') return 'black'
+      return this.chipMap[this.chip]
     },
     customAttrs() {
       const attrs = {
@@ -95,7 +103,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus">
-
-</style>
