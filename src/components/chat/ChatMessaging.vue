@@ -8,19 +8,21 @@
     </template>
     <template v-else>
       <v-layout column>
-        <v-flex sm12 class="white" v-if="showSidebar"> <chat-history> </chat-history> </v-flex>
+        <v-flex sm12 class="white" v-if="showSidebar">
+          <chat-history> </chat-history>
+        </v-flex>
         <v-flex sm12 v-if="showWindow"> <chat-window></chat-window> </v-flex>
       </v-layout>
     </template>
   </v-container>
 </template>
 <script>
-import ChatHistory from "./ChatHistory"
-import ChatWindow from "./ChatWindow"
+import ChatHistory from './ChatHistory'
+import ChatWindow from './ChatWindow'
 export default {
   components: {
     ChatHistory,
-    ChatWindow
+    ChatWindow,
   },
   data() {
     return {}
@@ -31,7 +33,7 @@ export default {
     },
     showWindow() {
       return this.$route.params.uuid !== undefined
-    }
-  }
+    },
+  },
 }
 </script>

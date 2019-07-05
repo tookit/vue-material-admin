@@ -3,7 +3,12 @@
     <v-layout column class="mail-list--layout">
       <v-toolbar fixed app class="elevation-1 mail-list--toolbar">
         <v-checkbox row hide-details class="check-all"></v-checkbox>
-        <v-menu offset-y origin="center center" :nudge-bottom="0" transition="scale-transition">
+        <v-menu
+          offset-y
+          origin="center center"
+          :nudge-bottom="0"
+          transition="scale-transition"
+        >
           <v-btn icon large flat slot="activator">
             <v-avatar size="32px"> <v-icon>arrow_drop_down</v-icon> </v-avatar>
           </v-btn>
@@ -42,16 +47,32 @@
           </v-tabs>
           <v-list two-line class="mail-list--list">
             <template v-for="(item, index) in mails">
-              <v-list-tile avatar ripple :key="index" :to="computeMailPath(item.uuid)">
-                <v-list-tile-action> <v-checkbox></v-checkbox> </v-list-tile-action>
-                <v-list-tile-avatar> <img :src="item.from.avatar" /> </v-list-tile-avatar>
+              <v-list-tile
+                avatar
+                ripple
+                :key="index"
+                :to="computeMailPath(item.uuid)"
+              >
+                <v-list-tile-action>
+                  <v-checkbox></v-checkbox>
+                </v-list-tile-action>
+                <v-list-tile-avatar>
+                  <img :src="item.from.avatar" />
+                </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title>{{ item.from.name }}</v-list-tile-title>
-                  <v-list-tile-sub-title>{{ item.title }}</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>{{
+                    item.title
+                  }}</v-list-tile-sub-title>
                 </v-list-tile-content>
                 <v-list-tile-action>
-                  <v-list-tile-action-text>{{ formatDate(item.created_at) }}</v-list-tile-action-text>
-                  <v-icon @click="toggle(index)" color="grey lighten-1" v-if="selected.indexOf(index) < 0"
+                  <v-list-tile-action-text>{{
+                    formatDate(item.created_at)
+                  }}</v-list-tile-action-text>
+                  <v-icon
+                    @click="toggle(index)"
+                    color="grey lighten-1"
+                    v-if="selected.indexOf(index) < 0"
                     >star_border</v-icon
                   >
                   <v-icon color="yellow darken-2" v-else>star</v-icon>
@@ -66,59 +87,59 @@
   </v-container>
 </template>
 <script>
-import VuePerfectScrollbar from "vue-perfect-scrollbar"
-import { getMailByType } from "@/api/mail"
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import { getMailByType } from '@/api/mail'
 export default {
   components: {
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
   },
   props: {
     mailType: {
       type: String,
-      default: "All"
-    }
+      default: 'All',
+    },
   },
   data: () => ({
     selected: [2],
     mailActions: [
       {
-        href: "#",
-        title: "Delete",
+        href: '#',
+        title: 'Delete',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Mark as read",
-        title: "Mark as read",
+        href: 'Mark as read',
+        title: 'Mark as read',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Spam",
-        title: "Spam",
+        href: 'Spam',
+        title: 'Spam',
         click: e => {
           console.log(e)
-        }
-      }
-    ]
+        },
+      },
+    ],
   }),
   computed: {
     mails() {
       return getMailByType(this.$route.params.mailType)
-    }
+    },
   },
 
   created() {
-    this.$on("MAIL_REPLY_DIALOG_CLOSE", () => {
+    this.$on('MAIL_REPLY_DIALOG_CLOSE', () => {
       this.replayDialog = false
     })
     window.AppMail = this
   },
   methods: {
     computeMailPath(id) {
-      return { path: "/mail/0/" + id }
+      return { path: '/mail/0/' + id }
     },
     formatDate(s) {
       return new Date(s).toLocaleString()
@@ -131,7 +152,7 @@ export default {
       } else {
         this.selected.push(index)
       }
-    }
-  }
+    },
+  },
 }
 </script>

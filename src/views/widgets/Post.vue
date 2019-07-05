@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import MessageList from "@/components/widgets/list/MessageList"
-import NotificationList from "@/components/widgets/list/NotificationList"
-import PlainTable from "@/components/widgets/list/PlainTable"
-import PlainTableOrder from "@/components/widgets/list/PlainTableOrder"
+import MessageList from '@/components/widgets/list/MessageList'
+import NotificationList from '@/components/widgets/list/NotificationList'
+import PlainTable from '@/components/widgets/list/PlainTable'
+import PlainTableOrder from '@/components/widgets/list/PlainTableOrder'
 export default {
   components: {
     MessageList,
     NotificationList,
     PlainTable,
-    PlainTableOrder
+    PlainTableOrder,
   },
   data() {
     return {}
@@ -29,7 +29,7 @@ export default {
   methods: {
     handleClick: e => {
       console.log(e)
-    }
-  }
+    },
+  },
 }
 </script>

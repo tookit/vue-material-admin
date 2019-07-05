@@ -4,8 +4,13 @@
       <v-toolbar-title>Hey Michael, How are you?</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon color="white">close</v-icon> </v-btn>
-      <div slot="extension" class="layout row align-center white grey--text px-2">
-        <v-avatar size="32"> <img src="https://randomuser.me/api/portraits/men/92.jpg" /> </v-avatar>
+      <div
+        slot="extension"
+        class="layout row align-center white grey--text px-2"
+      >
+        <v-avatar size="32">
+          <img src="https://randomuser.me/api/portraits/men/92.jpg" />
+        </v-avatar>
         <div class="subheading pa-1">John Doe</div>
         <v-btn icon> <v-icon color="grey">keyboard_arrow_down</v-icon> </v-btn>
         <v-spacer></v-spacer>
@@ -25,7 +30,7 @@ export default {
   data: () => ({
     toggle_exclusive: 2,
     title:
-      "Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa"
-  })
+      'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa',
+  }),
 }
 </script>

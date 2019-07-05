@@ -7,7 +7,12 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="/static/m.png" alt="Vue Material Admin" width="120" height="120" />
+                  <img
+                    src="/static/m.png"
+                    alt="Vue Material Admin"
+                    width="120"
+                    height="120"
+                  />
                   <h1 class="flex my-4 primary--text">
                     Material Admin Template
                   </h1>
@@ -41,7 +46,13 @@
                   <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="handleLogin" :loading="loading">Login</v-btn>
+                <v-btn
+                  block
+                  color="primary"
+                  @click="handleLogin"
+                  :loading="loading"
+                  >Login</v-btn
+                >
               </div>
             </v-card>
           </v-flex>
@@ -56,19 +67,19 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: "admin@isocked.com",
-      password: "password"
-    }
+      username: 'admin@isocked.com',
+      password: 'password',
+    },
   }),
 
   methods: {
     handleLogin() {
       this.loading = true
       setTimeout(() => {
-        this.$router.push("/dashboard")
+        this.$router.push('/dashboard')
       }, 1000)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped lang="stylus">
@@ -81,5 +92,4 @@ export default {
   left: 0;
   content: "";
   z-index: 0;
-
 </style>

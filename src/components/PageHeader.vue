@@ -6,9 +6,7 @@
     <v-breadcrumbs divider="-" :items="breadcrumbs" v-if="breadcrumbs" />
     <v-spacer />
     <div class="page-header-right">
-      <v-btn icon>
-        <v-icon class="text--secondary">refresh</v-icon>
-      </v-btn>
+      <v-btn icon> <v-icon class="text--secondary">refresh</v-icon> </v-btn>
     </div>
   </v-layout>
 </template>
@@ -53,8 +51,8 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-  .disabled
-    color: grey
-    pointer-events: none
-    text-decoration: blink
+.disabled
+  color: grey
+  pointer-events: none
+  text-decoration: blink
 </style>

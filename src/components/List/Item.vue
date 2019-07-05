@@ -13,9 +13,7 @@
       <v-icon v-text="icon" />
     </v-list-tile-action>
     <v-list-tile-content>
-      <v-list-tile-title>
-        <span v-text="text" />
-      </v-list-tile-title>
+      <v-list-tile-title> <span v-text="text" /> </v-list-tile-title>
       <v-list-tile-sub-title v-if="subtext">
         <span v-text="subtext" />
       </v-list-tile-sub-title>
@@ -73,9 +71,8 @@ export default {
       chipMap: {
         new: 'primary',
         updated: 'warning',
-        deprecated: 'black'
-
-      }
+        deprecated: 'black',
+      },
     }
   },
   computed: {

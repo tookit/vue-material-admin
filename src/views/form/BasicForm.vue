@@ -5,7 +5,9 @@
         <v-flex lg6>
           <v-card class="mb-4">
             <v-toolbar color="teal" dark flat dense cad>
-              <v-toolbar-title class="subheading">Payment Form with validation</v-toolbar-title>
+              <v-toolbar-title class="subheading"
+                >Payment Form with validation</v-toolbar-title
+              >
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
@@ -17,7 +19,9 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text class=""> <shipment-form></shipment-form> </v-card-text>
+            <v-card-text class="">
+              <shipment-form></shipment-form>
+            </v-card-text>
           </v-card>
         </v-flex>
         <v-flex lg6> <event-form></event-form> </v-flex>
@@ -27,23 +31,23 @@
 </template>
 
 <script>
-import VWidget from "@/components/VWidget"
-import EventForm from "@/components/widgets/form/EventForm"
-import ContactForm from "@/components/widgets/form/ContactForm"
-import PaymentForm from "@/components/widgets/form/PaymentForm"
-import ShipmentForm from "@/components/widgets/form/ShipmentForm"
+import VWidget from '@/components/VWidget'
+import EventForm from '@/components/widgets/form/EventForm'
+import ContactForm from '@/components/widgets/form/ContactForm'
+import PaymentForm from '@/components/widgets/form/PaymentForm'
+import ShipmentForm from '@/components/widgets/form/ShipmentForm'
 export default {
   components: {
     VWidget,
     ContactForm,
     PaymentForm,
     ShipmentForm,
-    EventForm
+    EventForm,
   },
   data() {
     return {}
   },
   computed: {},
-  methods: {}
+  methods: {},
 }
 </script>

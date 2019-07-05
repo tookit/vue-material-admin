@@ -1,9 +1,8 @@
-
-import colors from "vuetify/es5/util/colors"
+import colors from 'vuetify/es5/util/colors'
 
 const state = {
   mode: 'light',
-  themeColor: 'pink'
+  themeColor: 'pink',
 }
 
 // getters
@@ -14,15 +13,13 @@ const getters = {
 }
 
 // actions
-const actions = {
-}
+const actions = {}
 
 // mutations
 const mutations = {
   setThemeColor(state, payload) {
     state.themeColor = payload
   },
-
 }
 
 export default {
@@ -30,5 +27,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

@@ -4,14 +4,18 @@
       <v-responsive v-if="showTopNav">
         <v-layout row justify-space-between class="ma-0">
           <v-flex xs2> <v-icon color="pink">favorite</v-icon> </v-flex>
-          <v-flex xs2 class="text-sm-right"> <v-icon>more_vert</v-icon> </v-flex>
+          <v-flex xs2 class="text-sm-right">
+            <v-icon>more_vert</v-icon>
+          </v-flex>
         </v-layout>
       </v-responsive>
       <v-card-text>
         <div class="layout ma-0 align-center" :class="computeCardLayout">
           <v-avatar :size="computeAvatarSize" color="primary">
             <img :src="avatar.src" :alt="name" v-if="showAvatar" />
-            <span v-else class="white--text headline">{{ name.charAt(0) }}</span>
+            <span v-else class="white--text headline">{{
+              name.charAt(0)
+            }}</span>
           </v-avatar>
           <div class="flex" :class="computeTextAlgin">
             <div class="subheading">{{ name }}</div>
@@ -20,7 +24,12 @@
         </div>
       </v-card-text>
     </v-card>
-    <v-bottom-nav :value="true" color="transparent" :height="64" v-if="showBottomNav">
+    <v-bottom-nav
+      :value="true"
+      color="transparent"
+      :height="64"
+      v-if="showBottomNav"
+    >
       <v-btn flat color="teal" value="recent">
         <span>Recent</span>
         <v-icon>history</v-icon>
@@ -42,51 +51,51 @@ export default {
   props: {
     name: {
       type: String,
-      default: ""
+      default: '',
     },
     avatar: {
       type: Object,
-      default: null
+      default: null,
     },
     jobTitle: {
       type: String,
-      default: ""
+      default: '',
     },
     cardBgImage: {
-      type: String
+      type: String,
     },
     color: {
       type: String,
-      default: ""
+      default: '',
     },
     dark: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bottomNav: {
       type: Boolean,
-      default: false
+      default: false,
     },
     topNav: {
       type: Boolean,
-      default: false
+      default: false,
     },
     mini: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({}),
 
   computed: {
     computeCardLayout() {
-      return this.mini ? "row" : "column"
+      return this.mini ? 'row' : 'column'
     },
     computeTextAlgin() {
-      return this.mini ? "text-sm-right" : "text-sm-center"
+      return this.mini ? 'text-sm-right' : 'text-sm-center'
     },
     computeAvatarSize() {
-      return this.mini ? "48" : "96"
+      return this.mini ? '48' : '96'
     },
     showAvatar() {
       return this.avatar !== null && this.avatar.src
@@ -98,10 +107,10 @@ export default {
 
     showTopNav() {
       return this.mini === false && this.topNav
-    }
+    },
   },
 
-  methods: {}
+  methods: {},
 }
 </script>
 

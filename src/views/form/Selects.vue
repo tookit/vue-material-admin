@@ -18,7 +18,9 @@
                       single-line
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6> <v-subheader>Standard with focus</v-subheader> </v-flex>
+                  <v-flex xs6>
+                    <v-subheader>Standard with focus</v-subheader>
+                  </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -62,7 +64,9 @@
                       item-value="abbr"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6> <v-subheader>Auto complete</v-subheader> </v-flex>
+                  <v-flex xs6>
+                    <v-subheader>Auto complete</v-subheader>
+                  </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -96,7 +100,9 @@
                       return-object
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6> <v-subheader>Tags and chips</v-subheader> </v-flex>
+                  <v-flex xs6>
+                    <v-subheader>Tags and chips</v-subheader>
+                  </v-flex>
                   <v-flex xs6>
                     <v-select
                       :items="countries"
@@ -122,12 +128,17 @@
                       :items="items"
                       item-text="country"
                       item-value="country"
-                      :rules="[() => select.length > 0 || 'You must choose at least one']"
+                      :rules="[
+                        () =>
+                          select.length > 0 || 'You must choose at least one',
+                      ]"
                       :search-input.sync="search"
                       v-model="select"
                     ></v-select>
                   </v-flex>
-                  <v-flex xs6> <v-subheader>Slots - Closable chips</v-subheader> </v-flex>
+                  <v-flex xs6>
+                    <v-subheader>Slots - Closable chips</v-subheader>
+                  </v-flex>
                   <v-flex xs6>
                     <v-select
                       label="Select"
@@ -148,7 +159,9 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{ data.item.abbr.slice(0, 1).toUpperCase() }}</v-avatar>
+                          <v-avatar class="accent">{{
+                            data.item.abbr.slice(0, 1).toUpperCase()
+                          }}</v-avatar>
                           {{ data.item.country }}
                         </v-chip>
                       </template>
@@ -174,7 +187,9 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{ data.item.abbr.slice(0, 1).toUpperCase() }}</v-avatar>
+                          <v-avatar class="accent">{{
+                            data.item.abbr.slice(0, 1).toUpperCase()
+                          }}</v-avatar>
                           {{ data.item.country }}
                         </v-chip>
                       </template>
@@ -191,11 +206,11 @@
 </template>
 
 <script>
-import VWidget from "@/components/VWidget"
-import Countries from "@/api/country"
+import VWidget from '@/components/VWidget'
+import Countries from '@/api/country'
 export default {
   components: {
-    VWidget
+    VWidget,
   },
   data() {
     return {
@@ -215,14 +230,14 @@ export default {
       multi3: [],
       multi4: [],
       multi5: [],
-      countries: Countries
+      countries: Countries,
     }
   },
   computed: {},
   watch: {
     search(val) {
       val && this.querySelections(val)
-    }
+    },
   },
   methods: {
     querySelections(v) {
@@ -231,11 +246,14 @@ export default {
       // Simulated ajax query
       setTimeout(() => {
         this.items = this.countries.filter(e => {
-          return (e.country || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1
+          return (
+            (e.country || '').toLowerCase().indexOf((v || '').toLowerCase()) >
+            -1
+          )
         })
         this.loading = false
       }, 500)
-    }
-  }
+    },
+  },
 }
 </script>

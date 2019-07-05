@@ -11,11 +11,15 @@
         <v-flex xs2> <v-subheader>To</v-subheader> </v-flex>
         <v-flex xs10 class="text-xs-right">
           <v-chip>
-            <v-avatar> <img src="https://randomuser.me/api/portraits/men/92.jpg" /> </v-avatar>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/92.jpg" />
+            </v-avatar>
             Trevor Hansen
           </v-chip>
           <v-chip>
-            <v-avatar> <img src="https://randomuser.me/api/portraits/men/91.jpg" /> </v-avatar>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/91.jpg" />
+            </v-avatar>
             Alex Nelson
           </v-chip>
         </v-flex>
@@ -23,7 +27,9 @@
         <v-flex xs2> <v-subheader>CC</v-subheader> </v-flex>
         <v-flex xs10 class="text-xs-right">
           <v-chip>
-            <v-avatar> <img src="https://randomuser.me/api/portraits/men/92.jpg" /> </v-avatar>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/92.jpg" />
+            </v-avatar>
             John Doe
           </v-chip>
         </v-flex>
@@ -39,7 +45,7 @@
         </v-flex>
         <v-flex xs12>
           <v-divider></v-divider>
-          <v-text-field
+          <v-textarea
             label="Message"
             v-model="title"
             counter
@@ -47,7 +53,7 @@
             full-width
             multi-line
             single-line
-          ></v-text-field>
+          ></v-textarea>
         </v-flex>
       </v-layout>
     </v-container>
@@ -58,7 +64,7 @@
 export default {
   data: () => ({
     title:
-      "Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa"
-  })
+      'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa',
+  }),
 }
 </script>

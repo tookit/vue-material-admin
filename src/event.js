@@ -1,54 +1,54 @@
 export default [
   {
-    name: "APP_LOGIN_SUCCESS",
+    name: 'APP_LOGIN_SUCCESS',
     callback: () => {
-      this.$router.push({ path: "dashboard" })
-    }
+      this.$router.push({ path: 'dashboard' })
+    },
   },
   {
-    name: "APP_LOGOUT",
+    name: 'APP_LOGOUT',
     callback: () => {
       this.$snackbar = {
         show: true,
-        color: "green",
-        text: "Logout successfully."
+        color: 'green',
+        text: 'Logout successfully.',
       }
-    }
+    },
   },
   {
-    name: "APP_PAGE_LOADED",
-    callback: () => {}
+    name: 'APP_PAGE_LOADED',
+    callback: () => {},
   },
   {
-    name: "APP_AUTH_FAILED",
+    name: 'APP_AUTH_FAILED',
     callback: () => {
-      this.$router.push("/login")
-      this.$message.error("Token has expired")
-    }
+      this.$router.push('/login')
+      this.$message.error('Token has expired')
+    },
   },
   {
-    name: "APP_BAD_REQUEST",
+    name: 'APP_BAD_REQUEST',
     callback: msg => {
       this.$message.error(msg)
-    }
+    },
   },
   {
-    name: "APP_ACCESS_DENIED",
+    name: 'APP_ACCESS_DENIED',
     callback: msg => {
       this.$message.error(msg)
-      this.$router.push("/forbidden")
-    }
+      this.$router.push('/forbidden')
+    },
   },
   {
-    name: "APP_RESOURCE_DELETED",
+    name: 'APP_RESOURCE_DELETED',
     callback: msg => {
       this.$message.success(msg)
-    }
+    },
   },
   {
-    name: "APP_RESOURCE_UPDATED",
+    name: 'APP_RESOURCE_UPDATED',
     callback: msg => {
       this.$message.success(msg)
-    }
-  }
+    },
+  },
 ]

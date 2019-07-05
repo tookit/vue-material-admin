@@ -171,12 +171,12 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-  .media
-    &-cotent--wrap, &-menu
-      min-width: 260px
-      border-right: 1px solid #eee
-      min-height: calc(100vh - 50px - 64px)
-    &-detail
-      min-width: 300px
-      border-left: 1px solid #eee
+.media
+  &-cotent--wrap, &-menu
+    min-width: 260px
+    border-right: 1px solid #eee
+    min-height: calc(100vh - 50px - 64px)
+  &-detail
+    min-width: 300px
+    border-left: 1px solid #eee
 </style>

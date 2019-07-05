@@ -2,7 +2,9 @@
   <v-card flat>
     <v-responsive height="380" src="/static/bg/4.jpg">
       <v-layout column align-center justify-center>
-        <v-avatar size="200" class="mx-5"> <img :src="user.avatar" :alt="user.name" /> </v-avatar>
+        <v-avatar size="200" class="mx-5">
+          <img :src="user.avatar" :alt="user.name" />
+        </v-avatar>
         <h1 class="white--text">{{ user.name }}</h1>
       </v-layout>
     </v-responsive>
@@ -10,19 +12,25 @@
       <v-layout row wrap class="grey lighten-4 pa-3">
         <v-flex xs4>
           <div class="layout column justify-center align-center">
-            <v-btn icon outline color="indigo"> <v-icon>fa fa-facebook</v-icon> </v-btn>
+            <v-btn icon outline color="indigo">
+              <v-icon>fa fa-facebook</v-icon>
+            </v-btn>
             <h3 class="indigo--text">100+</h3>
           </div>
         </v-flex>
         <v-flex xs4>
           <div class="layout column justify-center align-center">
-            <v-btn icon outline color="pink"> <v-icon>fa fa-instagram</v-icon> </v-btn>
+            <v-btn icon outline color="pink">
+              <v-icon>fa fa-instagram</v-icon>
+            </v-btn>
             <h3 class="pink--text">200+</h3>
           </div>
         </v-flex>
         <v-flex xs4>
           <div class="layout column justify-center align-center">
-            <v-btn icon outline color="blue"> <v-icon>fa fa-twitter</v-icon> </v-btn>
+            <v-btn icon outline color="blue">
+              <v-icon>fa fa-twitter</v-icon>
+            </v-btn>
             <h3 class="blue--text">50+</h3>
           </div>
         </v-flex>
@@ -36,7 +44,9 @@
               <v-card-text>
                 <v-list two-line class="pa-0">
                   <v-list-tile href="#">
-                    <v-list-tile-action> <v-icon color="indigo">work</v-icon> </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-icon color="indigo">work</v-icon>
+                    </v-list-tile-action>
                     <v-list-tile-content>
                       <v-list-tile-title>{{ user.jobTitle }}</v-list-tile-title>
                       <v-list-tile-sub-title>Job Title</v-list-tile-sub-title>
@@ -45,16 +55,22 @@
                   </v-list-tile>
                   <v-divider inset></v-divider>
                   <v-list-tile href="#">
-                    <v-list-tile-action> <v-icon color="indigo">phone</v-icon> </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-icon color="indigo">phone</v-icon>
+                    </v-list-tile-action>
                     <v-list-tile-content>
                       <v-list-tile-title>{{ user.phone }}</v-list-tile-title>
                       <v-list-tile-sub-title>Mobile</v-list-tile-sub-title>
                     </v-list-tile-content>
-                    <v-list-tile-action> <v-icon>chat</v-icon> </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-icon>chat</v-icon>
+                    </v-list-tile-action>
                   </v-list-tile>
                   <v-divider inset></v-divider>
                   <v-list-tile href="#">
-                    <v-list-tile-action> <v-icon color="indigo">mail</v-icon> </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-icon color="indigo">mail</v-icon>
+                    </v-list-tile-action>
                     <v-list-tile-content>
                       <v-list-tile-title>{{ user.email }}</v-list-tile-title>
                       <v-list-tile-sub-title>Personal</v-list-tile-sub-title>
@@ -62,9 +78,13 @@
                   </v-list-tile>
                   <v-divider inset></v-divider>
                   <v-list-tile href="#">
-                    <v-list-tile-action> <v-icon color="indigo">location_on</v-icon> </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-icon color="indigo">location_on</v-icon>
+                    </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>{{ user.address.street }}</v-list-tile-title>
+                      <v-list-tile-title>{{
+                        user.address.street
+                      }}</v-list-tile-title>
                       <v-list-tile-sub-title
                         >{{ user.address.city }}, {{ user.address.state }}
                         {{ user.address.zipcode }}</v-list-tile-sub-title
@@ -83,23 +103,23 @@
 </template>
 
 <script>
-import { getUserById } from "@/api/user"
+import { getUserById } from '@/api/user'
 export default {
   data() {
     return {
       chat: null,
-      selectedTab: null
+      selectedTab: null,
     }
   },
   computed: {
     user() {
       let Origin = {
-        name: "Chat",
-        avatar: ""
+        name: 'Chat',
+        avatar: '',
       }
       let user = getUserById(this.$route.params.uuid)
       return Object.assign(Origin, user)
-    }
-  }
+    },
+  },
 }
 </script>

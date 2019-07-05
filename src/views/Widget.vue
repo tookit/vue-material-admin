@@ -2,15 +2,9 @@
   <div class="page-lists">
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
-        <v-flex lg4>
-          <profile-card></profile-card>
-        </v-flex>
-        <v-flex lg4>
-          <menu-card></menu-card>
-        </v-flex>
-        <v-flex lg4>
-          <setting-card></setting-card>
-        </v-flex>
+        <v-flex lg4> <profile-card></profile-card> </v-flex>
+        <v-flex lg4> <menu-card></menu-card> </v-flex>
+        <v-flex lg4> <setting-card></setting-card> </v-flex>
       </v-layout>
     </v-container>
   </div>

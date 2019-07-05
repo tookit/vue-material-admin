@@ -1,8 +1,5 @@
 <template>
-  <v-list
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
+  <v-list v-bind="$attrs" v-on="$listeners">
     <slot />
     <v-list-tile
       v-for="(item, i) in items"
@@ -11,7 +8,7 @@
       :to="item.to"
       v-bind="{
         target: item.href ? '_blank' : undefined,
-        rel: item.href ? 'noopener': undefined
+        rel: item.href ? 'noopener' : undefined,
       }"
     >
       <v-list-tile-icon v-if="item[itemIcon]">
@@ -29,29 +26,29 @@
 </template>
 
 <script>
-  export default {
-    inheritAttrs: false,
-    props: {
-      items: {
-        type: Array,
-        default: () => ([])
-      },
-      itemIcon: {
-        type: String,
-        default: 'icon'
-      },
-      itemSubTitle: {
-        type: String,
-        default: 'subTitle'
-      },
-      itemText: {
-        type: String,
-        default: 'text'
-      },
-      itemValue: {
-        type: String,
-        default: 'value'
-      }
-    }
-  }
+export default {
+  inheritAttrs: false,
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    itemIcon: {
+      type: String,
+      default: 'icon',
+    },
+    itemSubTitle: {
+      type: String,
+      default: 'subTitle',
+    },
+    itemText: {
+      type: String,
+      default: 'text',
+    },
+    itemValue: {
+      type: String,
+      default: 'value',
+    },
+  },
+}
 </script>

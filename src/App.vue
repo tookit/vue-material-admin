@@ -75,8 +75,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .setting-fab
-    top: 50% !important
-    right: 0
-    border-radius: 0
+.setting-fab
+  top: 50% !important
+  right: 0
+  border-radius: 0
 </style>

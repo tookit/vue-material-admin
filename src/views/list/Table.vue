@@ -30,18 +30,44 @@
                 v-model="complex.selected"
               >
                 <template slot="items" slot-scope="props">
-                  <td><v-checkbox primary hide-details v-model="props.selected"></v-checkbox></td>
                   <td>
-                    <v-avatar size="32"> <img :src="props.item.avatar" alt /> </v-avatar>
+                    <v-checkbox
+                      primary
+                      hide-details
+                      v-model="props.selected"
+                    ></v-checkbox>
+                  </td>
+                  <td>
+                    <v-avatar size="32">
+                      <img :src="props.item.avatar" alt />
+                    </v-avatar>
                   </td>
                   <td>{{ props.item.name }}</td>
                   <td>{{ props.item.email }}</td>
                   <td>{{ props.item.phone }}</td>
                   <td>
-                    <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
+                    <v-btn
+                      depressed
+                      outline
+                      icon
+                      fab
+                      dark
+                      color="primary"
+                      small
+                      @click="handleClick(props.item)"
+                    >
                       <v-icon>edit</v-icon>
                     </v-btn>
-                    <v-btn depressed outline icon fab dark color="pink" small @click="handleDelete(props.item)">
+                    <v-btn
+                      depressed
+                      outline
+                      icon
+                      fab
+                      dark
+                      color="pink"
+                      small
+                      @click="handleDelete(props.item)"
+                    >
                       <v-icon>delete</v-icon>
                     </v-btn>
                   </td>
@@ -52,7 +78,12 @@
         </v-flex>
         <v-flex sm12> <h3>Basic Table</h3> </v-flex>
         <v-flex lg12>
-          <v-data-table :headers="basic.headers" :items="basic.items" hide-actions class="elevation-1">
+          <v-data-table
+            :headers="basic.headers"
+            :items="basic.items"
+            hide-actions
+            class="elevation-1"
+          >
             <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.calories }}</td>
@@ -70,8 +101,17 @@
         <v-toolbar card>Edit User</v-toolbar>
         <v-card-text>
           <form>
-            <v-text-field v-model="formModel.name" :counter="10" label="Name" required></v-text-field>
-            <v-text-field v-model="formModel.email" label="E-mail" required></v-text-field>
+            <v-text-field
+              v-model="formModel.name"
+              :counter="10"
+              label="Name"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="formModel.email"
+              label="E-mail"
+              required
+            ></v-text-field>
             <v-divider class="mt-3 mb-3"></v-divider>
             <v-btn @click="handleSubmit">submit</v-btn>
           </form>
@@ -82,149 +122,149 @@
 </template>
 
 <script>
-import { Items as Users } from "@/api/user"
+import { Items as Users } from '@/api/user'
 export default {
   data() {
     return {
       formModel: {
-        name: "",
-        email: ""
+        name: '',
+        email: '',
       },
       dialog: false,
-      search: "",
+      search: '',
       complex: {
         selected: [],
         headers: [
           {
-            text: "Avatar",
-            value: "avatar"
+            text: 'Avatar',
+            value: 'avatar',
           },
           {
-            text: "Name",
-            value: "name"
+            text: 'Name',
+            value: 'name',
           },
           {
-            text: "Email",
-            value: "email"
+            text: 'Email',
+            value: 'email',
           },
           {
-            text: "Phone",
-            value: "phone"
+            text: 'Phone',
+            value: 'phone',
           },
           {
-            text: "Action",
-            value: ""
-          }
+            text: 'Action',
+            value: '',
+          },
         ],
-        items: Users
+        items: Users,
       },
       basic: {
         headers: [
           {
-            text: "Dessert (100g serving)",
-            align: "left",
+            text: 'Dessert (100g serving)',
+            align: 'left',
             sortable: false,
-            value: "name"
+            value: 'name',
           },
-          { text: "Calories", value: "calories" },
-          { text: "Fat (g)", value: "fat" },
-          { text: "Carbs (g)", value: "carbs" },
-          { text: "Protein (g)", value: "protein" },
-          { text: "Iron (%)", value: "iron" }
+          { text: 'Calories', value: 'calories' },
+          { text: 'Fat (g)', value: 'fat' },
+          { text: 'Carbs (g)', value: 'carbs' },
+          { text: 'Protein (g)', value: 'protein' },
+          { text: 'Iron (%)', value: 'iron' },
         ],
         items: [
           {
             value: false,
-            name: "Frozen Yogurt",
+            name: 'Frozen Yogurt',
             calories: 159,
             fat: 6.0,
             carbs: 24,
             protein: 4.0,
-            iron: "1%"
+            iron: '1%',
           },
           {
             value: false,
-            name: "Ice cream sandwich",
+            name: 'Ice cream sandwich',
             calories: 237,
             fat: 9.0,
             carbs: 37,
             protein: 4.3,
-            iron: "1%"
+            iron: '1%',
           },
           {
             value: false,
-            name: "Eclair",
+            name: 'Eclair',
             calories: 262,
             fat: 16.0,
             carbs: 23,
             protein: 6.0,
-            iron: "7%"
+            iron: '7%',
           },
           {
             value: false,
-            name: "Cupcake",
+            name: 'Cupcake',
             calories: 305,
             fat: 3.7,
             carbs: 67,
             protein: 4.3,
-            iron: "8%"
+            iron: '8%',
           },
           {
             value: false,
-            name: "Gingerbread",
+            name: 'Gingerbread',
             calories: 356,
             fat: 16.0,
             carbs: 49,
             protein: 3.9,
-            iron: "16%"
+            iron: '16%',
           },
           {
             value: false,
-            name: "Jelly bean",
+            name: 'Jelly bean',
             calories: 375,
             fat: 0.0,
             carbs: 94,
             protein: 0.0,
-            iron: "0%"
+            iron: '0%',
           },
           {
             value: false,
-            name: "Lollipop",
+            name: 'Lollipop',
             calories: 392,
             fat: 0.2,
             carbs: 98,
             protein: 0,
-            iron: "2%"
+            iron: '2%',
           },
           {
             value: false,
-            name: "Honeycomb",
+            name: 'Honeycomb',
             calories: 408,
             fat: 3.2,
             carbs: 87,
             protein: 6.5,
-            iron: "45%"
+            iron: '45%',
           },
           {
             value: false,
-            name: "Donut",
+            name: 'Donut',
             calories: 452,
             fat: 25.0,
             carbs: 51,
             protein: 4.9,
-            iron: "22%"
+            iron: '22%',
           },
           {
             value: false,
-            name: "KitKat",
+            name: 'KitKat',
             calories: 518,
             fat: 26.0,
             carbs: 65,
             protein: 7,
-            iron: "6%"
-          }
-        ]
-      }
+            iron: '6%',
+          },
+        ],
+      },
     }
   },
   methods: {
@@ -234,7 +274,7 @@ export default {
     },
 
     handleDelete(row) {},
-    handleSubmit() {}
-  }
+    handleSubmit() {},
+  },
 }
 </script>

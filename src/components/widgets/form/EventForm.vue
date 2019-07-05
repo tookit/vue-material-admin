@@ -8,7 +8,10 @@
     <v-card-text>
       <v-form v-model="valid" ref="form" lazy-validation>
         <v-layout row wrap>
-          <v-flex lg12 sm12> <v-text-field label="Title" name="title" v-model="title"> </v-text-field> </v-flex>
+          <v-flex lg12 sm12>
+            <v-text-field label="Title" name="title" v-model="title">
+            </v-text-field>
+          </v-flex>
           <v-flex sm6 lg6>
             <v-menu
               class="pr-2"
@@ -32,8 +35,15 @@
               ></v-text-field>
               <v-date-picker v-model="startDate" no-title scrollable>
                 <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="startDateMenu = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.statDate.save(startDate)">OK</v-btn>
+                <v-btn flat color="primary" @click="startDateMenu = false"
+                  >Cancel</v-btn
+                >
+                <v-btn
+                  flat
+                  color="primary"
+                  @click="$refs.statDate.save(startDate)"
+                  >OK</v-btn
+                >
               </v-date-picker>
             </v-menu>
           </v-flex>
@@ -59,8 +69,15 @@
               ></v-text-field>
               <v-time-picker v-model="startTime">
                 <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="startTimeMenu = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.startTime.save(startTime)">OK</v-btn>
+                <v-btn flat color="primary" @click="startTimeMenu = false"
+                  >Cancel</v-btn
+                >
+                <v-btn
+                  flat
+                  color="primary"
+                  @click="$refs.startTime.save(startTime)"
+                  >OK</v-btn
+                >
               </v-time-picker>
             </v-menu>
           </v-flex>
@@ -87,8 +104,12 @@
               ></v-text-field>
               <v-date-picker v-model="endDate" no-title scrollable>
                 <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="endDateMenu = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.endDate.save(endDate)">OK</v-btn>
+                <v-btn flat color="primary" @click="endDateMenu = false"
+                  >Cancel</v-btn
+                >
+                <v-btn flat color="primary" @click="$refs.endDate.save(endDate)"
+                  >OK</v-btn
+                >
               </v-date-picker>
             </v-menu>
           </v-flex>
@@ -114,12 +135,18 @@
               ></v-text-field>
               <v-time-picker v-model="endTime">
                 <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="endTimeMenu = false">Cancel</v-btn>
-                <v-btn flat color="primary" @click="$refs.endTime.save(endTime)">OK</v-btn>
+                <v-btn flat color="primary" @click="endTimeMenu = false"
+                  >Cancel</v-btn
+                >
+                <v-btn flat color="primary" @click="$refs.endTime.save(endTime)"
+                  >OK</v-btn
+                >
               </v-time-picker>
             </v-menu>
           </v-flex>
-          <v-flex lg12 sm12> <v-text-field textarea label="Description"> </v-text-field> </v-flex>
+          <v-flex lg12 sm12>
+            <v-text-field textarea label="Description"> </v-text-field>
+          </v-flex>
           <v-spacer></v-spacer>
         </v-layout>
       </v-form>
@@ -145,12 +172,12 @@ export default {
     endDate: null,
     endTimeMenu: false,
     endTime: null,
-    modal: false
+    modal: false,
   }),
   methods: {
     closeDialog() {
       this.$parent.isActive = false
-    }
-  }
+    },
+  },
 }
 </script>

@@ -3,9 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <!-- mini chart -->
-        <v-flex sm12>
-          <h4>Mini Chart</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Mini Chart</h4> </v-flex>
         <v-flex lg3 sm6>
           <mini-chart
             title="Monthly Sales"
@@ -38,7 +36,12 @@
                   </span>
                 </div>
                 <div class="chart">
-                  <v-progress-circular :size="60" :width="5" :rotate="360" :value="10" color="success"
+                  <v-progress-circular
+                    :size="60"
+                    :width="5"
+                    :rotate="360"
+                    :value="10"
+                    color="success"
                     >10</v-progress-circular
                   >
                 </div>
@@ -59,9 +62,7 @@
       </v-layout>
       <!-- box chart -->
       <v-layout row wrap>
-        <v-flex sm12>
-          <h4>Box Chart</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Box Chart</h4> </v-flex>
         <v-flex lg4 sm6 xs12>
           <box-chart
             title="Page views"
@@ -97,9 +98,7 @@
       </v-layout>
       <!-- complex chart -->
       <v-layout row wrap>
-        <v-flex sm12>
-          <h4>Complex Chart</h4>
-        </v-flex>
+        <v-flex sm12> <h4>Complex Chart</h4> </v-flex>
         <v-flex lg4 sm12>
           <v-card dark color="green">
             <v-card-title>
@@ -124,7 +123,7 @@
                   ['series[0].barWidth', '50%'],
                   ['series[1].barWidth', '50%'],
                   ['series[1].type', 'bar'],
-                  ['series[1].itemStyle.normal.color', color.shades.white]
+                  ['series[1].itemStyle.normal.color', color.shades.white],
                 ]"
                 height="200px"
                 width="100%"
@@ -138,7 +137,12 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                  <v-progress-circular
+                    :size="100"
+                    :width="15"
+                    :rotate="360"
+                    :value="10"
+                    color="blue"
                     >10</v-progress-circular
                   >
                 </div>
@@ -164,7 +168,7 @@
                   ['grid.bottom', '0'],
                   ['grid.right', '0'],
                   ['xAxis.show', false],
-                  ['yAxis.show', false]
+                  ['yAxis.show', false],
                 ]"
                 height="200px"
                 width="100%"
@@ -178,7 +182,12 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                  <v-progress-circular
+                    :size="100"
+                    :width="15"
+                    :rotate="360"
+                    :value="10"
+                    color="blue"
                     >10</v-progress-circular
                   >
                 </div>
@@ -207,7 +216,7 @@
                   ['grid.right', '0'],
                   ['yAxis.show', false],
                   ['series[0].areaStyle', {}],
-                  ['series[0].smooth', true]
+                  ['series[0].smooth', true],
                 ]"
                 height="200px"
                 width="100%"
@@ -221,7 +230,12 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class>
-                  <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
+                  <v-progress-circular
+                    :size="100"
+                    :width="15"
+                    :rotate="360"
+                    :value="10"
+                    color="blue"
                     >10</v-progress-circular
                   >
                 </div>
@@ -243,8 +257,8 @@
                       color.pink.base,
                       color.green.base,
                       color.teal.base,
-                      color.purple.base
-                    ]
+                      color.purple.base,
+                    ],
                   ],
                   ['legend.orient', 'horizontal'],
                   ['legend.y', 'bottom'],
@@ -252,7 +266,7 @@
                   ['yAxis.show', false],
                   ['series[0].type', 'pie'],
                   ['series[0].avoidLabelOverlap', true],
-                  ['series[0].radius', ['50%', '70%']]
+                  ['series[0].radius', ['50%', '70%']],
                 ]"
                 height="350px"
                 width="100%"
@@ -274,14 +288,14 @@
                       color.pink.base,
                       color.green.base,
                       color.cyan.base,
-                      color.teal.base
-                    ]
+                      color.teal.base,
+                    ],
                   ],
                   ['legend.orient', 'horizontal'],
                   ['legend.y', 'bottom'],
                   ['xAxis.show', false],
                   ['yAxis.show', false],
-                  ['series[0].type', 'pie']
+                  ['series[0].type', 'pie'],
                 ]"
                 height="350px"
                 width="100%"
@@ -301,7 +315,7 @@
                       ['color', [color.lightBlue.base, color.purple.base]],
                       ['dataset.source', dataset.monthVisit],
                       ['series[0].type', 'bar'],
-                      ['series[1].type', 'bar']
+                      ['series[1].type', 'bar'],
                     ]"
                     height="350px"
                     width="100%"
@@ -311,7 +325,10 @@
               <v-tab-item value="tab-2">
                 <v-card>
                   <e-chart
-                    :path-option="[['dataset.source', dataset.monthVisit], ['series[0].type', 'line']]"
+                    :path-option="[
+                      ['dataset.source', dataset.monthVisit],
+                      ['series[0].type', 'line'],
+                    ]"
                     height="350px"
                     width="100%"
                   ></e-chart>
@@ -326,31 +343,37 @@
 </template>
 
 <script>
-import EChart from "@/components/chart/echart"
-import { StackData, SinData, monthVisitData, campaignData, locationData } from "@/api/chart"
-import Material from "vuetify/es5/util/colors"
-import MiniChart from "@/components/widgets/chart/MiniChart"
-import BoxChart from "@/components/widgets/chart/BoxChart"
-import VWidget from "@/components/VWidget"
+import EChart from '@/components/chart/echart'
+import {
+  StackData,
+  SinData,
+  monthVisitData,
+  campaignData,
+  locationData,
+} from '@/api/chart'
+import Material from 'vuetify/es5/util/colors'
+import MiniChart from '@/components/widgets/chart/MiniChart'
+import BoxChart from '@/components/widgets/chart/BoxChart'
+import VWidget from '@/components/VWidget'
 export default {
   components: {
     BoxChart,
     MiniChart,
     EChart,
-    VWidget
+    VWidget,
   },
   data() {
     return {
-      selectedTab: "tab-1",
+      selectedTab: 'tab-1',
       option: null,
       dataset: {
         sinData: SinData,
         monthVisit: monthVisitData,
         campaign: campaignData,
         location: locationData,
-        stackData: StackData
+        stackData: StackData,
       },
-      color: Material
+      color: Material,
     }
   },
   created() {
@@ -359,8 +382,8 @@ export default {
   methods: {
     handleTabChange(val, e) {
       // make sure the chart resized while parent from hidden to show
-      window.dispatchEvent(new Event("resize"))
-    }
-  }
+      window.dispatchEvent(new Event('resize'))
+    },
+  },
 }
 </script>
