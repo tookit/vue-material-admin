@@ -1,9 +1,10 @@
 <template>
   <v-list-group
-    :group="group"
+    :group="item.group"
     :prepend-icon="item.icon"
     :sub-group="subGroup"
     no-action
+    :value="active"
   >
     <template slot="activator">
       <list-item :text="item.text" />
@@ -59,11 +60,11 @@ export default {
     group() {
       return this.genGroup(this.item.children, this.item)
     },
-    expand() {
+    active() {
       const found = this.item.children.filter(
         item => item.to === this.$route.path
       )
-      return found.length
+      return found.length > 0 ? true : false
     },
   },
   methods: {
