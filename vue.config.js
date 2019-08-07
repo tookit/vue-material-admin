@@ -61,6 +61,10 @@ module.exports = {
     express: {
       shouldServeApp: true,
       serverDir: './server'
+    },
+    'style-resources-loader': {
+      preProcessor: 'stylus',
+      patterns: []
     }
   }
 }
