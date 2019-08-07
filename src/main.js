@@ -9,13 +9,15 @@ import 'font-awesome/css/font-awesome.css'
 import './theme/default.styl'
 
 import App from './App.vue'
+import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
 const app = new Vue({
   router,
   store,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 })
 
 app.$mount('#app')
