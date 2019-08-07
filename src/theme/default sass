@@ -10,7 +10,7 @@
 /*------------------------------------------------------------------
 [Global]
 */
-@import '~vuetify/src/stylus/main.styl'
+@import '~vuetify/src/stylus/main.sass'
 
 body
   font-family: $body-font-family

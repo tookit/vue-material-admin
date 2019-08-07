@@ -63,7 +63,7 @@ module.exports = {
       serverDir: './server'
     },
     'style-resources-loader': {
-      preProcessor: 'stylus',
+      preProcessor: 'sass',
       patterns: []
     }
   }
