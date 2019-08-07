@@ -55,5 +55,12 @@ module.exports = {
   },
 
   assetsDir: 'static',
-  runtimeCompiler: true
+  runtimeCompiler: true,
+
+  pluginOptions: {
+    express: {
+      shouldServeApp: true,
+      serverDir: './server'
+    }
+  }
 }
