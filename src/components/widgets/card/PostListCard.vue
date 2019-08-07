@@ -72,36 +72,36 @@ export default {
 }
 </script>
 
-<style scoped>
-.ft-200 {
-  font-weight: 200;
-}
-.post--item:hover {
-  background: #f6f6f6;
-}
-.post--item a {
-  text-decoration: none;
-}
-.flex-list.vertical {
-  flex-direction: column;
-}
-.flex-list li {
-  display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
-}
-.flex-list li:last-child {
-  border: none;
-}
+<style lang="sass" scoped>
+.ft-200 
+  font-weight: 200
 
-.flexbox-centering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.post--item:hover 
+  background: #f6f6f6
 
-.image-scale:hover {
-  transform: scale(1.05);
-  transition: 0.7s;
-}
+.post--item a 
+  text-decoration: none
+
+.flex-list.vertical 
+  flex-direction: column
+
+.flex-list li 
+  display: flex
+  padding: 15px 0
+  border-bottom: 1px solid #eee
+
+.flex-list li:last-child 
+  border: none
+
+
+.flexbox-centering 
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+.image-scale:hover 
+  transform: scale(1.05)
+  transition: 0.7s
+
 </style>

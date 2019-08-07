@@ -158,7 +158,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .color-option
   &--label
     position: relative

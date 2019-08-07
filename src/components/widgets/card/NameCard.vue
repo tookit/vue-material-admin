@@ -114,8 +114,9 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.caption, .subheading {
-  font-weight:200;
-}
+<style lang="sass" scoped>
+.caption 
+.subheading 
+  font-weight:200
+
 </style>

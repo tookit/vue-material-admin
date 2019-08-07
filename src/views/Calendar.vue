@@ -118,7 +118,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .my-event
   overflow: hidden
   text-overflow: ellipsis

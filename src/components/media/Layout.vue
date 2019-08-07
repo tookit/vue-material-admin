@@ -98,13 +98,13 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .media-menu
-  min-width:260px;
-  border-right:1px solid #eee;
-  min-height:calc(100vh - 50px - 64px);
+  min-width:260px
+  border-right:1px solid #eee
+  min-height:calc(100vh - 50px - 64px)
 
 .media-detail
-  min-width:300px;
-  border-left:1px solid #eee;
+  min-width:300px
+  border-left:1px solid #eee
 </style>

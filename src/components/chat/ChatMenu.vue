@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass" scoped>
 .mini-tile
   a.list__tile--active
     background:hsla(0,0%,100%,.12)

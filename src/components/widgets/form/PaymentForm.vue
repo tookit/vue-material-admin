@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .payment-method
   border: 1px solid #eee
 </style>

@@ -170,7 +170,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .media
   &-cotent--wrap, &-menu
     min-width: 260px

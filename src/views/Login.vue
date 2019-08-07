@@ -82,14 +82,14 @@ export default {
   },
 }
 </script>
-<style scoped lang="stylus">
+<style lang="sass" scoped></style>
 
 .split-bg
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  z-index: 0;
+  height: 50%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  content: ""
+  z-index: 0
 </style>

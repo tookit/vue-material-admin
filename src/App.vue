@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="sass" scoped>
 .setting-fab
   top: 50% !important
   right: 0
