@@ -10,7 +10,7 @@ import {
   DEFAULT_FIXED_HEADER_HIDDEN,
   DEFAULT_CONTENT_WIDTH_TYPE
 } from "@/store/mutations"
-
+import Cookies from 'js-cookie'
 const app = {
   state: {
     sidebar: true,
@@ -23,7 +23,7 @@ const app = {
     autoHideHeader: false,
     color: "indigo",
     weak: false,
-    multiTab: true
+    multiTab: true,
   },
   mutations: {
     SET_SIDEBAR_TYPE: (state, type) => {

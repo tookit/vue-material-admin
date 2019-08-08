@@ -9,14 +9,14 @@
         <v-text-field
           append-icon="person"
           name="login"
-          label="Login"
+          :label="$t('login.account')"
           type="text"
           v-model="model.username"
         ></v-text-field>
         <v-text-field
           append-icon="lock"
           name="password"
-          label="Password"
+          :label="$t('login.password')"
           id="password"
           type="password"
           v-model="model.password"
@@ -34,7 +34,7 @@
         <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
+      <v-btn block color="primary" @click="login" :loading="loading">{{$t("login.submit")}}</v-btn>
     </div>
   </v-card>
 </template>

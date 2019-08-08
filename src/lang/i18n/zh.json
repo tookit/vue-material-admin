@@ -1,0 +1,8 @@
+{
+  "home": "首页",
+  "login": {
+    "account": "账号",
+    "password": "密码",
+    "submit": "登录"
+  }
+}

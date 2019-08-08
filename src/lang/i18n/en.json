@@ -1,0 +1,8 @@
+{
+  "home": "Home",
+  "login": {
+    "account": "Login",
+    "password": "Password",
+    "submit": "LOGIN"
+  }
+}
