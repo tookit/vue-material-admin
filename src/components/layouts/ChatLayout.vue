@@ -23,7 +23,7 @@
       <v-content class="chat-main">
         <transition> <router-view></router-view> </transition>
       </v-content>
-      <v-bottom-nav
+      <v-bottom-navigation
         :value="true"
         absolute
         color="primary"
@@ -33,7 +33,7 @@
       >
         <v-btn
           dark
-          flat
+          text
           :value="item.to.path"
           v-for="(item, index) in menus"
           :key="index"
@@ -42,7 +42,7 @@
           <span>{{ item.text }}</span>
           <v-icon>{{ item.icon }}</v-icon>
         </v-btn>
-      </v-bottom-nav>
+      </v-bottom-navigation>
     </template>
   </v-app>
 </template>

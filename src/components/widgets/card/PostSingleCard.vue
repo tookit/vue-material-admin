@@ -36,20 +36,20 @@
               <small>50+</small>
             </a>
           </div>
-          <v-btn outline flat color="primary"> More </v-btn>
+          <v-btn outlined text color="primary"> More </v-btn>
         </div>
       </div>
     </v-card-text>
     <v-divider></v-divider>
-    <v-toolbar card color="white">
+    <v-app-bar text color="white">
       <v-text-field
-        flat
+        text
         solo
         label="Comment here"
         append-icon="photo_camera"
         hide-details=""
       ></v-text-field>
-    </v-toolbar>
+    </v-app-bar >
   </v-card>
 </template>
 

@@ -13,29 +13,28 @@
         <v-subheader>History</v-subheader>
         <template v-for="(item, index) in chats">
           <v-divider :key="index"></v-divider>
-          <v-list-tile
+          <v-list-item
             class="chat-list"
-            avatar
             :key="item.title + index"
             :to="chatRoute(item.uuid)"
           >
-            <v-list-tile-avatar :color="randomAvatarColor(item)">
+            <v-list-item-avatar :color="randomAvatarColor(item)">
               <img :src="item.user.avatar" v-if="item.users.length === 1" />
               <span v-else class="white--text headline">{{
                 firstLetter(item.title)
               }}</span>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ computeTitle(item) }}</v-list-tile-title>
-              <v-list-tile-sub-title>Some Latest message</v-list-tile-sub-title>
-            </v-list-tile-content>
-            <v-list-tile-action>
-              <v-list-tile-action-text>{{
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>{{ computeTitle(item) }}</v-list-item-title>
+              <v-list-item-subtitle>Some Latest message</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-action>
+              <v-list-item-action-text>{{
                 formatChatTime(item.created_at)
-              }}</v-list-tile-action-text>
+              }}</v-list-item-action-text>
               <v-circle dot small :color="chatStatusColor(item)"></v-circle>
-            </v-list-tile-action>
-          </v-list-tile>
+            </v-list-item-action>
+          </v-list-item>
         </template>
       </v-list>
     </vue-perfect-scrollbar>

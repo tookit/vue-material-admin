@@ -1,10 +1,10 @@
 <template>
   <v-card class="post-card">
-    <v-toolbar color="transparent" flat dense card>
+    <v-app-bar flat color="transparent" text dense>
       <v-toolbar-title class="subheading ft-200">Recent Posts</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon class="text--secondary">more_vert</v-icon> </v-btn>
-    </v-toolbar>
+    </v-app-bar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <ul class="post--list flex-list vertical">

@@ -5,10 +5,17 @@
 
 ## Plan and features
 * will create a new template by vue-cli 3.x 
-* will remove some useless code becuase of the vuetify framework updates  
+* will remove some useless code because of the vuetify framework updates  
 * may add vue-nuxt support
 * may add vuex support and sample code
 * will refactor the whole code 
+
+## Migration to Vuetify 2.x
+TODO:
+* Media flex list 
+* Colors in theme settings
+* login box title
+* login box buttons alignement
 
 ## Introduction
 Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
@@ -83,7 +90,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * [Vuetifyjs](https://vuetifyjs.com/)
 * [Vue](https://vuejs.org/index.html/)
 * [ECharts](http://echarts.baidu.com/option.html)
-* [Stylus](http://stylus-lang.com/)
+* [SASS](http://sass-lang.com/)
 
 ### Donate
 If you find this project useful, you can buy author a glass of juice :tropical_drink:

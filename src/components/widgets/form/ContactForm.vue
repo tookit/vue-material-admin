@@ -62,17 +62,19 @@
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
     <v-card-actions>
-      <v-btn flat>Cancel</v-btn>
+      <v-btn text>Cancel</v-btn>
       <v-spacer></v-spacer>
       <v-slide-x-reverse-transition>
         <v-tooltip left v-if="formHasErrors">
-          <v-btn icon @click="resetForm" slot="activator" class="my-0">
-            <v-icon>refresh</v-icon>
-          </v-btn>
+          <template v-slot:activator="{ on }">
+            <v-btn icon @click="resetForm" slot="activator" class="my-0" v-on="on">
+              <v-icon>refresh</v-icon>
+            </v-btn>
+          </template>
           <span>Refresh form</span>
         </v-tooltip>
       </v-slide-x-reverse-transition>
-      <v-btn color="primary" flat @click="submit">Submit</v-btn>
+      <v-btn color="primary" text @click="submit">Submit</v-btn>
     </v-card-actions>
   </v-card>
 </template>

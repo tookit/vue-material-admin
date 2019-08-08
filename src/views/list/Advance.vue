@@ -7,7 +7,7 @@
           <v-card>
             <v-toolbar card color="white">
               <v-text-field
-                flat
+                text
                 solo
                 prepend-icon="search"
                 placeholder="Type something"
@@ -23,10 +23,10 @@
                 :headers="complex.headers"
                 :search="search"
                 :items="complex.items"
-                :rows-per-page-items="[10, 25, 50, { text: 'All', value: -1 }]"
+                :items-per-page-options="[10, 25, 50, { text: 'All', value: -1 }]"
                 class="elevation-1"
                 item-key="name"
-                select-all
+                show-select
                 v-model="complex.selected"
               >
                 <template slot="items" slot-scope="props">
@@ -71,7 +71,7 @@
           <v-data-table
             :headers="basic.headers"
             :items="basic.items"
-            hide-actions
+            hide-default-footer
             class="elevation-1"
           >
             <template slot="items" slot-scope="props">

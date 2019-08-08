@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-toolbar color="teal" dark>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>Topics</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
@@ -14,23 +14,23 @@
         :prepend-icon="item.action"
         no-action
       >
-        <v-list-tile slot="activator">
-          <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
+        <v-list-item slot="activator">
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
           v-for="subItem in item.items"
           :key="subItem.title"
           href="#"
         >
-          <v-list-tile-content>
-            <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-          </v-list-tile-content>
-          <v-list-tile-action>
+          <v-list-item-content>
+            <v-list-item-title>{{ subItem.title }}</v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action>
             <v-icon>{{ subItem.action }}</v-icon>
-          </v-list-tile-action>
-        </v-list-tile>
+          </v-list-item-action>
+        </v-list-item>
       </v-list-group>
     </v-list>
   </v-card>

@@ -84,7 +84,7 @@
                 ></v-text-field>
               </v-card-text>
               <v-toolbar dense class="elevation-1">
-                <v-btn flat icon> <v-icon>send</v-icon> </v-btn>
+                <v-btn text icon> <v-icon>send</v-icon> </v-btn>
                 <v-btn icon> <v-icon>attach_file</v-icon> </v-btn>
                 <v-btn icon> <v-icon>link</v-icon> </v-btn>
                 <v-btn icon> <v-icon>camera</v-icon> </v-btn>

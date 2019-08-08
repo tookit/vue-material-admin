@@ -66,8 +66,8 @@
       <v-switch label="Save My Card Detials" v-model="saveCard"></v-switch>
     </div>
     <div class="form-btn">
-      <v-btn outline @click="submit" color="primary">Submit</v-btn>
-      <v-btn outline @click="clear">Clear</v-btn>
+      <v-btn outlined @click="submit" color="primary">Submit</v-btn>
+      <v-btn outlined @click="clear">Clear</v-btn>
     </div>
   </v-form>
 </template>

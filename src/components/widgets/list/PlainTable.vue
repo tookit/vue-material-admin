@@ -1,17 +1,17 @@
 <template>
   <v-card>
-    <v-toolbar card dense color="transparent">
+    <v-app-bar text dense color="transparent">
       <v-toolbar-title><h4>Project</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
-    </v-toolbar>
+    </v-app-bar >
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <template>
         <v-data-table
           :headers="headers"
           :items="projects"
-          hide-actions
+          hide-default-footer
           class="elevation-0"
         >
           <template slot="items" slot-scope="props">
@@ -30,8 +30,8 @@
               ></v-progress-linear>
             </td>
             <td class="text-xs-right">
-              <v-btn flat icon color="grey"> <v-icon>edit</v-icon> </v-btn>
-              <v-btn flat icon color="grey"> <v-icon>delete</v-icon> </v-btn>
+              <v-btn text icon color="grey"> <v-icon>edit</v-icon> </v-btn>
+              <v-btn text icon color="grey"> <v-icon>delete</v-icon> </v-btn>
             </td>
           </template>
         </v-data-table>

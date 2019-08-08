@@ -3,19 +3,19 @@
     <div class="layout column">
       <v-toolbar class="elevation-0 transparent">
         <v-btn-toggle>
-          <v-btn flat>
+          <v-btn text>
             <v-icon>cloud_upload</v-icon>
             &nbsp;Upload
           </v-btn>
-          <v-btn flat>
+          <v-btn text>
             <v-icon>folder</v-icon>
             &nbsp; Add Folder
           </v-btn>
         </v-btn-toggle>
         <v-spacer></v-spacer>
         <v-btn-toggle v-model="view">
-          <v-btn flat value="list"> <v-icon>view_headline</v-icon> </v-btn>
-          <v-btn flat value="grid"> <v-icon>view_list</v-icon> </v-btn>
+          <v-btn text value="list"> <v-icon>view_headline</v-icon> </v-btn>
+          <v-btn text value="grid"> <v-icon>view_list</v-icon> </v-btn>
         </v-btn-toggle>
       </v-toolbar>
       <v-divider></v-divider>
@@ -23,18 +23,18 @@
     <div class="layout row">
       <div class="media-aside media-menu">
         <v-list dense class="transparent">
-          <v-list-tile
+          <v-list-item
             v-for="(item, index) in mediaMenu"
             :key="index"
             :to="item.to"
           >
-            <v-list-tile-action v-if="item.icon">
+            <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </div>
       <div class="media-content flex transparent">

@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <v-flex lg6>
           <v-card class="mb-4">
-            <v-toolbar color="teal" dark flat dense cad>
+            <v-toolbar color="teal" dark text dense cad>
               <v-toolbar-title class="subheading"
                 >Payment Form with validation</v-toolbar-title
               >
@@ -14,7 +14,7 @@
             <v-card-text class=""> <payment-form></payment-form> </v-card-text>
           </v-card>
           <v-card>
-            <v-toolbar color="success" dark flat dense cad>
+            <v-toolbar color="success" dark text dense cad>
               <v-toolbar-title class="subheading">Ship Form</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
