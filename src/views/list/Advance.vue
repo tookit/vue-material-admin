@@ -23,7 +23,12 @@
                 :headers="complex.headers"
                 :search="search"
                 :items="complex.items"
-                :items-per-page-options="[10, 25, 50, { text: 'All', value: -1 }]"
+                :items-per-page-options="[
+                  10,
+                  25,
+                  50,
+                  { text: 'All', value: -1 },
+                ]"
                 class="elevation-1"
                 item-key="name"
                 show-select

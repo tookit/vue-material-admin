@@ -51,7 +51,6 @@
         </v-flex>
         <v-flex lg3 sm6>
           <mini-chart
-            title="Sales Trend"
             sub-title="10%"
             icon="trending_down"
             :data="dataset.monthVisit"
@@ -380,6 +379,7 @@ export default {
     console.log(this.$refs.chart)
   },
   methods: {
+    /* eslint-disable-line no-unused-vars */
     handleTabChange(val, e) {
       // make sure the chart resized while parent from hidden to show
       window.dispatchEvent(new Event('resize'))

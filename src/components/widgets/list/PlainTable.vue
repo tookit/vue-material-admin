@@ -4,7 +4,7 @@
       <v-toolbar-title><h4>Project</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
-    </v-app-bar >
+    </v-app-bar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <template>

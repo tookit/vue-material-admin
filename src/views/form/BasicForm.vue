@@ -38,10 +38,14 @@ import PaymentForm from '@/components/widgets/form/PaymentForm'
 import ShipmentForm from '@/components/widgets/form/ShipmentForm'
 export default {
   components: {
+    /* eslint-disable-line vue/no-unused-components */
     VWidget,
+    /* eslint-disable-line vue/no-unused-components */
     ContactForm,
+    /* eslint-disable-line vue/no-unused-components */
     PaymentForm,
     ShipmentForm,
+    /* eslint-disable-line vue/no-unused-components */
     EventForm,
   },
   data() {

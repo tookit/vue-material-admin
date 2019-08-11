@@ -103,6 +103,7 @@
 import VWidget from '@/components/VWidget'
 export default {
   components: {
+    /* eslint-disable-line vue/no-unused-components */
     VWidget,
   },
   data() {

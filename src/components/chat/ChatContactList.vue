@@ -14,10 +14,7 @@
         <v-subheader>Contacts</v-subheader>
         <template v-for="(item, index) in users">
           <v-divider :key="index"></v-divider>
-          <v-list-item
-            :key="item.name + index"
-            :to="contactRoute(item.uuid)"
-          >
+          <v-list-item :key="item.name + index" :to="contactRoute(item.uuid)">
             <v-list-item-avatar color="primary">
               <img :src="item.avatar" v-if="item.avatar" />
               <span v-else class="white--text headline">{{

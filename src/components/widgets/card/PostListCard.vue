@@ -73,35 +73,34 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.ft-200 
+.ft-200
   font-weight: 200
 
-.post--item:hover 
+.post--item:hover
   background: #f6f6f6
 
-.post--item a 
+.post--item a
   text-decoration: none
 
-.flex-list.vertical 
+.flex-list.vertical
   flex-direction: column
 
-.flex-list li 
+.flex-list li
   display: flex
   padding: 15px 0
   border-bottom: 1px solid #eee
 
-.flex-list li:last-child 
+.flex-list li:last-child
   border: none
 
 
-.flexbox-centering 
+.flexbox-centering
   display: flex
   justify-content: center
   align-items: center
 
 
-.image-scale:hover 
+.image-scale:hover
   transform: scale(1.05)
   transition: 0.7s
-
 </style>

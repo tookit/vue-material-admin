@@ -14,6 +14,8 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
+    'no-unused-vars': 'off',
+    'vue/no-unused-components': 'off'
   },
 
   parserOptions: {

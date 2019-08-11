@@ -49,7 +49,7 @@
         append-icon="photo_camera"
         hide-details=""
       ></v-text-field>
-    </v-app-bar >
+    </v-app-bar>
   </v-card>
 </template>
 

@@ -181,7 +181,7 @@ export default {
   },
   methods: {
     init() {
-      const { widthChangeDelay } = this
+      //const { widthChangeDelay } = this
       // set
       if (this.pathOption) {
         this.pathOption.forEach(p => {
@@ -192,7 +192,7 @@ export default {
       this.chartInstance.setOption(
         _object.merge(this.option, this.$data._defaultOption)
       )
-      window.addEventListener('optimizedResize', e => {
+      window.addEventListener('optimizedResize', () => {
         setTimeout(_ => {
           this.chartInstance.resize()
         }, this.widthChangeDelay)

@@ -82,8 +82,7 @@ export default {
   },
 }
 </script>
-<style lang="sass" scoped></style>
-
+<style lang="sass" scoped>
 .split-bg
   height: 50%
   width: 100%

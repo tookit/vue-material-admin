@@ -4,7 +4,7 @@
       <v-toolbar-title class="body-2">Add New Event</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="closeDialog"> <v-icon>close</v-icon> </v-btn>
-    </v-app-bar >
+    </v-app-bar>
     <v-card-text>
       <v-form v-model="valid" ref="form" lazy-validation>
         <v-layout row wrap>
@@ -65,13 +65,14 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                slot="activator"
-                label="Start Time"
-                v-model="startTime"
-                append-icon="access_time"
-                readonly
-                v-on="on"
-              ></v-text-field>
+                  slot="activator"
+                  label="Start Time"
+                  v-model="startTime"
+                  append-icon="access_time"
+                  readonly
+                  v-on="on"
+                ></v-text-field>
+              </template>
               <v-time-picker v-model="startTime">
                 <v-spacer></v-spacer>
                 <v-btn text color="primary" @click="startTimeMenu = false"
@@ -102,13 +103,14 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                slot="activator"
-                label="End Date"
-                v-model="endDate"
-                append-icon="event"
-                readonly
-                v-on="on"
-              ></v-text-field>
+                  slot="activator"
+                  label="End Date"
+                  v-model="endDate"
+                  append-icon="event"
+                  readonly
+                  v-on="on"
+                ></v-text-field>
+              </template>
               <v-date-picker v-model="endDate" no-title scrollable>
                 <v-spacer></v-spacer>
                 <v-btn text color="primary" @click="endDateMenu = false"
@@ -135,13 +137,14 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                slot="activator"
-                label="End Time"
-                v-model="endTime"
-                append-icon="access_time"
-                readonly
-                v-on="on"
-              ></v-text-field>
+                  slot="activator"
+                  label="End Time"
+                  v-model="endTime"
+                  append-icon="access_time"
+                  readonly
+                  v-on="on"
+                ></v-text-field>
+              </template>
               <v-time-picker v-model="endTime">
                 <v-spacer></v-spacer>
                 <v-btn text color="primary" @click="endTimeMenu = false"

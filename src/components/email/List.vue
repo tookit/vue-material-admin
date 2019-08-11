@@ -11,7 +11,9 @@
         >
           <template v-slot:activator="{ on }">
             <v-btn icon large text slot="activator">
-              <v-avatar size="32px"> <v-icon>arrow_drop_down</v-icon> </v-avatar>
+              <v-avatar size="32px">
+                <v-icon>arrow_drop_down</v-icon>
+              </v-avatar>
             </v-btn>
           </template>
           <v-list class="pa-0">
@@ -49,11 +51,7 @@
           </v-tabs>
           <v-list two-line class="mail-list--list">
             <template v-for="(item, index) in mails">
-              <v-list-item
-                ripple
-                :key="index"
-                :to="computeMailPath(item.uuid)"
-              >
+              <v-list-item ripple :key="index" :to="computeMailPath(item.uuid)">
                 <v-list-item-action>
                   <v-checkbox></v-checkbox>
                 </v-list-item-action>
@@ -62,9 +60,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-title>{{ item.from.name }}</v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    item.title
-                  }}</v-list-item-subtitle>
+                  <v-list-item-subtitle>{{ item.title }}</v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>
                   <v-list-item-action-text>{{

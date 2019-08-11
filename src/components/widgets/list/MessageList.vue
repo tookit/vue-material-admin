@@ -2,7 +2,7 @@
   <v-card>
     <v-app-bar text dense color="transparent">
       <v-toolbar-title><h4>Message</h4></v-toolbar-title>
-    </v-app-bar >
+    </v-app-bar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <v-list two-line class="pa-0">

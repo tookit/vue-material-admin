@@ -28,7 +28,7 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-h1 
+h1
   font-size: 150px
   line-height: 150px
   font-weight: 700
