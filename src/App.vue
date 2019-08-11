@@ -1,5 +1,5 @@
 <template>
-  <div class="app-root">
+  <v-app :dark="true">
     <router-view></router-view>
     <!-- theme setting -->
     <v-btn
@@ -40,7 +40,7 @@
         <v-icon>close</v-icon>
       </v-btn>
     </v-snackbar>
-  </div>
+  </v-app>
 </template>
 
 <script>
