@@ -53,9 +53,8 @@
                 v-for="(item, index) in files"
                 :key="index"
               >
-                <a @click="showDetail(item)" class="d-flex">
-                  <v-card text tile>
-                    <v-responsive height="150px" width="150px">
+                  <v-card text tile @click="showDetail(item)">
+                    <v-responsive height="150px" class="card-media">
                       <img :src="item.path" alt="" v-if="isImage(item)" />
                       <v-icon class="mx-auto" size="135" v-else
                         >insert_drive_file</v-icon
@@ -64,7 +63,6 @@
                     <v-divider></v-divider>
                     <v-card-title> {{ item.fileName }} </v-card-title>
                   </v-card>
-                </a>
               </v-flex>
             </v-layout>
           </v-container>
@@ -170,6 +168,8 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
+.card-media img 
+    width: 100%
 .media
   &-cotent--wrap, &-menu
     min-width: 260px
