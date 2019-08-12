@@ -17,5 +17,3 @@ release
 *.ntvs*
 *.njsproj
 *.sln
-
-dist/
