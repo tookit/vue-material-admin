@@ -8,14 +8,7 @@
 * will remove some useless code because of the vuetify framework updates  
 * may add vue-nuxt support
 * may add vuex support and sample code
-* will refactor the whole code 
-
-## Migration to Vuetify 2.x
-TODO:
-* Media flex list 
-* Colors in theme settings
-* login box title
-* login box buttons alignement
+* will refactor the whole code
 
 ## Introduction
 Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
