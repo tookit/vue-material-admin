@@ -14,25 +14,21 @@
         <v-subheader>Contacts</v-subheader>
         <template v-for="(item, index) in users">
           <v-divider :key="index"></v-divider>
-          <v-list-tile
-            avatar
-            :key="item.name + index"
-            :to="contactRoute(item.uuid)"
-          >
-            <v-list-tile-avatar color="primary">
+          <v-list-item :key="item.name + index" :to="contactRoute(item.uuid)">
+            <v-list-item-avatar color="primary">
               <img :src="item.avatar" v-if="item.avatar" />
               <span v-else class="white--text headline">{{
                 firstLetter(item.name)
               }}</span>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ item.jobTitle }}</v-list-tile-sub-title>
-            </v-list-tile-content>
-            <v-list-tile-action>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+              <v-list-item-subtitle>{{ item.jobTitle }}</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-action>
               <v-circle dot small :color="userStatusColor(item)"></v-circle>
-            </v-list-tile-action>
-          </v-list-tile>
+            </v-list-item-action>
+          </v-list-item>
         </template>
       </v-list>
     </vue-perfect-scrollbar>

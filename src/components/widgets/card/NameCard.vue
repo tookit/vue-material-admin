@@ -24,25 +24,25 @@
         </div>
       </v-card-text>
     </v-card>
-    <v-bottom-nav
+    <v-bottom-navigation
       :value="true"
       color="transparent"
       :height="64"
       v-if="showBottomNav"
     >
-      <v-btn flat color="teal" value="recent">
+      <v-btn text color="teal" value="recent">
         <span>Recent</span>
         <v-icon>history</v-icon>
       </v-btn>
-      <v-btn flat color="teal" value="favorites">
+      <v-btn text color="teal" value="favorites">
         <span>Favorites</span>
         <v-icon>favorite</v-icon>
       </v-btn>
-      <v-btn flat color="teal" value="nearby">
+      <v-btn text color="teal" value="nearby">
         <span>Nearby</span>
         <v-icon>place</v-icon>
       </v-btn>
-    </v-bottom-nav>
+    </v-bottom-navigation>
   </div>
 </template>
 
@@ -114,8 +114,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.caption, .subheading {
-  font-weight:200;
-}
+<style lang="sass" scoped>
+.caption
+.subheading
+  font-weight:200
 </style>

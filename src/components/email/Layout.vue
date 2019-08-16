@@ -1,18 +1,18 @@
 <template>
   <v-app class="mail">
-    <v-toolbar
+    <v-app-bar
       fixed
       app
-      flat
+      text
       dark
       color="indigo"
       clipped-left
       class="mail-toolbar"
     >
-      <v-toolbar-side-icon
+      <v-app-bar-nav-icon
         class="hidden-sm-and-up"
         @click="toggleDrawer"
-      ></v-toolbar-side-icon>
+      ></v-app-bar-nav-icon>
       <v-avatar class="hidden-sm-and-down">
         <img src="/static/m.png" alt="Vue Material Mail" />
       </v-avatar>
@@ -21,7 +21,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
-        flat
+        text
         solo-inverted
         prepend-icon="search"
         label="What are you looking for?"
@@ -35,13 +35,15 @@
         :nudge-bottom="10"
         transition="scale-transition"
       >
-        <v-btn icon large flat slot="activator">
-          <v-avatar size="32px">
-            <img src="https://randomuser.me/api/portraits/men/1.jpg" />
-          </v-avatar>
-        </v-btn>
+        <template v-slot:activator="{ on }">
+          <v-btn icon large text slot="activator" v-on="on">
+            <v-avatar size="32px">
+              <img src="https://randomuser.me/api/portraits/men/1.jpg" />
+            </v-avatar>
+          </v-btn>
+        </template>
         <v-list class="pa-0">
-          <v-list-tile
+          <v-list-item
             v-for="(item, index) in items"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
@@ -52,16 +54,16 @@
             rel="noopener"
             :key="index"
           >
-            <v-list-tile-action v-if="item.icon">
+            <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </v-menu>
-    </v-toolbar>
+    </v-app-bar>
     <v-navigation-drawer class="mail-drawer" fixed clipped v-model="drawer" app>
       <div class="layout column pa-3">
         <v-btn large block color="red" dark @click.stop="dialog = true">
@@ -79,16 +81,16 @@
             </v-flex>
           </v-layout>
           <!-- Top level -->
-          <v-list-tile v-else :key="item.text" :to="item.to">
-            <v-list-tile-action v-if="item.icon">
+          <v-list-item v-else :key="item.text" :to="item.to">
+            <v-list-item-action v-if="item.icon">
               <v-icon :color="item.iconColor" :small="item.iconSize">{{
                 item.icon
               }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </template>
       </v-list>
     </v-navigation-drawer>
@@ -195,4 +197,4 @@ export default {
   },
 }
 </script>
-<style lang="stylus"></style>
+<style lang="sass" scoped></style>

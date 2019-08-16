@@ -2,21 +2,21 @@
   <div class="media">
     <v-toolbar class="elevation-0 transparent media-toolbar">
       <v-btn-toggle>
-        <v-btn flat>
+        <v-btn text>
           <v-icon color="primary">cloud_upload</v-icon>
           &nbsp;Upload
         </v-btn>
-        <v-btn flat>
+        <v-btn text>
           <v-icon color="primary">folder</v-icon>
           &nbsp; Add Folder
         </v-btn>
       </v-btn-toggle>
       <v-spacer></v-spacer>
       <v-btn-toggle v-model="view">
-        <v-btn flat value="list">
+        <v-btn text value="list">
           <v-icon color="primary">view_headline</v-icon>
         </v-btn>
-        <v-btn flat value="grid">
+        <v-btn text value="grid">
           <v-icon color="primary">view_list</v-icon>
         </v-btn>
       </v-btn-toggle>
@@ -35,7 +35,7 @@
                 v-for="(item, index) in folders"
                 :key="'folder' + index"
               >
-                <v-card flat tile>
+                <v-card text tile>
                   <v-responsive height="150px">
                     <v-icon size="135" class="mx-auto" color="indigo"
                       >folder</v-icon
@@ -53,25 +53,22 @@
                 v-for="(item, index) in files"
                 :key="index"
               >
-                <a @click="showDetail(item)" class="d-flex">
-                  <v-card flat tile>
-                    <v-responsive height="150px" width="150px">
-                      <img :src="item.path" alt="" v-if="isImage(item)" />
-                      <v-icon class="mx-auto" size="135" v-else
-                        >insert_drive_file</v-icon
-                      >
-                    </v-responsive>
-                    <v-divider></v-divider>
-                    <v-card-title> {{ item.fileName }} </v-card-title>
-                  </v-card>
-                </a>
+                <v-card text tile @click="showDetail(item)">
+                  <v-responsive height="150px" class="card-media">
+                    <img :src="item.path" alt="" v-if="isImage(item)" />
+                    <v-icon class="mx-auto" size="135" v-else
+                      >insert_drive_file</v-icon
+                    >
+                  </v-responsive>
+                  <v-divider></v-divider>
+                  <v-card-title> {{ item.fileName }} </v-card-title>
+                </v-card>
               </v-flex>
             </v-layout>
           </v-container>
           <v-layout column v-else>
             <v-list dense class="transparent">
               <v-list-tile
-                avatar
                 @click="showDetail(item)"
                 v-for="(item, index) in files"
                 :key="'list-file-' + index"
@@ -170,7 +167,9 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
+.card-media img
+    width: 100%
 .media
   &-cotent--wrap, &-menu
     min-width: 260px

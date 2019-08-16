@@ -50,7 +50,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .disabled
   color: grey
   pointer-events: none

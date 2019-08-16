@@ -41,9 +41,12 @@
 </template>
 <script>
 import menu from '@/api/menu'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import ListGroup from '@/components/List/Group'
 import ListItem from '@/components/List/Item'
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+// import VuePerfectScrollbar from 'vue2-perfect-scrollbar'
+// import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
+
 export default {
   name: 'AppDrawer',
   components: {
@@ -105,7 +108,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .app--drawer
   overflow: hidden
 

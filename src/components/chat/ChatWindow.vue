@@ -1,6 +1,6 @@
 <template>
   <v-card class="chat-room">
-    <v-toolbar card dense flat class="white chat-room--toolbar" light>
+    <v-app-bar text dense class="white chat-room--toolbar" light>
       <v-btn icon>
         <v-icon color="text--secondary">keyboard_arrow_left</v-icon>
       </v-btn>
@@ -18,12 +18,14 @@
       <v-toolbar-title> <h4>Chat Channel</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
-        <v-btn icon slot="activator">
-          <v-icon color="text--secondary">add</v-icon>
-        </v-btn>
+        <template v-slot:activator="{ on }">
+          <v-btn icon slot="activator" v-on="on">
+            <v-icon color="text--secondary">add</v-icon>
+          </v-btn>
+        </template>
         <span>Add user</span>
       </v-tooltip>
-    </v-toolbar>
+    </v-app-bar>
     <vue-perfect-scrollbar
       class="chat-room--scrollbar grey lighten-5"
       :style="computeHeight"
@@ -58,7 +60,7 @@
     <v-card-actions>
       <v-text-field
         full-width
-        flat
+        text
         clearable
         solo
         append-icon="send"

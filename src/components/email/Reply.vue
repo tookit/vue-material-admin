@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="pa-0 mail-reply">
     <v-layout column class="mail-reply--layout">
-      <v-toolbar flat fixed class="mail-reply--toolbar" app>
+      <v-app-bar text fixed class="mail-reply--toolbar" app>
         <v-toolbar-title>
           <v-avatar size="32"> <img :src="mail.from.avatar" /> </v-avatar>
           <span>&nbsp;{{ mail.from.name }}</span>
@@ -14,7 +14,7 @@
         <v-btn icon small> <v-icon small>reply_all</v-icon> </v-btn>
         <v-btn icon small> <v-icon small>delete</v-icon> </v-btn>
         <v-btn icon small> <v-icon small>expand_more</v-icon> </v-btn>
-      </v-toolbar>
+      </v-app-bar>
       <v-flex class="mail-reply--content">
         <vue-perfect-scrollbar class="mail-reply--scrollbar">
           <v-card style="min-height:100vh">
@@ -30,7 +30,7 @@
                   <v-divider class="my-4"></v-divider>
                   <div class="py-3">
                     <v-alert
-                      outline
+                      outlined
                       color="primary"
                       icon="attach_file"
                       :value="true"
@@ -48,12 +48,12 @@
                         multi-line
                       ></v-textarea>
                     </v-card-text>
-                    <v-toolbar dense flat>
+                    <v-toolbar dense text>
                       <v-btn icon> <v-icon>attach_file</v-icon> </v-btn>
                       <v-btn icon> <v-icon>link</v-icon> </v-btn>
                       <v-btn icon> <v-icon>camera</v-icon> </v-btn>
                       <v-spacer></v-spacer>
-                      <v-btn flat icon> <v-icon>send</v-icon> </v-btn>
+                      <v-btn text icon> <v-icon>send</v-icon> </v-btn>
                     </v-toolbar>
                   </v-card>
                 </div>

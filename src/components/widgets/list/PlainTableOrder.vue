@@ -1,17 +1,17 @@
 <template>
   <v-card>
-    <v-toolbar card dense color="transparent">
+    <v-app-bar text dense color="transparent">
       <v-toolbar-title><h4>Order</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
-    </v-toolbar>
+    </v-app-bar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <template>
         <v-data-table
           :headers="headers"
           :items="items"
-          hide-actions
+          hide-default-footer
           class="elevation-0 table-striped"
         >
           <template slot="items" slot-scope="props">

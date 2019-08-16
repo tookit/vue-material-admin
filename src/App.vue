@@ -1,5 +1,5 @@
 <template>
-  <div class="app-root">
+  <v-app :dark="true">
     <router-view></router-view>
     <!-- theme setting -->
     <v-btn
@@ -36,11 +36,11 @@
       v-model="snackbar.show"
     >
       {{ snackbar.text }}
-      <v-btn dark flat @click.native="snackbar.show = false" icon>
+      <v-btn dark text @click.native="snackbar.show = false" icon>
         <v-icon>close</v-icon>
       </v-btn>
     </v-snackbar>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="sass" scoped>
 .setting-fab
   top: 50% !important
   right: 0

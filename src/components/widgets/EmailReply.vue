@@ -84,7 +84,7 @@
                 ></v-text-field>
               </v-card-text>
               <v-toolbar dense class="elevation-1">
-                <v-btn flat icon> <v-icon>send</v-icon> </v-btn>
+                <v-btn text icon> <v-icon>send</v-icon> </v-btn>
                 <v-btn icon> <v-icon>attach_file</v-icon> </v-btn>
                 <v-btn icon> <v-icon>link</v-icon> </v-btn>
                 <v-btn icon> <v-icon>camera</v-icon> </v-btn>
@@ -106,7 +106,7 @@ export default {
       'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa',
   }),
   methods: {
-    handleClose(e) {
+    handleClose() {
       window.AppMail.$emit('MAIL_REPLY_DIALOG_CLOSE')
     },
   },

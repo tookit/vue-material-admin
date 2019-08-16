@@ -21,7 +21,7 @@
                       v-html="event.title"
                     ></div>
                   </template>
-                  <v-card color="grey lighten-4" min-width="350px" flat>
+                  <v-card color="grey lighten-4" min-width="350px" text>
                     <v-toolbar color="primary" dark>
                       <v-btn icon> <v-icon>edit</v-icon> </v-btn>
                       <v-toolbar-title v-html="event.title"></v-toolbar-title>
@@ -33,7 +33,7 @@
                       <span v-html="event.details"></span>
                     </v-card-title>
                     <v-card-actions>
-                      <v-btn flat color="secondary"> Cancel </v-btn>
+                      <v-btn text color="secondary"> Cancel </v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-menu>
@@ -118,7 +118,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .my-event
   overflow: hidden
   text-overflow: ellipsis

@@ -42,8 +42,8 @@
             <v-divider></v-divider>
             <div class="my-3">
               <v-btn-toggle v-model="sideBarOption">
-                <v-btn flat value="dark">Dark</v-btn>
-                <v-btn flat value="light">Light</v-btn>
+                <v-btn text value="dark">Dark</v-btn>
+                <v-btn text value="light">Light</v-btn>
               </v-btn-toggle>
             </div>
           </div>
@@ -149,7 +149,7 @@ export default {
     },
     sideBarOption: {
       handler(val) {
-        this.$vuetify.dark = val === 'dark'
+        this.$vuetify.theme.dark = (val === 'dark')
         console.log(this.$vuetify)
       },
       immediate: true,
@@ -158,7 +158,7 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .color-option
   &--label
     position: relative

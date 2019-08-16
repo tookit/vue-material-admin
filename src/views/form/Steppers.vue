@@ -24,7 +24,7 @@
                   height="200px"
                 ></v-card>
                 <v-btn color="primary" @click.native="step = 2">Continue</v-btn>
-                <v-btn flat>Cancel</v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
               <v-stepper-content step="2">
                 <v-card
@@ -33,7 +33,7 @@
                   height="200px"
                 ></v-card>
                 <v-btn color="primary" @click.native="step = 3">Continue</v-btn>
-                <v-btn flat>Cancel</v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
               <v-stepper-content step="3">
                 <v-card
@@ -42,7 +42,7 @@
                   height="200px"
                 ></v-card>
                 <v-btn color="primary" @click.native="step = 1">Continue</v-btn>
-                <v-btn flat>Cancel</v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
@@ -58,7 +58,7 @@
                 height="200px"
               ></v-card>
               <v-btn color="primary" @click.native="e13 = 2">Continue</v-btn>
-              <v-btn flat>Cancel</v-btn>
+              <v-btn text>Cancel</v-btn>
             </v-stepper-content>
             <v-stepper-step step="2" complete>Name of step 2</v-stepper-step>
             <v-stepper-content step="2">
@@ -68,7 +68,7 @@
                 height="200px"
               ></v-card>
               <v-btn color="primary" @click.native="e13 = 3">Continue</v-btn>
-              <v-btn flat>Cancel</v-btn>
+              <v-btn text>Cancel</v-btn>
             </v-stepper-content>
             <v-stepper-step step="3" :rules="[() => false]">
               Ad templates <small>Alert message</small>
@@ -80,7 +80,7 @@
                 height="200px"
               ></v-card>
               <v-btn color="primary" @click.native="e13 = 4">Continue</v-btn>
-              <v-btn flat>Cancel</v-btn>
+              <v-btn text>Cancel</v-btn>
             </v-stepper-content>
             <v-stepper-step step="4">View setup instructions</v-stepper-step>
             <v-stepper-content step="4">
@@ -90,7 +90,7 @@
                 height="200px"
               ></v-card>
               <v-btn color="primary" @click.native="e13 = 1">Continue</v-btn>
-              <v-btn flat>Cancel</v-btn>
+              <v-btn text>Cancel</v-btn>
             </v-stepper-content>
           </v-stepper>
         </v-flex>
@@ -103,6 +103,7 @@
 import VWidget from '@/components/VWidget'
 export default {
   components: {
+    /* eslint-disable-line vue/no-unused-components */
     VWidget,
   },
   data() {

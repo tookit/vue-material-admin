@@ -42,7 +42,7 @@ export default {
   methods: {},
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .quill
   height : 520px
 </style>
