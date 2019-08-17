@@ -28,7 +28,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="Start Date"
                   v-model="startDate"
                   append-icon="event"
@@ -65,7 +64,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="Start Time"
                   v-model="startTime"
                   append-icon="access_time"
@@ -103,7 +101,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="End Date"
                   v-model="endDate"
                   append-icon="event"
@@ -137,7 +134,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="End Time"
                   v-model="endTime"
                   append-icon="access_time"
@@ -157,7 +153,7 @@
             </v-menu>
           </v-flex>
           <v-flex lg12 sm12>
-            <v-text-field textarea label="Description"> </v-text-field>
+            <v-textarea label="Description"> </v-textarea>
           </v-flex>
           <v-spacer></v-spacer>
         </v-layout>
