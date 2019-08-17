@@ -153,7 +153,7 @@
             </v-menu>
           </v-flex>
           <v-flex lg12 sm12>
-            <v-textarea label="Description"> </v-textarea>
+            <v-textarea no-resize="1" label="Description"> </v-textarea>
           </v-flex>
           <v-spacer></v-spacer>
         </v-layout>
