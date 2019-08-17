@@ -15,7 +15,7 @@
           <v-flex sm6 lg6>
             <v-menu
               class="pr-2"
-              ref="statDate"
+              ref="startDate"
               lazy
               :close-on-content-click="false"
               v-model="startDateMenu"
@@ -44,7 +44,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.statDate.save(startDate)"
+                  @click="$refs.startDate.save(startDate)"
                   >OK</v-btn
                 >
               </v-date-picker>
