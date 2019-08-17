@@ -171,7 +171,6 @@ export default {
   data: () => ({
     title: null,
     valid: true,
-    date: null,
     startDateMenu: false,
     startDate: null,
     startTimeMenu: false,
@@ -180,7 +179,6 @@ export default {
     endDate: null,
     endTimeMenu: false,
     endTime: null,
-    modal: false,
   }),
   methods: {
     closeDialog() {
