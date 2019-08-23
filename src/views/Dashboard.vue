@@ -17,7 +17,7 @@
             title="150+"
             sub-title="Connections"
             color="red"
-          ></mini-statistic>
+          />
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic
@@ -61,7 +61,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              ></e-chart>
+              />
             </div>
           </v-widget>
         </v-flex>
@@ -91,12 +91,14 @@
                 ]"
                 height="400px"
                 width="100%"
-              ></e-chart>
+              />
             </div>
           </v-widget>
         </v-flex>
         <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12> <profile-card></profile-card> </v-flex>
+        <v-flex lg4 sm12 xs12>
+          <profile-card />
+        </v-flex>
         <v-flex lg4 sm12 xs12>
           <box-chart
             card-color="indigo"
@@ -106,7 +108,7 @@
             :data="siteTrafficData"
             :chart-color="[color.indigo.lighten1]"
             type="line"
-          ></box-chart>
+          />
           <box-chart
             class="mt-4"
             card-color="pink"
@@ -117,7 +119,7 @@
             :chart-color="[color.pink.darken1, 'rgba(255,255,255,0.3)']"
             gradient
             type="area"
-          ></box-chart>
+          />
         </v-flex>
         <!-- statistic section -->
         <v-flex lg4 sm12 xs12>
@@ -127,7 +129,7 @@
             icon="trending_up"
             color="success"
             :value="15"
-          ></linear-statistic>
+          />
           <linear-statistic
             class="my-4"
             title="Orders"
@@ -135,7 +137,7 @@
             icon="trending_up"
             color="pink"
             :value="30"
-          ></linear-statistic>
+          />
           <linear-statistic
             class="my-4"
             title="Revenue"
@@ -143,7 +145,7 @@
             icon="trending_up"
             color="primary"
             :value="50"
-          ></linear-statistic>
+          />
           <linear-statistic
             class="mt-4"
             title="Cost"
@@ -151,7 +153,7 @@
             icon="trending_down"
             color="orange"
             :value="25"
-          ></linear-statistic>
+          />
         </v-flex>
         <!-- Circle statistic -->
         <v-flex
@@ -168,39 +170,42 @@
             :icon="item.icon.label"
             :color="item.linear.color"
             :value="item.linear.value"
-          ></circle-statistic>
+          />
         </v-flex>
         <!-- acitivity/chat widget -->
         <v-flex lg6 sm12 xs12>
-          <chat-window height="308px"></chat-window>
+          <chat-window height="308px" />
         </v-flex>
         <v-flex lg6 sm12 xs12>
           <v-widget title="Activities" content-bg="white">
             <div slot="widget-content">
-              <ol
-                class="timeline timeline-activity timeline-point-sm timeline-content-right"
-              >
-                <li
-                  class="timeline-block"
+              <v-timeline align-top dense>
+                <v-timeline-item
+                  :color="item.color"
+                  small
                   v-for="(item, index) in activity"
                   :key="index"
                 >
-                  <div class="timeline-point">
-                    <v-circle dot large :color="item.color"></v-circle>
-                  </div>
-                  <div class="timeline-content">
-                    <time datetime="2018" class="subheading">{{
-                      item.timeString
-                    }}</time>
-                    <div class="py-2 text--secondary" v-html="item.text"></div>
-                  </div>
-                </li>
-              </ol>
+                  <v-row class="pt-1">
+                    <v-col cols="3">
+                      <strong>{{ item.timeString }}</strong>
+                    </v-col>
+                    <v-col>
+                      <strong>New Icon</strong>
+                      <div>{{ item.text }}</div>
+                    </v-col>
+                  </v-row>
+                </v-timeline-item>
+              </v-timeline>
             </div>
           </v-widget>
         </v-flex>
-        <v-flex lg7 sm12 xs12> <plain-table></plain-table> </v-flex>
-        <v-flex lg5 sm12 xs12> <plain-table-order></plain-table-order> </v-flex>
+        <v-flex lg7 sm12 xs12>
+          <plain-table />
+        </v-flex>
+        <v-flex lg5 sm12 xs12>
+          <plain-table-order />
+        </v-flex>
       </v-layout>
     </v-container>
   </div>

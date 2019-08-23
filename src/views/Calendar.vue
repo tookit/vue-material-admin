@@ -6,28 +6,23 @@
           <v-calendar :now="today" :value="today" color="primary">
             <template v-slot:day="{ date }">
               <template v-for="event in eventsMap[date]">
-                <v-menu
-                  :key="event.title"
-                  v-model="event.open"
-                  full-width
-                  offset-x
-                >
+                <v-menu :key="event.title" v-model="event.open" full-width offset-x>
                   <template v-slot:activator="{ on }">
-                    <div
-                      v-if="!event.time"
-                      v-ripple
-                      class="my-event"
-                      v-on="on"
-                      v-html="event.title"
-                    ></div>
+                    <div v-if="!event.time" v-ripple class="my-event" v-on="on" v-html="event.title"></div>
                   </template>
                   <v-card color="grey lighten-4" min-width="350px" text>
                     <v-toolbar color="primary" dark>
-                      <v-btn icon> <v-icon>edit</v-icon> </v-btn>
+                      <v-btn icon>
+                        <v-icon>edit</v-icon>
+                      </v-btn>
                       <v-toolbar-title v-html="event.title"></v-toolbar-title>
                       <v-spacer></v-spacer>
-                      <v-btn icon> <v-icon>favorite</v-icon> </v-btn>
-                      <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
+                      <v-btn icon>
+                        <v-icon>favorite</v-icon>
+                      </v-btn>
+                      <v-btn icon>
+                        <v-icon>more_vert</v-icon>
+                      </v-btn>
                     </v-toolbar>
                     <v-card-title primary-title>
                       <span v-html="event.details"></span>

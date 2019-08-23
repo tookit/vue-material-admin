@@ -9,7 +9,7 @@
         <v-icon>more_vert</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-divider></v-divider>
+    <v-divider />
     <v-card-text class="pa-0">
       <template>
         <v-data-table
