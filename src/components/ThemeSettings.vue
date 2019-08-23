@@ -46,6 +46,22 @@
               </v-btn-toggle>
             </div>
           </div>
+          <div class="theme-options">
+            <v-subheader class="px-1 my-2">
+              Language
+            </v-subheader>
+            <v-divider></v-divider>
+            <div class="my-3">
+              <v-btn-toggle v-model="i18nBarOption">
+                <v-btn flat value="zh">
+                  中文
+                </v-btn>
+                <v-btn flat value="en">
+                  English
+                </v-btn>
+              </v-btn-toggle>
+            </div>
+          </div>
         </v-flex>
       </v-layout>
     </v-container>
@@ -58,6 +74,7 @@ export default {
     return {
       themeColor: "indigo",
       sideBarOption: "light",
+      i18nBarOption:'zh',
       colors: colors
     }
   },
@@ -151,6 +168,12 @@ export default {
         this.$vuetify.dark = val === "dark"
       },
       immediate: true
+    },
+    i18nBarOption: {
+      handler(lang) {
+        console.log(lang)
+        this.$i18n.locale = lang
+      }
     }
   }
 }

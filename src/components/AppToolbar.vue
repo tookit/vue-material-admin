@@ -3,7 +3,7 @@
     <v-toolbar-title>
       <v-toolbar-side-icon @click="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
-    <v-text-field flat solo-inverted prepend-inner-icon="search" label="Search" clearable class="search"></v-text-field>
+    <v-text-field flat solo-inverted prepend-inner-icon="search" :label="$t('toobar.search')" clearable class="search"></v-text-field>
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn flat href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
@@ -66,19 +66,19 @@ export default {
         {
           icon: "account_circle",
           href: "#",
-          title: "Profile",
+          title: this.$t('toobar.profile'),
           click: this.handleProfile
         },
         {
           icon: "settings",
           href: "#",
-          title: "Settings",
+          title: this.$t('toobar.settings'),
           click: this.handleSetting
         },
         {
           icon: "fullscreen_exit",
           href: "#",
-          title: "Logout",
+          title: this.$t('toobar.logout'),
           click: this.handleLogut
         }
       ]
@@ -104,7 +104,7 @@ export default {
 
     },
     handleProfile() {
-      
+
     }
   }
 }

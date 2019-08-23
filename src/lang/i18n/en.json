@@ -1,0 +1,14 @@
+{
+  "home": "Home",
+  "login": {
+    "account": "Login",
+    "password": "Password",
+    "submit": "LOGIN"
+  },
+  "toobar": {
+    "search": "Search",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  }
+}
