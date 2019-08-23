@@ -16,6 +16,6 @@ const store = new Vuex.Store({
   plugins: [vuexLocal.plugin],
 })
 
-store.commit('setThemeColor', 'pink')
+store.commit('setThemeColor', 'blue')
 
 export default store

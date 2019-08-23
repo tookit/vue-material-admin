@@ -1,10 +1,10 @@
 <template>
   <v-card>
-    <v-app-bar text dense color="transparent">
+    <v-toolbar text dense color="transparent" elevation="0">
       <v-toolbar-title><h4>Project</h4></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
-    </v-app-bar>
+    </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <template>
@@ -16,8 +16,11 @@
         >
           <template slot="items" slot-scope="props">
             <td>
-              <v-avatar size="36px">
-                <img :src="props.item.avatar" :alt="props.item.username" />
+              <v-avatar>
+                <img
+                  src="https://vuetifyjs.com/apple-touch-icon-180x180.png"
+                  alt="avatar"
+                />
               </v-avatar>
             </td>
             <td>{{ props.item.name }}</td>
@@ -27,9 +30,9 @@
                 :value="props.item.progress"
                 height="5"
                 :color="props.item.color"
-              ></v-progress-linear>
+              />
             </td>
-            <td class="text-xs-right">
+            <td>
               <v-btn text icon color="grey"> <v-icon>edit</v-icon> </v-btn>
               <v-btn text icon color="grey"> <v-icon>delete</v-icon> </v-btn>
             </td>

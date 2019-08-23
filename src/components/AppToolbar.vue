@@ -1,15 +1,7 @@
 <template>
   <v-app-bar color="primary" dark app>
-    <v-app-bar-nav-icon @click="handleDrawerToggle"></v-app-bar-nav-icon>
-    <v-text-field
-      text
-      solo-inverted
-      prepend-inner-icon="search"
-      label="Search"
-      clearable
-      class="search"
-    ></v-text-field>
-    <v-spacer></v-spacer>
+    <v-app-bar-nav-icon @click="handleDrawerToggle" />
+    <v-spacer />
     <v-toolbar-items>
       <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
@@ -33,7 +25,6 @@
             </v-badge>
           </v-btn>
         </template>
-
         <notification-list></notification-list>
       </v-menu>
       <v-menu

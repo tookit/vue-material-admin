@@ -9,7 +9,7 @@
             title="100+"
             sub-title="Likes"
             color="indigo"
-          ></mini-statistic>
+          />
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic
@@ -25,7 +25,7 @@
             title="200+"
             sub-title="Followers"
             color="light-blue"
-          ></mini-statistic>
+          />
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic
@@ -33,7 +33,7 @@
             title="50+"
             sub-title="Shots"
             color="purple"
-          ></mini-statistic>
+          />
         </v-flex>
         <!-- mini statistic  end -->
         <v-flex lg8 sm12 xs12>

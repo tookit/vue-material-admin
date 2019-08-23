@@ -1,13 +1,19 @@
 <template>
-  <div id="v-widget">
+  <div class="v-widget">
     <v-card>
-      <v-app-bar color="transparent" text dense v-if="enableHeader">
+      <v-toolbar
+        color="transparent"
+        text
+        dense
+        v-if="enableHeader"
+        elevation="0"
+      >
         <v-toolbar-title
           ><h4>{{ title }}</h4></v-toolbar-title
         >
         <v-spacer></v-spacer>
         <slot name="widget-header-action"></slot>
-      </v-app-bar>
+      </v-toolbar>
       <v-divider v-if="enableHeader"></v-divider>
       <v-card-text :class="contentBg">
         <slot name="widget-content"></slot>

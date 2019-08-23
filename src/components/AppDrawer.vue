@@ -13,30 +13,25 @@
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
-    <vue-perfect-scrollbar
-      class="drawer-menu--scroll"
-      :settings="scrollSettings"
-    >
-      <v-list expand dense v-if="items">
-        <template v-for="(item, i) in items">
-          <v-subheader
-            v-if="item.header"
-            :key="`subheader-${i}`"
-            v-text="item.header"
-          />
-          <v-divider v-else-if="item.divider" :key="`divider-${i}`" />
-          <list-group v-else-if="item.group" :key="`group-${i}`" :item="item" />
-          <list-item
-            v-else
-            :key="`item-${i}`"
-            :icon="item.icon"
-            :subtext="item.subtext"
-            :text="item.text"
-            :to="item.to"
-          />
-        </template>
-      </v-list>
-    </vue-perfect-scrollbar>
+    <v-list expand dense v-if="items">
+      <template v-for="(item, i) in items">
+        <v-subheader
+          v-if="item.header"
+          :key="`subheader-${i}`"
+          v-text="item.header"
+        />
+        <v-divider v-else-if="item.divider" :key="`divider-${i}`" />
+        <list-group v-else-if="item.group" :key="`group-${i}`" :item="item" />
+        <list-item
+          v-else
+          :key="`item-${i}`"
+          :icon="item.icon"
+          :subtext="item.subtext"
+          :text="item.text"
+          :to="item.to"
+        />
+      </template>
+    </v-list>
   </v-navigation-drawer>
 </template>
 <script>
@@ -44,8 +39,6 @@ import menu from '@/api/menu'
 import ListGroup from '@/components/List/Group'
 import ListItem from '@/components/List/Item'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
-// import VuePerfectScrollbar from 'vue2-perfect-scrollbar'
-// import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 
 export default {
   name: 'AppDrawer',
@@ -110,7 +103,7 @@ export default {
 
 <style lang="sass" scoped>
 .app--drawer
-  overflow: hidden
+  overflow: hidden !important
 
   .drawer-menu--scroll
     height: calc(100vh - 48px)

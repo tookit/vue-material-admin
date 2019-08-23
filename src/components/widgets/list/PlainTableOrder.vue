@@ -1,10 +1,10 @@
 <template>
   <v-card>
-    <v-app-bar text dense color="transparent">
+    <v-toolbar text dense color="transparent" elevation="0">
       <v-toolbar-title><h4>Order</h4></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon> <v-icon>more_vert</v-icon> </v-btn>
-    </v-app-bar>
+      <v-btn icon><v-icon>more_vert</v-icon> </v-btn>
+    </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <template>
@@ -24,8 +24,9 @@
                 small
                 :color="getColorByStatus(props.item.status)"
                 text-color="white"
-                >{{ props.item.status }}</v-chip
               >
+                {{ props.item.status }}
+              </v-chip>
             </td>
           </template>
         </v-data-table>
