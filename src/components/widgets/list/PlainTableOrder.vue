@@ -1,9 +1,13 @@
 <template>
   <v-card>
     <v-toolbar text dense color="transparent" elevation="0">
-      <v-toolbar-title><h4>Order</h4></v-toolbar-title>
+      <v-toolbar-title>
+        <h4>Order</h4>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon><v-icon>more_vert</v-icon> </v-btn>
+      <v-btn icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
@@ -14,20 +18,15 @@
           hide-default-footer
           class="elevation-0 table-striped"
         >
-          <template slot="items" slot-scope="props">
-            <td>{{ props.item.id }}</td>
-            <td class="text-xs-left">{{ props.item.product }}</td>
-            <td class="text-xs-left">{{ props.item.price }}</td>
-            <td class="text-xs-left">
-              <v-chip
-                label
-                small
-                :color="getColorByStatus(props.item.status)"
-                text-color="white"
-              >
-                {{ props.item.status }}
-              </v-chip>
-            </td>
+          <template v-slot:item.status="{ item }">
+            <v-chip
+              label
+              small
+              :color="getColorByStatus(item.status)"
+              text-color="white"
+            >
+              {{ item.status }}
+            </v-chip>
           </template>
         </v-data-table>
       </template>
@@ -48,8 +47,8 @@ export default {
           sortable: false,
           value: 'id',
         },
-        { text: 'Product', value: 'deadline' },
-        { text: 'Price', value: 'progress' },
+        { text: 'Product', value: 'product' },
+        { text: 'Price', value: 'price' },
         { text: 'Status', value: 'status' },
       ],
       items: items,
