@@ -15,7 +15,7 @@
           <v-flex sm6 lg6>
             <v-menu
               class="pr-2"
-              ref="statDate"
+              ref="startDate"
               lazy
               :close-on-content-click="false"
               v-model="startDateMenu"
@@ -28,7 +28,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="Start Date"
                   v-model="startDate"
                   append-icon="event"
@@ -44,7 +43,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.statDate.save(startDate)"
+                  @click="$refs.startDate.save(startDate)"
                   >OK</v-btn
                 >
               </v-date-picker>
@@ -65,7 +64,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="Start Time"
                   v-model="startTime"
                   append-icon="access_time"
@@ -103,7 +101,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="End Date"
                   v-model="endDate"
                   append-icon="event"
@@ -137,7 +134,6 @@
             >
               <template v-slot:activator="{ on }">
                 <v-text-field
-                  slot="activator"
                   label="End Time"
                   v-model="endTime"
                   append-icon="access_time"
@@ -157,7 +153,7 @@
             </v-menu>
           </v-flex>
           <v-flex lg12 sm12>
-            <v-text-field textarea label="Description"> </v-text-field>
+            <v-textarea no-resize="1" label="Description"> </v-textarea>
           </v-flex>
           <v-spacer></v-spacer>
         </v-layout>
@@ -175,7 +171,6 @@ export default {
   data: () => ({
     title: null,
     valid: true,
-    date: null,
     startDateMenu: false,
     startDate: null,
     startTimeMenu: false,
@@ -184,7 +179,6 @@ export default {
     endDate: null,
     endTimeMenu: false,
     endTime: null,
-    modal: false,
   }),
   methods: {
     closeDialog() {
