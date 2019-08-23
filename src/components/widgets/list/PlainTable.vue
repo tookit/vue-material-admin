@@ -11,14 +11,23 @@
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
-      <v-data-table :headers="headers" :items="projects" hide-default-footer class="elevation-0">
+      <v-data-table
+        :headers="headers"
+        :items="projects"
+        hide-default-footer
+        class="elevation-0"
+      >
         <template v-slot:item.avatar="{ item }">
           <v-avatar>
             <img :src="item.avatar" alt="avatar" />
           </v-avatar>
         </template>
         <template v-slot:item.progress="{ item }">
-          <v-progress-linear :value="item.progress" height="5" :color="item.color" />
+          <v-progress-linear
+            :value="item.progress"
+            height="5"
+            :color="item.color"
+          />
         </template>
         <template v-slot:item.action="{ item }">
           <v-btn text icon color="grey">
