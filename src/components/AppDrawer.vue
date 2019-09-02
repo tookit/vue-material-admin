@@ -13,7 +13,7 @@
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
-    <v-list expand dense v-if="items">
+    <v-list expand dense v-if="items" nav>
       <template v-for="(item, i) in items">
         <v-subheader
           v-if="item.header"

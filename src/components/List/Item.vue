@@ -1,26 +1,20 @@
 <template>
-  <v-list-item
-    :to="to"
-    v-bind="customAttrs"
-    class="v-list__tile--menu"
-    ripple
-    v-on="$listeners"
-  >
+  <v-list-item :to="to" v-bind="customAttrs" ripple v-on="$listeners">
     <v-list-item-avatar v-if="avatar" :color="avatarColor">
       <v-icon dark v-text="avatar" />
     </v-list-item-avatar>
-    <v-list-item-action v-else-if="icon">
+    <v-list-item-icon v-else-if="icon">
       <v-icon v-text="icon" />
-    </v-list-item-action>
+    </v-list-item-icon>
     <v-list-item-content>
       <v-list-item-title><span v-text="text" /> </v-list-item-title>
       <v-list-item-subtitle v-if="subtext">
         <span v-text="subtext" />
       </v-list-item-subtitle>
     </v-list-item-content>
-    <v-chip v-if="chip" :color="chipColor" class="v-chip--x-small" dark>{{
-      chip
-    }}</v-chip>
+    <v-chip v-if="chip" :color="chipColor" class="v-chip--x-small" dark>
+      {{ chip }}
+    </v-chip>
     <slot />
   </v-list-item>
 </template>

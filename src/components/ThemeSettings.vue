@@ -143,14 +143,14 @@ export default {
   watch: {
     themeColor: {
       handler(val) {
-        this.$vuetify.theme.primary = this.colors[val].base
+        console.log(colors)
+        this.$vuetify.theme.themes.light.primary = this.colors[val].base
       },
       immediate: true,
     },
     sideBarOption: {
       handler(val) {
-        this.$vuetify.theme.dark = (val === 'dark')
-        console.log(this.$vuetify)
+        this.$vuetify.theme.dark = val === 'dark'
       },
       immediate: true,
     },

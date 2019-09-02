@@ -6,8 +6,10 @@
     no-action
     :value="active"
   >
-    <template slot="activator">
-      <list-item :text="item.text" />
+    <template v-slot:activator>
+      <v-list-item-content>
+        <v-list-item-title>{{ item.text }}</v-list-item-title>
+      </v-list-item-content>
     </template>
     <template v-for="(child, i) in children">
       <list-sub-group
