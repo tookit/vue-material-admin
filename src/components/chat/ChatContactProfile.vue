@@ -9,7 +9,7 @@
       </v-layout>
     </v-responsive>
     <v-card-text class="pa-0">
-      <v-layout row wrap class="grey lighten-4 pa-3">
+      <v-layout row wrap class="grey lighten-4 pa-3 ma-0">
         <v-flex xs4>
           <div class="layout column justify-center align-center">
             <v-btn icon outlined color="indigo">
@@ -35,7 +35,7 @@
           </div>
         </v-flex>
       </v-layout>
-      <v-tabs v-model="selectedTab" height="50vh">
+      <v-tabs v-model="selectedTab">
         <v-tab ripple href="#tab-1"> Profile </v-tab>
         <v-tab ripple href="#tab-2"> Activity </v-tab>
         <v-tabs-items v-model="selectedTab">
