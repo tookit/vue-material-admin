@@ -20,15 +20,17 @@
         <span class="hidden-sm-and-down">Mail</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-text-field
+      <!-- <v-text-field
         text
         solo-inverted
         prepend-icon="search"
         label="What are you looking for?"
         class="hidden-sm-and-down"
       >
-      </v-text-field>
-      <v-btn icon> <v-icon>notifications</v-icon> </v-btn>
+      </v-text-field> -->
+      <v-btn icon>
+        <v-icon>notifications</v-icon>
+      </v-btn>
       <v-menu
         offset-y
         origin="center center"
@@ -95,7 +97,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <transition> <router-view></router-view> </transition>
+      <transition>
+        <router-view></router-view>
+      </transition>
     </v-content>
     <v-dialog v-model="dialog" max-width="640px">
       <compose></compose>
