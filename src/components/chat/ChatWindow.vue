@@ -15,7 +15,9 @@
         </v-avatar>
       </template>
       <v-spacer></v-spacer>
-      <v-toolbar-title> <h4>Chat Channel</h4></v-toolbar-title>
+      <v-toolbar-title>
+        <h4>Chat Channel</h4>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -57,12 +59,13 @@
         </template>
       </v-card-text>
     </vue-perfect-scrollbar>
-    <v-card-actions>
+    <v-card-actions class="pa-0">
       <v-text-field
         full-width
         text
         clearable
         solo
+        hide-details
         append-icon="send"
         label="Type some message here"
       >
@@ -115,3 +118,8 @@ export default {
   },
 }
 </script>
+
+<style lang="sass" scoped>
+.chat-room--scrollbar
+  height: calc(100vh - 48px - 56px)
+</style>

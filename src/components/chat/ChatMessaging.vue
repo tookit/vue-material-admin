@@ -1,11 +1,11 @@
 <template>
-  <v-container class="fill-height pa-0 ma-0 messaging" fluid>
+  <v-container class="fill-height messaging pa-0" fluid>
     <template v-if="!$vuetify.breakpoint.smAndDown">
-      <v-row>
-        <v-col cols="3" class="white pa-0">
+      <v-row no-gutters class="fill-height">
+        <v-col cols="3" class="white">
           <chat-history> </chat-history>
         </v-col>
-        <v-col cols="9" class="pa-0">
+        <v-col cols="9" class="">
           <chat-window></chat-window>
         </v-col>
       </v-row>
