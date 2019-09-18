@@ -68,15 +68,15 @@
           </v-container>
           <v-layout column v-else>
             <v-list dense class="transparent">
-              <v-list-tile
+              <v-list-item
                 @click="showDetail(item)"
                 v-for="(item, index) in files"
                 :key="'list-file-' + index"
               >
-                <v-list-tile-avatar>
+                <v-list-item-avatar>
                   <v-icon>{{ mimeIcons(item) }}</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
+                </v-list-item-avatar>
+                <v-list-item-content>
                   <div class="container pl-0">
                     <div class="layout row">
                       <div class="flex">{{ item.fileName }}</div>
@@ -86,8 +86,8 @@
                       </div>
                     </div>
                   </div>
-                </v-list-tile-content>
-              </v-list-tile>
+                </v-list-item-content>
+              </v-list-item>
             </v-list>
           </v-layout>
         </vue-perfect-scrollbar>
