@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
- * [Table of contents] 
- */  
+ * [Table of contents]
+ */
 // # overwrite some style of SASS
 
 /*------------------------------------------------------------------
@@ -33,19 +33,19 @@ h2
   font-weight: 300 // $font-weights.light
   letter-spacing: -0.5
 
-h3 
+h3
   font-size: 24px
   font-weight: 300 // $font-weights.light
   letter-spacing: normal
 
-h4 
+h4
   font-size: 20px
   font-weight: 300 // $font-weights.light
-  letter-spacing: normal  
-h5 
+  letter-spacing: normal
+h5
   font-size: 16px
   font-weight: 400 // $font-weights.regular
-  letter-spacing: normal  
+  letter-spacing: normal
 
 
 /*------------------------------------------------------------------
@@ -54,27 +54,27 @@ h5
 .v-list
   .v-list__tile--link:hover,
   .v-list__tile--highlighted,
-  .v-list__group__header:hover
+  .v-list__group__header:hover,
   .v-list__group--active:before,
   .v-list__group--active:after
     background: #f5f5f5!important
 
 /*------------------------------------------------------------------
  * [Components / Card]
- */  
+ */
 .v-card
   // box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
   box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16)
-  &__actions 
-    .v-btn 
+  &__actions
+    .v-btn
       margin: 0 8px
       min-width: 56px
       &:first-child
         margin-left: 0
-  
+
 /*------------------------------------------------------------------
  * [Components / Timeline]
- */    
+ */
 
 .timeline
   position: relative
@@ -86,14 +86,14 @@ h5
     display: -webkit-box
     display: flex
 
-  &-detail 
+  &-detail
     -webkit-box-flex: 1
     flex: 1 1 0%
     padding-bottom: 30px
     @media #{map-get($display-breakpoints, 'sm-and-down')}
       display: none
 
-  &-point 
+  &-point
     position: relative
     flex-shrink: 0
     -webkit-box-flex: 0
@@ -115,7 +115,7 @@ h5
     z-index: -1
     background-color: #ebebeb
     & &-block:last-child &-point::before
-    bottom: 0 !important
+      bottom: 0 !important
 
   & &-block:first-child &-point::after
     content: ''
@@ -139,7 +139,7 @@ h5
     margin-left: -3px
     border-radius: 50%
 
-  &-content 
+  &-content
     -webkit-box-flex: 1
     flex: 1 1 0%
     margin-bottom: 60px
@@ -169,44 +169,44 @@ h5
   &-point-xs &-point
     width: 32px
   &-point-sm &-point
-    width: 64px      
+    width: 64px
   &-point-lg &-point
-    width: 128px      
+    width: 128px
   &-point-xl &-point
     width: 256px
 
   @media #{map-get($display-breakpoints, 'md-and-down')}
-    & &-block &-detail 
+    & &-block &-detail
       -webkit-box-ordinal-group: 2
       order: 1
-    & &-block &-content 
+    & &-block &-content
       -webkit-box-ordinal-group: 4
       order: 3
 
   @media #{map-get($display-breakpoints, 'md-and-up')}
-      & &-block:nth-child(even) &-detail 
+      & &-block:nth-child(even) &-detail
         -webkit-box-ordinal-group: 2
         order: 1
         text-align: right
-      
-      & &-block:nth-child(even) &-content 
+
+      & &-block:nth-child(even) &-content
         -webkit-box-ordinal-group: 4
         order: 3
 
-      & &-block:nth-child(odd) &-detail 
+      & &-block:nth-child(odd) &-detail
         -webkit-box-ordinal-group: 4
         order: 3
-        text-align: left  
+        text-align: left
 
-      & &-block:nth-child(odd) &-content 
+      & &-block:nth-child(odd) &-content
         -webkit-box-ordinal-group: 2
         order: 1
-        
+
       & &-content-left &-block &-detail
         -webkit-box-ordinal-group: 4
         order: 3
         text-align: left
-  
+
       & &-content-left &-block &-content
         -webkit-box-ordinal-group: 2
         order: 1
@@ -217,7 +217,7 @@ h5
 
       & &-content-right &-block &-content
         -webkit-box-ordinal-group: 4
-        order: 3 
+        order: 3
       & &-activity &-content
         margin-bottom: 10px
 /*------------------------------------------------------------------
@@ -229,16 +229,16 @@ h5
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
     &--list
       a.list__tile--active
-        background: #eee        
+        background: #eee
     &--scrollbar
-      height:calc(100vh - 48px)             
+      height: calc(100vh - 48px)
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        height:calc(100vh - 48px - 56px)  
+        height: calc(100vh - 48px - 56px)
   &-room
     &--toolbar
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
     &--scrollbar
-      height: calc(100vh - 48px - 80px)         
+      height: calc(100vh - 48px - 80px)
 /*------------------------------------------------------------------
  * [Components / mail]
  */
@@ -249,11 +249,11 @@ h5
     &--layout
       padding-top: 64px!important
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        padding-top: 56px!important         
+        padding-top: 56px!important
     &--toolbar
       margin-top: 64px!important
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        margin-top: 56px!important      
+        margin-top: 56px!important
       .check-all
         flex: 0 0
         margin-top: 0
@@ -263,15 +263,15 @@ h5
     &--layout
       padding-top: 64px!important
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        padding-top: 56px!important        
+        padding-top: 56px!important
     &--toolbar
       margin-top: 64px !important
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        margin-top: 56px!important        
+        margin-top: 56px!important
     &--scrollbar
       height: calc(100vh - 64px - 64px)
       @media #{map-get($display-breakpoints, 'sm-and-down')}
-        height : calc(100vh - 56px - 56px)      
+        height : calc(100vh - 56px - 56px)
 .v-input.search
   .v-input__slot
     margin-top: 8px
