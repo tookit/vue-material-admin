@@ -51,8 +51,9 @@
                   color="primary"
                   @click="handleLogin"
                   :loading="loading"
-                  >Login</v-btn
                 >
+                  Login
+                </v-btn>
               </div>
             </v-card>
           </v-flex>
