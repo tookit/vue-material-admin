@@ -13,6 +13,12 @@
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
+    <div class="pa-3">
+      <v-subheader>Sponsor</v-subheader>
+      <a href="https://www.nsdftth.com">
+        <img src="https://www.nsdftth.com/logo.png" alt="NSD" height="72" />
+      </a>
+    </div>
     <v-list expand dense v-if="items" nav>
       <template v-for="(item, i) in items">
         <v-subheader
