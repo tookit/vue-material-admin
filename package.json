@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
-    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
+    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\"",
+    "deploy": "aliyun-oss-deploy -p ./dist"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
@@ -31,6 +32,7 @@
     "@vue/cli-plugin-pwa": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "@vue/eslint-config-prettier": "^5.0.0",
+    "aliyun-oss-deploy": "^0.1.5",
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
