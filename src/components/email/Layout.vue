@@ -21,9 +21,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
-        text
         solo-inverted
         prepend-icon="search"
+        hide-details
         label="What are you looking for?"
         class="hidden-sm-and-down"
       >
