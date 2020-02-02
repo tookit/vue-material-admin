@@ -4,7 +4,6 @@
     <app-toolbar class="app--toolbar" @side-icon-click="handleDrawerVisiable" />
     <v-content>
       <!-- Page Header -->
-      <page-header></page-header>
       <div class="page-wrapper"><router-view /></div>
       <!-- App Footer -->
       <v-footer height="auto" class="white pa-3 app--footer">
@@ -23,14 +22,12 @@
 import AppDrawer from '@/components/AppDrawer'
 import AppToolbar from '@/components/AppToolbar'
 import AppFab from '@/components/AppFab'
-import PageHeader from '@/components/PageHeader'
 
 export default {
   components: {
     AppDrawer,
     AppToolbar,
     AppFab,
-    PageHeader,
   },
 
   data() {

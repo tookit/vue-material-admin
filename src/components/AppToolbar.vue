@@ -10,13 +10,7 @@
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
       </v-btn>
-      <v-menu
-        offset-y
-        origin="center center"
-        class="elelvation-1"
-        :nudge-bottom="14"
-        transition="scale-transition"
-      >
+      <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
         <template v-slot:activator="{ on }">
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
@@ -27,12 +21,7 @@
         </template>
         <notification-list></notification-list>
       </v-menu>
-      <v-menu
-        offset-y
-        origin="center center"
-        :nudge-bottom="10"
-        transition="scale-transition"
-      >
+      <v-menu offset-y origin="center center" transition="scale-transition">
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
             <v-avatar size="30px">
@@ -42,7 +31,7 @@
         </template>
         <v-list class="pa-0">
           <v-list-item
-            v-for="(item, index) in items"
+            v-for="(item, index) in profileMenus"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
             @click="item.click"
@@ -62,6 +51,14 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
+    <v-toolbar dense slot="extension" color="white" light>
+      <v-icon>mdi-home</v-icon>
+      <v-breadcrumbs :items="breadcrumbs" class="pa-3"></v-breadcrumbs>
+      <v-spacer></v-spacer>
+      <v-btn icon small color="black">
+        <v-icon v-text="'mdi-arrow-left'" @click="handleGoBack" />
+      </v-btn>
+    </v-toolbar>
   </v-app-bar>
 </template>
 <script>
@@ -74,7 +71,7 @@ export default {
   },
   data() {
     return {
-      items: [
+      profileMenus: [
         {
           icon: 'account_circle',
           href: '#',
@@ -100,6 +97,21 @@ export default {
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },
+    breadcrumbs() {
+      const items = [
+        {
+          text: 'Home',
+          to: { path: '/' },
+        },
+      ]
+      if (['/', '/dashboard'].includes(this.$route.path) === false) {
+        items.push({
+          text: this.$route.meta.title,
+          to: { path: this.$route.path },
+        })
+      }
+      return items
+    },
   },
   methods: {
     handleDrawerToggle() {
@@ -113,6 +125,9 @@ export default {
     },
     handleSetting() {},
     handleProfile() {},
+    handleGoBack() {
+      this.$router.go(-1)
+    },
   },
   created() {},
 }
