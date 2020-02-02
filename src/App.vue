@@ -6,7 +6,7 @@
       small
       fab
       dark
-      falt
+      flat
       fixed
       top="top"
       right="right"

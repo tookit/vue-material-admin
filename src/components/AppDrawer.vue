@@ -44,12 +44,10 @@
 import menu from '@/api/menu'
 import ListGroup from '@/components/List/Group'
 import ListItem from '@/components/List/Item'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
 export default {
   name: 'AppDrawer',
   components: {
-    VuePerfectScrollbar,
     ListGroup,
     ListItem,
   },

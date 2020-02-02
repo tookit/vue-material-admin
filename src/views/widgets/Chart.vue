@@ -380,7 +380,7 @@ export default {
   },
   methods: {
     /* eslint-disable-line no-unused-vars */
-    handleTabChange(val, e) {
+    handleTabChange() {
       // make sure the chart resized while parent from hidden to show
       window.dispatchEvent(new Event('resize'))
     },

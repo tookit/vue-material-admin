@@ -3,8 +3,7 @@ import { AuthLayout, DefaultLayout, ChatLayout } from '@/components/layouts'
 export const publicRoute = [
   {
     path: '*',
-    component: () =>
-      import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
+    component: () => import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
   },
   {
     path: '/auth',
@@ -21,8 +20,7 @@ export const publicRoute = [
         meta: {
           title: 'Login',
         },
-        component: () =>
-          import(/* webpackChunkName: "login" */ '@/views/auth/Login.vue'),
+        component: () => import(/* webpackChunkName: "login" */ '@/views/auth/Login.vue'),
       },
     ],
   },
@@ -33,8 +31,7 @@ export const publicRoute = [
     meta: {
       title: 'Not Found',
     },
-    component: () =>
-      import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
+    component: () => import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
   },
 
   {
@@ -43,8 +40,7 @@ export const publicRoute = [
     meta: {
       title: 'Server Error',
     },
-    component: () =>
-      import(/* webpackChunkName: "errors-500" */ '@/views/error/Error.vue'),
+    component: () => import(/* webpackChunkName: "errors-500" */ '@/views/error/Error.vue'),
   },
 ]
 
@@ -67,8 +63,7 @@ export const protectedRoute = [
           group: 'apps',
           icon: 'dashboard',
         },
-        component: () =>
-          import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
       },
       {
         path: '/media',
@@ -78,11 +73,10 @@ export const protectedRoute = [
           icon: 'media',
         },
         name: 'Media',
-        props: route => ({
+        props: (route) => ({
           type: route.query.type,
         }),
-        component: () =>
-          import(/* webpackChunkName: "media" */ '@/views/Media.vue'),
+        component: () => import(/* webpackChunkName: "media" */ '@/views/Media.vue'),
       },
 
       {
@@ -93,11 +87,10 @@ export const protectedRoute = [
           icon: 'media',
         },
         name: 'Task',
-        props: route => ({
+        props: (route) => ({
           type: route.query.type,
         }),
-        component: () =>
-          import(/* webpackChunkName: "task" */ '@/views/Calendar.vue'),
+        component: () => import(/* webpackChunkName: "task" */ '@/views/Calendar.vue'),
       },
       {
         path: '/403',
@@ -106,8 +99,7 @@ export const protectedRoute = [
           title: 'Access Denied',
           hiddenInMenu: true,
         },
-        component: () =>
-          import(/* webpackChunkName: "error-403" */ '@/views/error/Deny.vue'),
+        component: () => import(/* webpackChunkName: "error-403" */ '@/views/error/Deny.vue'),
       },
     ],
   },
@@ -129,8 +121,7 @@ export const protectedRoute = [
         meta: {
           title: 'CMS Table',
         },
-        component: () =>
-          import(/* webpackChunkName: "table" */ '@/views/list/Table.vue'),
+        component: () => import(/* webpackChunkName: "table" */ '@/views/list/Table.vue'),
       },
     ],
   },
@@ -152,8 +143,7 @@ export const protectedRoute = [
         meta: {
           title: 'Chart Widget',
         },
-        component: () =>
-          import(/* webpackChunkName: "chart-widget" */ '@/views/widgets/Chart.vue'),
+        component: () => import(/* webpackChunkName: "chart-widget" */ '@/views/widgets/Chart.vue'),
       },
       {
         path: '/widgets/list',
@@ -161,8 +151,7 @@ export const protectedRoute = [
         meta: {
           title: 'List Widget',
         },
-        component: () =>
-          import(/* webpackChunkName: "list-widget" */ '@/views/widgets/List.vue'),
+        component: () => import(/* webpackChunkName: "list-widget" */ '@/views/widgets/List.vue'),
       },
       {
         path: '/widgets/social',
@@ -170,8 +159,7 @@ export const protectedRoute = [
         meta: {
           title: 'Social Widget',
         },
-        component: () =>
-          import(/* webpackChunkName: "social-widget" */ '@/views/widgets/Social.vue'),
+        component: () => import(/* webpackChunkName: "social-widget" */ '@/views/widgets/Social.vue'),
       },
       {
         path: '/widgets/statistic',
@@ -179,8 +167,7 @@ export const protectedRoute = [
         meta: {
           title: 'Statistic Widget',
         },
-        component: () =>
-          import(/* webpackChunkName: "statistic-widget" */ '@/views/widgets/Statistic.vue'),
+        component: () => import(/* webpackChunkName: "statistic-widget" */ '@/views/widgets/Statistic.vue'),
       },
     ],
   },
@@ -205,8 +192,7 @@ export const protectedRoute = [
         path: '/chat/messaging/:uuid?',
         name: 'ChatMessaging',
         props: true,
-        component: () =>
-          import(/* webpackChunkName: "chat-messaging" */ '@/views/chat/ChatMessaging.vue'),
+        component: () => import(/* webpackChunkName: "chat-messaging" */ '@/views/chat/ChatMessaging.vue'),
       },
       {
         path: '/chat/contact/:uuid?',
@@ -214,8 +200,7 @@ export const protectedRoute = [
           public: true,
         },
         name: 'ChatContact',
-        component: () =>
-          import(/* webpackChunkName: "chat-contact" */ '@/views/chat/ChatContact.vue'),
+        component: () => import(/* webpackChunkName: "chat-contact" */ '@/views/chat/ChatContact.vue'),
       },
     ],
   },
@@ -224,8 +209,7 @@ export const protectedRoute = [
   {
     path: '/mail',
     name: 'Mail',
-    component: () =>
-      import(/* webpackChunkName: "mail-layout" */ '@/components/email/Layout.vue'),
+    component: () => import(/* webpackChunkName: "mail-layout" */ '@/components/email/Layout.vue'),
     redirect: {
       path: '/mail/all',
     },
@@ -233,14 +217,12 @@ export const protectedRoute = [
       {
         path: '/mail/:mailType',
         name: 'MailIndex',
-        component: () =>
-          import(/* webpackChunkName: "mail-list" */ '@/components/email/List.vue'),
+        component: () => import(/* webpackChunkName: "mail-list" */ '@/components/email/List.vue'),
       },
       {
         path: '/mail/0/:uuid',
         name: 'MailDetail',
-        component: () =>
-          import(/* webpackChunkName: "mail-reply" */ '@/components/email/Reply.vue'),
+        component: () => import(/* webpackChunkName: "mail-reply" */ '@/components/email/Reply.vue'),
       },
     ],
   },

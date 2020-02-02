@@ -220,7 +220,6 @@ import PlainTable from '@/components/widgets/list/PlainTable'
 import PlainTableOrder from '@/components/widgets/list/PlainTableOrder'
 import VWidget from '@/components/VWidget'
 import Material from 'vuetify/es5/util/colors'
-import VCircle from '@/components/circle/VCircle'
 import BoxChart from '@/components/widgets/chart/BoxChart'
 import ChatWindow from '@/components/chat/ChatWindow'
 import CircleStatistic from '@/components/widgets/statistic/CircleStatistic'
@@ -230,7 +229,6 @@ export default {
     VWidget,
     MiniStatistic,
     ChatWindow,
-    VCircle,
     ProfileCard,
     EChart,
     BoxChart,

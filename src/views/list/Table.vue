@@ -28,12 +28,7 @@
                 :headers="complex.headers"
                 :search="search"
                 :items="complex.items"
-                :items-per-page-options="[
-                  10,
-                  25,
-                  50,
-                  { text: 'All', value: -1 },
-                ]"
+                :items-per-page-options="[10, 25, 50, { text: 'All', value: -1 }]"
                 class="elevation-1"
                 item-key="name"
                 show-select
@@ -45,28 +40,10 @@
                   </v-avatar>
                 </template>
                 <template v-slot:item.action="{ item }">
-                  <v-btn
-                    depressed
-                    outline
-                    icon
-                    fab
-                    dark
-                    color="primary"
-                    small
-                    @click="handleClick(props.item)"
-                  >
+                  <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
                     <v-icon>edit</v-icon>
                   </v-btn>
-                  <v-btn
-                    depressed
-                    outline
-                    icon
-                    fab
-                    dark
-                    color="pink"
-                    small
-                    @click="handleDelete(props.item)"
-                  >
+                  <v-btn depressed outline icon fab dark color="pink" small @click="handleDelete(props.item)">
                     <v-icon>delete</v-icon>
                   </v-btn>
                 </template>
@@ -78,12 +55,7 @@
           <h3>Basic Table</h3>
         </v-flex>
         <v-flex lg12>
-          <v-data-table
-            :headers="basic.headers"
-            :items="basic.items"
-            hide-default-footer
-            class="elevation-1"
-          >
+          <v-data-table :headers="basic.headers" :items="basic.items" hide-default-footer class="elevation-1">
             <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.calories }}</td>
@@ -101,17 +73,8 @@
         <v-toolbar card>Edit User</v-toolbar>
         <v-card-text>
           <form>
-            <v-text-field
-              v-model="formModel.name"
-              :counter="10"
-              label="Name"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="formModel.email"
-              label="E-mail"
-              required
-            ></v-text-field>
+            <v-text-field v-model="formModel.name" :counter="10" label="Name" required></v-text-field>
+            <v-text-field v-model="formModel.email" label="E-mail" required></v-text-field>
             <v-divider class="mt-3 mb-3"></v-divider>
             <v-btn @click="handleSubmit">submit</v-btn>
           </form>
@@ -273,7 +236,7 @@ export default {
       this.dialog = true
     },
     /* eslint-disable-line no-unused-vars */
-    handleDelete(row) {},
+    handleDelete() {},
     handleSubmit() {},
   },
 }

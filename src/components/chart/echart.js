@@ -11,7 +11,7 @@ if (ECharts === undefined) {
 }
 // set color palette
 const colorPalette = []
-Object.entries(colors).forEach(item => {
+Object.entries(colors).forEach((item) => {
   if (item[1].base) {
     colorPalette.push(item[1].base)
   }
@@ -184,16 +184,14 @@ export default {
       //const { widthChangeDelay } = this
       // set
       if (this.pathOption) {
-        this.pathOption.forEach(p => {
+        this.pathOption.forEach((p) => {
           _object.set(this.$data._defaultOption, p[0], p[1])
         })
       }
       this.chartInstance = ECharts.init(this.$refs.canvas, 'material')
-      this.chartInstance.setOption(
-        _object.merge(this.option, this.$data._defaultOption)
-      )
+      this.chartInstance.setOption(_object.merge(this.option, this.$data._defaultOption))
       window.addEventListener('optimizedResize', () => {
-        setTimeout(_ => {
+        setTimeout(() => {
           this.chartInstance.resize()
         }, this.widthChangeDelay)
       })
