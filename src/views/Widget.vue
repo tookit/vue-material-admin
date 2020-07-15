@@ -1,35 +1,29 @@
 <template>
-  <div id="page-lists">
+  <div class="page-lists">
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
-        <v-flex lg4>
-          <profile-card></profile-card>
-        </v-flex>
-        <v-flex lg4>
-          <menu-card></menu-card>
-        </v-flex>
-        <v-flex lg4>
-          <setting-card></setting-card>
-        </v-flex>
+        <v-flex lg4> <profile-card></profile-card> </v-flex>
+        <v-flex lg4> <menu-card></menu-card> </v-flex>
+        <v-flex lg4> <setting-card></setting-card> </v-flex>
       </v-layout>
     </v-container>
   </div>
 </template>
 
 <script>
-import ProfileCard from "@/components/widgets/card/ProfileCard"
-import MenuCard from "@/components/widgets/card/MenuCard"
-import SettingCard from "@/components/widgets/card/SettingCard"
+import ProfileCard from '@/components/widgets/card/ProfileCard'
+import MenuCard from '@/components/widgets/card/MenuCard'
+import SettingCard from '@/components/widgets/card/SettingCard'
 export default {
   components: {
     ProfileCard,
     MenuCard,
-    SettingCard
+    SettingCard,
   },
   data() {
     return {}
   },
   computed: {},
-  methods: {}
+  methods: {},
 }
 </script>

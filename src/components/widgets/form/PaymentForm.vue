@@ -55,14 +55,19 @@
         v-model="form.expireDate"
         required
       ></v-text-field>
-      <v-text-field label="CVV" v-model="form.cvv" mask="###" suffix="CVV"></v-text-field>
+      <v-text-field
+        label="CVV"
+        v-model="form.cvv"
+        mask="###"
+        suffix="CVV"
+      ></v-text-field>
     </div>
     <div class="d-flex">
       <v-switch label="Save My Card Detials" v-model="saveCard"></v-switch>
     </div>
     <div class="form-btn">
-      <v-btn outline @click="submit" color="primary">Submit</v-btn>
-      <v-btn outline @click="clear">Clear</v-btn>
+      <v-btn outlined @click="submit" color="primary">Submit</v-btn>
+      <v-btn outlined @click="clear">Clear</v-btn>
     </div>
   </v-form>
 </template>
@@ -70,30 +75,30 @@
 <script>
 export default {
   $_veeValidate: {
-    validator: "new"
+    validator: 'new',
   },
   data: () => ({
     saveCard: true,
     cardTypes: [
       {
         id: 1,
-        name: "Visa Express"
+        name: 'Visa Express',
       },
       {
         id: 2,
-        name: "Mastard"
-      }
+        name: 'Mastard',
+      },
     ],
     valid: true,
     form: {
-      cardNumber: "5105105105105100",
-      cardName: "Mcihael Wang",
+      cardNumber: '5105105105105100',
+      cardName: 'Mcihael Wang',
       cardTypeId: 1,
-      expireDate: "2018-04-09"
-    }
+      expireDate: '2018-04-09',
+    },
   }),
   mounted() {
-    this.$validator.localize("en", this.dictionary)
+    this.$validator.localize('en', this.dictionary)
   },
 
   methods: {
@@ -103,12 +108,12 @@ export default {
     clear() {
       this.form = {}
       this.$validator.reset()
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .payment-method
   border: 1px solid #eee
 </style>

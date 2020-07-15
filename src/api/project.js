@@ -1,44 +1,47 @@
 const Projects = [
   {
-    username: "Dessie",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/ludwiczakpawel/128.jpg",
-    name: "Template PSD",
-    deadline: "2 days later",
+    username: 'Dessie',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/ludwiczakpawel/128.jpg',
+    name: 'Template PSD',
+    deadline: '2 days later',
     progress: 90,
-    color: "pink"
+    color: 'pink',
   },
   {
-    username: "Jakayla",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg",
-    name: "Logo Design",
-    deadline: "1 weeks later",
+    username: 'Jakayla',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg',
+    name: 'Logo Design',
+    deadline: '1 weeks later',
     progress: 70,
-    color: "success"
+    color: 'success',
   },
   {
-    username: "Ludwiczakpawel",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/ludwiczakpawel/128.jpg",
-    name: "REST API",
-    deadline: "1 Month later",
+    username: 'Ludwiczakpawel',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/ludwiczakpawel/128.jpg',
+    name: 'REST API',
+    deadline: '1 Month later',
     progress: 50,
-    color: "info"
+    color: 'info',
   },
   {
-    username: "Damenleeturks",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/damenleeturks/128.jpg",
-    name: "API Unit Test",
-    deadline: "2 Month later",
+    username: 'Damenleeturks',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/damenleeturks/128.jpg',
+    name: 'API Unit Test',
+    deadline: '2 Month later',
     progress: 30,
-    color: "teal"
+    color: 'teal',
   },
   {
-    username: "Caspergrl",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/caspergrl/128.jpg",
-    name: "Project Deploy",
-    deadline: "half year later",
+    username: 'Caspergrl',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/caspergrl/128.jpg',
+    name: 'Project Deploy',
+    deadline: 'half year later',
     progress: 15,
-    color: "grey"
-  }
+    color: 'grey',
+  },
 ]
 
 const getProject = limit => {

@@ -2,31 +2,20 @@
  * ECharts Vue Wrapper
  * Michael Wang
  */
-import colors from "vuetify/es5/util/colors"
-import _object from "lodash/object"
+import colors from 'vuetify/es5/util/colors'
+import _object from 'lodash/object'
 
 const ECharts = window.echarts || undefined
 if (ECharts === undefined) {
-  console.error("ECharts is not defined")
+  console.error('ECharts is not defined')
 }
 // set color palette
 const colorPalette = []
-Object.entries(colors).forEach(item => {
+Object.entries(colors).forEach((item) => {
   if (item[1].base) {
     colorPalette.push(item[1].base)
   }
 })
-// default
-// const colorPalette = ['#d87c7c', '#919e8b', '#d7ab82', '#6e7074', '#61a0a8', '#efa18d', '#787464', '#cc7e63', '#724e58', '#4b565b'];
-// ECharts.registerTheme('material', {
-//   color: colorPalette,
-//   graph: {
-//     color: colorPalette
-//   }
-//   textStyle: {
-
-//   }
-// });
 ;(function() {
   const throttle = function(type, name, obj) {
     obj = obj || window
@@ -44,28 +33,28 @@ Object.entries(colors).forEach(item => {
     obj.addEventListener(type, func)
   }
   /* init - you can init any event */
-  throttle("resize", "optimizedResize")
+  throttle('resize', 'optimizedResize')
 })()
 export default {
-  name: "v-echart",
+  name: 'v-echart',
 
   render(h) {
     const data = {
-      staticClass: "v-chart",
+      staticClass: 'v-chart',
       style: this.canvasStyle,
-      ref: "canvas",
-      on: this.$listeners
+      ref: 'canvas',
+      on: this.$listeners,
     }
-    return h("div", data)
+    return h('div', data)
   },
 
   props: {
     // args of  ECharts.init(dom, theme, opts)
-    width: { type: String, default: "auto" },
-    height: { type: String, default: "400px" },
+    width: { type: String, default: 'auto' },
+    height: { type: String, default: '400px' },
     merged: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // instace.setOption
     pathOption: [Object, Array],
@@ -84,7 +73,7 @@ export default {
       type: [Object, Array],
       default() {
         return {}
-      }
+      },
     }, // option.dataSet
     colors: Array, // echarts.option.color
     backgroundColor: [Object, String],
@@ -92,117 +81,117 @@ export default {
     // resize delay
     widthChangeDelay: {
       type: Number,
-      default: 450
-    }
+      default: 450,
+    },
   },
   data: () => ({
     chartInstance: null,
     clientWidth: null,
     allowedOptions: [
-      "textStyle",
-      "title",
-      "legend",
-      "xAxis",
-      "yAxis",
-      "series",
-      "tooltip",
-      "axisPointer",
-      "grid",
-      "dataset",
-      "colors",
-      "backgroundColor"
+      'textStyle',
+      'title',
+      'legend',
+      'xAxis',
+      'yAxis',
+      'series',
+      'tooltip',
+      'axisPointer',
+      'grid',
+      'dataset',
+      'colors',
+      'backgroundColor',
     ],
     _defaultOption: {
       tooltip: {
-        show: true
+        show: true,
       },
       title: {
         show: true,
         textStyle: {
-          color: "rgba(0, 0, 0 , .87)",
-          fontFamily: "sans-serif"
-        }
+          color: 'rgba(0, 0, 0 , .87)',
+          fontFamily: 'sans-serif',
+        },
       },
       grid: {
-        containLabel: true
+        containLabel: true,
       },
       xAxis: {
         show: true,
-        type: "category",
+        type: 'category',
         axisLine: {
           lineStyle: {
-            color: "rgba(0, 0, 0 , .54)",
-            type: "dashed"
-          }
+            color: 'rgba(0, 0, 0 , .54)',
+            type: 'dashed',
+          },
         },
         axisTick: {
           show: true,
           alignWithLabel: true,
           lineStyle: {
             show: true,
-            color: "rgba(0, 0, 0 , .54)",
-            type: "dashed"
-          }
+            color: 'rgba(0, 0, 0 , .54)',
+            type: 'dashed',
+          },
         },
         axisLabel: {
-          show: false
-        }
+          show: false,
+        },
       },
       yAxis: {
         show: true,
-        type: "value",
+        type: 'value',
         axisLine: {
           lineStyle: {
-            color: "rgba(0, 0, 0 , .54)",
-            type: "dashed"
-          }
+            color: 'rgba(0, 0, 0 , .54)',
+            type: 'dashed',
+          },
         },
         axisLabel: {
-          show: false
+          show: false,
           // color: 'rgba(0, 0, 0 , .54)'
         },
         splitLine: {
           lineStyle: {
-            type: "dashed"
-          }
+            type: 'dashed',
+          },
         },
         axisTick: {
           show: true,
           lineStyle: {
             show: true,
-            color: "rgba(0, 0, 0 , .54)",
-            type: "dashed"
-          }
-        }
+            color: 'rgba(0, 0, 0 , .54)',
+            type: 'dashed',
+          },
+        },
       },
       series: [
         {
-          type: "line"
-        }
-      ]
-    }
+          type: 'line',
+        },
+      ],
+    },
   }),
   computed: {
     canvasStyle() {
       return {
         width: this.width,
-        height: this.height
+        height: this.height,
       }
-    }
+    },
   },
   methods: {
     init() {
-      const { widthChangeDelay } = this
+      //const { widthChangeDelay } = this
       // set
       if (this.pathOption) {
-        this.pathOption.forEach(p => {
+        this.pathOption.forEach((p) => {
           _object.set(this.$data._defaultOption, p[0], p[1])
         })
       }
-      this.chartInstance = ECharts.init(this.$refs.canvas, "material")
+      this.chartInstance = ECharts.init(this.$refs.canvas, 'material')
       this.chartInstance.setOption(_object.merge(this.option, this.$data._defaultOption))
-      window.addEventListener("optimizedResize", e => {
-        setTimeout(_ => {
+      window.addEventListener('optimizedResize', () => {
+        setTimeout(() => {
           this.chartInstance.resize()
         }, this.widthChangeDelay)
       })
@@ -212,9 +201,9 @@ export default {
       this.chartInstance.resize()
     },
     clean() {
-      window.removeEventListener("resize", this.chartInstance.resize)
+      window.removeEventListener('resize', this.chartInstance.resize)
       this.chartInstance.clear()
-    }
+    },
   },
   mounted() {
     this.init()
@@ -222,5 +211,5 @@ export default {
 
   beforeDestroy() {
     this.clean()
-  }
+  },
 }

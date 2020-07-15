@@ -1,7 +1,13 @@
 <template>
-  <div id="v-widget">
+  <div class="v-widget">
     <v-card>
-      <v-toolbar color="transparent" flat dense card v-if="enableHeader">
+      <v-toolbar
+        color="transparent"
+        text
+        dense
+        v-if="enableHeader"
+        elevation="0"
+      >
         <v-toolbar-title
           ><h4>{{ title }}</h4></v-toolbar-title
         >
@@ -18,24 +24,24 @@
 
 <script>
 export default {
-  name: "VWidget",
+  name: 'VWidget',
   props: {
     title: {
-      type: String
+      type: String,
     },
     enableHeader: {
       type: Boolean,
-      default: true
+      default: true,
     },
     contentBg: {
       type: String,
-      default: "white"
-    }
+      default: 'white',
+    },
   },
 
   data() {
     return {}
   },
-  computed: {}
+  computed: {},
 }
 </script>

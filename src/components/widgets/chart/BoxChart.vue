@@ -8,111 +8,112 @@
       </div>
     </v-card-title>
     <v-responsive class="white--text">
-      <e-chart :path-option="computeChartOption" height="308px" width="100%"> </e-chart>
+      <e-chart :path-option="computeChartOption" height="308px" width="100%">
+      </e-chart>
     </v-responsive>
   </v-card>
 </template>
 
 <script>
-import EChart from "@/components/chart/echart"
-import Material from "vuetify/es5/util/colors"
+import EChart from '@/components/chart/echart'
 
 export default {
   components: {
-    EChart
+    EChart,
   },
   props: {
     title: String,
     gradient: {
       type: Boolean,
-      default: false
+      default: false,
     },
     subTitle: String,
     icon: String,
     cardColor: {
       type: String,
-      default: "white"
+      default: 'white',
     },
     iconColor: {
       type: String,
-      default: "success"
+      default: 'success',
     },
     type: String,
     chartColor: Array,
-    data: Array
+    data: Array,
   },
   data() {
     return {
       defaultOption: [
-        ["dataset.source", this.data],
-        ["xAxis.show", false],
-        ["yAxis.show", false],
-        ["grid.top", "15%"],
-        ["grid.left", "0"],
-        ["grid.bottom", "0"],
-        ["grid.right", "0"],
-        ["color", this.chartColor]
-      ]
+        ['dataset.source', this.data],
+        ['xAxis.show', false],
+        ['yAxis.show', false],
+        ['grid.top', '15%'],
+        ['grid.left', '0'],
+        ['grid.bottom', '0'],
+        ['grid.right', '0'],
+        ['color', this.chartColor],
+      ],
     }
   },
 
   computed: {
     computeCardDark() {
-      return this.cardColor !== "white"
+      return this.cardColor !== 'white'
     },
     computeChartOption() {
+      let options = this.defaultOption.slice()
       switch (this.type) {
-        case "bar":
-          this.defaultOption.push(["series[0].type", "bar"])
-          this.defaultOption.push(["series[0].barWidth", "50%"])
+        case 'bar':
+          options.push(['series[0].type', 'bar'])
+          options.push(['series[0].barWidth', '50%'])
           // add shadow series
-          // this.defaultOption.push(['series[1].type', 'bar']);
+          // options.push(['series[1].type', 'bar']);
           break
-        case "stack-bar":
+        case 'stack-bar':
           // set stacked bar
-          // this.defaultOption.push(['series[0].data', StackBarData]);
-          this.defaultOption.push(["series[0].type", "bar"])
-          this.defaultOption.push(["series[0].itemStyle.normar.color", "rgba(0,0,0,0.05)"])
-          this.defaultOption.push(["series[0].barGap", "-100%"])
+          // options.push(['series[0].data', StackBarData]);
+          options.push(['series[0].type', 'bar'])
+          options.push(['series[0].itemStyle.normar.color', 'rgba(0,0,0,0.05)'])
+          options.push(['series[0].barGap', '-100%'])
           // set main series
-          // this.defaultOption.push(['series[1].data', StackData]);
-          this.defaultOption.push(["series[1].type", "bar"])
+          // options.push(['series[1].data', StackData]);
+          options.push(['series[1].type', 'bar'])
           break
-        case "area":
-          this.defaultOption.push(["series[0].type", "line"])
-          this.defaultOption.push(["series[0].smooth", true])
-          this.defaultOption.push(["xAxis.boundaryGap", false])
-          this.defaultOption.push(["series[0].areaStyle", {}])
+        case 'area':
+          options.push(['series[0].type', 'line'])
+          options.push(['series[0].smooth', true])
+          options.push(['xAxis.boundaryGap', false])
+          options.push(['series[0].areaStyle', {}])
           if (this.gradient) {
-            this.defaultOption.push([
-              "series[0].areaStyle",
+            options.push([
+              'series[0].areaStyle',
               {
                 normal: {
                   color: new window.echarts.graphic.LinearGradient(0, 0, 0, 1, [
                     {
                       offset: 0,
-                      color: this.chartColor[0]
+                      color: this.chartColor[0],
                     },
                     {
                       offset: 1,
-                      color: this.chartColor[1]
-                    }
-                  ])
-                }
-              }
+                      color: this.chartColor[1],
+                    },
+                  ]),
+                },
+              },
             ])
           }
 
           break
         default:
           // line
-          this.defaultOption.push(["series[0].smooth", true])
-          this.defaultOption.push(["xAxis.boundaryGap", false])
+          options.push(['series[0].smooth', true])
+          options.push(['xAxis.boundaryGap', false])
           break
       }
-      return this.defaultOption
-    }
-  }
+      return options
+    },
+  },
 }
 </script>
 

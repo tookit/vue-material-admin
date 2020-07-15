@@ -1,16 +1,23 @@
 <template>
   <v-container fluid fill-height class="pa-0 mail-list" id="mailList">
     <v-layout column class="mail-list--layout">
-      <v-toolbar fixed app class="elevation-1 mail-list--toolbar">
+      <v-app-bar fixed app class="elevation-1 mail-list--toolbar">
         <v-checkbox row hide-details class="check-all"></v-checkbox>
-        <v-menu offset-y origin="center center" :nudge-bottom="0" transition="scale-transition">
-          <v-btn icon large flat slot="activator">
-            <v-avatar size="32px">
-              <v-icon>arrow_drop_down</v-icon>
-            </v-avatar>
-          </v-btn>
+        <v-menu
+          offset-y
+          origin="center center"
+          :nudge-bottom="0"
+          transition="scale-transition"
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn icon large text slot="activator">
+              <v-avatar size="32px">
+                <v-icon>arrow_drop_down</v-icon>
+              </v-avatar>
+            </v-btn>
+          </template>
           <v-list class="pa-0">
-            <v-list-tile
+            <v-list-item
               v-for="(item, index) in mailActions"
               :to="!item.href ? { name: item.name } : null"
               :href="item.href"
@@ -21,60 +28,53 @@
               rel="noopener"
               :key="index"
             >
-              <v-list-tile-action v-if="item.icon">
+              <v-list-item-action v-if="item.icon">
                 <v-icon>{{ item.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list>
         </v-menu>
         <v-spacer></v-spacer>
-        <v-btn icon flat>
-          <v-icon>refresh</v-icon>
-        </v-btn>
-        <v-btn icon flat>
-          <v-icon>keyboard_arrow_left</v-icon>
-        </v-btn>
-        <v-btn icon flat>
-          <v-icon>keyboard_arrow_right</v-icon>
-        </v-btn>
-      </v-toolbar>
+        <v-btn icon text> <v-icon>refresh</v-icon> </v-btn>
+        <v-btn icon text> <v-icon>keyboard_arrow_left</v-icon> </v-btn>
+        <v-btn icon text> <v-icon>keyboard_arrow_right</v-icon> </v-btn>
+      </v-app-bar>
       <vue-perfect-scrollbar class="mail-list--scrollbar">
         <v-flex class="mail-content white">
           <v-tabs fixed-tabs grow>
-            <v-tab>
-              Primary
-            </v-tab>
-            <v-tab>
-              Social
-            </v-tab>
-            <v-tab>
-              Promotions
-            </v-tab>
+            <v-tab>Primary</v-tab>
+            <v-tab>Social</v-tab>
+            <v-tab>Promotions</v-tab>
           </v-tabs>
           <v-list two-line class="mail-list--list">
             <template v-for="(item, index) in mails">
-              <v-list-tile avatar ripple :key="index" :to="computeMailPath(item.uuid)">
-                <v-list-tile-action>
+              <v-list-item ripple :key="index" :to="computeMailPath(item.uuid)">
+                <v-list-item-action>
                   <v-checkbox></v-checkbox>
-                </v-list-tile-action>
-                <v-list-tile-avatar>
+                </v-list-item-action>
+                <v-list-item-avatar>
                   <img :src="item.from.avatar" />
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.from.name }}</v-list-tile-title>
-                  <v-list-tile-sub-title>{{ item.title }}</v-list-tile-sub-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-list-tile-action-text>{{ formatDate(item.created_at) }}</v-list-tile-action-text>
-                  <v-icon @click="toggle(index)" color="grey lighten-1" v-if="selected.indexOf(index) < 0"
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.from.name }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ item.title }}</v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-action>
+                  <v-list-item-action-text>{{
+                    formatDate(item.created_at)
+                  }}</v-list-item-action-text>
+                  <v-icon
+                    @click="toggle(index)"
+                    color="grey lighten-1"
+                    v-if="selected.indexOf(index) < 0"
                     >star_border</v-icon
                   >
                   <v-icon color="yellow darken-2" v-else>star</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
+                </v-list-item-action>
+              </v-list-item>
               <v-divider :key="'divider' + index"></v-divider>
             </template>
           </v-list>
@@ -84,59 +84,59 @@
   </v-container>
 </template>
 <script>
-import VuePerfectScrollbar from "vue-perfect-scrollbar"
-import { getMailByType } from "@/api/mail"
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import { getMailByType } from '@/api/mail'
 export default {
   components: {
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
   },
   props: {
     mailType: {
       type: String,
-      default: "All"
-    }
+      default: 'All',
+    },
   },
   data: () => ({
     selected: [2],
     mailActions: [
       {
-        href: "#",
-        title: "Delete",
+        href: '#',
+        title: 'Delete',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Mark as read",
-        title: "Mark as read",
+        href: 'Mark as read',
+        title: 'Mark as read',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Spam",
-        title: "Spam",
+        href: 'Spam',
+        title: 'Spam',
         click: e => {
           console.log(e)
-        }
-      }
-    ]
+        },
+      },
+    ],
   }),
   computed: {
     mails() {
       return getMailByType(this.$route.params.mailType)
-    }
+    },
   },
 
   created() {
-    this.$on("MAIL_REPLY_DIALOG_CLOSE", () => {
+    this.$on('MAIL_REPLY_DIALOG_CLOSE', () => {
       this.replayDialog = false
     })
     window.AppMail = this
   },
   methods: {
     computeMailPath(id) {
-      return { path: "/mail/0/" + id }
+      return { path: '/mail/0/' + id }
     },
     formatDate(s) {
       return new Date(s).toLocaleString()
@@ -149,7 +149,7 @@ export default {
       } else {
         this.selected.push(index)
       }
-    }
-  }
+    },
+  },
 }
 </script>

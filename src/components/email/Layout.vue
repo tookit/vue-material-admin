@@ -1,7 +1,18 @@
 <template>
-  <v-app id="mail" class="mail">
-    <v-toolbar fixed app flat dark color="indigo" clipped-left class="mail-toolbar" id="topbar">
-      <v-toolbar-side-icon class="hidden-sm-and-up" @click="toggleDrawer"></v-toolbar-side-icon>
+  <v-app class="mail">
+    <v-app-bar
+      fixed
+      app
+      text
+      dark
+      color="indigo"
+      clipped-left
+      class="mail-toolbar"
+    >
+      <v-app-bar-nav-icon
+        class="hidden-sm-and-up"
+        @click="toggleDrawer"
+      ></v-app-bar-nav-icon>
       <v-avatar class="hidden-sm-and-down">
         <img src="/static/m.png" alt="Vue Material Mail" />
       </v-avatar>
@@ -10,24 +21,29 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
-        flat
         solo-inverted
         prepend-icon="search"
+        hide-details
         label="What are you looking for?"
         class="hidden-sm-and-down"
       >
       </v-text-field>
-      <v-btn icon>
-        <v-icon>notifications</v-icon>
-      </v-btn>
-      <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
-        <v-btn icon large flat slot="activator">
-          <v-avatar size="32px">
-            <img src="https://randomuser.me/api/portraits/men/1.jpg" />
-          </v-avatar>
-        </v-btn>
+      <v-btn icon> <v-icon>notifications</v-icon> </v-btn>
+      <v-menu
+        offset-y
+        origin="center center"
+        :nudge-bottom="10"
+        transition="scale-transition"
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn icon large text slot="activator" v-on="on">
+            <v-avatar size="32px">
+              <img src="https://randomuser.me/api/portraits/men/1.jpg" />
+            </v-avatar>
+          </v-btn>
+        </template>
         <v-list class="pa-0">
-          <v-list-tile
+          <v-list-item
             v-for="(item, index) in items"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
@@ -38,19 +54,21 @@
             rel="noopener"
             :key="index"
           >
-            <v-list-tile-action v-if="item.icon">
+            <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </v-menu>
-    </v-toolbar>
+    </v-app-bar>
     <v-navigation-drawer class="mail-drawer" fixed clipped v-model="drawer" app>
       <div class="layout column pa-3">
-        <v-btn large block color="red" dark @click.stop="dialog = true"> + COMPOSE</v-btn>
+        <v-btn large block color="red" dark @click.stop="dialog = true">
+          + COMPOSE</v-btn
+        >
       </div>
       <v-list class="mail-list" dense>
         <template v-for="item in menus">
@@ -63,22 +81,21 @@
             </v-flex>
           </v-layout>
           <!-- Top level -->
-          <v-list-tile v-else :key="item.text" :to="item.to">
-            <v-list-tile-action v-if="item.icon">
-              <v-icon :color="item.iconColor" :small="item.iconSize">{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-            <!-- <v-chip class="caption red lighten-2 white--text chip--x-small mx-0" v-if="item.chip" label="label" small>{{ item.chip }}</v-chip> -->
-          </v-list-tile>
+          <v-list-item v-else :key="item.text" :to="item.to">
+            <v-list-item-action v-if="item.icon">
+              <v-icon :color="item.iconColor" :small="item.iconSize">{{
+                item.icon
+              }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </template>
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <transition>
-        <router-view></router-view>
-      </transition>
+      <transition> <router-view></router-view> </transition>
     </v-content>
     <v-dialog v-model="dialog" max-width="640px">
       <compose></compose>
@@ -87,14 +104,14 @@
 </template>
 
 <script>
-import { MailMenu } from "@/api/mail"
-import Compose from "./Compose"
+import { MailMenu } from '@/api/mail'
+import Compose from './Compose'
 export default {
   components: {
-    Compose
+    Compose,
   },
   props: {
-    source: String
+    source: String,
   },
   data: () => ({
     selected: [2],
@@ -104,57 +121,57 @@ export default {
     menus: MailMenu,
     items: [
       {
-        icon: "account_circle",
-        href: "#",
-        title: "Profile",
+        icon: 'account_circle',
+        href: '#',
+        title: 'Profile',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        icon: "settings",
-        href: "#",
-        title: "Settings",
+        icon: 'settings',
+        href: '#',
+        title: 'Settings',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        icon: "fullscreen_exit",
-        href: "#",
-        title: "Logout",
+        icon: 'fullscreen_exit',
+        href: '#',
+        title: 'Logout',
         click: e => {
           console.log(e)
-        }
-      }
+        },
+      },
     ],
     mailActions: [
       {
-        href: "#",
-        title: "Delete",
+        href: '#',
+        title: 'Delete',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Mark as read",
-        title: "Mark as read",
+        href: 'Mark as read',
+        title: 'Mark as read',
         click: e => {
           console.log(e)
-        }
+        },
       },
       {
-        href: "Spam",
-        title: "Spam",
+        href: 'Spam',
+        title: 'Spam',
         click: e => {
           console.log(e)
-        }
-      }
-    ]
+        },
+      },
+    ],
   }),
 
   created() {
-    this.$on("MAIL_REPLY_DIALOG_CLOSE", () => {
+    this.$on('MAIL_REPLY_DIALOG_CLOSE', () => {
       this.replayDialog = false
     })
     window.AppMail = this
@@ -176,8 +193,8 @@ export default {
       } else {
         this.selected.push(index)
       }
-    }
-  }
+    },
+  },
 }
 </script>
-<style lang="stylus"></style>
+<style lang="sass" scoped></style>

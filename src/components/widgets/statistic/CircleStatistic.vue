@@ -10,7 +10,13 @@
     </v-card-title>
     <v-card-text>
       <div class="justify-center row layout ma-0">
-        <v-progress-circular :size="150" :width="15" :rotate="-90" :value="value" :color="color">
+        <v-progress-circular
+          :size="150"
+          :width="15"
+          :rotate="-90"
+          :value="value"
+          :color="color"
+        >
           {{ value }}
         </v-progress-circular>
       </div>
@@ -31,8 +37,8 @@ export default {
     subTitle: String,
     caption: String,
     value: Number,
-    color: String
-  }
+    color: String,
+  },
 }
 </script>
 

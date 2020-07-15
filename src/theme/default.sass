@@ -1,0 +1,133 @@
+/* ------------------------------------------------------------------
+ * [Table of contents]
+ */
+// # overwrite some style of SASS
+
+/*------------------------------------------------------------------
+ * [FontAwesome]
+ */
+
+/*------------------------------------------------------------------
+ * [vuetify]
+ */
+$color-pack: true
+@import '~vuetify/src/styles/main.sass'
+
+/*------------------------------------------------------------------
+ * [Global]
+ */
+body
+  font-family: $body-font-family
+  font-size: $font-size-root
+  font-weight: 400 // $font-weights.regular
+  line-height: $line-height-root
+h1
+  font-size: 48px
+  font-weight: 100 // $font-weights.thin
+  letter-spacing: -1.5
+
+h2
+  font-size: 36px
+  font-weight: 300 // $font-weights.light
+  letter-spacing: -0.5
+
+h3
+  font-size: 24px
+  font-weight: 300 // $font-weights.light
+  letter-spacing: normal
+
+h4
+  font-size: 20px
+  font-weight: 300 // $font-weights.light
+  letter-spacing: normal
+h5
+  font-size: 16px
+  font-weight: 400 // $font-weights.regular
+  letter-spacing: normal
+
+
+/*------------------------------------------------------------------
+ * [Components List]
+ */
+.v-list
+  .v-list__tile--link:hover,
+  .v-list__tile--highlighted,
+  .v-list__group__header:hover,
+  .v-list__group--active:before,
+  .v-list__group--active:after
+    background: #f5f5f5!important
+
+/*------------------------------------------------------------------
+ * [Components / Card]
+ */
+.v-card
+  // box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
+  box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16)
+  &__actions
+    .v-btn
+      margin: 0 8px
+      min-width: 56px
+      &:first-child
+        margin-left: 0
+
+/*------------------------------------------------------------------
+ * [Components / Chat]
+ */
+.chat
+  &-history
+    &--toolbar
+      box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
+    &--list
+      a.list__tile--active
+        background: #eee
+    &--scrollbar
+      height: calc(100vh - 48px)
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        height: calc(100vh - 48px - 56px)
+  &-room
+    &--toolbar
+      box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
+    &--scrollbar
+      height: calc(100vh - 48px - 80px)
+/*------------------------------------------------------------------
+ * [Components / mail]
+ */
+.mail
+  &-toolbar
+    border-bottom: 1px solid rgba(0,0,0,0.12)
+  &-list
+    &--layout
+      padding-top: 64px!important
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        padding-top: 56px!important
+    &--toolbar
+      margin-top: 64px!important
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        margin-top: 56px!important
+      .check-all
+        flex: 0 0
+        margin-top: 0
+    &--wrap
+      height: calc(100vh - 64px - 64px)
+  &-reply
+    &--layout
+      padding-top: 64px!important
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        padding-top: 56px!important
+    &--toolbar
+      margin-top: 64px !important
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        margin-top: 56px!important
+    &--scrollbar
+      height: calc(100vh - 64px - 64px)
+      @media #{map-get($display-breakpoints, 'sm-and-down')}
+        height : calc(100vh - 56px - 56px)
+.v-input.search
+  .v-input__slot
+    margin-top: 8px
+/*------------------------------------------------------------------
+ * [Components / AppToolbar]
+ */    
+.app--toolbar
+  .v-toolbar__extension
+    padding: 0 !important

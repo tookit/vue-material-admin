@@ -46,8 +46,8 @@ const randomElement = (arr = []) => {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const kebab = str => {
-  return (str || "").replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()
+const kebab = (str) => {
+  return (str || '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
 const toggleFullScreen = () => {
@@ -69,5 +69,5 @@ const toggleFullScreen = () => {
 export default {
   randomElement,
   toggleFullScreen,
-  kebab
+  kebab,
 }
