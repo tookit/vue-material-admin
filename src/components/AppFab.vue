@@ -25,7 +25,6 @@ export default {
       fab: false,
     }
   },
-
   methods: {
     onScroll() {
       if (typeof window === 'undefined') return

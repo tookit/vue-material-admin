@@ -1,13 +1,7 @@
 <template>
   <div class="v-widget">
     <v-card>
-      <v-toolbar
-        color="transparent"
-        text
-        dense
-        v-if="enableHeader"
-        elevation="0"
-      >
+      <v-toolbar color="transparent" text dense v-if="enableHeader" elevation="0">
         <v-toolbar-title
           ><h4>{{ title }}</h4></v-toolbar-title
         >

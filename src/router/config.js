@@ -171,9 +171,6 @@ export const protectedRoute = [
       },
     ],
   },
-
-  //media
-
   // chat app
   {
     path: '/chat',

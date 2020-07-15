@@ -7,7 +7,7 @@ const state = {
 
 // getters
 const getters = {
-  getThemeColor: state => {
+  getThemeColor: (state) => {
     return colors[state.themeColor].base
   },
 }

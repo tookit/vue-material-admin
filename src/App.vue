@@ -21,7 +21,6 @@
 
 <script>
 import ThemeSettings from '@/components/ThemeSettings'
-
 export default {
   components: {
     ThemeSettings,

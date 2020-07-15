@@ -21,11 +21,7 @@
     </div>
     <v-list expand dense v-if="items" nav>
       <template v-for="(item, i) in items">
-        <v-subheader
-          v-if="item.header"
-          :key="`subheader-${i}`"
-          v-text="item.header"
-        />
+        <v-subheader v-if="item.header" :key="`subheader-${i}`" v-text="item.header" />
         <v-divider v-else-if="item.divider" :key="`divider-${i}`" />
         <list-group v-else-if="item.group" :key="`group-${i}`" :item="item" />
         <list-item
@@ -44,7 +40,6 @@
 import menu from '@/api/menu'
 import ListGroup from '@/components/List/Group'
 import ListItem from '@/components/List/Item'
-
 export default {
   name: 'AppDrawer',
   components: {
@@ -58,7 +53,7 @@ export default {
     },
     drawWidth: {
       type: [Number, String],
-      default: '260',
+      default: '64',
     },
     showDrawer: Boolean,
   },

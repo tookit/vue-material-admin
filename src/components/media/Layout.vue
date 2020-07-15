@@ -23,11 +23,7 @@
     <div class="layout row">
       <div class="media-aside media-menu">
         <v-list dense class="transparent">
-          <v-list-item
-            v-for="(item, index) in mediaMenu"
-            :key="index"
-            :to="item.to"
-          >
+          <v-list-item v-for="(item, index) in mediaMenu" :key="index" :to="item.to">
             <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -91,9 +87,7 @@ export default {
       return this.imageMime.includes(file.fileType)
     },
     mimeIcons(file) {
-      return this.imageMime.includes(file.fileType)
-        ? 'image'
-        : 'insert_drive_file'
+      return this.imageMime.includes(file.fileType) ? 'image' : 'insert_drive_file'
     },
   },
 }
