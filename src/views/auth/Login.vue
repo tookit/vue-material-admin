@@ -10,13 +10,21 @@
             </h1>
           </v-card-title>
           <v-card-text>
-            <v-form class="my-10">
+            <v-form
+              ref="form"
+              class="my-10"
+              lazy-validation
+              v-model="formValid"
+            >
               <v-text-field
                 append-icon="person"
                 autocomplete="off"
                 name="login"
                 label="Login"
+                placeholder="Username or Email"
                 type="text"
+                required
+                :rules="formRule.username"
                 v-model="fromModel.username"
               />
               <v-text-field
@@ -24,8 +32,10 @@
                 autocomplete="off"
                 name="password"
                 label="Password"
-                id="password"
+                placeholder="Password"
                 type="password"
+                :rules="formRule.password"
+                required
                 v-model="fromModel.password"
               />
             </v-form>
@@ -55,19 +65,26 @@ export default {
   data() {
     return {
       loading: false,
+      formValid: false,
       fromModel: {
         username: '',
         password: ''
+      },
+      formRule: {
+        username: [(v) => !!v || 'Username is required'],
+        password: [(v) => !!v || 'Password is required']
       },
       socialIcons: ['mdi-google', 'mdi-twitter', 'mdi-facebook']
     }
   },
   methods: {
     login() {
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/dashboard')
-      }, 1000)
+      if (this.$refs.form.validate()) {
+        this.loading = true
+        setTimeout(() => {
+          this.$router.push('/dashboard')
+        }, 1000)
+      }
     },
     handleSocialLogin() {}
   }

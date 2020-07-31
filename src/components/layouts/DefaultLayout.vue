@@ -27,20 +27,20 @@ export default {
   components: {
     AppDrawer,
     AppToolbar,
-    AppFab,
+    AppFab
   },
 
   data() {
     return {
-      showDrawer: true,
+      showDrawer: true
     }
   },
   methods: {
     handleDrawerVisiable() {
       this.showDrawer = !this.showDrawer
-    },
+    }
   },
-  created() {},
+  created() {}
 }
 </script>
 

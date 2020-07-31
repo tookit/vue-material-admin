@@ -11,7 +11,7 @@
     "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "dependencies": {
-    "@mdi/font": "^5.4.55",
+    "@mdi/font": "^5.3.45",
     "lodash.truncate": "^4.4.2",
     "nprogress": "^0.2.0",
     "core-js": "^3.3.2",    
@@ -19,10 +19,9 @@
     "register-service-worker": "^1.6.2",
     "vee-validate": "^2.2.14",
     "vue": "^2.6.10",
-    "vue-ls": "^3.2.1",
     "vue-perfect-scrollbar": "^0.1.0",
     "vue-router": "^3.1.1",
-    "vuetify": "^2.3.4",
+    "vuetify": "^2.3.7",
     "vuex": "^3.1.1",
     "vuex-persist": "^2.1.2"
   },
