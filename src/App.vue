@@ -2,15 +2,38 @@
   <v-app :dark="true">
     <router-view></router-view>
     <!-- theme setting -->
-    <v-btn small fab dark fixed top="top" right="right" class="setting-fab" color="red" @click="openThemeSettings">
+    <v-btn
+      small
+      fab
+      dark
+      fixed
+      top="top"
+      right="right"
+      class="setting-fab"
+      color="red"
+      @click="openThemeSettings"
+    >
       <v-icon>settings</v-icon>
     </v-btn>
     <!-- setting drawer -->
-    <v-navigation-drawer class="setting-drawer" temporary right v-model="rightDrawer" hide-overlay fixed>
+    <v-navigation-drawer
+      class="setting-drawer"
+      temporary
+      right
+      v-model="rightDrawer"
+      hide-overlay
+      fixed
+    >
       <theme-settings></theme-settings>
     </v-navigation-drawer>
     <!-- global snackbar -->
-    <v-snackbar :timeout="3000" bottom right :color="snackbar.color" v-model="snackbar.show">
+    <v-snackbar
+      :timeout="3000"
+      bottom
+      right
+      :color="snackbar.color"
+      v-model="snackbar.show"
+    >
       {{ snackbar.text }}
       <v-btn dark text @click.native="snackbar.show = false" icon>
         <v-icon>close</v-icon>
@@ -23,7 +46,7 @@
 import ThemeSettings from '@/components/ThemeSettings'
 export default {
   components: {
-    ThemeSettings,
+    ThemeSettings
   },
   data() {
     return {
@@ -31,8 +54,8 @@ export default {
       snackbar: {
         show: false,
         text: '',
-        color: '',
-      },
+        color: ''
+      }
     }
   },
 
@@ -44,8 +67,8 @@ export default {
     openThemeSettings() {
       this.$vuetify.goTo(0)
       this.rightDrawer = !this.rightDrawer
-    },
-  },
+    }
+  }
 }
 </script>
 
