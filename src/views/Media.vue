@@ -1,21 +1,24 @@
 <template>
   <div class="media">
-    <v-toolbar class="elevation-0 transparent media-toolbar">
+    <v-toolbar class="transparent media-toolbar">
       <v-btn-toggle>
         <v-btn text>
           <v-icon color="primary">cloud_upload</v-icon>
-          &nbsp;Upload
+          Upload
         </v-btn>
         <v-btn text>
           <v-icon color="primary">folder</v-icon>
-          &nbsp; Add Folder
+          Add Folder
         </v-btn>
       </v-btn-toggle>
+
       <v-spacer></v-spacer>
+
       <v-btn-toggle v-model="view">
         <v-btn text value="list">
           <v-icon color="primary">view_headline</v-icon>
         </v-btn>
+
         <v-btn text value="grid">
           <v-icon color="primary">view_list</v-icon>
         </v-btn>
@@ -41,10 +44,13 @@
                       >folder</v-icon
                     >
                   </v-responsive>
+
                   <v-divider></v-divider>
+
                   <v-card-title> {{ item.name }} </v-card-title>
                 </v-card>
               </v-flex>
+
               <v-flex
                 lg4
                 sm12
@@ -66,6 +72,7 @@
               </v-flex>
             </v-layout>
           </v-container>
+
           <v-layout column v-else>
             <v-list dense class="transparent">
               <v-list-item
@@ -102,80 +109,110 @@ import { getFileMenu, getFile } from '@/api/file'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 export default {
   components: {
-    VuePerfectScrollbar,
+    VuePerfectScrollbar
   },
+
   props: {
     type: {
       type: String,
-      default: 'image',
-    },
+
+      default: 'image'
+    }
   },
+
   data() {
     return {
       size: 'lg',
+
       view: 'grid',
+
       selectedFile: {
-        path: '/static/icon/empty_file.svg',
+        path: '/static/icon/empty_file.svg'
       },
+
       imageMime: ['image/jpeg', 'image/png', 'image/svg+xml'],
+
       folders: [
         {
           name: 'bg',
-          lastModified: '2018-03-03',
+
+          lastModified: '2018-03-03'
         },
+
         {
           name: 'cards',
-          lastModified: '2018-03-03',
+
+          lastModified: '2018-03-03'
         },
+
         {
           name: 'avatar',
-          lastModified: '2018-03-03',
-        },
-      ],
+
+          lastModified: '2018-03-03'
+        }
+      ]
     }
   },
+
   computed: {
     mediaMenu() {
       return getFileMenu
     },
+
     files() {
       return getFile()
-    },
+    }
   },
 
   methods: {
     isImage(file) {
       return this.imageMime.includes(file.fileType)
     },
+
     mimeIcons(file) {
       return this.imageMime.includes(file.fileType)
         ? 'image'
         : 'insert_drive_file'
     },
+
     showDetail(file) {
       this.selectedFile = file
     },
+
     fileSize(number) {
       return Bytes.format(number)
     },
+
     formateDate(string) {
       return string ? new Date(string).toLocaleDateString() : ''
     },
+
     computeFileImage(file) {
       return this.isImage(file) ? file.path : '/static/icon/file_empty.svg'
-    },
-  },
+    }
+  }
 }
 </script>
+
 <style lang="sass" scoped>
+
 .card-media img
+
     width: 100%
+
 .media
+
   &-cotent--wrap, &-menu
+
     min-width: 260px
+
     border-right: 1px solid #eee
+
     min-height: calc(100vh - 50px - 64px)
+
   &-detail
+
     min-width: 300px
+
     border-left: 1px solid #eee
 </style>

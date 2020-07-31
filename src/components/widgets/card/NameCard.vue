@@ -1,5 +1,5 @@
 <template>
-  <div class="name-card">
+  <div class="name-card" tile>
     <v-card :color="color" ref="card" :dark="dark" :img="cardBgImage">
       <v-responsive v-if="showTopNav">
         <v-layout row justify-space-between class="ma-0">
@@ -51,39 +51,39 @@ export default {
   props: {
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     avatar: {
       type: Object,
-      default: null,
+      default: null
     },
     jobTitle: {
       type: String,
-      default: '',
+      default: ''
     },
     cardBgImage: {
-      type: String,
+      type: String
     },
     color: {
       type: String,
-      default: '',
+      default: ''
     },
     dark: {
       type: Boolean,
-      default: false,
+      default: false
     },
     bottomNav: {
       type: Boolean,
-      default: false,
+      default: false
     },
     topNav: {
       type: Boolean,
-      default: false,
+      default: false
     },
     mini: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data: () => ({}),
 
@@ -107,10 +107,10 @@ export default {
 
     showTopNav() {
       return this.mini === false && this.topNav
-    },
+    }
   },
 
-  methods: {},
+  methods: {}
 }
 </script>
 
