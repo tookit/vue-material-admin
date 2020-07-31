@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      fab: false,
+      fab: false
     }
   },
   methods: {
@@ -34,7 +34,7 @@ export default {
     toTop() {
       this.$router.push({ hash: '' })
       this.$vuetify.goTo(0)
-    },
-  },
+    }
+  }
 }
 </script>

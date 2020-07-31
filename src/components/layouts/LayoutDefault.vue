@@ -24,6 +24,7 @@ import AppToolbar from '@/components/AppToolbar'
 import AppFab from '@/components/AppFab'
 
 export default {
+  name: 'LayoutDefault',
   components: {
     AppDrawer,
     AppToolbar,

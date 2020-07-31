@@ -1,7 +1,13 @@
 <template>
   <v-app class="chat">
     <template v-if="!$vuetify.breakpoint.smAndDown">
-      <v-navigation-drawer class="pa-0 chat-drawer primary" fixed permanent app width="68">
+      <v-navigation-drawer
+        class="pa-0 chat-drawer primary"
+        fixed
+        permanent
+        app
+        width="68"
+      >
         <chat-menu :items="menus" class="chat-drawer--menu"> </chat-menu>
       </v-navigation-drawer>
       <v-content class="chat-main">
@@ -23,8 +29,22 @@
           <router-view></router-view>
         </transition>
       </v-content>
-      <v-bottom-navigation :value="true" absolute color="primary" app fixed v-if="!hideBottomNav">
-        <v-btn dark text :value="item.to.path" v-for="(item, index) in menus" :key="index" :to="item.to">
+      <v-bottom-navigation
+        :value="true"
+        absolute
+        color="primary"
+        app
+        fixed
+        v-if="!hideBottomNav"
+      >
+        <v-btn
+          dark
+          text
+          :value="item.to.path"
+          v-for="(item, index) in menus"
+          :key="index"
+          :to="item.to"
+        >
           <span>{{ item.text }}</span>
           <v-icon>{{ item.icon }}</v-icon>
         </v-btn>
@@ -38,20 +58,23 @@ import API from '@/api'
 import ChatMenu from '@/components/chat/ChatMenu'
 export default {
   components: {
-    ChatMenu,
+    ChatMenu
   },
   data: () => ({
-    menus: API.getChatMenu,
+    menus: API.getChatMenu
   }),
   computed: {
     hideBottomNav() {
-      return this.$route.params.uuid !== undefined && this.$route.name === 'ChatMessaging'
-    },
+      return (
+        this.$route.params.uuid !== undefined &&
+        this.$route.name === 'ChatMessaging'
+      )
+    }
   },
   methods: {
     handleClick() {
       this.$router.go(-1)
-    },
-  },
+    }
+  }
 }
 </script>

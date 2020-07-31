@@ -1,7 +1,18 @@
 <template>
   <v-app class="mail">
-    <v-app-bar fixed app text dark color="indigo" clipped-left class="mail-toolbar">
-      <v-app-bar-nav-icon class="hidden-sm-and-up" @click="toggleDrawer"></v-app-bar-nav-icon>
+    <v-app-bar
+      fixed
+      app
+      text
+      dark
+      color="indigo"
+      clipped-left
+      class="mail-toolbar"
+    >
+      <v-app-bar-nav-icon
+        class="hidden-sm-and-up"
+        @click="toggleDrawer"
+      ></v-app-bar-nav-icon>
       <v-avatar class="hidden-sm-and-down">
         <img src="/static/m.png" alt="Vue Material Mail" />
       </v-avatar>
@@ -20,7 +31,12 @@
       <v-btn icon>
         <v-icon>notifications</v-icon>
       </v-btn>
-      <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+      <v-menu
+        offset-y
+        origin="center center"
+        :nudge-bottom="10"
+        transition="scale-transition"
+      >
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
             <v-avatar size="32px">
@@ -52,7 +68,9 @@
     </v-app-bar>
     <v-navigation-drawer class="mail-drawer" fixed clipped v-model="drawer" app>
       <div class="layout column pa-3">
-        <v-btn large block color="red" dark @click.stop="dialog = true"> + COMPOSE</v-btn>
+        <v-btn large block color="red" dark @click.stop="dialog = true">
+          + COMPOSE</v-btn
+        >
       </div>
       <v-list class="mail-list" dense>
         <template v-for="item in menus">
@@ -67,7 +85,9 @@
           <!-- Top level -->
           <v-list-item v-else :key="item.text" :to="item.to">
             <v-list-item-action v-if="item.icon">
-              <v-icon :color="item.iconColor" :small="item.iconSize">{{ item.icon }}</v-icon>
+              <v-icon :color="item.iconColor" :small="item.iconSize">{{
+                item.icon
+              }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -92,10 +112,10 @@ import { MailMenu } from '@/api/mail'
 import Compose from './Compose'
 export default {
   components: {
-    Compose,
+    Compose
   },
   props: {
-    source: String,
+    source: String
   },
   data: () => ({
     selected: [2],
@@ -110,7 +130,7 @@ export default {
         title: 'Profile',
         click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         icon: 'settings',
@@ -118,7 +138,7 @@ export default {
         title: 'Settings',
         click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         icon: 'fullscreen_exit',
@@ -126,8 +146,8 @@ export default {
         title: 'Logout',
         click: (e) => {
           console.log(e)
-        },
-      },
+        }
+      }
     ],
     mailActions: [
       {
@@ -135,23 +155,23 @@ export default {
         title: 'Delete',
         click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Mark as read',
         title: 'Mark as read',
         click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Spam',
         title: 'Spam',
         click: (e) => {
           console.log(e)
-        },
-      },
-    ],
+        }
+      }
+    ]
   }),
 
   created() {
@@ -177,8 +197,8 @@ export default {
       } else {
         this.selected.push(index)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="sass" scoped></style>

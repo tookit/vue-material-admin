@@ -59,7 +59,7 @@ export default {
     return {
       themeColor: 'indigo',
       sideBarOption: 'light',
-      colors: colors,
+      colors: colors
     }
   },
   computed: {
@@ -70,75 +70,75 @@ export default {
           value: {
             sideNav: 'blue',
             mainNav: 'blue',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'teal',
           value: {
             sideNav: 'teal',
             mainNav: 'teal',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'red',
           value: {
             sideNav: 'red',
             mainNav: 'red',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'orange',
           value: {
             sideNav: 'orange',
             mainNav: 'orange',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'purple',
           value: {
             sideNav: 'purple',
             mainNav: 'purple',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'indigo',
           value: {
             sideNav: 'indigo',
             mainNav: 'indigo',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'cyan',
           value: {
             sideNav: 'cyan',
             mainNav: 'cyan',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'pink',
           value: {
             sideNav: 'pink',
             mainNav: 'pink',
-            sideMenu: 'white',
-          },
+            sideMenu: 'white'
+          }
         },
         {
           key: 'green',
           value: {
             sideNav: 'green',
             mainNav: 'green',
-            sideMenu: 'white',
-          },
-        },
+            sideMenu: 'white'
+          }
+        }
       ]
-    },
+    }
   },
   watch: {
     themeColor: {
@@ -146,16 +146,16 @@ export default {
         console.log(colors)
         this.$vuetify.theme.themes.light.primary = this.colors[val].base
       },
-      immediate: true,
+      immediate: true
     },
     sideBarOption: {
       handler(val) {
         this.$vuetify.theme.dark = val === 'dark'
       },
-      immediate: true,
+      immediate: true
     },
-    updateTheme() {},
-  },
+    updateTheme() {}
+  }
 }
 </script>
 <style lang="sass" scoped>

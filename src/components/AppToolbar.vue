@@ -5,12 +5,17 @@
     <v-toolbar-items>
       <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
-        <v-icon class="fa-2x">fa-github</v-icon>
+        <v-icon>mdi-github</v-icon>
       </v-btn>
       <v-btn icon @click="handleFullScreen()">
         <v-icon>fullscreen</v-icon>
       </v-btn>
-      <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
+      <v-menu
+        offset-y
+        origin="center center"
+        class="elelvation-1"
+        transition="scale-transition"
+      >
         <template v-slot:activator="{ on }">
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
@@ -51,9 +56,9 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-    <v-toolbar dense slot="extension" color="white" light>
+    <v-toolbar tag="div" dense slot="extension" color="white" light>
       <v-icon>mdi-home</v-icon>
-      <v-breadcrumbs :items="breadcrumbs" class="pa-3"></v-breadcrumbs>
+      <v-breadcrumbs :items="breadcrumbs" class="pa-3" />
       <v-spacer></v-spacer>
       <v-btn icon small color="black">
         <v-icon v-text="'mdi-arrow-left'" @click="handleGoBack" />
@@ -67,7 +72,7 @@ import Util from '@/util'
 export default {
   name: 'AppToolbar',
   components: {
-    NotificationList,
+    NotificationList
   },
   data() {
     return {
@@ -76,21 +81,21 @@ export default {
           icon: 'account_circle',
           href: '#',
           title: 'Profile',
-          click: this.handleProfile,
+          click: this.handleProfile
         },
         {
           icon: 'settings',
           href: '#',
           title: 'Settings',
-          click: this.handleSetting,
+          click: this.handleSetting
         },
         {
           icon: 'fullscreen_exit',
           href: '#',
           title: 'Logout',
-          click: this.handleLogut,
-        },
-      ],
+          click: this.handleLogut
+        }
+      ]
     }
   },
   computed: {
@@ -98,20 +103,20 @@ export default {
       return this.$vuetify.options.extra.mainNav
     },
     breadcrumbs() {
-      const items = [
-        {
-          text: 'Home',
-          to: { path: '/' },
-        },
-      ]
-      if (['/', '/dashboard'].includes(this.$route.path) === false) {
-        items.push({
-          text: this.$route.meta.title,
-          to: { path: this.$route.path },
-        })
-      }
-      return items
-    },
+      const { matched } = this.$route
+      return matched.map((route, index) => {
+        const to =
+          index === matched.length - 1
+            ? this.$route.path
+            : route.path || route.redirect
+        return {
+          text: route.meta.title,
+          to: to,
+          exact: true,
+          disabled: false
+        }
+      })
+    }
   },
   methods: {
     handleDrawerToggle() {
@@ -127,9 +132,9 @@ export default {
     handleProfile() {},
     handleGoBack() {
       this.$router.go(-1)
-    },
+    }
   },
-  created() {},
+  created() {}
 }
 </script>
 

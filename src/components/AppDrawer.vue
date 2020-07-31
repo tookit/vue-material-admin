@@ -21,7 +21,11 @@
     </div>
     <v-list expand dense v-if="items" nav>
       <template v-for="(item, i) in items">
-        <v-subheader v-if="item.header" :key="`subheader-${i}`" v-text="item.header" />
+        <v-subheader
+          v-if="item.header"
+          :key="`subheader-${i}`"
+          v-text="item.header"
+        />
         <v-divider v-else-if="item.divider" :key="`divider-${i}`" />
         <list-group v-else-if="item.group" :key="`group-${i}`" :item="item" />
         <list-item
@@ -44,18 +48,18 @@ export default {
   name: 'AppDrawer',
   components: {
     ListGroup,
-    ListItem,
+    ListItem
   },
   props: {
     expanded: {
       type: Boolean,
-      default: true,
+      default: true
     },
     drawWidth: {
       type: [Number, String],
-      default: '64',
+      default: '260'
     },
-    showDrawer: Boolean,
+    showDrawer: Boolean
   },
   data() {
     return {
@@ -63,8 +67,8 @@ export default {
       items: menu,
       drawer: true,
       scrollSettings: {
-        maxScrollbarLength: 160,
-      },
+        maxScrollbarLength: 160
+      }
     }
   },
 
@@ -74,15 +78,15 @@ export default {
     },
     computeLogo() {
       return '/static/m.png'
-    },
+    }
   },
   watch: {
     showDrawer: {
       handler(val) {
         this.drawer = val
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   created() {},
 
@@ -91,12 +95,12 @@ export default {
       if (subItem.href) return
       if (subItem.component) {
         return {
-          name: subItem.component,
+          name: subItem.component
         }
       }
       return { name: `${item.group}/${subItem.name}` }
-    },
-  },
+    }
+  }
 }
 </script>
 

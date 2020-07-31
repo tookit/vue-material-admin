@@ -1,15 +1,15 @@
-import { AuthLayout, DefaultLayout, ChatLayout } from '@/components/layouts'
+import { LayoutAuth, LayoutDefault, LayoutChat } from '@/components/layouts'
 
 export const publicRoute = [
   {
     path: '*',
-    component: () => import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
+    component: () => import('@/views/error/NotFound.vue')
   },
   {
     path: '/auth',
-    component: AuthLayout,
+    component: LayoutAuth,
     meta: {
-      title: 'Login',
+      title: 'Login'
     },
     redirect: '/auth/login',
     hidden: true,
@@ -18,40 +18,42 @@ export const publicRoute = [
         path: 'login',
         name: 'login',
         meta: {
-          title: 'Login',
+          title: 'Login'
         },
-        component: () => import(/* webpackChunkName: "login" */ '@/views/auth/Login.vue'),
-      },
-    ],
+        component: () =>
+          import(/* webpackChunkName: "login" */ '@/views/auth/Login.vue')
+      }
+    ]
   },
 
   {
     path: '/404',
     name: '404',
     meta: {
-      title: 'Not Found',
+      title: 'Not Found'
     },
-    component: () => import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue'),
+    component: () =>
+      import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue')
   },
 
   {
     path: '/500',
     name: '500',
     meta: {
-      title: 'Server Error',
+      title: 'Server Error'
     },
-    component: () => import(/* webpackChunkName: "errors-500" */ '@/views/error/Error.vue'),
-  },
+    component: () => import('@/views/error/Error.vue')
+  }
 ]
 
 export const protectedRoute = [
   {
     path: '/',
-    component: DefaultLayout,
+    component: LayoutDefault,
     meta: {
       title: 'Home',
       group: 'apps',
-      icon: '',
+      icon: ''
     },
     redirect: '/dashboard',
     children: [
@@ -59,24 +61,21 @@ export const protectedRoute = [
         path: '/dashboard',
         name: 'Dashboard',
         meta: {
-          title: 'Home',
+          title: 'Dashboard',
           group: 'apps',
-          icon: 'dashboard',
+          icon: 'dashboard'
         },
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
+        component: () => import('@/views/Dashboard.vue')
       },
       {
         path: '/media',
         meta: {
           title: 'Media',
           group: 'apps',
-          icon: 'media',
+          icon: 'media'
         },
         name: 'Media',
-        props: (route) => ({
-          type: route.query.type,
-        }),
-        component: () => import(/* webpackChunkName: "media" */ '@/views/Media.vue'),
+        component: () => import('@/views/Media.vue')
       },
 
       {
@@ -84,56 +83,57 @@ export const protectedRoute = [
         meta: {
           title: 'Task',
           group: 'apps',
-          icon: 'media',
+          icon: 'media'
         },
         name: 'Task',
         props: (route) => ({
-          type: route.query.type,
+          type: route.query.type
         }),
-        component: () => import(/* webpackChunkName: "task" */ '@/views/Calendar.vue'),
+        component: () => import('@/views/Calendar.vue')
       },
       {
         path: '/403',
         name: 'Forbidden',
         meta: {
           title: 'Access Denied',
-          hiddenInMenu: true,
+          hiddenInMenu: true
         },
-        component: () => import(/* webpackChunkName: "error-403" */ '@/views/error/Deny.vue'),
-      },
-    ],
+        component: () => import('@/views/error/Deny.vue')
+      }
+    ]
   },
 
   //list
   {
     path: '/cms',
-    component: DefaultLayout,
+    component: LayoutDefault,
     redirect: '/cms/table',
     meta: {
       title: 'CMS',
       icon: 'view_compact',
-      group: 'cms',
+      group: 'cms'
     },
     children: [
       {
         path: '/cms/table',
         name: 'ListTable',
         meta: {
-          title: 'CMS Table',
+          title: 'CMS Table'
         },
-        component: () => import(/* webpackChunkName: "table" */ '@/views/list/Table.vue'),
-      },
-    ],
+        component: () =>
+          import(/* webpackChunkName: "table" */ '@/views/list/Table.vue')
+      }
+    ]
   },
 
   //widgets
   {
     path: '/widgets',
-    component: DefaultLayout,
+    component: LayoutDefault,
     meta: {
       title: 'Widget',
       icon: 'widgets',
-      group: 'advance',
+      group: 'advance'
     },
     redirect: '/widgets/chart',
     children: [
@@ -141,86 +141,113 @@ export const protectedRoute = [
         path: '/widgets/chart',
         name: 'ChartWidget',
         meta: {
-          title: 'Chart Widget',
+          title: 'Chart Widget'
         },
-        component: () => import(/* webpackChunkName: "chart-widget" */ '@/views/widgets/Chart.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "chart-widget" */ '@/views/widgets/Chart.vue'
+          )
       },
       {
         path: '/widgets/list',
         name: 'ListWidget',
         meta: {
-          title: 'List Widget',
+          title: 'List Widget'
         },
-        component: () => import(/* webpackChunkName: "list-widget" */ '@/views/widgets/List.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "list-widget" */ '@/views/widgets/List.vue'
+          )
       },
       {
         path: '/widgets/social',
         name: 'SocialWidget',
         meta: {
-          title: 'Social Widget',
+          title: 'Social Widget'
         },
-        component: () => import(/* webpackChunkName: "social-widget" */ '@/views/widgets/Social.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "social-widget" */ '@/views/widgets/Social.vue'
+          )
       },
       {
         path: '/widgets/statistic',
         name: 'StatisticWidget',
         meta: {
-          title: 'Statistic Widget',
+          title: 'Statistic Widget'
         },
-        component: () => import(/* webpackChunkName: "statistic-widget" */ '@/views/widgets/Statistic.vue'),
-      },
-    ],
+        component: () =>
+          import(
+            /* webpackChunkName: "statistic-widget" */ '@/views/widgets/Statistic.vue'
+          )
+      }
+    ]
   },
   // chat app
   {
     path: '/chat',
     name: 'Chat',
-    component: ChatLayout,
+    component: LayoutChat,
     redirect: {
-      path: '/chat/messaging',
+      path: '/chat/messaging'
     },
     meta: {
       title: 'Chat',
       group: 'apps',
-      icon: 'chat_bubble',
+      icon: 'chat_bubble'
     },
     children: [
       {
         path: '/chat/messaging/:uuid?',
         name: 'ChatMessaging',
         props: true,
-        component: () => import(/* webpackChunkName: "chat-messaging" */ '@/views/chat/ChatMessaging.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "chat-messaging" */ '@/views/chat/ChatMessaging.vue'
+          )
       },
       {
         path: '/chat/contact/:uuid?',
         meta: {
-          public: true,
+          public: true
         },
         name: 'ChatContact',
-        component: () => import(/* webpackChunkName: "chat-contact" */ '@/views/chat/ChatContact.vue'),
-      },
-    ],
+        component: () =>
+          import(
+            /* webpackChunkName: "chat-contact" */ '@/views/chat/ChatContact.vue'
+          )
+      }
+    ]
   },
 
   //mail app
   {
     path: '/mail',
     name: 'Mail',
-    component: () => import(/* webpackChunkName: "mail-layout" */ '@/components/email/Layout.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "mail-layout" */ '@/components/email/Layout.vue'
+      ),
     redirect: {
-      path: '/mail/all',
+      path: '/mail/all'
     },
     children: [
       {
         path: '/mail/:mailType',
         name: 'MailIndex',
-        component: () => import(/* webpackChunkName: "mail-list" */ '@/components/email/List.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "mail-list" */ '@/components/email/List.vue'
+          )
       },
       {
         path: '/mail/0/:uuid',
         name: 'MailDetail',
-        component: () => import(/* webpackChunkName: "mail-reply" */ '@/components/email/Reply.vue'),
-      },
-    ],
-  },
+        component: () =>
+          import(
+            /* webpackChunkName: "mail-reply" */ '@/components/email/Reply.vue'
+          )
+      }
+    ]
+  }
 ]
