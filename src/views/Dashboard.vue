@@ -1,22 +1,42 @@
 <template>
-  <div class="page--dash">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
+  <div class="page-dashboard">
+    <v-container>
+      <v-row>
         <!-- mini statistic start -->
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-facebook" title="100+" sub-title="Likes" color="indigo" />
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-google" title="150+" sub-title="Connections" color="red" />
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-twitter" title="200+" sub-title="Followers" color="light-blue" />
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple" />
-        </v-flex>
+        <v-col cols="3">
+          <mini-statistic
+            icon="mdi-facebook"
+            title="100+"
+            sub-title="Likes"
+            color="indigo"
+          />
+        </v-col>
+        <v-col cols="3">
+          <mini-statistic
+            icon="mdi-google"
+            title="150+"
+            sub-title="Connections"
+            color="red"
+          />
+        </v-col>
+        <v-col cols="3">
+          <mini-statistic
+            icon="mdi-twitter"
+            title="200+"
+            sub-title="Followers"
+            color="light-blue"
+          />
+        </v-col>
+        <v-col cols="3">
+          <mini-statistic
+            icon="mdi-instagram"
+            title="50+"
+            sub-title="Shots"
+            color="purple"
+          />
+        </v-col>
         <!-- mini statistic  end -->
-        <v-flex lg8 sm12 xs12>
+        <v-col cols="8">
           <v-widget title="Site Traffic" content-bg="white">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
@@ -37,15 +57,15 @@
                   ['series[0].smooth', true],
                   ['series[1].smooth', true],
                   ['series[1].type', 'bar'],
-                  ['series[1].areaStyle', {}],
+                  ['series[1].areaStyle', {}]
                 ]"
                 height="400px"
                 width="100%"
               />
             </div>
           </v-widget>
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
+        </v-col>
+        <v-col cols="4">
           <v-widget title="Top Location" content-bg="white">
             <div slot="widget-content">
               <e-chart
@@ -60,26 +80,26 @@
                       color.pink.base,
                       color.green.base,
                       color.cyan.base,
-                      color.teal.base,
-                    ],
+                      color.teal.base
+                    ]
                   ],
                   ['xAxis.show', false],
                   ['yAxis.show', false],
                   ['series[0].type', 'pie'],
                   ['series[0].avoidLabelOverlap', true],
-                  ['series[0].radius', ['50%', '70%']],
+                  ['series[0].radius', ['50%', '70%']]
                 ]"
                 height="400px"
                 width="100%"
               />
             </div>
           </v-widget>
-        </v-flex>
+        </v-col>
         <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
+        <v-col cols="4">
           <profile-card />
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
+        </v-col>
+        <v-col cols="4">
           <box-chart
             card-color="indigo"
             title="Trending"
@@ -100,10 +120,16 @@
             gradient
             type="area"
           />
-        </v-flex>
+        </v-col>
         <!-- statistic section -->
-        <v-flex lg4 sm12 xs12>
-          <linear-statistic title="Sales" sub-title="Sales increase" icon="trending_up" color="success" :value="15" />
+        <v-col cols="4">
+          <linear-statistic
+            title="Sales"
+            sub-title="Sales increase"
+            icon="trending_up"
+            color="success"
+            :value="15"
+          />
           <linear-statistic
             class="my-4"
             title="Orders"
@@ -128,9 +154,13 @@
             color="orange"
             :value="25"
           />
-        </v-flex>
+        </v-col>
         <!-- Circle statistic -->
-        <v-flex lg4 sm12 xs12 v-for="(item, index) in trending" :key="'c-trending' + index">
+        <v-col
+          cols="4"
+          v-for="(item, index) in trending"
+          :key="'c-trending' + index"
+        >
           <circle-statistic
             :title="item.subheading"
             :sub-title="item.headline"
@@ -139,16 +169,21 @@
             :color="item.linear.color"
             :value="item.linear.value"
           />
-        </v-flex>
+        </v-col>
         <!-- acitivity/chat widget -->
-        <v-flex lg6 sm12 xs12>
+        <v-col cols="6">
           <chat-window height="308px" />
-        </v-flex>
-        <v-flex lg6 sm12 xs12>
+        </v-col>
+        <v-col cols="6">
           <v-widget title="Activities" content-bg="white">
             <div slot="widget-content">
               <v-timeline align-top dense>
-                <v-timeline-item :color="item.color" small v-for="(item, index) in activity" :key="index">
+                <v-timeline-item
+                  :color="item.color"
+                  small
+                  v-for="(item, index) in activity"
+                  :key="index"
+                >
                   <v-row class="pt-1">
                     <v-col cols="3">
                       <strong>{{ item.timeString }}</strong>
@@ -162,14 +197,14 @@
               </v-timeline>
             </div>
           </v-widget>
-        </v-flex>
-        <v-flex lg7 sm12 xs12>
+        </v-col>
+        <v-col cols="12">
           <plain-table />
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
+        </v-col>
+        <v-col cols="12">
           <plain-table-order />
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -188,6 +223,7 @@ import ChatWindow from '@/components/chat/ChatWindow'
 import CircleStatistic from '@/components/widgets/statistic/CircleStatistic'
 import LinearStatistic from '@/components/widgets/statistic/LinearStatistic'
 export default {
+  name: 'PageDashboard',
   components: {
     VWidget,
     MiniStatistic,
@@ -198,7 +234,7 @@ export default {
     CircleStatistic,
     LinearStatistic,
     PlainTable,
-    PlainTableOrder,
+    PlainTableOrder
   },
   data: () => ({
     color: Material,
@@ -211,12 +247,12 @@ export default {
         percent: 15,
         icon: {
           label: 'trending_up',
-          color: 'success',
+          color: 'success'
         },
         linear: {
           value: 15,
-          color: 'success',
-        },
+          color: 'success'
+        }
       },
       {
         subheading: 'Revenue',
@@ -225,12 +261,12 @@ export default {
         percent: 10,
         icon: {
           label: 'trending_down',
-          color: 'error',
+          color: 'error'
         },
         linear: {
           value: 15,
-          color: 'error',
-        },
+          color: 'error'
+        }
       },
       {
         subheading: 'Orders',
@@ -239,13 +275,13 @@ export default {
         percent: 50,
         icon: {
           label: 'arrow_upward',
-          color: 'info',
+          color: 'info'
         },
         linear: {
           value: 50,
-          color: 'info',
-        },
-      },
+          color: 'info'
+        }
+      }
     ],
     trending: [
       {
@@ -255,12 +291,12 @@ export default {
         percent: 15,
         icon: {
           label: 'email',
-          color: 'info',
+          color: 'info'
         },
         linear: {
           value: 15,
-          color: 'info',
-        },
+          color: 'info'
+        }
       },
       {
         subheading: 'Tasks',
@@ -269,12 +305,12 @@ export default {
         percent: 90,
         icon: {
           label: 'list',
-          color: 'primary',
+          color: 'primary'
         },
         linear: {
           value: 90,
-          color: 'success',
-        },
+          color: 'success'
+        }
       },
       {
         subheading: 'Issues',
@@ -283,14 +319,14 @@ export default {
         percent: 100,
         icon: {
           label: 'bug_report',
-          color: 'primary',
+          color: 'primary'
         },
         linear: {
           value: 100,
-          color: 'error',
-        },
-      },
-    ],
+          color: 'error'
+        }
+      }
+    ]
   }),
   computed: {
     activity() {
@@ -304,7 +340,7 @@ export default {
     },
     locationData() {
       return API.getLocation
-    },
-  },
+    }
+  }
 }
 </script>
