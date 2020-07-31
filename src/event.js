@@ -28,26 +28,26 @@ export default [
   },
   {
     name: 'APP_BAD_REQUEST',
-    callback: msg => {
+    callback: (msg) => {
       this.$message.error(msg)
     },
   },
   {
     name: 'APP_ACCESS_DENIED',
-    callback: msg => {
+    callback: (msg) => {
       this.$message.error(msg)
       this.$router.push('/forbidden')
     },
   },
   {
     name: 'APP_RESOURCE_DELETED',
-    callback: msg => {
+    callback: (msg) => {
       this.$message.success(msg)
     },
   },
   {
     name: 'APP_RESOURCE_UPDATED',
-    callback: msg => {
+    callback: (msg) => {
       this.$message.success(msg)
     },
   },

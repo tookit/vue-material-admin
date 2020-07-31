@@ -1,21 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import app from './modules/app'
+import modules from './modules'
 import VuexPersistence from 'vuex-persist'
 
 const vuexLocal = new VuexPersistence({
+  key: 'vma',
   storage: window.localStorage,
+  modules: ['app'],
 })
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: {
-    App: app,
-  },
+  modules,
   plugins: [vuexLocal.plugin],
 })
-
-store.commit('setThemeColor', 'blue')
 
 export default store

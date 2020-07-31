@@ -1,14 +1,8 @@
 <template>
-  <v-app class="primary split-bg">
-    <v-content>
-      <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg4>
-            <router-view :key="$route.path"></router-view>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-content>
+  <v-app class="layout-auth primary">
+    <v-main>
+      <router-view :key="$route.path"></router-view>
+    </v-main>
   </v-app>
 </template>
 
@@ -20,7 +14,7 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-.split-bg
+.layout-auth
   height: 50%
   width: 100%
   position: absolute

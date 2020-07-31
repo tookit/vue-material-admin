@@ -1,7 +1,7 @@
 const G2 = window.G2
 import colors from 'vuetify/es5/util/colors'
 const chartColors = []
-Object.entries(colors).forEach(item => {
+Object.entries(colors).forEach((item) => {
   chartColors.push(item[1].base)
 })
 
