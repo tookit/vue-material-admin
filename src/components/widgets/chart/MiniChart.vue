@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card tile>
     <v-card-text>
       <div class="layout row ma-0 align-center justify-space-between">
         <div class="text-box">
@@ -22,37 +22,37 @@
 import EChart from '@/components/chart/echart'
 export default {
   components: {
-    EChart,
+    EChart
   },
   props: {
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     subTitle: {
       type: String,
-      default: '',
+      default: ''
     },
     icon: {
       type: String,
-      default: '',
+      default: ''
     },
     iconColor: {
       type: String,
-      default: 'success',
+      default: 'success'
     },
     type: {
       type: String,
-      default: 'line',
+      default: 'line'
     },
     chartColor: {
       type: String,
-      default: '',
+      default: ''
     },
     data: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data() {
     return {
@@ -60,8 +60,8 @@ export default {
         ['dataset.source', this.data],
         ['xAxis.show', false],
         ['yAxis.show', false],
-        ['color', [this.chartColor]],
-      ],
+        ['color', [this.chartColor]]
+      ]
     }
   },
 
@@ -81,14 +81,14 @@ export default {
             break
         }
         return this.defaultOption
-      },
-    },
+      }
+    }
   },
   computed: {
     computeChartOption() {
       return this.defaultOption
-    },
-  },
+    }
+  }
 }
 </script>
 

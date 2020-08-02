@@ -1,10 +1,6 @@
 <template>
-  <v-card>
-    <v-toolbar text dense color="transparent" elevation="0">
-      <v-toolbar-title>
-        <h4>Message</h4>
-      </v-toolbar-title>
-    </v-toolbar>
+  <v-card tile>
+    <v-card-title>Message</v-card-title>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <v-list two-line class="pa-0">
@@ -36,12 +32,12 @@
 import messages from '@/api/message'
 export default {
   data: () => ({
-    items: messages,
+    items: messages
   }),
   methods: {
-    handleClick: e => {
+    handleClick: (e) => {
       console.log(e)
-    },
-  },
+    }
+  }
 }
 </script>

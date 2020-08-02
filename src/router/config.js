@@ -120,8 +120,7 @@ export const protectedRoute = [
         meta: {
           title: 'CMS Table'
         },
-        component: () =>
-          import(/* webpackChunkName: "table" */ '@/views/list/Table.vue')
+        component: () => import('@/views/list/Table.vue')
       }
     ]
   },
@@ -143,10 +142,7 @@ export const protectedRoute = [
         meta: {
           title: 'Chart Widget'
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "chart-widget" */ '@/views/widgets/Chart.vue'
-          )
+        component: () => import('@/views/widgets/Chart.vue')
       },
       {
         path: '/widgets/list',
@@ -154,10 +150,7 @@ export const protectedRoute = [
         meta: {
           title: 'List Widget'
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "list-widget" */ '@/views/widgets/List.vue'
-          )
+        component: () => import('@/views/widgets/List.vue')
       },
       {
         path: '/widgets/social',
@@ -165,10 +158,7 @@ export const protectedRoute = [
         meta: {
           title: 'Social Widget'
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "social-widget" */ '@/views/widgets/Social.vue'
-          )
+        component: () => import('@/views/widgets/Social.vue')
       },
       {
         path: '/widgets/statistic',
@@ -176,10 +166,7 @@ export const protectedRoute = [
         meta: {
           title: 'Statistic Widget'
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "statistic-widget" */ '@/views/widgets/Statistic.vue'
-          )
+        component: () => import('@/views/widgets/Statistic.vue')
       }
     ]
   },

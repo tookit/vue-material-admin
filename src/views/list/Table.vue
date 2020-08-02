@@ -1,11 +1,11 @@
 <template>
   <div class="list-table">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
-        <v-flex sm12>
-          <h3>Complex Table</h3>
-        </v-flex>
-        <v-flex lg12>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <v-subheader>Complex Table</v-subheader>
+        </v-col>
+        <v-col cols="12">
           <v-card>
             <v-toolbar flat color="white">
               <v-text-field
@@ -28,7 +28,12 @@
                 :headers="complex.headers"
                 :search="search"
                 :items="complex.items"
-                :items-per-page-options="[10, 25, 50, { text: 'All', value: -1 }]"
+                :items-per-page-options="[
+                  10,
+                  25,
+                  50,
+                  { text: 'All', value: -1 }
+                ]"
                 class="elevation-1"
                 item-key="name"
                 show-select
@@ -40,22 +45,45 @@
                   </v-avatar>
                 </template>
                 <template v-slot:item.action="{ item }">
-                  <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
-                    <v-icon>edit</v-icon>
-                  </v-btn>
-                  <v-btn depressed outline icon fab dark color="pink" small @click="handleDelete(props.item)">
-                    <v-icon>delete</v-icon>
-                  </v-btn>
+                  <v-menu>
+                    <template v-slot:activator="{ on: menu }">
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on: tooltip }">
+                          <v-btn icon v-on="{ ...tooltip, ...menu }">
+                            <v-icon>mdi-dots-vertical</v-icon></v-btn
+                          >
+                        </template>
+                        <span>Action</span>
+                      </v-tooltip>
+                    </template>
+                    <v-list class="pa-0" dense>
+                      <v-list-item
+                        v-for="action in actions"
+                        :key="action.text"
+                        @click="action.click(item)"
+                      >
+                        <v-list-item-icon class="mr-2">
+                          <v-icon small>{{ action.icon }}</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>{{ action.text }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
                 </template>
               </v-data-table>
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex sm12>
-          <h3>Basic Table</h3>
-        </v-flex>
-        <v-flex lg12>
-          <v-data-table :headers="basic.headers" :items="basic.items" hide-default-footer class="elevation-1">
+        </v-col>
+        <v-col cols="12">
+          <v-subheader>Basic Table</v-subheader>
+        </v-col>
+        <v-col cols="12">
+          <v-data-table
+            :headers="basic.headers"
+            :items="basic.items"
+            hide-default-footer
+            class="elevation-1"
+          >
             <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.calories }}</td>
@@ -65,16 +93,25 @@
               <td class="text-xs-right">{{ props.item.iron }}</td>
             </template>
           </v-data-table>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
     <v-dialog v-model="dialog" max-width="60vh">
       <v-card>
         <v-toolbar card>Edit User</v-toolbar>
         <v-card-text>
           <form>
-            <v-text-field v-model="formModel.name" :counter="10" label="Name" required></v-text-field>
-            <v-text-field v-model="formModel.email" label="E-mail" required></v-text-field>
+            <v-text-field
+              v-model="formModel.name"
+              :counter="10"
+              label="Name"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="formModel.email"
+              label="E-mail"
+              required
+            ></v-text-field>
             <v-divider class="mt-3 mb-3"></v-divider>
             <v-btn @click="handleSubmit">submit</v-btn>
           </form>
@@ -91,7 +128,7 @@ export default {
     return {
       formModel: {
         name: '',
-        email: '',
+        email: ''
       },
       dialog: false,
       search: '',
@@ -100,26 +137,26 @@ export default {
         headers: [
           {
             text: 'Avatar',
-            value: 'avatar',
+            value: 'avatar'
           },
           {
             text: 'Name',
-            value: 'name',
+            value: 'name'
           },
           {
             text: 'Email',
-            value: 'email',
+            value: 'email'
           },
           {
             text: 'Phone',
-            value: 'phone',
+            value: 'phone'
           },
           {
             text: 'Action',
-            value: '',
-          },
+            value: 'action'
+          }
         ],
-        items: Users,
+        items: Users
       },
       basic: {
         headers: [
@@ -127,13 +164,13 @@ export default {
             text: 'Dessert (100g serving)',
             align: 'left',
             sortable: false,
-            value: 'name',
+            value: 'name'
           },
           { text: 'Calories', value: 'calories' },
           { text: 'Fat (g)', value: 'fat' },
           { text: 'Carbs (g)', value: 'carbs' },
           { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' },
+          { text: 'Iron (%)', value: 'iron' }
         ],
         items: [
           {
@@ -143,7 +180,7 @@ export default {
             fat: 6.0,
             carbs: 24,
             protein: 4.0,
-            iron: '1%',
+            iron: '1%'
           },
           {
             value: false,
@@ -152,7 +189,7 @@ export default {
             fat: 9.0,
             carbs: 37,
             protein: 4.3,
-            iron: '1%',
+            iron: '1%'
           },
           {
             value: false,
@@ -161,7 +198,7 @@ export default {
             fat: 16.0,
             carbs: 23,
             protein: 6.0,
-            iron: '7%',
+            iron: '7%'
           },
           {
             value: false,
@@ -170,7 +207,7 @@ export default {
             fat: 3.7,
             carbs: 67,
             protein: 4.3,
-            iron: '8%',
+            iron: '8%'
           },
           {
             value: false,
@@ -179,7 +216,7 @@ export default {
             fat: 16.0,
             carbs: 49,
             protein: 3.9,
-            iron: '16%',
+            iron: '16%'
           },
           {
             value: false,
@@ -188,7 +225,7 @@ export default {
             fat: 0.0,
             carbs: 94,
             protein: 0.0,
-            iron: '0%',
+            iron: '0%'
           },
           {
             value: false,
@@ -197,7 +234,7 @@ export default {
             fat: 0.2,
             carbs: 98,
             protein: 0,
-            iron: '2%',
+            iron: '2%'
           },
           {
             value: false,
@@ -206,7 +243,7 @@ export default {
             fat: 3.2,
             carbs: 87,
             protein: 6.5,
-            iron: '45%',
+            iron: '45%'
           },
           {
             value: false,
@@ -215,7 +252,7 @@ export default {
             fat: 25.0,
             carbs: 51,
             protein: 4.9,
-            iron: '22%',
+            iron: '22%'
           },
           {
             value: false,
@@ -224,10 +261,27 @@ export default {
             fat: 26.0,
             carbs: 65,
             protein: 7,
-            iron: '6%',
-          },
-        ],
+            iron: '6%'
+          }
+        ]
       },
+      actions: [
+        {
+          text: 'View Item',
+          icon: 'mdi-eye',
+          click: this.handleViewItem
+        },
+        {
+          text: 'Edit Item',
+          icon: 'mdi-pencil',
+          click: this.handleEditItem
+        },
+        {
+          text: 'Delete Item',
+          icon: 'mdi-close',
+          click: this.handleDeleteItem
+        }
+      ]
     }
   },
   methods: {
@@ -235,9 +289,9 @@ export default {
       this.formModel = Object.assign(this.formModel, row)
       this.dialog = true
     },
-    /* eslint-disable-line no-unused-vars */
-    handleDelete() {},
-    handleSubmit() {},
-  },
+    handleViewItem() {},
+    handleEditItem() {},
+    handleDeleteItem() {}
+  }
 }
 </script>

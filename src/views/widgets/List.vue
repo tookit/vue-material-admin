@@ -1,25 +1,20 @@
 <template>
-  <div id="social">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
-        <v-flex lg6 sm12 xs12>
-          <message-list />
-        </v-flex>
-        <v-flex lg6 sm12 xs12>
-          <notification-list />
-        </v-flex>
-        <v-flex lg7 sm12 xs12>
-          <plain-table />
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <plain-table-order />
-        </v-flex>
-        <v-flex lg12 sm12 xs12>
-          <post-list-card :items="posts"></post-list-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="6">
+        <message-list />
+      </v-col>
+      <v-col cols="6">
+        <notification-list />
+      </v-col>
+      <v-col cols="12">
+        <plain-table />
+      </v-col>
+      <v-col cols="12">
+        <plain-table-order />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -28,14 +23,12 @@ import MessageList from '@/components/widgets/list/MessageList'
 import NotificationList from '@/components/widgets/list/NotificationList'
 import PlainTable from '@/components/widgets/list/PlainTable'
 import PlainTableOrder from '@/components/widgets/list/PlainTableOrder'
-import PostListCard from '@/components/widgets/card/PostListCard'
 export default {
   components: {
-    PostListCard,
     MessageList,
     NotificationList,
     PlainTable,
-    PlainTableOrder,
+    PlainTableOrder
   },
   data() {
     return {}
@@ -43,12 +36,12 @@ export default {
   computed: {
     posts() {
       return getPost()
-    },
+    }
   },
   methods: {
-    handleClick: e => {
+    handleClick: (e) => {
       console.log(e)
-    },
-  },
+    }
+  }
 }
 </script>

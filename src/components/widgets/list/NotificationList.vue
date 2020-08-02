@@ -1,10 +1,8 @@
 <template>
-  <v-card class="elevation-0">
-    <v-app-bar text dense color="transparent" elevation="0">
-      <v-toolbar-title>
-        <h4>Notification</h4>
-      </v-toolbar-title>
-    </v-app-bar>
+  <v-card tile>
+    <v-card-title>
+      Notification
+    </v-card-title>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
       <v-list two-line class="pa-0">
@@ -38,13 +36,13 @@ import notes from '@/api/notification'
 export default {
   data() {
     return {
-      items: notes,
+      items: notes
     }
   },
   methods: {
-    handleClick: e => {
+    handleClick: (e) => {
       console.log(e)
-    },
-  },
+    }
+  }
 }
 </script>
