@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card tile>
     <v-card-title>
       <div class="layout row ma-0 justify-space-between pb-1">
         <div class="subheading">{{ title }}</div>
@@ -37,8 +37,8 @@ export default {
     subTitle: String,
     caption: String,
     value: Number,
-    color: String,
-  },
+    color: String
+  }
 }
 </script>
 

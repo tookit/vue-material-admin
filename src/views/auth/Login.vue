@@ -77,6 +77,11 @@ export default {
       socialIcons: ['mdi-google', 'mdi-twitter', 'mdi-facebook']
     }
   },
+  computed: {
+    prefix() {
+      return ''
+    }
+  },
   methods: {
     login() {
       if (this.$refs.form.validate()) {
