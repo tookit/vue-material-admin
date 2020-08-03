@@ -49,7 +49,7 @@
                     <template v-slot:activator="{ on: menu }">
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on: tooltip }">
-                          <v-btn icon v-on="{ ...tooltip, ...menu }">
+                          <v-btn icon v-on="{ ...menu }">
                             <v-icon>mdi-dots-vertical</v-icon></v-btn
                           >
                         </template>
@@ -82,7 +82,6 @@
             :headers="basic.headers"
             :items="basic.items"
             hide-default-footer
-            class="elevation-1"
           >
             <template slot="items" slot-scope="props">
               <td>{{ props.item.name }}</td>

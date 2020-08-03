@@ -1,8 +1,8 @@
 <template>
   <v-card>
-    <v-toolbar text dense color="transparent" elevation="0">
+    <v-toolbar text dense flat>
       <v-toolbar-title>
-        <h4>Order</h4>
+        Order
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -45,30 +45,30 @@ export default {
           text: '#',
           align: 'left',
           sortable: false,
-          value: 'id',
+          value: 'id'
         },
         { text: 'Product', value: 'product' },
         { text: 'Price', value: 'price' },
-        { text: 'Status', value: 'status' },
+        { text: 'Status', value: 'status' }
       ],
       items: items,
       colors: {
         processing: 'blue',
         sent: 'red',
-        delivered: 'green',
-      },
+        delivered: 'green'
+      }
     }
   },
   computed: {
     randomColor() {
       let item = Math.floor(Math.random() * this.colors.length)
       return this.colors[item]
-    },
+    }
   },
   methods: {
     getColorByStatus(status) {
       return this.colors[status]
-    },
-  },
+    }
+  }
 }
 </script>

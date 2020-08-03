@@ -6,7 +6,7 @@
       <!-- Page Header -->
       <div class="page-wrapper"><router-view /></div>
       <!-- App Footer -->
-      <v-footer height="auto" class="white pa-3 app--footer">
+      <v-footer height="auto" class="pa-3 app--footer">
         <span>isocked.com Design &copy; {{ new Date().getFullYear() }}</span>
         <v-spacer />
         <span class="caption mr-1">Make With Love</span>

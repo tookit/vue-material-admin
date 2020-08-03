@@ -20,8 +20,7 @@ export const publicRoute = [
         meta: {
           title: 'Login'
         },
-        component: () =>
-          import(/* webpackChunkName: "login" */ '@/views/auth/Login.vue')
+        component: () => import('@/views/auth/Login.vue')
       }
     ]
   },
@@ -32,8 +31,7 @@ export const publicRoute = [
     meta: {
       title: 'Not Found'
     },
-    component: () =>
-      import(/* webpackChunkName: "errors-404" */ '@/views/error/NotFound.vue')
+    component: () => import('@/views/error/NotFound.vue')
   },
 
   {
@@ -188,10 +186,7 @@ export const protectedRoute = [
         path: '/chat/messaging/:uuid?',
         name: 'ChatMessaging',
         props: true,
-        component: () =>
-          import(
-            /* webpackChunkName: "chat-messaging" */ '@/views/chat/ChatMessaging.vue'
-          )
+        component: () => import('@/views/chat/ChatMessaging.vue')
       },
       {
         path: '/chat/contact/:uuid?',
@@ -199,10 +194,7 @@ export const protectedRoute = [
           public: true
         },
         name: 'ChatContact',
-        component: () =>
-          import(
-            /* webpackChunkName: "chat-contact" */ '@/views/chat/ChatContact.vue'
-          )
+        component: () => import('@/views/chat/ChatContact.vue')
       }
     ]
   },
@@ -211,10 +203,7 @@ export const protectedRoute = [
   {
     path: '/mail',
     name: 'Mail',
-    component: () =>
-      import(
-        /* webpackChunkName: "mail-layout" */ '@/components/email/Layout.vue'
-      ),
+    component: () => import('@/components/email/Layout.vue'),
     redirect: {
       path: '/mail/all'
     },
@@ -222,18 +211,12 @@ export const protectedRoute = [
       {
         path: '/mail/:mailType',
         name: 'MailIndex',
-        component: () =>
-          import(
-            /* webpackChunkName: "mail-list" */ '@/components/email/List.vue'
-          )
+        component: () => import('@/components/email/List.vue')
       },
       {
         path: '/mail/0/:uuid',
         name: 'MailDetail',
-        component: () =>
-          import(
-            /* webpackChunkName: "mail-reply" */ '@/components/email/Reply.vue'
-          )
+        component: () => import('@/components/email/Reply.vue')
       }
     ]
   }
