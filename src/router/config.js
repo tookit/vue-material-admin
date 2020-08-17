@@ -147,7 +147,7 @@ export const protectedRoute = [
             name: 'StatisticWidget',
             meta: {
               title: 'Statistic Widget',
-              icon: 'hexagon'
+              icon: 'mdi-hexagon'
             },
             component: () => import('@/views/widgets/Statistic.vue')
           }

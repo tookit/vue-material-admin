@@ -15,8 +15,8 @@
     </v-toolbar>
     <div class="pa-3">
       <v-subheader>Sponsor</v-subheader>
-      <a href="https://www.nsdftth.com">
-        <img src="https://www.nsdftth.com/logo.png" alt="NSD" height="72" />
+      <a :href="sponsor.href">
+        <img :src="sponsor.src" alt="NSD" height="72" />
       </a>
     </div>
     <v-list class="pa-0">
@@ -113,6 +113,10 @@ export default {
       drawer: true,
       scrollSettings: {
         maxScrollbarLength: 160
+      },
+      sponsor: {
+        href: 'https://www.theopticalfiber.com/',
+        src: 'https://www.theopticalfiber.com/images/logo/logo.png'
       }
     }
   },

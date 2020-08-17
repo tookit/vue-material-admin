@@ -16,9 +16,9 @@ const Items = [
       zipcode: '10406',
       geo: {
         lat: '-44.6063',
-        lng: '-169.7706',
-      },
-    },
+        lng: '-169.7706'
+      }
+    }
   },
   {
     uuid: '28d9f265-74d7-4f85-83d4-6a21fca57dcf',
@@ -37,9 +37,9 @@ const Items = [
       zipcode: '19540-8186',
       geo: {
         lat: '-12.3375',
-        lng: '-117.9067',
-      },
-    },
+        lng: '-117.9067'
+      }
+    }
   },
   {
     uuid: '14ddae1e-986d-42f4-8d17-46a02d469b2b',
@@ -58,9 +58,9 @@ const Items = [
       zipcode: '89975-6584',
       geo: {
         lat: '-42.9187',
-        lng: '8.5866',
-      },
-    },
+        lng: '8.5866'
+      }
+    }
   },
   {
     uuid: '6a03248b-1752-4332-a3a9-7108528cc9d3',
@@ -79,9 +79,9 @@ const Items = [
       zipcode: '10220',
       geo: {
         lat: '36.8638',
-        lng: '20.0047',
-      },
-    },
+        lng: '20.0047'
+      }
+    }
   },
   {
     uuid: 'ee272550-36e8-4fe2-889d-c1ee701c5863',
@@ -100,9 +100,9 @@ const Items = [
       zipcode: '92378-7065',
       geo: {
         lat: '78.1292',
-        lng: '-134.6632',
-      },
-    },
+        lng: '-134.6632'
+      }
+    }
   },
   {
     uuid: '77f4b102-9df5-43ba-966a-6f816806c5e2',
@@ -122,9 +122,9 @@ const Items = [
       zipcode: '44440',
       geo: {
         lat: '-34.7835',
-        lng: '148.8907',
-      },
-    },
+        lng: '148.8907'
+      }
+    }
   },
   {
     uuid: '36a1ead7-57a0-4275-8a21-956194ab7cdf',
@@ -143,9 +143,9 @@ const Items = [
       zipcode: '24555',
       geo: {
         lat: '-42.5691',
-        lng: '-2.5791',
-      },
-    },
+        lng: '-2.5791'
+      }
+    }
   },
   {
     uuid: 'b5899bef-d01e-42d8-af2d-edfb16b6b21e',
@@ -164,9 +164,9 @@ const Items = [
       zipcode: '65261',
       geo: {
         lat: '-58.9245',
-        lng: '-43.6330',
-      },
-    },
+        lng: '-43.6330'
+      }
+    }
   },
   {
     uuid: '7d910620-84e1-49fc-951e-d375587b8189',
@@ -185,9 +185,9 @@ const Items = [
       zipcode: '31751',
       geo: {
         lat: '64.0673',
-        lng: '154.7671',
-      },
-    },
+        lng: '154.7671'
+      }
+    }
   },
   {
     uuid: 'afdb5033-5bcc-4cec-b932-353a83410b44',
@@ -207,9 +207,9 @@ const Items = [
       zipcode: '86558-7214',
       geo: {
         lat: '-55.0222',
-        lng: '-100.5977',
-      },
-    },
+        lng: '-100.5977'
+      }
+    }
   },
   {
     uuid: '60d07662-bfec-42c7-b044-c81bc4ff8c7a',
@@ -228,9 +228,9 @@ const Items = [
       zipcode: '30126',
       geo: {
         lat: '24.0545',
-        lng: '-88.8499',
-      },
-    },
+        lng: '-88.8499'
+      }
+    }
   },
   {
     uuid: '5c44b666-baca-4f18-a3cb-23068c6edc14',
@@ -249,9 +249,9 @@ const Items = [
       zipcode: '73594-9840',
       geo: {
         lat: '-70.9980',
-        lng: '-151.6234',
-      },
-    },
+        lng: '-151.6234'
+      }
+    }
   },
   {
     uuid: '46d6f992-5729-4588-b7f8-ce74f21157ba',
@@ -270,9 +270,9 @@ const Items = [
       zipcode: '42502-9731',
       geo: {
         lat: '-48.2520',
-        lng: '60.6556',
-      },
-    },
+        lng: '60.6556'
+      }
+    }
   },
   {
     uuid: 'bd30e201-cceb-410e-8497-a4072bc399f5',
@@ -292,9 +292,9 @@ const Items = [
       zipcode: '45048',
       geo: {
         lat: '55.3046',
-        lng: '3.8129',
-      },
-    },
+        lng: '3.8129'
+      }
+    }
   },
   {
     uuid: 'da95e977-cd54-4077-a767-1b7f33ef6919',
@@ -313,9 +313,9 @@ const Items = [
       zipcode: '11259',
       geo: {
         lat: '11.6209',
-        lng: '-45.1766',
-      },
-    },
+        lng: '-45.1766'
+      }
+    }
   },
   {
     uuid: '6124d4e8-77ed-4b34-868d-d312bfab5de2',
@@ -334,9 +334,9 @@ const Items = [
       zipcode: '12012-3038',
       geo: {
         lat: '29.7991',
-        lng: '-70.4033',
-      },
-    },
+        lng: '-70.4033'
+      }
+    }
   },
   {
     uuid: 'eef93cb1-7766-4413-a5cf-ecbf71fa3674',
@@ -355,9 +355,9 @@ const Items = [
       zipcode: '95633-3394',
       geo: {
         lat: '-57.5740',
-        lng: '104.5634',
-      },
-    },
+        lng: '104.5634'
+      }
+    }
   },
   {
     uuid: '899d0e31-b71e-4d95-a8a0-6a8bceb314bd',
@@ -377,9 +377,9 @@ const Items = [
       zipcode: '63739-4581',
       geo: {
         lat: '-28.7166',
-        lng: '-167.7070',
-      },
-    },
+        lng: '-167.7070'
+      }
+    }
   },
   {
     uuid: 'a41c6c4a-9cb1-45d1-8c6f-091044ba51ff',
@@ -397,9 +397,9 @@ const Items = [
       zipcode: '90211-1855',
       geo: {
         lat: '-56.3849',
-        lng: '-167.1372',
-      },
-    },
+        lng: '-167.1372'
+      }
+    }
   },
   {
     uuid: '3782c174-1f2c-4dc4-b75d-0bedf400e023',
@@ -419,17 +419,17 @@ const Items = [
       zipcode: '70964',
       geo: {
         lat: '80.2384',
-        lng: '38.1323',
-      },
-    },
-  },
+        lng: '38.1323'
+      }
+    }
+  }
 ]
 
-const getUserById = uuid => {
-  return uuid === undefined ? Items[0] : Items.find(x => x.uuid === uuid)
+const getUserById = (uuid) => {
+  return uuid === undefined ? Items[0] : Items.find((x) => x.uuid === uuid)
 }
 
-const getUser = limit => {
+const getUser = (limit) => {
   return limit ? Items.slice(0, limit) : Items
 }
 

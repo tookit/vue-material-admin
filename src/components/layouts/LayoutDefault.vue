@@ -47,5 +47,5 @@ export default {
 
 <style lang="sass" scoped>
 .page-wrapper
-  min-height: calc(100vh - 64px - 50px - 81px)
+  min-height: calc(100vh - 112px - 48px)
 </style>
