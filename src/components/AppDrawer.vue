@@ -19,23 +19,54 @@
         <img src="https://www.nsdftth.com/logo.png" alt="NSD" height="72" />
       </a>
     </div>
-    <v-list expand dense v-if="items" nav>
-      <template v-for="(item, i) in items">
-        <v-subheader
-          v-if="item.header"
-          :key="`subheader-${i}`"
-          v-text="item.header"
-        />
-        <v-divider v-else-if="item.divider" :key="`divider-${i}`" />
-        <list-group v-else-if="item.group" :key="`group-${i}`" :item="item" />
-        <list-item
-          v-else
-          :key="`item-${i}`"
-          :icon="item.icon"
-          :subtext="item.subtext"
-          :text="item.text"
-          :to="item.to"
-        />
+    <v-list class="pa-0">
+      <template v-for="(item, key) in computeMenu">
+        <template v-if="item.children && item.children.length > 0">
+          <v-list-group
+            :key="key"
+            :prepend-icon="item.meta.icon"
+            no-action
+            :to="item.path"
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.meta.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item
+              :class="drawerWidth === 64 ? 'pl-4' : ''"
+              v-for="subItem in item.children"
+              :key="subItem.name"
+              :to="subItem.path"
+              v-show="!subItem.meta.hiddenInMenu"
+            >
+              <template v-if="drawerWidth === 64">
+                <v-list-item-icon>
+                  <v-icon v-text="subItem.meta.icon"></v-icon>
+                </v-list-item-icon>
+              </template>
+              <template v-else>
+                <v-list-item-content>
+                  <v-list-item-title v-text="subItem.meta.title" />
+                </v-list-item-content>
+              </template>
+            </v-list-item>
+          </v-list-group>
+        </template>
+        <template v-else>
+          <v-list-item
+            :key="key"
+            :to="item.path"
+            v-show="!item.meta.hiddenInMenu"
+          >
+            <v-list-item-icon>
+              <v-icon v-text="item.meta.icon"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content v-if="drawerWidth !== 64">
+              <v-list-item-title v-text="item.meta.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </template>
     </v-list>
     <template v-slot:append>
@@ -64,15 +95,10 @@
   </v-navigation-drawer>
 </template>
 <script>
-import menu from '@/api/menu'
-import ListGroup from '@/components/List/Group'
-import ListItem from '@/components/List/Item'
+import { protectedRoute as routes } from '@/router/config'
 export default {
   name: 'AppDrawer',
-  components: {
-    ListGroup,
-    ListItem
-  },
+  components: {},
   props: {
     expanded: {
       type: Boolean,
@@ -84,7 +110,6 @@ export default {
     return {
       mini: false,
       drawerWidth: 256,
-      items: menu,
       drawer: true,
       scrollSettings: {
         maxScrollbarLength: 160
@@ -95,6 +120,9 @@ export default {
   computed: {
     computeLogo() {
       return '/static/m.png'
+    },
+    computeMenu() {
+      return routes[0].children
     }
   },
   watch: {

@@ -1,4 +1,9 @@
-import { LayoutAuth, LayoutDefault, LayoutChat } from '@/components/layouts'
+import {
+  LayoutAuth,
+  LayoutDefault,
+  LayoutChat,
+  RouteWrapper
+} from '@/components/layouts'
 
 export const publicRoute = [
   {
@@ -61,27 +66,16 @@ export const protectedRoute = [
         meta: {
           title: 'Dashboard',
           group: 'apps',
-          icon: 'dashboard'
+          icon: 'mdi-view-dashboard'
         },
         component: () => import('@/views/Dashboard.vue')
       },
-      {
-        path: '/media',
-        meta: {
-          title: 'Media',
-          group: 'apps',
-          icon: 'media'
-        },
-        name: 'Media',
-        component: () => import('@/views/Media.vue')
-      },
-
       {
         path: '/task',
         meta: {
           title: 'Task',
           group: 'apps',
-          icon: 'media'
+          icon: 'mdi-calendar-check'
         },
         name: 'Task',
         props: (route) => ({
@@ -89,6 +83,86 @@ export const protectedRoute = [
         }),
         component: () => import('@/views/Calendar.vue')
       },
+      {
+        path: '/cms',
+        component: RouteWrapper,
+        redirect: '/cms/table',
+        meta: {
+          title: 'CMS',
+          icon: 'view_compact',
+          group: 'cms'
+        },
+        children: [
+          {
+            path: '/cms/table',
+            name: 'ListTable',
+            meta: {
+              title: 'CMS Table',
+              icon: 'mdi-database'
+            },
+            component: () => import('@/views/list/Table.vue')
+          }
+        ]
+      },
+      //widgets
+      {
+        path: '/widgets',
+        component: RouteWrapper,
+        meta: {
+          title: 'Widget',
+          icon: 'widgets',
+          group: 'advance'
+        },
+        redirect: '/widgets/chart',
+        children: [
+          {
+            path: '/widgets/chart',
+            name: 'ChartWidget',
+            meta: {
+              title: 'Chart Widget',
+              icon: 'mdi-chart-line'
+            },
+            component: () => import('@/views/widgets/Chart.vue')
+          },
+          {
+            path: '/widgets/list',
+            name: 'ListWidget',
+            meta: {
+              title: 'List Widget',
+              icon: 'mdi-table'
+            },
+            component: () => import('@/views/widgets/List.vue')
+          },
+          {
+            path: '/widgets/social',
+            name: 'SocialWidget',
+            meta: {
+              title: 'Social Widget',
+              icon: 'mdi-face-profile'
+            },
+            component: () => import('@/views/widgets/Social.vue')
+          },
+          {
+            path: '/widgets/statistic',
+            name: 'StatisticWidget',
+            meta: {
+              title: 'Statistic Widget',
+              icon: 'hexagon'
+            },
+            component: () => import('@/views/widgets/Statistic.vue')
+          }
+        ]
+      },
+      {
+        path: '/media',
+        meta: {
+          title: 'Media',
+          icon: 'mdi-image'
+        },
+        name: 'Media',
+        component: () => import('@/views/Media.vue')
+      },
+
       {
         path: '/403',
         name: 'Forbidden',
@@ -101,73 +175,6 @@ export const protectedRoute = [
     ]
   },
 
-  //list
-  {
-    path: '/cms',
-    component: LayoutDefault,
-    redirect: '/cms/table',
-    meta: {
-      title: 'CMS',
-      icon: 'view_compact',
-      group: 'cms'
-    },
-    children: [
-      {
-        path: '/cms/table',
-        name: 'ListTable',
-        meta: {
-          title: 'CMS Table'
-        },
-        component: () => import('@/views/list/Table.vue')
-      }
-    ]
-  },
-
-  //widgets
-  {
-    path: '/widgets',
-    component: LayoutDefault,
-    meta: {
-      title: 'Widget',
-      icon: 'widgets',
-      group: 'advance'
-    },
-    redirect: '/widgets/chart',
-    children: [
-      {
-        path: '/widgets/chart',
-        name: 'ChartWidget',
-        meta: {
-          title: 'Chart Widget'
-        },
-        component: () => import('@/views/widgets/Chart.vue')
-      },
-      {
-        path: '/widgets/list',
-        name: 'ListWidget',
-        meta: {
-          title: 'List Widget'
-        },
-        component: () => import('@/views/widgets/List.vue')
-      },
-      {
-        path: '/widgets/social',
-        name: 'SocialWidget',
-        meta: {
-          title: 'Social Widget'
-        },
-        component: () => import('@/views/widgets/Social.vue')
-      },
-      {
-        path: '/widgets/statistic',
-        name: 'StatisticWidget',
-        meta: {
-          title: 'Statistic Widget'
-        },
-        component: () => import('@/views/widgets/Statistic.vue')
-      }
-    ]
-  },
   // chat app
   {
     path: '/chat',
