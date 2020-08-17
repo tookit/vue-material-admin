@@ -4,7 +4,7 @@
     class="app--drawer"
     :mini-variant.sync="mini"
     v-model="drawer"
-    :width="drawWidth"
+    :width="drawerWidth"
     :dark="$vuetify.dark"
   >
     <v-toolbar color="primary darken-1" dark>
@@ -38,6 +38,29 @@
         />
       </template>
     </v-list>
+    <template v-slot:append>
+      <template v-if="drawerWidth === 64">
+        <div class="d-flex">
+          <v-btn
+            width="64"
+            icon
+            tile
+            @click="handleDrawerCollapse"
+            class="mx-auto"
+          >
+            <v-icon>mdi-arrow-collapse-right</v-icon>
+          </v-btn>
+        </div>
+      </template>
+      <template v-else>
+        <div class="d-flex">
+          <v-spacer />
+          <v-btn icon tile @click="handleDrawerCollapse" class="mr-2">
+            <v-icon>mdi-arrow-collapse-left</v-icon>
+          </v-btn>
+        </div>
+      </template>
+    </template>
   </v-navigation-drawer>
 </template>
 <script>
@@ -55,15 +78,12 @@ export default {
       type: Boolean,
       default: true
     },
-    drawWidth: {
-      type: [Number, String],
-      default: '260'
-    },
     showDrawer: Boolean
   },
   data() {
     return {
       mini: false,
+      drawerWidth: 256,
       items: menu,
       drawer: true,
       scrollSettings: {
@@ -73,9 +93,6 @@ export default {
   },
 
   computed: {
-    computeGroupActive() {
-      return true
-    },
     computeLogo() {
       return '/static/m.png'
     }
@@ -91,14 +108,8 @@ export default {
   created() {},
 
   methods: {
-    genChildTarget(item, subItem) {
-      if (subItem.href) return
-      if (subItem.component) {
-        return {
-          name: subItem.component
-        }
-      }
-      return { name: `${item.group}/${subItem.name}` }
+    handleDrawerCollapse() {
+      this.drawerWidth = this.drawerWidth === 256 ? 64 : 256
     }
   }
 }
