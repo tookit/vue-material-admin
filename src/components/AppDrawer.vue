@@ -14,9 +14,12 @@
       </v-toolbar-title>
     </v-toolbar>
     <div class="pa-3">
-      <v-subheader>Sponsor</v-subheader>
+      <v-subheader v-if="drawerWidth !== 64">Sponsor</v-subheader>
       <a :href="sponsor.href">
-        <img :src="sponsor.src" alt="NSD" height="72" />
+        <v-img
+          :src="drawerWidth === 64 ? sponsor.srcMini : sponsor.src"
+          alt="Optic fiber component provider"
+        />
       </a>
     </div>
     <v-list class="pa-0">
@@ -28,6 +31,14 @@
             no-action
             :to="item.path"
           >
+            <template v-slot:prepend-icon>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
+                </template>
+                <span>{{ item.meta.title }}</span>
+              </v-tooltip>
+            </template>
             <template v-slot:activator>
               <v-list-item-content>
                 <v-list-item-title v-text="item.meta.title"></v-list-item-title>
@@ -42,7 +53,16 @@
             >
               <template v-if="drawerWidth === 64">
                 <v-list-item-icon>
-                  <v-icon v-text="subItem.meta.icon"></v-icon>
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        v-bind="attrs"
+                        v-on="on"
+                        v-text="subItem.meta.icon"
+                      />
+                    </template>
+                    <span>{{ subItem.meta.title }}</span>
+                  </v-tooltip>
                 </v-list-item-icon>
               </template>
               <template v-else>
@@ -60,7 +80,12 @@
             v-show="!item.meta.hiddenInMenu"
           >
             <v-list-item-icon>
-              <v-icon v-text="item.meta.icon"></v-icon>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
+                </template>
+                <span>{{ item.meta.title }}</span>
+              </v-tooltip>
             </v-list-item-icon>
             <v-list-item-content v-if="drawerWidth !== 64">
               <v-list-item-title v-text="item.meta.title"></v-list-item-title>
@@ -116,7 +141,8 @@ export default {
       },
       sponsor: {
         href: 'https://www.theopticalfiber.com/',
-        src: 'https://www.theopticalfiber.com/images/logo/logo.png'
+        src: 'https://www.theopticalfiber.com/images/logo/logo.png',
+        srcMini: 'https://www.theopticalfiber.com/images/logo/logo_mini.png'
       }
     }
   },

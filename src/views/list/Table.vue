@@ -50,8 +50,8 @@
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on: tooltip }">
                           <v-btn icon v-on="{ ...menu }">
-                            <v-icon>mdi-dots-vertical</v-icon></v-btn
-                          >
+                            <v-icon>mdi-dots-vertical</v-icon>
+                          </v-btn>
                         </template>
                         <span>Action</span>
                       </v-tooltip>
