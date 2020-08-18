@@ -40,8 +40,8 @@
                 v-model="complex.selected"
               >
                 <template v-slot:item.avatar="{ item }">
-                  <v-avatar>
-                    <img :src="item.avatar" alt="avatar" size="16" />
+                  <v-avatar class="ma-3">
+                    <img :src="item.avatar" alt="avatar" />
                   </v-avatar>
                 </template>
                 <template v-slot:item.action="{ item }">
@@ -76,22 +76,6 @@
         </v-col>
         <v-col cols="12">
           <v-subheader>Basic Table</v-subheader>
-        </v-col>
-        <v-col cols="12">
-          <v-data-table
-            :headers="basic.headers"
-            :items="basic.items"
-            hide-default-footer
-          >
-            <template slot="items" slot-scope="props">
-              <td>{{ props.item.name }}</td>
-              <td class="text-xs-right">{{ props.item.calories }}</td>
-              <td class="text-xs-right">{{ props.item.fat }}</td>
-              <td class="text-xs-right">{{ props.item.carbs }}</td>
-              <td class="text-xs-right">{{ props.item.protein }}</td>
-              <td class="text-xs-right">{{ props.item.iron }}</td>
-            </template>
-          </v-data-table>
         </v-col>
       </v-row>
     </v-container>
