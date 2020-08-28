@@ -20,8 +20,8 @@
                 append-icon="person"
                 autocomplete="off"
                 name="login"
-                label="Login"
-                placeholder="Username or Email"
+                :label="$vuetify.lang.t('$vuetify.username')"
+                :placeholder="$vuetify.lang.t('$vuetify.username')"
                 type="text"
                 required
                 :rules="formRule.username"
@@ -31,8 +31,8 @@
                 append-icon="lock"
                 autocomplete="off"
                 name="password"
-                label="Password"
-                placeholder="Password"
+                :label="$vuetify.lang.t('$vuetify.password')"
+                :placeholder="$vuetify.lang.t('$vuetify.password')"
                 type="password"
                 :rules="formRule.password"
                 required
@@ -41,16 +41,21 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-icon
-              class="mr-3"
-              v-text="item"
-              v-for="(item, key) in socialIcons"
-              :key="key"
-              @click="handleSocialLogin"
-            />
+            <v-tooltip v-for="item in socialIcons" :key="item.text" bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  class="mr-3"
+                  v-text="item.icon"
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="handleSocialLogin"
+                />
+              </template>
+              <span>{{ item.text }}</span>
+            </v-tooltip>
             <v-spacer />
             <v-btn large tile color="primary" @click="login" :loading="loading">
-              Login
+              {{ $vuetify.lang.t('$vuetify.login') }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -71,10 +76,29 @@ export default {
         password: ''
       },
       formRule: {
-        username: [(v) => !!v || 'Username is required'],
-        password: [(v) => !!v || 'Password is required']
+        username: [
+          (v) =>
+            !!v || this.$vuetify.lang.t('$vuetify.rule.required', ['username'])
+        ],
+        password: [
+          (v) =>
+            !!v || this.$vuetify.lang.t('$vuetify.rule.required', ['password'])
+        ]
       },
-      socialIcons: ['mdi-google', 'mdi-twitter', 'mdi-facebook']
+      socialIcons: [
+        {
+          text: 'Google',
+          icon: 'mdi-google'
+        },
+        {
+          text: 'Facebook',
+          icon: 'mdi-facebook'
+        },
+        {
+          text: 'Twitter',
+          icon: 'mdi-twitter'
+        }
+      ]
     }
   },
   computed: {

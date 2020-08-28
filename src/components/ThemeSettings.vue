@@ -4,8 +4,15 @@
       <v-toolbar-title class="white--text">Theme Settings</v-toolbar-title>
     </v-toolbar>
     <v-container>
-      <v-layout column>
-        <v-flex>
+      <v-row column>
+        <v-col>
+          <v-select
+            placeholder="Language"
+            label="Language"
+            :items="availableLanguages"
+            v-model="$vuetify.lang.current"
+            @change="changeLocale"
+          />
           <v-subheader class="px-1 my-2">Color Option</v-subheader>
           <div class="color-option">
             <v-layout wrap>
@@ -47,8 +54,8 @@
               </v-btn-toggle>
             </div>
           </div>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -138,12 +145,21 @@ export default {
           }
         }
       ]
+    },
+    availableLanguages() {
+      const { locales } = this.$vuetify.lang
+      return Object.keys(locales).map((lang) => {
+        return {
+          text: locales[lang].label,
+          value: lang
+        }
+      })
     }
   },
   watch: {
     themeColor: {
       handler(val) {
-        console.log(colors)
+        console.log(this.$vuetify)
         this.$vuetify.theme.themes.light.primary = this.colors[val].base
       },
       immediate: true
@@ -155,6 +171,11 @@ export default {
       immediate: true
     },
     updateTheme() {}
+  },
+  methods: {
+    changeLocale(lang) {
+      this.$vuetify.lang.current = lang
+    }
   }
 }
 </script>
@@ -164,13 +185,10 @@ export default {
     position: relative
     display: block
     cursor: pointer
-
     & input[type='radio']
       display: none
-
       &+span
         position: relative
-
         &>.overlay
           display: none
           position: absolute
@@ -193,7 +211,6 @@ export default {
     display: block
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1)
     margin-bottom: 15px
-
     &--header
       height: 10px
     &>span
