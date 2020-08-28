@@ -11,9 +11,7 @@
           Add Folder
         </v-btn>
       </v-btn-toggle>
-
-      <v-spacer></v-spacer>
-
+      <v-spacer />
       <v-btn-toggle v-model="view">
         <v-btn text value="list">
           <v-icon color="primary">view_headline</v-icon>

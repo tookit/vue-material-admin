@@ -62,9 +62,9 @@ export const protectedRoute = [
     children: [
       {
         path: '/dashboard',
-        name: 'Dashboard',
+        name: 'dashboard',
         meta: {
-          title: 'Dashboard',
+          title: 'dashboard',
           group: 'apps',
           icon: 'mdi-view-dashboard'
         },
@@ -73,11 +73,11 @@ export const protectedRoute = [
       {
         path: '/task',
         meta: {
-          title: 'Task',
+          title: 'task',
           group: 'apps',
           icon: 'mdi-calendar-check'
         },
-        name: 'Task',
+        name: 'task',
         props: (route) => ({
           type: route.query.type
         }),
@@ -95,9 +95,9 @@ export const protectedRoute = [
         children: [
           {
             path: '/cms/table',
-            name: 'ListTable',
+            name: 'cms.table',
             meta: {
-              title: 'CMS Table',
+              title: 'table',
               icon: 'mdi-database'
             },
             component: () => import('@/views/list/Table.vue')
@@ -109,7 +109,7 @@ export const protectedRoute = [
         path: '/widgets',
         component: RouteWrapper,
         meta: {
-          title: 'Widget',
+          title: 'widget',
           icon: 'widgets',
           group: 'advance'
         },
@@ -156,10 +156,10 @@ export const protectedRoute = [
       {
         path: '/media',
         meta: {
-          title: 'Media',
+          title: 'media',
           icon: 'mdi-image'
         },
-        name: 'Media',
+        name: 'media',
         component: () => import('@/views/Media.vue')
       },
 
