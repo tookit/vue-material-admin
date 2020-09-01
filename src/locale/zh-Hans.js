@@ -20,6 +20,8 @@ export default {
     social: '社交',
     statistic: '统计',
     echart: '百度图表',
+    mail: '邮件',
+    inbox: '收件箱',
     table: '表格'
   },
   //media

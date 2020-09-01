@@ -113,17 +113,8 @@ export const protectedRoute = [
           icon: 'widgets',
           group: 'advance'
         },
-        redirect: '/widgets/chart',
+        redirect: '/widgets/list',
         children: [
-          {
-            path: '/widgets/chart',
-            name: 'ChartWidget',
-            meta: {
-              title: 'chart',
-              icon: 'mdi-chart-line'
-            },
-            component: () => import('@/views/widgets/Chart.vue')
-          },
           {
             path: '/widgets/list',
             name: 'ListWidget',
@@ -169,9 +160,31 @@ export const protectedRoute = [
             name: 'echart',
             meta: {
               title: 'echart',
-              icon: 'mdi-chart-line'
+              icon: 'mdi-chart-bar'
             },
             component: () => import('@/views/chart/Echart.vue')
+          }
+        ]
+      },
+      //email
+      {
+        path: '/mail',
+        component: RouteWrapper,
+        meta: {
+          title: 'mail',
+          icon: 'mdi-email',
+          group: 'email'
+        },
+        redirect: '/mail/inbox',
+        children: [
+          {
+            path: '/mail/inbox',
+            name: 'inbox',
+            meta: {
+              title: 'inbox',
+              icon: 'mdi-chart-bar'
+            },
+            component: () => import('@/views/mail/Inbox.vue')
           }
         ]
       },

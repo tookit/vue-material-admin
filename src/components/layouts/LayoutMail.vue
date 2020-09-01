@@ -20,14 +20,6 @@
         <span class="hidden-sm-and-down">Mail</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-text-field
-        text
-        solo-inverted
-        prepend-icon="search"
-        label="What are you looking for?"
-        class="hidden-sm-and-down"
-      >
-      </v-text-field> -->
       <v-btn icon>
         <v-icon>notifications</v-icon>
       </v-btn>

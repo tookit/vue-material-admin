@@ -20,6 +20,8 @@ export default {
     social: 'Social',
     statistic: 'Statistic',
     echart: 'Echart',
+    mail: 'Mail',
+    inbox: 'Inbox',
     table: 'Table'
   },
   //media
