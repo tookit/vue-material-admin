@@ -15,6 +15,11 @@ export default {
     task: 'Task',
     CMS: 'CMS',
     widget: 'Widget',
+    chart: 'Chart',
+    list: 'List',
+    social: 'Social',
+    statistic: 'Statistic',
+    echart: 'Echart',
     table: 'Table'
   },
   //media

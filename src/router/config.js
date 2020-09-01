@@ -119,7 +119,7 @@ export const protectedRoute = [
             path: '/widgets/chart',
             name: 'ChartWidget',
             meta: {
-              title: 'Chart Widget',
+              title: 'chart',
               icon: 'mdi-chart-line'
             },
             component: () => import('@/views/widgets/Chart.vue')
@@ -128,7 +128,7 @@ export const protectedRoute = [
             path: '/widgets/list',
             name: 'ListWidget',
             meta: {
-              title: 'List Widget',
+              title: 'list',
               icon: 'mdi-table'
             },
             component: () => import('@/views/widgets/List.vue')
@@ -137,7 +137,7 @@ export const protectedRoute = [
             path: '/widgets/social',
             name: 'SocialWidget',
             meta: {
-              title: 'Social Widget',
+              title: 'social',
               icon: 'mdi-face-profile'
             },
             component: () => import('@/views/widgets/Social.vue')
@@ -146,10 +146,32 @@ export const protectedRoute = [
             path: '/widgets/statistic',
             name: 'StatisticWidget',
             meta: {
-              title: 'Statistic Widget',
+              title: 'statistic',
               icon: 'mdi-hexagon'
             },
             component: () => import('@/views/widgets/Statistic.vue')
+          }
+        ]
+      },
+      //chart
+      {
+        path: '/chart',
+        component: RouteWrapper,
+        meta: {
+          title: 'chart',
+          icon: 'mdi-chart-line',
+          group: 'advance'
+        },
+        redirect: '/chart/echart',
+        children: [
+          {
+            path: '/cart/echart',
+            name: 'echart',
+            meta: {
+              title: 'echart',
+              icon: 'mdi-chart-line'
+            },
+            component: () => import('@/views/chart/Echart.vue')
           }
         ]
       },
@@ -167,7 +189,7 @@ export const protectedRoute = [
         path: '/403',
         name: 'Forbidden',
         meta: {
-          title: 'Access Denied',
+          title: 'access_denied',
           hiddenInMenu: true
         },
         component: () => import('@/views/error/Deny.vue')

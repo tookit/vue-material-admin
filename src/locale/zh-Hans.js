@@ -15,6 +15,11 @@ export default {
     CMS: '内容管理',
     task: '项目',
     widget: '组件',
+    chart: '图表',
+    list: '列表',
+    social: '社交',
+    statistic: '统计',
+    echart: '百度图表',
     table: '表格'
   },
   //media
