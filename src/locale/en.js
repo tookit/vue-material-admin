@@ -20,6 +20,7 @@ export default {
     social: 'Social',
     statistic: 'Statistic',
     echart: 'Echart',
+    g2: 'G2',
     mail: 'Mail',
     inbox: 'Inbox',
     table: 'Table'
@@ -30,6 +31,9 @@ export default {
   rule: {
     required: '{0} is required'
   },
+
+  //error
+  access_denied: 'Access Deny',
 
   ...en
 }

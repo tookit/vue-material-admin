@@ -11,6 +11,7 @@
     "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
   },
   "dependencies": {
+    "@antv/g2plot": "^1.1.25",
     "@mdi/font": "^5.3.45",
     "core-js": "^3.3.2",
     "lodash.truncate": "^4.4.2",

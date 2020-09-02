@@ -20,6 +20,7 @@ export default {
     social: '社交',
     statistic: '统计',
     echart: '百度图表',
+    g2: 'G2',
     mail: '邮件',
     inbox: '收件箱',
     table: '表格'
@@ -30,5 +31,6 @@ export default {
   rule: {
     required: '请输入{0}'
   },
+  access_denied: '访问受限',
   ...zhHans
 }

@@ -163,6 +163,15 @@ export const protectedRoute = [
               icon: 'mdi-chart-bar'
             },
             component: () => import('@/views/chart/Echart.vue')
+          },
+          {
+            path: '/cart/g2',
+            name: 'g2',
+            meta: {
+              title: 'g2',
+              icon: 'mdi-chart-lin'
+            },
+            component: () => import('@/views/chart/G2.vue')
           }
         ]
       },
