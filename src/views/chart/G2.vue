@@ -77,6 +77,24 @@
           />
         </v-card>
       </v-col>
+      <v-col lg="6">
+        <v-card tile>
+          <v-toolbar flat>
+            <v-toolbar-title>{{ chart.gauge.title.text }}</v-toolbar-title>
+            <v-spacer />
+          </v-toolbar>
+          <v-g2-gauge />
+        </v-card>
+      </v-col>
+      <v-col lg="6">
+        <v-card tile>
+          <v-toolbar flat>
+            <v-toolbar-title>{{ chart.donut.title.text }}</v-toolbar-title>
+            <v-spacer />
+          </v-toolbar>
+          <v-g2-donut :data="chart.donut.data" />
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -84,11 +102,15 @@
 <script>
 import VG2Column from '@/components/chart/g2plot/column'
 import VG2Line from '@/components/chart/g2plot/line'
+import VG2Gauge from '@/components/chart/g2plot/gauge'
+import VG2Donut from '@/components/chart/g2plot/donut'
 export default {
   name: 'PageChartG2',
   components: {
     VG2Column,
-    VG2Line
+    VG2Line,
+    VG2Gauge,
+    VG2Donut
   },
   data() {
     return {
@@ -96,7 +118,7 @@ export default {
         column: {
           data: [
             {
-              type: '家具家电',
+              type: 'Toy',
               sales: 38
             },
             {
@@ -166,6 +188,44 @@ export default {
               click: this.showColumnLengend
             }
           ]
+        },
+        gauge: {
+          title: {
+            visible: true,
+            text: 'Gauge'
+          }
+        },
+        donut: {
+          data: [
+            {
+              type: 'United States',
+              value: 27
+            },
+            {
+              type: 'China',
+              value: 25
+            },
+            {
+              type: 'Russia',
+              value: 18
+            },
+            {
+              type: 'France',
+              value: 15
+            },
+            {
+              type: 'Spanish',
+              value: 10
+            },
+            {
+              type: 'Other',
+              value: 5
+            }
+          ],
+          title: {
+            visible: true,
+            text: 'Donut chart'
+          }
         }
       }
     }

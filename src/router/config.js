@@ -160,7 +160,7 @@ export const protectedRoute = [
             name: 'echart',
             meta: {
               title: 'echart',
-              icon: 'mdi-chart-bar'
+              icon: 'mdi-paw'
             },
             component: () => import('@/views/chart/Echart.vue')
           },
@@ -169,7 +169,7 @@ export const protectedRoute = [
             name: 'g2',
             meta: {
               title: 'g2',
-              icon: 'mdi-chart-lin'
+              icon: 'mdi-alpha-g'
             },
             component: () => import('@/views/chart/G2.vue')
           }
