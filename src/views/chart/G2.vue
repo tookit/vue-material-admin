@@ -100,31 +100,31 @@ export default {
               sales: 38
             },
             {
-              type: '粮油副食',
+              type: 'Woman Fasion',
               sales: 52
             },
             {
-              type: '生鲜水果',
+              type: 'Men Fasion',
               sales: 61
             },
             {
-              type: '美容洗护',
+              type: 'Phone',
               sales: 145
             },
             {
-              type: '母婴用品',
+              type: 'Computer',
               sales: 48
             },
             {
-              type: '进口食品',
+              type: 'Electronics',
               sales: 38
             },
             {
-              type: '食品饮料',
+              type: 'Watches',
               sales: 38
             },
             {
-              type: '家庭清洁',
+              type: 'Bag & Shoes',
               sales: 38
             }
           ],
