@@ -104,6 +104,15 @@
           <v-g2-cloud :data="chart.cloud.data" />
         </v-card>
       </v-col>
+      <v-col lg="6">
+        <v-card tile>
+          <v-toolbar flat>
+            <v-toolbar-title>{{ chart.bullet.title.text }}</v-toolbar-title>
+            <v-spacer />
+          </v-toolbar>
+          <v-g2-bullet :data="chart.bullet.data" />
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -114,6 +123,7 @@ import VG2Line from '@/components/chart/g2plot/line'
 import VG2Gauge from '@/components/chart/g2plot/gauge'
 import VG2Donut from '@/components/chart/g2plot/donut'
 import VG2Cloud from '@/components/chart/g2plot/cloud'
+import VG2Bullet from '@/components/chart/g2plot/bullet'
 export default {
   name: 'PageChartG2',
   components: {
@@ -121,7 +131,8 @@ export default {
     VG2Line,
     VG2Gauge,
     VG2Donut,
-    VG2Cloud
+    VG2Cloud,
+    VG2Bullet
   },
   data() {
     return {
@@ -280,6 +291,34 @@ export default {
             {
               weight: 6,
               word: 'Data Vis'
+            }
+          ]
+        },
+        bullet: {
+          title: {
+            visible: true,
+            text: 'Bullet'
+          },
+          data: [
+            {
+              title: 'GUI',
+              measures: [83],
+              targets: [90]
+            },
+            {
+              title: 'REST API',
+              measures: [13],
+              targets: [90]
+            },
+            {
+              title: 'Websocket',
+              measures: [45],
+              targets: [80]
+            },
+            {
+              title: 'SSR',
+              measures: [83],
+              targets: [70]
             }
           ]
         }
