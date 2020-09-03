@@ -23,7 +23,8 @@ export default {
     g2: 'G2',
     mail: 'Mail',
     inbox: 'Inbox',
-    table: 'Table'
+    table: 'Table',
+    access_denied: 'Access Deny'
   },
   //media
   media: 'Media',
@@ -33,7 +34,6 @@ export default {
   },
 
   //error
-  access_denied: 'Access Deny',
 
   ...en
 }

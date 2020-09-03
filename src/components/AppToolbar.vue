@@ -26,6 +26,31 @@
         </template>
         <notification-list></notification-list>
       </v-menu>
+      <v-menu
+        offset-y
+        origin="center center"
+        class="elelvation-1"
+        transition="scale-transition"
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn text slot="activator" v-on="on">
+            <v-icon medium>mdi-translate</v-icon>
+            <span class="ml-2"> {{ localeText }} </span>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item-group v-model="$vuetify.lang.current">
+            <v-list-item
+              @click="handleChangeLocale(item)"
+              v-for="item in availableLanguages"
+              :key="item.value"
+              :value="item.value"
+            >
+              <v-list-item-title v-text="item.text" />
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-menu>
       <v-menu offset-y origin="center center" transition="scale-transition">
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
@@ -102,6 +127,21 @@ export default {
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },
+    availableLanguages() {
+      const { locales } = this.$vuetify.lang
+      return Object.keys(locales).map((lang) => {
+        return {
+          text: locales[lang].label,
+          value: lang
+        }
+      })
+    },
+    localeText() {
+      const find = this.availableLanguages.find(
+        (item) => item.value === this.$vuetify.lang.current
+      )
+      return find.text
+    },
     breadcrumbs() {
       const { matched } = this.$route
       return matched.map((route, index) => {
@@ -127,6 +167,9 @@ export default {
     },
     handleLogut() {
       this.$router.push('/auth/login')
+    },
+    handleChangeLocale({ value }) {
+      this.$vuetify.lang.current = value
     },
     handleSetting() {},
     handleProfile() {},

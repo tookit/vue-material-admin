@@ -39,9 +39,7 @@ export default mixins(BaseMixin).extend({
     drawChart() {
       this.chart = new Donut(this.$refs.canvas, {
         width: this.width,
-
         height: this.height,
-
         data: this.data,
 
         padding: this.padding,

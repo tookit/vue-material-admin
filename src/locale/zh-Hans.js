@@ -23,7 +23,8 @@ export default {
     g2: 'G2',
     mail: '邮件',
     inbox: '收件箱',
-    table: '表格'
+    table: '表格',
+    access_denied: '访问受限'
   },
   //media
   media: '媒体',
@@ -31,6 +32,5 @@ export default {
   rule: {
     required: '请输入{0}'
   },
-  access_denied: '访问受限',
   ...zhHans
 }
