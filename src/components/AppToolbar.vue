@@ -149,8 +149,9 @@ export default {
           index === matched.length - 1
             ? this.$route.path
             : route.path || route.redirect
+        const text = this.$vuetify.lang.t('$vuetify.menu.' + route.meta.title)
         return {
-          text: route.meta.title,
+          text: text,
           to: to,
           exact: true,
           disabled: false

@@ -10,6 +10,7 @@ export default {
   sponsor: 'Sponsor',
   // menu
   menu: {
+    home: 'Home',
     media: 'Media',
     dashboard: 'Dashboard',
     task: 'Task',

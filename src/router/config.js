@@ -54,7 +54,7 @@ export const protectedRoute = [
     path: '/',
     component: LayoutDefault,
     meta: {
-      title: 'Home',
+      title: 'home',
       group: 'apps',
       icon: ''
     },

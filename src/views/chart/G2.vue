@@ -95,6 +95,15 @@
           <v-g2-donut :data="chart.donut.data" />
         </v-card>
       </v-col>
+      <v-col lg="6">
+        <v-card tile>
+          <v-toolbar flat>
+            <v-toolbar-title>{{ chart.cloud.title.text }}</v-toolbar-title>
+            <v-spacer />
+          </v-toolbar>
+          <v-g2-cloud :data="chart.cloud.data" />
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -104,13 +113,15 @@ import VG2Column from '@/components/chart/g2plot/column'
 import VG2Line from '@/components/chart/g2plot/line'
 import VG2Gauge from '@/components/chart/g2plot/gauge'
 import VG2Donut from '@/components/chart/g2plot/donut'
+import VG2Cloud from '@/components/chart/g2plot/cloud'
 export default {
   name: 'PageChartG2',
   components: {
     VG2Column,
     VG2Line,
     VG2Gauge,
-    VG2Donut
+    VG2Donut,
+    VG2Cloud
   },
   data() {
     return {
@@ -226,6 +237,51 @@ export default {
             visible: true,
             text: 'Donut chart'
           }
+        },
+        cloud: {
+          title: {
+            visible: true,
+            text: 'Tag Cloud'
+          },
+          data: [
+            {
+              weight: 12,
+              word: 'VMA'
+            },
+            {
+              weight: 9,
+              word: 'Vue'
+            },
+            {
+              weight: 8,
+              word: 'Material'
+            },
+            {
+              weight: 8,
+              word: 'Chart'
+            },
+            {
+              weight: 8,
+              word: 'vuex'
+            },
+            {
+              weight: 8,
+              word: 'G2'
+            },
+
+            {
+              weight: 3,
+              word: 'Echart'
+            },
+            {
+              weight: 10,
+              word: 'Laravel'
+            },
+            {
+              weight: 6,
+              word: 'Data Vis'
+            }
+          ]
         }
       }
     }

@@ -10,6 +10,7 @@ export default {
   sponsor: '赞助商',
   // menu
   menu: {
+    home: '首页',
     media: '媒体',
     dashboard: '仪表盘',
     CMS: '内容管理',
