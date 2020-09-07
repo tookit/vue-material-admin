@@ -252,20 +252,20 @@ export const protectedRoute = [
 
   //mail app
   {
-    path: '/mail',
+    path: '/email',
     name: 'Mail',
     component: () => import('@/components/email/Layout.vue'),
     redirect: {
-      path: '/mail/all'
+      path: '/email/all'
     },
     children: [
       {
-        path: '/mail/:mailType',
+        path: '/email/:mailType',
         name: 'MailIndex',
         component: () => import('@/components/email/List.vue')
       },
       {
-        path: '/mail/0/:uuid',
+        path: '/email/0/:uuid',
         name: 'MailDetail',
         component: () => import('@/components/email/Reply.vue')
       }
