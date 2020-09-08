@@ -1,14 +1,31 @@
 <template>
   <v-card class="mail-inbox" tile>
     <v-toolbar class="mail-inbox__toolbar" flat>
-      <v-checkbox row hide-details class="check-all"></v-checkbox>
-      <v-menu transition="scale-transition">
+      <v-checkbox hide-details class="check-all"></v-checkbox>
+      <v-menu
+        offset-y
+        origin="center center"
+        class="elelvation-1"
+        transition="scale-transition"
+      >
         <template v-slot:activator="{ on }">
-          <v-btn icon large text slot="activator">
-            <v-icon>arrow_drop_down</v-icon>
+          <v-btn icon text slot="activator" v-on="on">
+            <v-icon medium>mdi-chevron-down</v-icon>
           </v-btn>
         </template>
-        <span>hello</span>
+        <v-list class="pa-0">
+          <template v-for="item in mailActions">
+            <v-list-item :key="item.title" @click="item.click">
+              <v-list-item-icon>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-title v-text="item.title" />
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider :key="'d' + item.title" />
+          </template>
+        </v-list>
       </v-menu>
       <v-spacer></v-spacer>
       <v-btn icon text> <v-icon>refresh</v-icon> </v-btn>
@@ -77,22 +94,22 @@ export default {
       ],
       mailActions: [
         {
-          href: '#',
           title: 'Delete',
+          icon: 'mdi-delete',
           click: (e) => {
             console.log(e)
           }
         },
         {
-          href: 'Mark as read',
           title: 'Mark as read',
+          icon: 'mdi-email-alert',
           click: (e) => {
             console.log(e)
           }
         },
         {
-          href: 'Spam',
           title: 'Spam',
+          icon: 'mdi-bug',
           click: (e) => {
             console.log(e)
           }
