@@ -14,6 +14,7 @@
     "@antv/g2plot": "^1.1.25",
     "@mdi/font": "^5.3.45",
     "core-js": "^3.3.2",
+    "date-fns": "^2.16.1",
     "lodash.truncate": "^4.4.2",
     "nprogress": "^0.2.0",
     "quill": "^1.3.6",
