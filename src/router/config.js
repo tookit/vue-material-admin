@@ -178,7 +178,7 @@ export const protectedRoute = [
       //email
       {
         path: '/mail',
-        component: RouteWrapper,
+        component: () => import('@/views/mail/Index.vue'),
         meta: {
           title: 'mail',
           icon: 'mdi-email',
@@ -187,11 +187,12 @@ export const protectedRoute = [
         redirect: '/mail/inbox',
         children: [
           {
-            path: '/mail/inbox',
+            path: '/mail/:category',
             name: 'inbox',
+            props: true,
             meta: {
               title: 'inbox',
-              icon: 'mdi-chart-bar'
+              icon: 'mdi-view-list'
             },
             component: () => import('@/views/mail/Inbox.vue')
           }
