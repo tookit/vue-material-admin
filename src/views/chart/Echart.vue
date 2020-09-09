@@ -2,8 +2,10 @@
   <v-container>
     <v-row>
       <!-- mini chart -->
-      <v-col cols="12"> <v-subheader>Mini Chart</v-subheader> </v-col>
-      <v-col cols="3">
+      <v-col cols="12">
+        <v-subheader class="pl-0">Mini Chart</v-subheader>
+      </v-col>
+      <v-col :cols="12" lg="3" :sm="12" :md="3">
         <mini-chart
           title="Monthly Sales"
           sub-title="10%"
@@ -13,7 +15,7 @@
           type="bar"
         />
       </v-col>
-      <v-col cols="3">
+      <v-col :cols="12" lg="3" :sm="12" :md="3">
         <mini-chart
           title="Daily Visit"
           sub-title="20%"
@@ -23,45 +25,33 @@
           type="area"
         />
       </v-col>
-      <v-col cols="3">
-        <v-card>
-          <v-card-text>
-            <div class="layout row ma-0 align-center justify-space-between">
-              <div class="text-box">
-                <div class="subheading pb-2">Bounce Rate</div>
-                <span class="grey--text">
-                  -10%
-                  <v-icon small color="green">trending_down</v-icon>
-                </span>
-              </div>
-              <div class="chart">
-                <v-progress-circular
-                  :size="60"
-                  :width="5"
-                  :rotate="360"
-                  :value="10"
-                  color="success"
-                  >10</v-progress-circular
-                >
-              </div>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="3">
+      <v-col :cols="12" lg="3" :sm="12" :md="3">
         <mini-chart
           sub-title="10%"
+          title="Daily Quote"
           icon="trending_down"
           :data="dataset.monthVisit"
           :chart-color="color.red.base"
           type="line"
-        ></mini-chart>
+        />
+      </v-col>
+      <v-col :cols="12" lg="3" :sm="12" :md="3">
+        <mini-chart
+          title="Weekly Visit"
+          sub-title="10%"
+          icon="trending_down"
+          :data="dataset.monthVisit"
+          :chart-color="color.red.base"
+          type="bar"
+        />
       </v-col>
     </v-row>
     <!-- box chart -->
     <v-row>
-      <v-col cols="12"> <v-subheader>Box Chart</v-subheader> </v-col>
-      <v-col cols="4">
+      <v-col cols="12">
+        <v-subheader class="pl-0">Box Chart</v-subheader>
+      </v-col>
+      <v-col :cols="12" lg="4" :sm="12">
         <box-chart
           title="Page views"
           sub-title="10%"
@@ -71,7 +61,7 @@
           type="area"
         ></box-chart>
       </v-col>
-      <v-col cols="4">
+      <v-col :cols="12" lg="4" :sm="12">
         <box-chart
           title="Monthly Sales"
           sub-title="10%"
@@ -82,7 +72,7 @@
           type="bar"
         ></box-chart>
       </v-col>
-      <v-col cols="4">
+      <v-col :cols="12" lg="4" :sm="12">
         <box-chart
           card-color="indigo"
           title="Page views"
@@ -96,9 +86,11 @@
     </v-row>
     <!-- complex chart -->
     <v-row>
-      <v-col cols="12"> <v-subheader>Complex Chart</v-subheader> </v-col>
-      <v-col cols="4">
-        <v-card dark color="green">
+      <v-col cols="12">
+        <v-subheader class="pl-2">Complex Chart</v-subheader>
+      </v-col>
+      <v-col :cols="12" lg="4" :sm="12">
+        <v-card dark color="green" tile>
           <v-card-title>
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
@@ -125,7 +117,7 @@
               ]"
               height="200px"
               width="100%"
-            ></e-chart>
+            />
           </v-responsive>
           <v-card-text class="white">
             <div class="layout row align-center ma-0">
@@ -141,15 +133,15 @@
                   :rotate="360"
                   :value="10"
                   color="blue"
-                  >10</v-progress-circular
-                >
+                  >10
+                </v-progress-circular>
               </div>
             </div>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="4">
-        <v-card class="elevation-0 box-shadow" dark color="pink">
+      <v-col :cols="12" lg="4" :sm="12">
+        <v-card tile dark color="pink">
           <v-card-title>
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
@@ -186,15 +178,15 @@
                   :rotate="360"
                   :value="10"
                   color="blue"
-                  >10</v-progress-circular
-                >
+                  >10
+                </v-progress-circular>
               </div>
             </div>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="4">
-        <v-card color="blue darken-1" dark>
+      <v-col :cols="12" lg="4" :sm="12">
+        <v-card tile color="blue darken-1" dark>
           <v-card-title>
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
@@ -218,7 +210,7 @@
               ]"
               height="200px"
               width="100%"
-            ></e-chart>
+            />
           </v-responsive>
           <v-card-text class="white">
             <div class="layout row align-center ma-0">
@@ -234,14 +226,14 @@
                   :rotate="360"
                   :value="10"
                   color="blue"
-                  >10</v-progress-circular
-                >
+                  >10
+                </v-progress-circular>
               </div>
             </div>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="6">
+      <v-col :cols="12" lg="6" :sm="12">
         <v-widget title="Analysis - Donut">
           <div slot="widget-content">
             <e-chart
@@ -272,7 +264,7 @@
           </div>
         </v-widget>
       </v-col>
-      <v-col cols="6">
+      <v-col :cols="12" lg="6" :sm="12">
         <v-widget title="Analysis - Pie">
           <div slot="widget-content">
             <e-chart
@@ -302,12 +294,12 @@
         </v-widget>
       </v-col>
       <v-col cols="12">
-        <v-card>
+        <v-card tile>
           <v-tabs v-model="selectedTab" @change="handleTabChange">
-            <v-tab ripple href="#tab-1">Sales</v-tab>
-            <v-tab ripple href="#tab-2">Visit</v-tab>
+            <v-tab href="#tab-1">Sales</v-tab>
+            <v-tab href="#tab-2">Visit</v-tab>
             <v-tabs-items v-model="selectedTab">
-              <v-tab-item value="tab-1" class="d-block">
+              <v-tab-item value="tab-1">
                 <e-chart
                   :path-option="[
                     ['color', [color.lightBlue.base, color.purple.base]],
@@ -317,7 +309,7 @@
                   ]"
                   height="350px"
                   width="100%"
-                ></e-chart>
+                />
               </v-tab-item>
               <v-tab-item value="tab-2">
                 <e-chart
@@ -327,7 +319,7 @@
                   ]"
                   height="350px"
                   width="100%"
-                ></e-chart>
+                />
               </v-tab-item>
             </v-tabs-items>
           </v-tabs>

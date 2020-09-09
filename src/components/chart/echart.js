@@ -40,10 +40,10 @@ export default {
 
   render(h) {
     const data = {
-      staticClass: 'v-chart',
+      staticClass: 'v-echart',
       style: this.canvasStyle,
       ref: 'canvas',
-      on: this.$listeners,
+      on: this.$listeners
     }
     return h('div', data)
   },
@@ -54,7 +54,7 @@ export default {
     height: { type: String, default: '400px' },
     merged: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // instace.setOption
     pathOption: [Object, Array],
@@ -73,7 +73,7 @@ export default {
       type: [Object, Array],
       default() {
         return {}
-      },
+      }
     }, // option.dataSet
     colors: Array, // echarts.option.color
     backgroundColor: [Object, String],
@@ -81,8 +81,8 @@ export default {
     // resize delay
     widthChangeDelay: {
       type: Number,
-      default: 450,
-    },
+      default: 450
+    }
   },
   data: () => ({
     chartInstance: null,
@@ -99,21 +99,21 @@ export default {
       'grid',
       'dataset',
       'colors',
-      'backgroundColor',
+      'backgroundColor'
     ],
     _defaultOption: {
       tooltip: {
-        show: true,
+        show: true
       },
       title: {
         show: true,
         textStyle: {
           color: 'rgba(0, 0, 0 , .87)',
-          fontFamily: 'sans-serif',
-        },
+          fontFamily: 'sans-serif'
+        }
       },
       grid: {
-        containLabel: true,
+        containLabel: true
       },
       xAxis: {
         show: true,
@@ -121,8 +121,8 @@ export default {
         axisLine: {
           lineStyle: {
             color: 'rgba(0, 0, 0 , .54)',
-            type: 'dashed',
-          },
+            type: 'dashed'
+          }
         },
         axisTick: {
           show: true,
@@ -130,12 +130,12 @@ export default {
           lineStyle: {
             show: true,
             color: 'rgba(0, 0, 0 , .54)',
-            type: 'dashed',
-          },
+            type: 'dashed'
+          }
         },
         axisLabel: {
-          show: false,
-        },
+          show: false
+        }
       },
       yAxis: {
         show: true,
@@ -143,41 +143,41 @@ export default {
         axisLine: {
           lineStyle: {
             color: 'rgba(0, 0, 0 , .54)',
-            type: 'dashed',
-          },
+            type: 'dashed'
+          }
         },
         axisLabel: {
-          show: false,
+          show: false
           // color: 'rgba(0, 0, 0 , .54)'
         },
         splitLine: {
           lineStyle: {
-            type: 'dashed',
-          },
+            type: 'dashed'
+          }
         },
         axisTick: {
           show: true,
           lineStyle: {
             show: true,
             color: 'rgba(0, 0, 0 , .54)',
-            type: 'dashed',
-          },
-        },
+            type: 'dashed'
+          }
+        }
       },
       series: [
         {
-          type: 'line',
-        },
-      ],
-    },
+          type: 'line'
+        }
+      ]
+    }
   }),
   computed: {
     canvasStyle() {
       return {
         width: this.width,
-        height: this.height,
+        height: this.height
       }
-    },
+    }
   },
   methods: {
     init() {
@@ -189,7 +189,9 @@ export default {
         })
       }
       this.chartInstance = ECharts.init(this.$refs.canvas, 'material')
-      this.chartInstance.setOption(_object.merge(this.option, this.$data._defaultOption))
+      this.chartInstance.setOption(
+        _object.merge(this.option, this.$data._defaultOption)
+      )
       window.addEventListener('optimizedResize', () => {
         setTimeout(() => {
           this.chartInstance.resize()
@@ -203,7 +205,7 @@ export default {
     clean() {
       window.removeEventListener('resize', this.chartInstance.resize)
       this.chartInstance.clear()
-    },
+    }
   },
   mounted() {
     this.init()
@@ -211,5 +213,5 @@ export default {
 
   beforeDestroy() {
     this.clean()
-  },
+  }
 }
