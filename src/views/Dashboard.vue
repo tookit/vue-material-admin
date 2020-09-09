@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <!-- mini statistic start -->
-        <v-col cols="3">
+        <v-col :cols="12" :sm="6" :lg="3">
           <mini-statistic
             icon="mdi-facebook"
             title="100+"
@@ -11,7 +11,7 @@
             color="indigo"
           />
         </v-col>
-        <v-col cols="3">
+        <v-col :cols="12" :sm="6" :lg="3">
           <mini-statistic
             icon="mdi-google"
             title="150+"
@@ -19,7 +19,7 @@
             color="red"
           />
         </v-col>
-        <v-col cols="3">
+        <v-col :cols="12" :sm="6" :lg="3">
           <mini-statistic
             icon="mdi-twitter"
             title="200+"
@@ -27,7 +27,7 @@
             color="light-blue"
           />
         </v-col>
-        <v-col cols="3">
+        <v-col :cols="12" :sm="6" :lg="3">
           <mini-statistic
             icon="mdi-instagram"
             title="50+"
@@ -36,7 +36,7 @@
           />
         </v-col>
         <!-- mini statistic  end -->
-        <v-col cols="8">
+        <v-col :lg="8" :sm="12" :cols="12">
           <v-widget title="Site Traffic" content-bg="white">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
@@ -65,7 +65,7 @@
             </div>
           </v-widget>
         </v-col>
-        <v-col cols="4">
+        <v-col :lg="4" :sm="12" :cols="12">
           <v-widget title="Top Location" content-bg="white">
             <div slot="widget-content">
               <e-chart
@@ -96,10 +96,10 @@
           </v-widget>
         </v-col>
         <!-- social/weather card start -->
-        <v-col cols="4">
+        <v-col :lg="4" :cols="12" :sm="12">
           <profile-card />
         </v-col>
-        <v-col cols="4">
+        <v-col :lg="4" :cols="12" :sm="12">
           <box-chart
             card-color="indigo"
             title="Trending"
@@ -122,7 +122,7 @@
           />
         </v-col>
         <!-- statistic section -->
-        <v-col cols="4">
+        <v-col :lg="4" :cols="12" :sm="12">
           <linear-statistic
             title="Sales"
             sub-title="Sales increase"
@@ -157,7 +157,9 @@
         </v-col>
         <!-- Circle statistic -->
         <v-col
-          cols="4"
+          :lg="4"
+          :sm="12"
+          :cols="12"
           v-for="(item, index) in trending"
           :key="'c-trending' + index"
         >
@@ -171,10 +173,10 @@
           />
         </v-col>
         <!-- acitivity/chat widget -->
-        <v-col cols="6">
+        <v-col :lg="6" :sm="12" :cols="12">
           <chat-window height="308px" />
         </v-col>
-        <v-col cols="6">
+        <v-col :lg="6" :sm="12" :cols="12">
           <v-widget title="Activities" content-bg="white">
             <div slot="widget-content">
               <v-timeline align-top dense>
