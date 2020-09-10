@@ -23,7 +23,11 @@
     <div class="layout row">
       <div class="media-aside media-menu">
         <v-list dense class="transparent">
-          <v-list-item v-for="(item, index) in mediaMenu" :key="index" :to="item.to">
+          <v-list-item
+            v-for="(item, index) in mediaMenu"
+            :key="index"
+            :to="item.to"
+          >
             <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -53,29 +57,29 @@ export default {
       {
         icon: 'photo',
         title: 'Images',
-        to: { path: '/media/image' },
+        to: { path: '/media/image' }
       },
       {
         icon: 'videocam',
         title: 'Video',
-        to: { path: '/media/video' },
+        to: { path: '/media/video' }
       },
       {
         icon: 'volume_down',
         title: 'Audio',
-        to: { path: '/media/audio' },
+        to: { path: '/media/audio' }
       },
       {
         icon: 'insert_drive_file',
         title: 'Document',
-        to: { path: '/media/doc' },
-      },
-    ],
+        to: { path: '/media/doc' }
+      }
+    ]
   }),
   computed: {
     files() {
       return this.$store.state.file.items
-    },
+    }
   },
 
   created() {
@@ -87,9 +91,11 @@ export default {
       return this.imageMime.includes(file.fileType)
     },
     mimeIcons(file) {
-      return this.imageMime.includes(file.fileType) ? 'image' : 'insert_drive_file'
-    },
-  },
+      return this.imageMime.includes(file.fileType)
+        ? 'image'
+        : 'insert_drive_file'
+    }
+  }
 }
 </script>
 <style lang="sass" scoped>

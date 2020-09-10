@@ -1,18 +1,19 @@
+const jsf = require('json-schema-faker')
 
-const jsf = require('json-schema-faker');
-jsf.extend('faker', function () {
-  return require('faker');
-});
+jsf.extend('faker', function() {
+  return require('faker')
+})
 
-const schema = require('./schema');
-const fs = require('fs');
+const schema = require('./schema')
 
-const json = JSON.stringify(jsf(schema));
+const fs = require('fs')
 
-fs.writeFile('./mock/db.json', json, function (err) {
+const json = JSON.stringify(jsf(schema))
+
+fs.writeFile('./mock/db.json', json, function(err) {
   if (err) {
-    return console.log(err);
+    return console.log(err)
   } else {
-    console.log('mock data created.');
+    console.log('mock data created.')
   }
-});
+})
