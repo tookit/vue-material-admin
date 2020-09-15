@@ -144,6 +144,28 @@ export const protectedRoute = [
           }
         ]
       },
+      //form
+      {
+        path: '/forms',
+        component: RouteWrapper,
+        meta: {
+          title: 'form',
+          icon: 'mdi-form-textbox',
+          group: 'advance'
+        },
+        redirect: '/forms/list',
+        children: [
+          {
+            path: '/forms/basic',
+            name: 'forms.basic',
+            meta: {
+              title: 'basic_form',
+              icon: 'mdi-table'
+            },
+            component: () => import('@/views/form/BasicForm.vue')
+          }
+        ]
+      },
       //chart
       {
         path: '/chart',

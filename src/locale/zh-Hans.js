@@ -25,7 +25,9 @@ export default {
     mail: '邮件',
     inbox: '收件箱',
     table: '表格',
-    access_denied: '访问受限'
+    access_denied: '访问受限',
+    basic_form: '基本表单',
+    form: '表单'
   },
   //media
   media: '媒体',

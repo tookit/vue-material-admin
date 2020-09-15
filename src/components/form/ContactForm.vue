@@ -1,91 +1,81 @@
 <template>
-  <v-card ref="form">
+  <v-card tile>
+    <v-card-title>Contact Form</v-card-title>
+    <v-divider />
     <v-card-text>
-      <v-text-field
-        label="Full Name"
-        placeholder="John Doe"
-        v-model="name"
-        required
-        ref="name"
-        :rules="[() => !!name || 'This field is required']"
-        :error-messages="errorMessages"
-      ></v-text-field>
-      <v-text-field
-        label="Address Line"
-        placeholder="Snowy Rock Pl"
-        :rules="[
-          () => !!address || 'This field is required',
-          () =>
-            (!!address && address.length <= 25) ||
-            'Address must be less than 25 characters',
-          addressCheck,
-        ]"
-        v-model="address"
-        ref="address"
-        counter="25"
-        required
-      ></v-text-field>
-      <v-text-field
-        label="City"
-        placeholder="El Paso"
-        :rules="[() => !!city || 'This field is required', addressCheck]"
-        v-model="city"
-        ref="city"
-        required
-      ></v-text-field>
-      <v-text-field
-        label="State/Province/Region"
-        v-model="state"
-        :rules="[() => !!state || 'This field is required']"
-        required
-        ref="state"
-        placeholder="TX"
-      ></v-text-field>
-      <v-text-field
-        label="ZIP / Postal Code"
-        required
-        :rules="[() => !!zip || 'This field is required']"
-        v-model="zip"
-        ref="zip"
-        placeholder="79938"
-      ></v-text-field>
-      <v-select
-        autocomplete
-        label="Country"
-        placeholder="Select..."
-        :rules="[() => !!country || 'This field is required']"
-        :items="countries"
-        v-model="country"
-        ref="country"
-        required
-      ></v-select>
+      <v-form ref="form" v-model="valid">
+        <v-text-field
+          outlined
+          :label="form.name.label"
+          :placeholder="form.name.placeholder"
+          v-model="formModel.name"
+          required
+          :rules="form.name.rules"
+        />
+        <v-text-field
+          outlined
+          :label="form.email.label"
+          :placeholder="form.email.placeholder"
+          v-model="formModel.email"
+          required
+          :rules="form.email.rules"
+        />
+        <v-text-field
+          outlined
+          :label="form.address.label"
+          :placeholder="form.address.placeholder"
+          v-model="formModel.address"
+          required
+          :rules="form.address.rules"
+        />
+        <v-text-field
+          outlined
+          :label="form.city.label"
+          :placeholder="form.city.placeholder"
+          v-model="formModel.city"
+          required
+          :rules="form.city.rules"
+        />
+        <v-text-field
+          outlined
+          :label="form.state.label"
+          :placeholder="form.state.placeholder"
+          v-model="formModel.state"
+          required
+          :rules="form.state.rules"
+        />
+        <v-text-field
+          outlined
+          :label="form.zip.label"
+          :placeholder="form.zip.placeholder"
+          v-model="formModel.zip"
+          required
+          type="number"
+          :rules="form.zip.rules"
+        />
+        <v-combobox
+          outlined
+          :label="form.country.label"
+          :placeholder="form.country.placeholder"
+          :rules="form.country.rules"
+          :items="countries"
+          v-model="formModel.country"
+          required
+        />
+      </v-form>
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
     <v-card-actions>
-      <v-btn text>Cancel</v-btn>
-      <v-spacer></v-spacer>
-      <v-slide-x-reverse-transition>
-        <v-tooltip left v-if="formHasErrors">
-          <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              @click="resetForm"
-              slot="activator"
-              class="my-0"
-              v-on="on"
-            >
-              <v-icon>refresh</v-icon>
-            </v-btn>
-          </template>
-          <span>Refresh form</span>
-        </v-tooltip>
-      </v-slide-x-reverse-transition>
-      <v-btn color="primary" text @click="submit">Submit</v-btn>
+      <v-btn @click="handleCancelForm" text>Cancel</v-btn>
+      <v-spacer />
+      <v-btn tile color="primary" @click="handleSubmitForm">Submit</v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import { EMAIL } from '@/util/regex'
+
 export default {
   data: () => ({
     countries: [
@@ -294,60 +284,69 @@ export default {
       'Virgin Islands (US)',
       'Yemen',
       'Zambia',
-      'Zimbabwe',
+      'Zimbabwe'
     ],
-    errorMessages: [],
-    name: null,
-    address: null,
-    city: null,
-    state: null,
-    zip: null,
-    country: null,
-    formHasErrors: false,
-  }),
-
-  computed: {
-    form() {
-      return {
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        country: this.country,
+    valid: true,
+    formModel: {
+      name: null,
+      email: null,
+      address: null,
+      city: null,
+      state: null,
+      zip: null,
+      country: null
+    },
+    form: {
+      name: {
+        label: 'Full Name',
+        placeholder: 'Tookit',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      email: {
+        label: 'Email',
+        placeholder: 'wangqiangshen@gmail.com',
+        rules: [
+          (v) => !!v || 'This field is required',
+          (v) => EMAIL.test(v) || 'Invalid email'
+        ]
+      },
+      address: {
+        label: 'Address Line',
+        placeholder: 'Address',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      city: {
+        label: 'City',
+        placeholder: 'Shenzhen',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      state: {
+        label: 'State/Provice/Region',
+        placeholder: 'Guangdong',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      zip: {
+        label: 'Zip',
+        placeholder: '528020',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      country: {
+        label: 'Country',
+        placeholder: 'China',
+        rules: [(v) => !!v || 'This field is required']
       }
     },
-  },
-
-  watch: {
-    name() {
-      this.errorMessages = []
-    },
-  },
-
+    formHasErrors: false
+  }),
   methods: {
-    addressCheck() {
-      this.errorMessages =
-        this.address && !this.name ? ["Hey! I'm required"] : []
-
-      return true
+    handleCancelForm() {
+      this.$refs.form.reset()
     },
-    resetForm() {
-      this.errorMessages = []
-      this.formHasErrors = false
-
-      Object.keys(this.form).forEach(f => {
-        this.$refs[f].reset()
-      })
-    },
-    submit() {
-      this.formHasErrors = false
-      Object.keys(this.form).forEach(f => {
-        if (!this.form[f]) this.formHasErrors = true
-
-        this.$refs[f].validate(true)
-      })
-    },
-  },
+    handleSubmitForm() {
+      if (this.$refs.form.validate()) {
+        console.log('handle form process logic here')
+      }
+    }
+  }
 }
 </script>

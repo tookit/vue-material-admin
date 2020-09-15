@@ -1,57 +1,26 @@
 <template>
-  <div id="page-forms">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
-        <v-flex lg6>
-          <v-card class="mb-4">
-            <v-toolbar color="teal" dark text dense cad>
-              <v-toolbar-title class="subheading"
-                >Payment Form with validation</v-toolbar-title
-              >
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-divider></v-divider>
-            <v-card-text class=""> <payment-form></payment-form> </v-card-text>
-          </v-card>
-          <v-card>
-            <v-toolbar color="success" dark text dense cad>
-              <v-toolbar-title class="subheading">Ship Form</v-toolbar-title>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-divider></v-divider>
-            <v-card-text class="">
-              <shipment-form></shipment-form>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex lg6> <event-form></event-form> </v-flex>
-      </v-layout>
+  <div class="page-forms">
+    <v-container>
+      <v-row>
+        <v-col lg6>
+          <contact-form />
+        </v-col>
+        <v-col lg6> </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import VWidget from '@/components/VWidget'
-import EventForm from '@/components/widgets/form/EventForm'
-import ContactForm from '@/components/widgets/form/ContactForm'
-import PaymentForm from '@/components/widgets/form/PaymentForm'
-import ShipmentForm from '@/components/widgets/form/ShipmentForm'
+import ContactForm from '@/components/form/ContactForm'
 export default {
   components: {
-    /* eslint-disable-line vue/no-unused-components */
-    VWidget,
-    /* eslint-disable-line vue/no-unused-components */
-    ContactForm,
-    /* eslint-disable-line vue/no-unused-components */
-    PaymentForm,
-    ShipmentForm,
-    /* eslint-disable-line vue/no-unused-components */
-    EventForm,
+    ContactForm
   },
   data() {
     return {}
   },
   computed: {},
-  methods: {},
+  methods: {}
 }
 </script>

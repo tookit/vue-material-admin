@@ -34,6 +34,7 @@ Vuetify is Awesome.
 │   ├── mixins
 │   ├── views (or views)
 │   ├── router
+│   ├── store
 │   ├── util
 │   ├── theme
 │   │   ├── default.sass
