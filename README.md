@@ -6,6 +6,8 @@
 
 English | [简体中文](./README.zh-CN.md) 
 
+About vuetify deveopment, please check my blog [http://www.isocked.com], (A vuepress theme made with vuetify)
+
 ## Plan and features
 * add vuex support and sample code
 * add i18n support
