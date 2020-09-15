@@ -12,6 +12,7 @@ English | [简体中文](./README.zh-CN.md)
 * refactor media page
 * reffactor mail page
 * add mock api
+* build a rest api for integration [vma-api](https://github.com/tookit/vma-api)
 
 ## Introduction
 Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
