@@ -84,7 +84,7 @@
                       <v-icon>{{ mimeIcons(item) }}</v-icon>
                     </v-list-item-avatar>
                     <v-list-item-content>
-                      <div class="container pl-0">
+                      <div class="container pl-3">
                         <div class="layout row">
                           <div class="flex">{{ item.fileName }}</div>
                           <v-spacer></v-spacer>
