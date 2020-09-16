@@ -10,6 +10,7 @@
           :placeholder="form.name.placeholder"
           v-model="formModel.name"
           required
+          :append-icon="'mdi-account-check'"
           :rules="form.name.rules"
         />
         <v-text-field
@@ -18,6 +19,7 @@
           :placeholder="form.email.placeholder"
           v-model="formModel.email"
           required
+          :append-icon="'mdi-email'"
           :rules="form.email.rules"
         />
         <v-text-field
@@ -25,6 +27,7 @@
           :label="form.address.label"
           :placeholder="form.address.placeholder"
           v-model="formModel.address"
+          :append-icon="'mdi-location'"
           required
           :rules="form.address.rules"
         />

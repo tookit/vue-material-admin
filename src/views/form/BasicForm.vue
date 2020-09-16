@@ -2,10 +2,12 @@
   <div class="page-forms">
     <v-container>
       <v-row>
-        <v-col lg6>
+        <v-col :cols="12" :lg="6">
           <contact-form />
         </v-col>
-        <v-col lg6> </v-col>
+        <v-col :col="12" :lg="6">
+          <payment-form />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -13,9 +15,11 @@
 
 <script>
 import ContactForm from '@/components/form/ContactForm'
+import PaymentForm from '@/components/form/PaymentForm'
 export default {
   components: {
-    ContactForm
+    ContactForm,
+    PaymentForm
   },
   data() {
     return {}
