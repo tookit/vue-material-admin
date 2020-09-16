@@ -1,10 +1,10 @@
 <template>
-  <div id="page-steppers">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
-        <v-flex sm12>
+  <div class="page-steppers">
+    <v-container>
+      <v-row>
+        <v-col :cols="12">
           <v-subheader>Horizontal Step </v-subheader>
-          <v-stepper v-model="step">
+          <v-stepper tile v-model="step">
             <v-stepper-header>
               <v-stepper-step step="1" :complete="step > 1"
                 >Name of step 1</v-stepper-step
@@ -46,8 +46,8 @@
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
-        </v-flex>
-        <v-flex sm12>
+        </v-col>
+        <v-col :cols="12">
           <v-subheader>Vertical Step </v-subheader>
           <v-stepper v-model="e13" vertical>
             <v-stepper-step step="1" complete> Name of step 1 </v-stepper-step>
@@ -93,26 +93,24 @@
               <v-btn text>Cancel</v-btn>
             </v-stepper-content>
           </v-stepper>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import VWidget from '@/components/VWidget'
 export default {
   components: {
     /* eslint-disable-line vue/no-unused-components */
-    VWidget,
   },
   data() {
     return {
       step: 1,
-      e13: 1,
+      e13: 1
     }
   },
   computed: {},
-  methods: {},
+  methods: {}
 }
 </script>

@@ -27,6 +27,7 @@ export default {
     table: '表格',
     access_denied: '访问受限',
     basic_form: '基本表单',
+    step_form: '向导表单',
     form: '表单'
   },
   //media

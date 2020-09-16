@@ -160,9 +160,18 @@ export const protectedRoute = [
             name: 'forms.basic',
             meta: {
               title: 'basic_form',
-              icon: 'mdi-table'
+              icon: 'mdi-alpha-b'
             },
             component: () => import('@/views/form/BasicForm.vue')
+          },
+          {
+            path: '/forms/stepper',
+            name: 'forms.stepper',
+            meta: {
+              title: 'step_form',
+              icon: 'mdi-table'
+            },
+            component: () => import('@/views/form/Steppers.vue')
           }
         ]
       },

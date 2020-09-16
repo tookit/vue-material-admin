@@ -27,6 +27,7 @@ export default {
     table: 'Table',
     access_denied: 'Access Deny',
     basic_form: 'Basic Form',
+    step_form: 'Wizzard Form',
     form: 'Form'
   },
   //media
