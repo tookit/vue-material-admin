@@ -69,7 +69,10 @@
             <v-date-picker v-model="formModel.expire" no-title scrollable>
               <v-spacer></v-spacer>
               <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-              <v-btn text color="primary" @click="$refs.menu.save(date)"
+              <v-btn
+                text
+                color="primary"
+                @click="$refs.menu.save(formModel.expire)"
                 >OK</v-btn
               >
             </v-date-picker>
@@ -128,7 +131,7 @@ export default {
         },
         expire: {
           label: 'Expire date',
-          placeholder: 'Michael Wang',
+          placeholder: new Date().toISOString().substr(0, 10),
           rules: [(v) => !!v || 'This field is required']
         },
         cvv: {
