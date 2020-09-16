@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: CultureHQ/actions-yarn@master
         with:
           cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: CultureHQ/actions-yarn@master
         with:
           cmd: build # will run `yarn build` command
       - uses: fangbinwei/aliyun-oss-website-action@v1
