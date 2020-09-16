@@ -16,8 +16,7 @@ jobs:
         with:
           accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
-          bucket: oss-cn-hongkong
+          bucket: vue-material-admin  
           # e.g. "oss-cn-shanghai.aliyuncs.com", 也可以填写自定义域名(需要配置cname 为 true)
           endpoint: oss-cn-hongkong.aliyuncs.com
-          folder: vue-material-admin          
-          cmd: deploy # will run `yarn deploy` command
+          folder: dist          
