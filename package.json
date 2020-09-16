@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "deploy": "aliyun-oss-deploy -p ./dist",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
-    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\""
+    "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\"",
+    "release": "release-it"
   },
   "dependencies": {
     "@antv/g2plot": "^1.1.25",
