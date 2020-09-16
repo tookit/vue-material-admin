@@ -169,7 +169,7 @@ export const protectedRoute = [
             name: 'forms.stepper',
             meta: {
               title: 'step_form',
-              icon: 'mdi-table'
+              icon: 'mdi-alpha-s'
             },
             component: () => import('@/views/form/Steppers.vue')
           }
