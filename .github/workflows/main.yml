@@ -12,6 +12,12 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: fangbinwei/aliyun-oss-website-action@v1
         with:
-          cmd: deploy # will run `yarn test` command
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: oss-cn-hongkong
+          # e.g. "oss-cn-shanghai.aliyuncs.com", 也可以填写自定义域名(需要配置cname 为 true)
+          endpoint: oss-cn-hongkong.aliyuncs.com
+          folder: vue-material-admin          
+          cmd: deploy # will run `yarn deploy` command
