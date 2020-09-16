@@ -46,7 +46,7 @@
         <div class="d-flex">
           <v-menu
             ref="menu"
-            v-model="menu"
+            v-model="showMenu"
             :close-on-content-click="false"
             :return-value.sync="formModel.expire"
             transition="scale-transition"
@@ -68,7 +68,9 @@
             </template>
             <v-date-picker v-model="formModel.expire" no-title scrollable>
               <v-spacer></v-spacer>
-              <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
+              <v-btn text color="primary" @click="showMenu = false"
+                >Cancel</v-btn
+              >
               <v-btn
                 text
                 color="primary"
@@ -107,6 +109,7 @@ export default {
   data() {
     return {
       valid: true,
+      showMenu: false,
       formModel: {
         payment_method: 'apple',
         card_number: null,
