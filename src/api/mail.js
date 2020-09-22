@@ -307,6 +307,6 @@ const getMailById = (uuid) => {
 }
 
 const getMailByType = (type) => {
-  return type === 'all' ? MailItem : MailItem.filter((x) => x.type === type)
+  return type === 'inbox' ? MailItem : MailItem.filter((x) => x.type === type)
 }
 export { getMail, MailMenu, getMailById, getMailByType, MailItem }

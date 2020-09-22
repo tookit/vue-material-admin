@@ -1,17 +1,23 @@
 <template>
   <v-fab-transition>
     <v-btn
-      fab="fab"
-      small
-      dark="dark"
-      fixed="fixed"
-      bottom="bottom"
-      right="right"
-      color="red"
       v-show="fab"
+      v-scroll="onScroll"
+      :style="{
+        bottom: fab ? '100px' : ''
+      }"
+      aria-label="Scroll to top"
+      bottom
+      small
+      color="red"
+      dark
+      fab
+      fixed
+      right
+      title="Scroll to top"
       @click="toTop"
     >
-      <v-icon>keyboard_arrow_up</v-icon>
+      <v-icon>mdi-rocket</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>
@@ -19,7 +25,6 @@
 <script>
 export default {
   name: 'AppFab',
-
   data() {
     return {
       fab: false
@@ -32,7 +37,6 @@ export default {
       this.fab = top > 300
     },
     toTop() {
-      this.$router.push({ hash: '' })
       this.$vuetify.goTo(0)
     }
   }

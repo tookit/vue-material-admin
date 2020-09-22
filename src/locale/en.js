@@ -25,7 +25,10 @@ export default {
     mail: 'Mail',
     inbox: 'Inbox',
     table: 'Table',
-    access_denied: 'Access Deny'
+    access_denied: 'Access Deny',
+    basic_form: 'Basic Form',
+    step_form: 'Wizard Form',
+    form: 'Form'
   },
   //media
   media: 'Media',

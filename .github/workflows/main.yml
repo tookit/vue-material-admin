@@ -1,0 +1,22 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: CultureHQ/actions-yarn@master
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: CultureHQ/actions-yarn@master
+        with:
+          cmd: build # will run `yarn build` command
+      - uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: vue-material-admin  
+          # e.g. "oss-cn-shanghai.aliyuncs.com", 也可以填写自定义域名(需要配置cname 为 true)
+          endpoint: oss-cn-hongkong.aliyuncs.com
+          folder: dist          
