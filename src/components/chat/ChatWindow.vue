@@ -1,5 +1,5 @@
 <template>
-  <v-card class="chat-room">
+  <v-card tile class="chat-room">
     <v-app-bar text dense class="white chat-room--toolbar" light>
       <v-btn icon>
         <v-icon color="text--secondary">mdi-arrow-left</v-icon>

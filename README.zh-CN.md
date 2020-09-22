@@ -4,26 +4,31 @@
 
 [![CircleCI](https://circleci.com/gh/tookit/vue-material-admin/tree/dev.svg?style=svg)](https://circleci.com/gh/tookit/vue-material-admin/tree/dev)
 
-English | [简体中文](./README.zh-CN.md) 
+简体中文 | [English]](./README.md) 
 
-## Plan and features
-* add vuex support and sample code
-* add i18n support
-* refactor media page
-* reffactor mail page
-* add mock api
+关于Vue Material Admin 的开发，请关注我的博客 [http://isocked.com], 基于vuetify 2.3.10开发的vuepress主题
 
-## Introduction
-Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Material Design Admin Template.
-And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
-Vuetify is Awesome.
+## 计划
+* 增加Vuex
+* 重构 媒体/文件管理
+* 重构 邮件管理
+* 重构 聊天
+* 在local环境下增加 模拟REST API
+* 创建一个真实环境的API,详情请见[vma-api](https://github.com/tookit/vma-api), 有助于更好集成生产环境
+* 创建一个websocket chat server用于集成聊天组件
 
-## Demo
+## 简介
+Vue Material Admin Template 是一个由[Vue](https://vuejs.org/index.html/) 和 [Vuetifyjs](https://vuetifyjs.com/)构建的后台管理模板,
+
+## 你可以在这里找到我
+[VMA](https://discord.gg/7f6TVx)
+## 预览
 [http://vma.isocked.com/#/dashboard]
-## Preview
+
+## 预览
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
 
-## Project Structure
+## 目录结构
 ``` bash
 ├── build
 ├── config (Webpack)
@@ -33,6 +38,7 @@ Vuetify is Awesome.
 │   ├── mixins
 │   ├── views (or views)
 │   ├── router
+│   ├── store
 │   ├── util
 │   ├── theme
 │   │   ├── default.sass
@@ -51,44 +57,45 @@ Vuetify is Awesome.
 └── .gitignore
 ```
 
-## Project setup
+### 依赖安装
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 本地开发
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### 编译文件用于生产环境
 ```
 yarn run build
 ```
 
-### Run your tests
+### 测测
 ```
 yarn run test
 ```
 
-### Lints and fixes files
+### Eslint
 ```
 yarn run lint
 ```
 
-### Customize configuration
+### 配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Reference
+### 引用
 
 * [Vuetifyjs](https://vuetifyjs.com/)
 * [Vue](https://vuejs.org/index.html/)
+* [ICON](https://materialdesignicons.com/)
 * [ECharts](http://echarts.baidu.com/option.html)
 * [SASS](http://sass-lang.com/)
 
-### Donate
-If you find this project useful, you can buy author a glass of juice :tropical_drink:
+### 捐赠
+如果你觉得这个项目对你用于的话，或者帮助持续改进这个项目，:tropical_drink:
 
 
 [Paypal Me](https://www.paypal.me/tookit)
