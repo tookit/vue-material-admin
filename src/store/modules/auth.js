@@ -16,7 +16,7 @@ const actions = {
       url: '/auth/login',
       method: 'post',
       data: {
-        email: username,
+        username,
         password
       }
     }).then((resp) => {

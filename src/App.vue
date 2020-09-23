@@ -13,7 +13,7 @@
       color="red"
       @click="openThemeSettings"
     >
-      <v-icon>settings</v-icon>
+      <v-icon>mdi-gear</v-icon>
     </v-btn>
     <!-- setting drawer -->
     <v-navigation-drawer
@@ -24,7 +24,7 @@
       hide-overlay
       fixed
     >
-      <theme-settings></theme-settings>
+      <theme-settings />
     </v-navigation-drawer>
     <!-- global snackbar -->
     <v-snackbar
