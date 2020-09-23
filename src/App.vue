@@ -13,7 +13,7 @@
       color="red"
       @click="openThemeSettings"
     >
-      <v-icon>mdi-gear</v-icon>
+      <v-icon>mdi-silverware-variant</v-icon>
     </v-btn>
     <!-- setting drawer -->
     <v-navigation-drawer

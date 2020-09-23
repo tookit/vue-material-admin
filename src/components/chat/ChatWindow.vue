@@ -72,12 +72,13 @@
         clearable
         solo
         hide-details
-        append-icon="send"
+        append-icon="mdi-send"
         label="Type some message here"
       >
-        <v-icon slot="append-icon">mdi-send</v-icon>
-        <v-icon slot="append-icon" class="mx-2">mdi-image</v-icon>
-        <v-icon slot="append-icon">mdi-face</v-icon>
+        <div slot="prepend-inner">
+          <v-icon>mdi-image-outline</v-icon>
+          <v-icon>mdi-face</v-icon>
+        </div>
       </v-text-field>
     </v-card-actions>
   </v-card>
