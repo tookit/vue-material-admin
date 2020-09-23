@@ -167,7 +167,14 @@ export default {
       Util.toggleFullScreen()
     },
     handleLogut() {
-      this.$router.push('/auth/login')
+      if (window.confirm('Are you sure to logout?')) {
+        this.$store.dispatch('logout')
+        window._VMA.$emit('SHOW_SNACKBAR', {
+          text: 'Logout successfull',
+          color: 'success'
+        })
+        this.$router.push('/auth/login')
+      }
     },
     handleChangeLocale({ value }) {
       this.$vuetify.lang.current = value
