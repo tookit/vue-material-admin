@@ -103,19 +103,19 @@ export default {
     return {
       profileMenus: [
         {
-          icon: 'account_circle',
+          icon: 'mdi-account',
           href: '#',
           title: 'Profile',
           click: this.handleProfile
         },
         {
-          icon: 'settings',
+          icon: 'mdi-settings',
           href: '#',
           title: 'Settings',
           click: this.handleSetting
         },
         {
-          icon: 'fullscreen_exit',
+          icon: 'mdi-power-off',
           href: '#',
           title: 'Logout',
           click: this.handleLogut
