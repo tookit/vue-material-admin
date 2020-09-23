@@ -8,7 +8,7 @@
         <v-icon>mdi-github</v-icon>
       </v-btn>
       <v-btn icon @click="handleFullScreen()">
-        <v-icon>fullscreen</v-icon>
+        <v-icon>mdi-fullscreen</v-icon>
       </v-btn>
       <v-menu
         offset-y
@@ -20,7 +20,7 @@
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
               <span slot="badge">3</span>
-              <v-icon medium>notifications</v-icon>
+              <v-icon medium>mdi-bell</v-icon>
             </v-badge>
           </v-btn>
         </template>

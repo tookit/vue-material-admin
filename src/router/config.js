@@ -89,7 +89,7 @@ export const protectedRoute = [
         redirect: '/cms/table',
         meta: {
           title: 'CMS',
-          icon: 'view_compact',
+          icon: 'mdi-view-grid',
           group: 'cms'
         },
         children: [
@@ -110,7 +110,7 @@ export const protectedRoute = [
         component: RouteWrapper,
         meta: {
           title: 'widget',
-          icon: 'widgets',
+          icon: 'mdi-widgets',
           group: 'advance'
         },
         redirect: '/widgets/list',

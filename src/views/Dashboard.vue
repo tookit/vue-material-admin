@@ -39,7 +39,7 @@
         <v-col :lg="8" :sm="12" :cols="12">
           <v-widget title="Site Traffic" content-bg="white">
             <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
+              <v-icon class="text--secondary">mdi-refresh</v-icon>
             </v-btn>
             <div slot="widget-content">
               <e-chart
