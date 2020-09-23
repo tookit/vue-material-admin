@@ -114,7 +114,7 @@ export default {
         this.loading = true
         this.$store
           .dispatch('login', this.formModel)
-          .then((res) => {
+          .then(() => {
             this.loading = false
             this.$router.push('/dashboard')
           })

@@ -9,7 +9,7 @@ Vue.use(Router)
 const router = new Router({
   mode: 'hash',
   linkActiveClass: 'active',
-  routes: routes,
+  routes: routes
 })
 // router gards
 router.beforeEach((to, from, next) => {
