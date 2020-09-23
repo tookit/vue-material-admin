@@ -21,7 +21,7 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon slot="activator" v-on="on">
-            <v-icon color="text--secondary">add</v-icon>
+            <v-icon color="text--secondary">mdi-plus</v-icon>
           </v-btn>
         </template>
         <span>Add user</span>
@@ -75,9 +75,9 @@
         append-icon="send"
         label="Type some message here"
       >
-        <v-icon slot="append-icon">send</v-icon>
-        <v-icon slot="append-icon" class="mx-2">photo</v-icon>
-        <v-icon slot="append-icon">face</v-icon>
+        <v-icon slot="append-icon">mdi-send</v-icon>
+        <v-icon slot="append-icon" class="mx-2">mdi-image</v-icon>
+        <v-icon slot="append-icon">mdi-face</v-icon>
       </v-text-field>
     </v-card-actions>
   </v-card>

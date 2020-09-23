@@ -4,7 +4,9 @@
       <div class="layout row ma-0">
         <div class="subheading">{{ title }}</div>
         <v-spacer></v-spacer>
-        <div class="caption"><v-icon>trending_up</v-icon> {{ subTitle }}</div>
+        <div class="caption">
+          <v-icon>mdi-trending-up</v-icon> {{ subTitle }}
+        </div>
       </div>
     </v-card-title>
     <v-responsive class="white--text">

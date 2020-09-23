@@ -104,7 +104,7 @@
             card-color="indigo"
             title="Trending"
             sub-title="10%"
-            icon="trending_up"
+            icon="mdi-trending-up"
             :data="siteTrafficData"
             :chart-color="[color.indigo.lighten1]"
             type="line"
@@ -114,7 +114,7 @@
             card-color="pink"
             title="Page views"
             sub-title="10%"
-            icon="trending_up"
+            icon="mdi-trending-up"
             :data="siteTrafficData"
             :chart-color="[color.pink.darken1, 'rgba(255,255,255,0.3)']"
             gradient
@@ -126,7 +126,7 @@
           <linear-statistic
             title="Sales"
             sub-title="Sales increase"
-            icon="trending_up"
+            icon="mdi-trending-up"
             color="success"
             :value="15"
           />
@@ -134,7 +134,7 @@
             class="my-4"
             title="Orders"
             sub-title="Increase"
-            icon="trending_up"
+            icon="mdi-trending-up"
             color="pink"
             :value="30"
           />
@@ -142,7 +142,7 @@
             class="my-4"
             title="Revenue"
             sub-title="Revenue increase"
-            icon="trending_up"
+            icon="mdi-trending-up"
             color="primary"
             :value="50"
           />
@@ -150,7 +150,7 @@
             class="mt-4"
             title="Cost"
             sub-title="Cost reduce"
-            icon="trending_down"
+            icon="mdi-trending-down"
             color="orange"
             :value="25"
           />
@@ -248,7 +248,7 @@ export default {
         caption: 'increase',
         percent: 15,
         icon: {
-          label: 'trending_up',
+          label: 'mdi-trending-up',
           color: 'success'
         },
         linear: {
@@ -262,7 +262,7 @@ export default {
         caption: 'increase',
         percent: 10,
         icon: {
-          label: 'trending_down',
+          label: 'mdi-trending-down',
           color: 'error'
         },
         linear: {
@@ -276,7 +276,7 @@ export default {
         caption: 'increase',
         percent: 50,
         icon: {
-          label: 'arrow_upward',
+          label: 'mdi-arrow-up',
           color: 'info'
         },
         linear: {
@@ -292,7 +292,7 @@ export default {
         caption: 'email opens',
         percent: 15,
         icon: {
-          label: 'email',
+          label: 'mdi-email-open',
           color: 'info'
         },
         linear: {
@@ -306,7 +306,7 @@ export default {
         caption: 'tasks completed.',
         percent: 90,
         icon: {
-          label: 'list',
+          label: 'mdi-view-list',
           color: 'primary'
         },
         linear: {
@@ -320,7 +320,7 @@ export default {
         caption: 'issues fixed.',
         percent: 100,
         icon: {
-          label: 'bug_report',
+          label: 'mdi-bug',
           color: 'primary'
         },
         linear: {
