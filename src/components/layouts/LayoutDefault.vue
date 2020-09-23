@@ -1,9 +1,9 @@
 <template>
-  <v-app id="inspire" class="app dashboard">
+  <v-app class="app">
     <app-drawer class="app--drawer" :show-drawer="showDrawer" />
     <app-toolbar class="app--toolbar" @side-icon-click="handleDrawerVisiable" />
     <v-main>
-      <!-- Page Header -->
+      <!-- Page Wrapper -->
       <div class="page-wrapper"><router-view /></div>
       <!-- App Footer -->
       <v-footer height="auto" class="pa-3 app--footer">
@@ -40,8 +40,7 @@ export default {
     handleDrawerVisiable() {
       this.showDrawer = !this.showDrawer
     }
-  },
-  created() {}
+  }
 }
 </script>
 

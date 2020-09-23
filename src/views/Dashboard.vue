@@ -213,7 +213,6 @@
 
 <script>
 import API from '@/api'
-import { fetchUsers } from '@/api/service'
 import EChart from '@/components/chart/echart'
 import MiniStatistic from '@/components/widgets/statistic/MiniStatistic'
 import ProfileCard from '@/components/widgets/card/ProfileCard'
@@ -344,9 +343,6 @@ export default {
     locationData() {
       return API.getLocation
     }
-  },
-  created() {
-    fetchUsers()
   }
 }
 </script>

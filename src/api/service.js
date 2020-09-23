@@ -8,8 +8,6 @@ export function login(data) {
   })
 }
 
-//user
-
 export function fetchUsers(query) {
   return request({
     url: '/user',
