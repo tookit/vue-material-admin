@@ -10,6 +10,11 @@
             </h1>
           </v-card-title>
           <v-card-text>
+            <p>
+              Login credential:
+              <span class="caption">wangqiangshen@gmail.com/secret</span>
+            </p>
+
             <v-form
               ref="form"
               class="my-10"
@@ -74,8 +79,8 @@ export default {
       loading: false,
       formValid: false,
       formModel: {
-        username: '',
-        password: ''
+        username: null,
+        password: null
       },
       formRule: {
         username: [
