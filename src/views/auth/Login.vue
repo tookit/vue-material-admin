@@ -4,17 +4,20 @@
       <v-col>
         <v-card class="pa-3 page-login__card" tile>
           <v-card-title>
-            <img src="/static/m.png" alt="Vue Material Admin" width="55" />
-            <h1 class="primary--text display-1">
+            <img
+              src="/static/m.png"
+              alt="Vue Material Admin"
+              height="48"
+              contain
+            />
+            <h1 class="primary--text display-1 page-login_title">
               Material Admin Template
             </h1>
           </v-card-title>
           <v-card-text>
-            <p>
-              Login credential:
-              <span class="caption">wangqiangshen@gmail.com/secret</span>
-            </p>
-
+            <v-alert type="info">
+              {{ $vuetify.lang.t('$vuetify.login_account') }} : admin/admin
+            </v-alert>
             <v-form
               ref="form"
               class="my-10"
@@ -22,7 +25,7 @@
               v-model="formValid"
             >
               <v-text-field
-                append-icon="person"
+                append-icon="mdi-email"
                 autocomplete="off"
                 name="login"
                 :label="$vuetify.lang.t('$vuetify.username')"
@@ -34,7 +37,7 @@
                 v-model="formModel.username"
               />
               <v-text-field
-                append-icon="lock"
+                append-icon="mdi-lock"
                 autocomplete="off"
                 name="password"
                 :label="$vuetify.lang.t('$vuetify.password')"

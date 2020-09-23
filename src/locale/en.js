@@ -3,9 +3,10 @@ import en from 'vuetify/es5/locale/en'
 export default {
   label: 'English',
   //page login
-  login: 'login',
-  username: 'username',
-  password: 'password',
+  login: 'Login',
+  username: 'Username',
+  password: 'Password',
+  login_account: 'Login accoount',
   //app drawer
   sponsor: 'Sponsor',
   // menu
