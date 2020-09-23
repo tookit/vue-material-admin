@@ -24,7 +24,7 @@
         />
       </a>
     </div>
-    <v-list dense class="pa-0">
+    <v-list class="pa-0">
       <template v-for="(item, key) in computeMenu">
         <template v-if="item.children && item.children.length > 0">
           <v-list-group

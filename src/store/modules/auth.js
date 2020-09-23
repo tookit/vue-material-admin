@@ -1,7 +1,9 @@
 import request from '@/util/request'
 
 const state = {
-  access_token: null
+  access_token: null,
+  expires_in: 3600,
+  token_type: 'bearer'
 }
 const getters = {
   getAccessToken: (state) => {
@@ -17,8 +19,8 @@ const actions = {
         email: username,
         password
       }
-    }).then(({ access_token }) => {
-      commit('SET_ACCESS_TOKEN', access_token)
+    }).then((resp) => {
+      commit('SET_LOGIN', resp)
     })
   },
   logout({ commit }) {
@@ -26,6 +28,10 @@ const actions = {
   }
 }
 const mutations = {
+  SET_LOGIN(state, { access_token, expires_in }) {
+    state.access_token = access_token
+    state.expires_in = expires_in
+  },
   SET_ACCESS_TOKEN(state, token) {
     state.access_token = token
   }

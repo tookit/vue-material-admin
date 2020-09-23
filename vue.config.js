@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -7,14 +6,8 @@ function resolve(dir) {
 module.exports = {
   productionSourceMap: false,
   configureWebpack: {
-    plugins: [
-      // Ignore all locale files of moment.js
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    ]
   },
-  pluginOptions: {
-    mock: { entry: "./mock/index.js", debug: true }
-  },
+
   chainWebpack: config => {
     config.resolve.alias.set("@$", resolve("src")).set("@views", resolve("src/views"));
   },
