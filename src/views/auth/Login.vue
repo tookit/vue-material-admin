@@ -24,8 +24,9 @@
                 :placeholder="$vuetify.lang.t('$vuetify.username')"
                 type="text"
                 required
+                outlined
                 :rules="formRule.username"
-                v-model="fromModel.username"
+                v-model="formModel.username"
               />
               <v-text-field
                 append-icon="lock"
@@ -36,7 +37,8 @@
                 type="password"
                 :rules="formRule.password"
                 required
-                v-model="fromModel.password"
+                outlined
+                v-model="formModel.password"
               />
             </v-form>
           </v-card-text>
@@ -71,7 +73,7 @@ export default {
     return {
       loading: false,
       formValid: false,
-      fromModel: {
+      formModel: {
         username: '',
         password: ''
       },
@@ -110,9 +112,15 @@ export default {
     login() {
       if (this.$refs.form.validate()) {
         this.loading = true
-        setTimeout(() => {
-          this.$router.push('/dashboard')
-        }, 1000)
+        this.$store
+          .dispatch('login', this.formModel)
+          .then((res) => {
+            this.loading = false
+            this.$router.push('/dashboard')
+          })
+          .catch(() => {
+            this.loading = false
+          })
       }
     },
     handleSocialLogin() {}

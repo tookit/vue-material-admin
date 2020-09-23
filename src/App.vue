@@ -29,15 +29,18 @@
     <!-- global snackbar -->
     <v-snackbar
       :timeout="3000"
-      bottom
-      right
+      app
+      top
+      centered
       :color="snackbar.color"
       v-model="snackbar.show"
     >
       {{ snackbar.text }}
-      <v-btn dark text @click.native="snackbar.show = false" icon>
-        <v-icon>close</v-icon>
-      </v-btn>
+      <template v-slot:action="{ attrs }">
+        <v-btn icon v-bind="attrs" @click="snackbar.show = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </template>
     </v-snackbar>
   </v-app>
 </template>
@@ -58,16 +61,25 @@ export default {
       }
     }
   },
-
-  mounted() {},
-  created() {
-    // add app events
-  },
   methods: {
     openThemeSettings() {
       this.$vuetify.goTo(0)
       this.rightDrawer = !this.rightDrawer
     }
+  },
+  mounted() {
+    if (typeof window !== undefined && window._VMA === undefined) {
+      window._VMA = this
+    }
+  },
+  created() {
+    this.$on('SHOW_SNACKBAR', (e) => {
+      this.snackbar = {
+        show: true,
+        text: e.text,
+        color: e.color
+      }
+    })
   }
 }
 </script>

@@ -1,37 +1,22 @@
-const path = require('path')
-const webpack = require('webpack')
-
-function resolve (dir) {
-  return path.join(__dirname, dir)
+const path = require("path");
+const webpack = require("webpack");
+function resolve(dir) {
+  return path.join(__dirname, dir);
 }
 
-// vue.config.js
 module.exports = {
-  /*
-    Vue-cli3:
-    Crashed when using Webpack `import()` #2463
-    https://github.com/vuejs/vue-cli/issues/2463
-
-   */
-  /*
-  pages: {
-    index: {
-      entry: 'src/main.js',
-      chunks: ['chunk-vendors', 'chunk-common', 'index']
-    }
-  },
-  */
+  productionSourceMap: false,
   configureWebpack: {
     plugins: [
       // Ignore all locale files of moment.js
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ]
   },
-
-  chainWebpack: (config) => {
-    config.resolve.alias
-      .set('@$', resolve('src'))
-      .set('@views', resolve('src/views'))
+  pluginOptions: {
+    mock: { entry: "./mock/index.js", debug: true }
+  },
+  chainWebpack: config => {
+    config.resolve.alias.set("@$", resolve("src")).set("@views", resolve("src/views"));
   },
 
   css: {
@@ -42,29 +27,19 @@ module.exports = {
       }
     }
   },
-
   devServer: {
-    // proxy: {
-    //   '/api': {
-    //     target: 'https://localhost/api/v1',
-    //     ws: false,
-    //     changeOrigin: true
-    //   },
-
-    // }
+    proxy: {
+      "/api": {
+        target: process.env.VUE_APP_BASE_API,
+        ws: false,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api/": "/api/",
+        }
+      }
+    }
   },
 
-  assetsDir: 'static',
-  runtimeCompiler: true,
-
-  pluginOptions: {
-    express: {
-      shouldServeApp: true,
-      serverDir: './server'
-    },
-    'style-resources-loader': {
-      preProcessor: 'sass',
-      patterns: []
-    }
-  }
-}
+  assetsDir: "static",
+  runtimeCompiler: true
+};
