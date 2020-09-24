@@ -28,9 +28,9 @@
         </v-list>
       </v-menu>
       <v-spacer></v-spacer>
-      <v-btn icon text> <v-icon>refresh</v-icon> </v-btn>
-      <v-btn icon text> <v-icon>keyboard_arrow_left</v-icon> </v-btn>
-      <v-btn icon text> <v-icon>keyboard_arrow_right</v-icon> </v-btn>
+      <v-btn icon text> <v-icon>mdi-refresh</v-icon> </v-btn>
+      <v-btn icon text> <v-icon>mdi-arrow-left</v-icon> </v-btn>
+      <v-btn icon text> <v-icon>mdi-arrow-right</v-icon> </v-btn>
     </v-toolbar>
     <v-divider />
     <v-card-text class="mail-inbox__list">

@@ -244,20 +244,20 @@ const MailMenu = [
   {
     title: 'Sent',
     group: 'email',
-    icon: 'send',
+    icon: 'mdi-send',
     to: { path: '/mail/sent' },
     chip: 5
   },
   {
     title: 'Starred',
     group: 'email',
-    icon: 'star',
+    icon: 'mdi-star',
     to: { path: '/mail/starred' },
     chip: 2
   },
   {
     title: 'Draft',
-    group: 'email',
+    group: 'mdi-email',
     icon: 'content_copy',
     to: { path: '/mail/draft' },
     chip: 3
@@ -265,7 +265,7 @@ const MailMenu = [
   {
     title: 'Trash',
     group: 'email',
-    icon: 'delete',
+    icon: 'delemdi-delete',
     to: { path: '/mail/trashed' },
     chip: 1
   },
