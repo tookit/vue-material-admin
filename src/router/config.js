@@ -104,6 +104,55 @@ export const protectedRoute = [
           }
         ]
       },
+      {
+        path: '/acl',
+        component: RouteWrapper,
+        redirect: '/acl/user',
+        meta: {
+          title: 'acl',
+          icon: 'mdi-view-grid',
+          group: 'cms'
+        },
+        children: [
+          {
+            path: '/acl/user',
+            name: 'cms.table',
+            meta: {
+              title: 'users',
+              icon: 'mdi-database'
+            },
+            redirect: '/acl/user/list',
+            component: RouteWrapper,
+            children: [
+              {
+                path: '/acl/user/list',
+                meta: {
+                  title: 'user_list',
+                  icon: 'mdi-view-grid'
+                },
+                component: () => import('@/views/user/UserList.vue')
+              },
+              {
+                path: '/acl/user/create',
+                meta: {
+                  title: 'create_user',
+                  icon: 'mdi-view-grid'
+                },
+                component: () => import('@/views/user/UserItem.vue')
+              },
+              {
+                path: '/acl/user/item/:id',
+                meta: {
+                  title: 'edit_user',
+                  icon: 'mdi-view-grid'
+                },
+                props: true,
+                component: () => import('@/views/user/UserItem.vue')
+              }
+            ]
+          }
+        ]
+      },
       //widgets
       {
         path: '/widgets',

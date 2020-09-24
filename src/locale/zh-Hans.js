@@ -28,7 +28,10 @@ export default {
     access_denied: '访问受限',
     basic_form: '基本表单',
     step_form: '向导表单',
-    form: '表单'
+    form: '表单',
+    acl: '权限控制',
+    users: '用户',
+    user_list: '用户列表'
   },
   //media
   media: '媒体',

@@ -1,10 +1,7 @@
 <template>
-  <div class="list-table">
+  <div class="page-table">
     <v-container>
       <v-row>
-        <v-col cols="12">
-          <v-subheader>Complex Table</v-subheader>
-        </v-col>
         <v-col cols="12">
           <v-card>
             <v-toolbar flat color="white">

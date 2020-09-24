@@ -29,7 +29,10 @@ export default {
     access_denied: 'Access Deny',
     basic_form: 'Basic Form',
     step_form: 'Wizard Form',
-    form: 'Form'
+    form: 'Form',
+    acl: 'Access Control',
+    users: 'Users',
+    user_list: 'User List'
   },
   //media
   media: 'Media',

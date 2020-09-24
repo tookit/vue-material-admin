@@ -10,7 +10,7 @@ export function login(data) {
 
 export function fetchUsers(query) {
   return request({
-    url: '/user',
+    url: '/acl/user',
     method: 'get',
     params: query
   })
