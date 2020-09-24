@@ -109,7 +109,7 @@ export default {
           click: this.handleProfile
         },
         {
-          icon: 'mdi-settings',
+          icon: 'mdi-cog',
           href: '#',
           title: 'Settings',
           click: this.handleSetting

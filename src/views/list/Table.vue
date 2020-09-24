@@ -12,14 +12,14 @@
                 text
                 solo
                 flat
-                prepend-icon="search"
+                prepend-icon="mdi-magnify"
                 placeholder="Type something"
                 v-model="search"
                 hide-details
                 class="hidden-sm-and-down"
-              ></v-text-field>
+              />
               <v-btn icon>
-                <v-icon>filter_list</v-icon>
+                <v-icon>mdi-filter</v-icon>
               </v-btn>
             </v-toolbar>
             <v-divider></v-divider>
@@ -49,7 +49,7 @@
                     <template v-slot:activator="{ on: menu }">
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on: tooltip }">
-                          <v-btn icon v-on="{ ...menu }">
+                          <v-btn icon v-on="onTooltip({ ...tooltip, ...menu })">
                             <v-icon>mdi-dots-vertical</v-icon>
                           </v-btn>
                         </template>
@@ -106,7 +106,9 @@
 
 <script>
 import { Items as Users } from '@/api/user'
+import TooltipMixin from '@/mixins/Tooltip'
 export default {
+  mixins: [TooltipMixin],
   data() {
     return {
       formModel: {
@@ -274,7 +276,8 @@ export default {
     },
     handleViewItem() {},
     handleEditItem() {},
-    handleDeleteItem() {}
+    handleDeleteItem() {},
+    handleSubmit() {}
   }
 }
 </script>

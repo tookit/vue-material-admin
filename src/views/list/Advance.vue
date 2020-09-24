@@ -9,13 +9,13 @@
               <v-text-field
                 text
                 solo
-                prepend-icon="search"
+                prepend-icon="mdi-magify"
                 placeholder="Type something"
                 v-model="search"
                 hide-details
                 class="hidden-sm-and-down"
-              ></v-text-field>
-              <v-btn icon> <v-icon>filter_list</v-icon> </v-btn>
+              />
+              <v-btn icon> <v-icon>mdi-filter</v-icon> </v-btn>
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text class="pa-0">
@@ -96,7 +96,9 @@
 
 <script>
 import { Items as Users } from '@/api/user'
+import TooltipMixin from '@/mixins/Tooltip'
 export default {
+  mixins: [TooltipMixin],
   data() {
     return {
       search: '',
