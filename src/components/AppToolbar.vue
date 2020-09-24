@@ -55,7 +55,7 @@
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
             <v-avatar size="30px">
-              <img src="/static/avatar/man_4.jpg" alt="Michael Wang" />
+              <img :src="getAvatar" :alt="getUsername" />
             </v-avatar>
           </v-btn>
         </template>
@@ -94,6 +94,7 @@
 <script>
 import NotificationList from '@/components/widgets/list/NotificationList'
 import Util from '@/util'
+import { mapGetters } from 'vuex'
 export default {
   name: 'AppToolbar',
   components: {
@@ -115,7 +116,7 @@ export default {
           click: this.handleSetting
         },
         {
-          icon: 'mdi-power-off',
+          icon: 'mdi-power',
           href: '#',
           title: 'Logout',
           click: this.handleLogut
@@ -124,6 +125,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['getAvatar', 'getUsername']),
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },
