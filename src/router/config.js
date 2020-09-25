@@ -290,7 +290,16 @@ export const protectedRoute = [
         name: 'media',
         component: () => import('@/views/Media.vue')
       },
-
+      {
+        path: '/changelog',
+        name: 'changelog',
+        meta: {
+          title: 'changelog',
+          icon: 'mdi-timeline-text',
+          hiddenInMenu: false
+        },
+        component: () => import('@/views/Changelog.vue')
+      },
       {
         path: '/403',
         name: 'Forbidden',
