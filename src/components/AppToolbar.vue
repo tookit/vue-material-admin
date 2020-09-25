@@ -4,6 +4,7 @@
     <v-spacer />
     <v-toolbar-items>
       <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
+      <v-btn text href="https://www.isocked.com" target="_blank">Blog</v-btn>
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
         <v-icon>mdi-github</v-icon>
       </v-btn>
