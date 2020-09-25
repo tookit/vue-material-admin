@@ -5,7 +5,7 @@
     <v-card-text>
       <v-form ref="form" v-model="valid">
         <v-row>
-          <v-col :cols="12">
+          <v-col :cols="6">
             <v-text-field
               outlined
               :label="form.username.label"
@@ -14,6 +14,17 @@
               required
               :append-icon="'mdi-account-check'"
               :rules="form.username.rules"
+            />
+          </v-col>
+          <v-col :cols="6">
+            <v-text-field
+              outlined
+              :label="form.password.label"
+              :placeholder="form.password.placeholder"
+              v-model="formModel.password"
+              required
+              :append-icon="'mdi-account-check'"
+              :rules="form.password.rules"
             />
           </v-col>
           <v-col :cols="6">
@@ -96,6 +107,7 @@ export default {
     loading: false,
     formModel: {
       username: null,
+      password: null,
       email: null,
       phone: null,
       firstname: null,
@@ -107,6 +119,11 @@ export default {
       username: {
         label: 'Username',
         placeholder: 'Tookit',
+        rules: [(v) => !!v || 'This field is required']
+      },
+      password: {
+        label: 'Password',
+        placeholder: 'xxx',
         rules: [(v) => !!v || 'This field is required']
       },
       email: {
@@ -149,7 +166,9 @@ export default {
   watch: {
     userId: {
       handler(id) {
-        this.getItemById(id)
+        if (id) {
+          this.getItemById(id)
+        }
       },
       immediate: true
     }
@@ -171,8 +190,8 @@ export default {
       this.$refs.form.reset()
     },
     handleSubmitForm() {
+      this.loading = true
       if (this.$refs.form.validate()) {
-        this.loading = true
         if (this.userId) {
           this.updateUser(this.userId)
         } else {
