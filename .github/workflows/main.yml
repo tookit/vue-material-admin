@@ -8,10 +8,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: CultureHQ/actions-yarn@master
         with:
-          cmd: install # will run `yarn install` command
+          args: install # will run `yarn install` command
       - uses: CultureHQ/actions-yarn@master
         with:
-          cmd: build # will run `yarn build` command
+          args: build # will run `yarn build` command
       - uses: fangbinwei/aliyun-oss-website-action@v1
         with:
           accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
