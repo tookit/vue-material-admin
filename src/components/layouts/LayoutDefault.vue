@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <app-drawer class="app--drawer" :show-drawer="showDrawer" />
+    <app-drawer class="app--drawer" ref="drawer" />
     <app-toolbar class="app--toolbar" @side-icon-click="handleDrawerVisiable" />
     <v-main>
       <!-- Page Wrapper -->
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     handleDrawerVisiable() {
-      this.showDrawer = !this.showDrawer
+      this.$refs.drawer.toggleDrawer()
     }
   }
 }

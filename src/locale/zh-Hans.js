@@ -32,7 +32,8 @@ export default {
     acl: '权限控制',
     users: '用户',
     user_list: '用户列表',
-    edit_user: '编辑用户'
+    edit_user: '编辑用户',
+    create_user: '创建用户'
   },
   //media
   media: '媒体',

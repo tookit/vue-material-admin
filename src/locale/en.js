@@ -33,7 +33,8 @@ export default {
     acl: 'Access Control',
     users: 'Users',
     user_list: 'User List',
-    edit_user: 'Edit User'
+    edit_user: 'Edit User',
+    create_user: 'Create User'
   },
   //media
   media: 'Media',

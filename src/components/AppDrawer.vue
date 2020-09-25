@@ -144,8 +144,7 @@ export default {
     expanded: {
       type: Boolean,
       default: true
-    },
-    showDrawer: Boolean
+    }
   },
   data() {
     return {
@@ -171,19 +170,14 @@ export default {
       return routes[0].children
     }
   },
-  watch: {
-    showDrawer: {
-      handler(val) {
-        this.drawer = val
-      },
-      immediate: true
-    }
-  },
   created() {},
 
   methods: {
     handleDrawerCollapse() {
       this.drawerWidth = this.drawerWidth === 256 ? 64 : 256
+    },
+    toggleDrawer() {
+      this.drawer = !this.drawer
     }
   }
 }
