@@ -9,11 +9,9 @@ English | [简体中文](./README.zh-CN.md)
 About vuetify deveopment, please check my blog [http://isocked.com], (A vuepress theme made with vuetify)
 
 ## Plan and features
-* add vuex support and sample code
 * add i18n support
 * refactor media page
 * reffactor mail page
-* add mock api
 * build a rest api for integration [vma-api](https://github.com/tookit/vma-api)
 * build a websocket server for integrating chat app
 
@@ -22,8 +20,8 @@ Vue Material Admin Template is a [Vue](https://vuejs.org/index.html/) Based Mate
 And use [Vuetifyjs](https://vuetifyjs.com/) as base framework.
 Vuetify is Awesome.
 
-## Find me here
-[VMA](https://discord.gg/7f6TVx)
+## Discrod Change
+[Discrod channel](https://discord.gg/7f6TVx)
 
 ## Demo
 [http://vma.isocked.com/#/dashboard]
