@@ -1,6 +1,6 @@
 <template>
-  <v-card tile>
-    <v-card-title>Create User</v-card-title>
+  <v-card :loading="loading" tile>
+    <v-card-title>{{ formTitle }}</v-card-title>
     <v-divider />
     <v-card-text>
       <v-form ref="form" v-model="valid">
@@ -25,6 +25,17 @@
               required
               :append-icon="'mdi-email'"
               :rules="form.email.rules"
+            />
+          </v-col>
+          <v-col :cols="6">
+            <v-text-field
+              outlined
+              :label="form.phone.label"
+              :placeholder="form.phone.placeholder"
+              v-model="formModel.phone"
+              required
+              :append-icon="'mdi-phone'"
+              :rules="form.phone.rules"
             />
           </v-col>
           <v-col :cols="6">
@@ -109,10 +120,7 @@ export default {
       phone: {
         label: 'phone',
         placeholder: '18682157492',
-        rules: [
-          (v) => !!v || 'This field is required',
-          (v) => EMAIL.test(v) || 'Invalid email'
-        ]
+        rules: [(v) => !!v || 'This field is required']
       },
       firstname: {
         label: 'Firstname',
@@ -133,8 +141,32 @@ export default {
 
     formHasErrors: false
   }),
-
+  computed: {
+    formTitle() {
+      return this.userId ? 'Create User' : 'Edit User'
+    }
+  },
+  watch: {
+    userId: {
+      handler(id) {
+        this.getItemById(id)
+      },
+      immediate: true
+    }
+  },
   methods: {
+    getItemById(id) {
+      this.loading = true
+      this.$store
+        .dispatch('getUserById', id)
+        .then(({ data }) => {
+          this.formModel = data
+          this.loading = false
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
     handleCancelForm() {
       this.$refs.form.reset()
     },
@@ -151,7 +183,7 @@ export default {
     updateUser() {
       this.$store
         .dispatch('updateUser', {
-          id: this.item.id,
+          id: this.userId,
           data: this.formModel
         })
         .then(() => {
@@ -161,7 +193,7 @@ export default {
           this.loading = false
         })
     },
-    createUser(id) {
+    createUser() {
       this.$store
         .dispatch('createUser', this.formModel)
         .then(({ data }) => {

@@ -32,7 +32,8 @@ export default {
     form: 'Form',
     acl: 'Access Control',
     users: 'Users',
-    user_list: 'User List'
+    user_list: 'User List',
+    edit_user: 'Edit User'
   },
   //media
   media: 'Media',

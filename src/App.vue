@@ -80,6 +80,9 @@ export default {
         color: e.color
       }
     })
+    this.$on('AUTH_FAIELD', () => {
+      this.$router.push('/auth/login')
+    })
   }
 }
 </script>

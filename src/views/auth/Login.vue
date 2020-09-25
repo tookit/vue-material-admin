@@ -47,6 +47,7 @@
                 required
                 outlined
                 v-model="formModel.password"
+                v-on:keyup.enter="login"
               />
             </v-form>
           </v-card-text>

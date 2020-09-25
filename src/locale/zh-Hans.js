@@ -31,7 +31,8 @@ export default {
     form: '表单',
     acl: '权限控制',
     users: '用户',
-    user_list: '用户列表'
+    user_list: '用户列表',
+    edit_user: '编辑用户'
   },
   //media
   media: '媒体',

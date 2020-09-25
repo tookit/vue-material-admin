@@ -153,9 +153,14 @@ export default {
       })
     },
     handleViewItem() {},
-    handleEditItem() {},
+    handleEditItem({ id }) {
+      this.$router.push({
+        path: `/acl/user/item/${id}`
+      })
+    },
     handleDeleteItem() {},
-    handleSubmit() {}
+    handleSubmit() {},
+    handleRefreshItem() {}
   }
 }
 </script>

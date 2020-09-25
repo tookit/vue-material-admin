@@ -24,6 +24,14 @@ const actions = {
     }).then((resp) => {
       return resp
     })
+  },
+  getUserById(context, id) {
+    return request({
+      url: `/acl/user/${id}`,
+      method: 'get'
+    }).then((resp) => {
+      return resp
+    })
   }
 }
 

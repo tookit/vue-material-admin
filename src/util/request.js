@@ -33,20 +33,11 @@ const err = (error) => {
       break
 
     case 401:
-      window._VMA.$emit('SHOW_SNACKBAR', {
-        show: true,
-        text: 'Unauthorized! Password or username is wrong',
-        color: 'red'
-      })
-
+      window._VMA.$emit('AUTH_FAIELD')
       break
 
     case 403:
-      window._VMA.$emit('SHOW_SNACKBAR', {
-        show: true,
-        text: 'Access Denied ' + data.message,
-        color: 'red'
-      })
+      window._VMA.$emit('ACESS_DENIED')
       break
     case 500:
       window.ELEPHANT.$emit('Internal Server error', {
