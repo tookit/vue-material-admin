@@ -40,12 +40,7 @@ const err = (error) => {
       window._VMA.$emit('ACESS_DENIED')
       break
     case 500:
-      window.ELEPHANT.$emit('Internal Server error', {
-        show: true,
-        text: 'Server error ' + data.message,
-        color: 'red'
-      })
-
+      window._VMA.$emit('SERVER_ERROR')
       break
 
     default:
@@ -68,9 +63,10 @@ service.interceptors.request.use((config) => {
 // response interceptor
 
 service.interceptors.response.use(({ data, config }) => {
-  if (['put', 'post', 'delete'].includes(config.method) && data.meta) {
+  if (['put', 'post', 'delete', 'patch'].includes(config.method) && data.meta) {
     window._VMA.$emit('SHOW_SNACKBAR', {
-      text: data.meta.message
+      text: data.meta.message,
+      color: 'success'
     })
   }
   if (data.error !== undefined) {

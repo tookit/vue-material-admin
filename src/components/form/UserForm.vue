@@ -16,7 +16,7 @@
               :rules="form.username.rules"
             />
           </v-col>
-          <v-col :cols="6">
+          <v-col :cols="6" v-if="!userId">
             <v-text-field
               outlined
               :label="form.password.label"
@@ -160,7 +160,7 @@ export default {
   }),
   computed: {
     formTitle() {
-      return this.userId ? 'Create User' : 'Edit User'
+      return !this.userId ? 'Create User' : 'Edit User'
     }
   },
   watch: {

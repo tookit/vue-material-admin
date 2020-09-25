@@ -12,8 +12,12 @@
                 prepend-icon="mdi-filter-variant-plus"
                 append-icon="mdi-magnify"
                 placeholder="Type something"
-                v-model="search"
+                v-model="filter['filter[username]']"
                 hide-details
+                clearable
+                @keyup.enter="handleApplyFilter"
+                @click:append="handleApplyFilter"
+                @click:clear="handleClear"
               />
               <v-btn @click="handleRefreshItem" icon>
                 <v-icon>mdi-refresh</v-icon>
@@ -27,7 +31,6 @@
               <v-data-table
                 :loading="loadingItems"
                 :headers="headers"
-                :search="search"
                 :items="items"
                 :items-per-page-options="[15, 30, 50]"
                 :server-items-length="serverItemsLength"
@@ -93,7 +96,7 @@ export default {
       itemsPerPage: 15,
       filter: {
         page: 1,
-        'filter[name]': null
+        'filter[username]': null
       },
       headers: [
         {
@@ -111,6 +114,10 @@ export default {
         {
           text: 'Phone',
           value: 'phone'
+        },
+        {
+          text: 'Gender',
+          value: 'gender'
         },
         {
           text: 'Action',
@@ -153,8 +160,15 @@ export default {
       filter.page = parseInt(filter.page)
       return filter
     },
+    resetFilter() {
+      this.filter = {
+        page: 1,
+        'filter[username]': null
+      }
+    },
     fetchRecords(query) {
       this.loadingItems = true
+      this.items = []
       return fetchUsers(query)
         .then(({ data, meta }) => {
           this.items = data
@@ -179,10 +193,27 @@ export default {
     },
     handleDeleteItem() {},
     handleSubmit() {},
-    handleRefreshItem() {},
+    handleRefreshItem() {
+      this.fetchRecords(this.filter)
+    },
     // filter
     handlePageChanged(page) {
       this.filter.page = page
+      this.filter.t = Date.now()
+      this.$router.replace({
+        path: this.$route.path,
+        query: this.filter
+      })
+    },
+    handleApplyFilter() {
+      this.filter.t = Date.now()
+      this.$router.replace({
+        path: this.$route.path,
+        query: this.filter
+      })
+    },
+    handleClear() {
+      this.resetFilter()
       this.filter.t = Date.now()
       this.$router.replace({
         path: this.$route.path,

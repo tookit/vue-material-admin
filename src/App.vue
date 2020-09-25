@@ -83,6 +83,13 @@ export default {
     this.$on('AUTH_FAIELD', () => {
       this.$router.push('/auth/login')
     })
+    this.$on('SERVER_ERROR', () => {
+      this.snackbar = {
+        show: true,
+        text: 'Server Error',
+        color: 'error'
+      }
+    })
   }
 }
 </script>
