@@ -111,27 +111,29 @@
       </template>
     </v-list>
     <template v-slot:append>
-      <template v-if="drawerWidth === 64">
-        <div class="d-flex">
-          <v-btn
-            width="64"
-            icon
-            tile
-            @click="handleDrawerCollapse"
-            class="mx-auto"
-          >
-            <v-icon>mdi-arrow-collapse-right</v-icon>
-          </v-btn>
-        </div>
-      </template>
-      <template v-else>
-        <div class="d-flex">
-          <v-spacer />
-          <v-btn icon tile @click="handleDrawerCollapse" class="mr-2">
-            <v-icon>mdi-arrow-collapse-left</v-icon>
-          </v-btn>
-        </div>
-      </template>
+      <div class="grey lighten-3">
+        <template v-if="drawerWidth === 64">
+          <div class="d-flex">
+            <v-btn
+              width="64"
+              icon
+              tile
+              @click="handleDrawerCollapse"
+              class="mx-auto"
+            >
+              <v-icon>mdi-arrow-collapse-right</v-icon>
+            </v-btn>
+          </div>
+        </template>
+        <template v-else>
+          <div class="d-flex">
+            <v-spacer />
+            <v-btn icon tile @click="handleDrawerCollapse" class="mr-2">
+              <v-icon>mdi-arrow-collapse-left</v-icon>
+            </v-btn>
+          </div>
+        </template>
+      </div>
     </template>
   </v-navigation-drawer>
 </template>

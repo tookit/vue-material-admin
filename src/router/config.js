@@ -107,33 +107,35 @@ export const protectedRoute = [
       {
         path: '/acl',
         component: RouteWrapper,
-        redirect: '/acl/user',
+        redirect: '/acl/user/list',
         meta: {
           title: 'acl',
-          icon: 'mdi-view-grid',
+          icon: 'mdi-shield',
           group: 'cms'
         },
         children: [
           {
             path: '/acl/user',
-            name: 'cms.table',
+            name: 'acl.user',
             meta: {
               title: 'users',
-              icon: 'mdi-database'
+              icon: 'mdi-account-multiple'
             },
             redirect: '/acl/user/list',
             component: RouteWrapper,
             children: [
               {
                 path: '/acl/user/list',
+                name: 'acl.user.list',
                 meta: {
                   title: 'user_list',
-                  icon: 'mdi-view-grid'
+                  icon: 'mdi-account-multiple'
                 },
                 component: () => import('@/views/user/UserList.vue')
               },
               {
                 path: '/acl/user/create',
+                name: 'acl.user.create',
                 meta: {
                   title: 'create_user',
                   icon: 'mdi-view-grid'
@@ -142,6 +144,7 @@ export const protectedRoute = [
               },
               {
                 path: '/acl/user/item/:id',
+                name: 'acl.user.edit',
                 meta: {
                   title: 'edit_user',
                   icon: 'mdi-view-grid'

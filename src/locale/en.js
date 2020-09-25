@@ -30,7 +30,7 @@ export default {
     basic_form: 'Basic Form',
     step_form: 'Wizard Form',
     form: 'Form',
-    acl: 'Access Control',
+    acl: 'ACL',
     users: 'Users',
     user_list: 'User List',
     edit_user: 'Edit User',
