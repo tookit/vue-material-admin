@@ -29,7 +29,11 @@
                 :headers="headers"
                 :search="search"
                 :items="items"
-                :items-per-page-options="[10, 25, 50]"
+                :items-per-page-options="[15, 30, 50]"
+                :server-items-length="serverItemsLength"
+                :items-per-page="itemsPerPage"
+                :page.sync="filter['page']"
+                @update:page="handlePageChanged"
                 item-key="id"
                 show-select
               >
@@ -75,6 +79,7 @@
 import TooltipMixin from '@/mixins/Tooltip'
 import { fetchUsers } from '@/api/service'
 import CAvatar from '@/components/avatar/CAvatar'
+
 export default {
   components: {
     CAvatar
@@ -84,6 +89,12 @@ export default {
     return {
       search: '',
       loadingItems: false,
+      serverItemsLength: 0,
+      itemsPerPage: 15,
+      filter: {
+        page: 1,
+        'filter[name]': null
+      },
       headers: [
         {
           text: 'Avatar',
@@ -129,24 +140,32 @@ export default {
   watch: {
     '$route.query': {
       handler(query) {
-        this.fetchRecords(query)
+        const filter = this.updateFilterQuery(query)
+        this.fetchRecords(filter)
       },
       immediate: true
     }
   },
   methods: {
     //
+    updateFilterQuery(query) {
+      const filter = Object.assign(this.filter, query)
+      filter.page = parseInt(filter.page)
+      return filter
+    },
     fetchRecords(query) {
       this.loadingItems = true
       return fetchUsers(query)
-        .then(({ data }) => {
+        .then(({ data, meta }) => {
           this.items = data
+          this.serverItemsLength = meta.total
           this.loadingItems = false
         })
         .catch(() => {
           this.loadingItems = false
         })
     },
+    //action
     handleCreateItem() {
       this.$router.push({
         path: '/acl/user/create'
@@ -160,7 +179,16 @@ export default {
     },
     handleDeleteItem() {},
     handleSubmit() {},
-    handleRefreshItem() {}
+    handleRefreshItem() {},
+    // filter
+    handlePageChanged(page) {
+      this.filter.page = page
+      this.filter.t = Date.now()
+      this.$router.replace({
+        path: this.$route.path,
+        query: this.filter
+      })
+    }
   }
 }
 </script>
