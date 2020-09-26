@@ -27,13 +27,8 @@
     <v-list class="pa-0">
       <template v-for="(item, key) in computeMenu">
         <template v-if="item.children && item.children.length > 0">
-          <v-list-group
-            :key="key"
-            :prepend-icon="item.meta.icon"
-            no-action
-            :to="item.path"
-          >
-            <template v-slot:prepend-icon>
+          <v-list-group :key="key" no-action :to="item.path">
+            <template v-slot:prependIcon>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                   <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
@@ -104,8 +99,11 @@
             <v-list-item-content v-if="drawerWidth !== 64">
               <v-list-item-title
                 v-text="$vuetify.lang.t('$vuetify.menu.' + item.meta.title)"
-              ></v-list-item-title>
+              />
             </v-list-item-content>
+            <v-list-item-action v-if="item.meta.new">
+              <v-icon color="green">mdi-new-box </v-icon>
+            </v-list-item-action>
           </v-list-item>
         </template>
       </template>

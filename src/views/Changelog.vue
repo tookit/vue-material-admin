@@ -8,30 +8,27 @@
           <v-card-text>
             <v-timeline>
               <v-timeline-item
-                v-for="(year, i) in years"
+                v-for="(item, i) in changelogs"
                 :key="i"
-                :color="year.color"
+                :color="item.color"
                 small
               >
                 <template v-slot:opposite>
                   <span
-                    :class="`headline font-weight-bold ${year.color}--text`"
-                    v-text="year.year"
-                  ></span>
+                    :class="`headline font-weight-bold ${item.color}--text`"
+                    v-text="item.tag"
+                  />
                 </template>
                 <div class="py-4">
                   <h2
                     :class="
-                      `headline font-weight-light mb-4 ${year.color}--text`
+                      `headline font-weight-light mb-4 ${item.color}--text`
                     "
                   >
-                    Lorem ipsum
+                    {{ item.version }}
                   </h2>
-                  <div>
-                    Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
-                    scaevola imperdiet nec ut, sed euismod convenire principes
-                    at. Est et nobis iisque percipit, an vim zril disputando
-                    voluptatibus, vix an salutandi sententiae.
+                  <div v-for="log in item.logs" :key="log">
+                    {{ log }}
                   </div>
                 </div>
               </v-timeline-item>
@@ -47,26 +44,18 @@
 export default {
   data() {
     return {
-      years: [
+      changelogs: [
         {
-          color: 'cyan',
-          year: '1960'
-        },
-        {
-          color: 'green',
-          year: '1970'
-        },
-        {
-          color: 'pink',
-          year: '1980'
-        },
-        {
-          color: 'amber',
-          year: '1990'
-        },
-        {
-          color: 'orange',
-          year: '2000'
+          version: '0.1.4',
+          tag: 'patch',
+          color: 'primary',
+          logs: [
+            '* add event color in event form (b87165a)',
+            '* update calendar (a7e2f9f)',
+            '* add event in calendar (f1d67b9)',
+            '* update work flow (79d77b9)',
+            '* docs: update readme (a30b6bd)'
+          ]
         }
       ]
     }

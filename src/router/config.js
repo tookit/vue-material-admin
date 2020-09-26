@@ -75,7 +75,8 @@ export const protectedRoute = [
         meta: {
           title: 'calendar',
           group: 'apps',
-          icon: 'mdi-calendar-check'
+          icon: 'mdi-calendar-check',
+          new: true
         },
         name: 'calendar',
         props: (route) => ({
