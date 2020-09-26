@@ -29,7 +29,7 @@
                 />
                 <span class="color-option--item bg">
                   <span class="overlay">
-                    <span class="material-icons">check</span>
+                    <v-icon color="white">mdi-check</v-icon>
                   </span>
                   <span
                     class="color-option--item--header sideNav"

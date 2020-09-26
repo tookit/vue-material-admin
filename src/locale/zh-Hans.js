@@ -34,7 +34,8 @@ export default {
     user_list: '用户列表',
     edit_user: '编辑用户',
     create_user: '创建用户',
-    changelog: '更新记录  '
+    changelog: '更新记录',
+    calendar: '日历'
   },
   //media
   media: '媒体',

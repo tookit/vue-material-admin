@@ -35,7 +35,8 @@ export default {
     user_list: 'User List',
     edit_user: 'Edit User',
     create_user: 'Create User',
-    changelog: 'Changelog'
+    changelog: 'Changelog',
+    calendar: 'Calendar'
   },
   //media
   media: 'Media',
