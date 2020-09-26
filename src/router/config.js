@@ -71,13 +71,13 @@ export const protectedRoute = [
         component: () => import('@/views/Dashboard.vue')
       },
       {
-        path: '/task',
+        path: '/calendar',
         meta: {
-          title: 'task',
+          title: 'calendar',
           group: 'apps',
           icon: 'mdi-calendar-check'
         },
-        name: 'task',
+        name: 'calendar',
         props: (route) => ({
           type: route.query.type
         }),

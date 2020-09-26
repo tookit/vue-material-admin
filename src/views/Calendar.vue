@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
+      <v-col :cols="12">
         <v-sheet tile height="54" color="grey lighten-4" class="d-flex">
           <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
             <v-icon>mdi-chevron-left</v-icon>
@@ -49,17 +49,44 @@
             :event-overlap-threshold="30"
             :event-color="getEventColor"
             @change="getEvents"
-          ></v-calendar>
+            @click:date="handleDateClick"
+            @click:day="handleDayClick"
+            @click:time="handleTimeClick"
+          />
         </v-sheet>
       </v-col>
     </v-row>
+    <v-dialog v-model="showEventForm" max-width="640px">
+      <v-card>
+        <v-toolbar color="primary" dark>
+          <v-toolbar-title class="body-2">Add New Event</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon @click="showEventForm = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card-text>
+          <event-form />
+        </v-card-text>
+        <v-divider />
+        <v-card-actions>
+          <v-spacer />
+          <v-btn tile color="primary">Save</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
+import EventForm from '@/components/form/EventForm'
 export default {
+  components: {
+    EventForm
+  },
   data: () => ({
-    type: 'month',
+    showEventForm: false,
+    type: 'week',
     types: ['month', 'week', 'day', '4day'],
     mode: 'stack',
     modes: ['stack', 'column'],
@@ -121,9 +148,17 @@ export default {
     },
     rnd(a, b) {
       return Math.floor((b - a + 1) * Math.random()) + a
+    },
+    handleDateClick(e) {
+      console.log(e)
+    },
+    handleDayClick(e) {
+      console.log(e)
+      this.showEventForm = true
+    },
+    handleTimeClick(e) {
+      console.log(e)
     }
   }
 }
 </script>
-
-<style></style>
