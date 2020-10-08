@@ -37,11 +37,14 @@
         </v-col>
         <!-- mini statistic  end -->
         <v-col :lg="8" :sm="12" :cols="12">
-          <v-widget title="Site Traffic" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">mdi-refresh</v-icon>
-            </v-btn>
-            <div slot="widget-content">
+          <v-card tile>
+            <v-toolbar flat>
+              <v-toolbar-title>Site Traffic</v-toolbar-title>
+              <v-btn icon slot="widget-header-action">
+                <v-icon class="text--secondary">mdi-refresh</v-icon>
+              </v-btn>
+            </v-toolbar>
+            <v-card-text>
               <e-chart
                 :path-option="[
                   ['dataset.source', siteTrafficData],
@@ -62,12 +65,18 @@
                 height="400px"
                 width="100%"
               />
-            </div>
-          </v-widget>
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col :lg="4" :sm="12" :cols="12">
-          <v-widget title="Top Location" content-bg="white">
-            <div slot="widget-content">
+          <v-card tile>
+            <v-toolbar flat>
+              <v-toolbar-title>Top Location</v-toolbar-title>
+              <v-btn icon slot="widget-header-action">
+                <v-icon class="text--secondary">mdi-refresh</v-icon>
+              </v-btn>
+            </v-toolbar>
+            <v-card-text>
               <e-chart
                 :path-option="[
                   ['dataset.source', locationData],
@@ -92,8 +101,8 @@
                 height="400px"
                 width="100%"
               />
-            </div>
-          </v-widget>
+            </v-card-text>
+          </v-card>
         </v-col>
         <!-- social/weather card start -->
         <v-col :lg="4" :cols="12" :sm="12">
@@ -177,8 +186,10 @@
           <chat-window height="308px" />
         </v-col>
         <v-col :lg="6" :sm="12" :cols="12">
-          <v-widget title="Activities" content-bg="white">
-            <div slot="widget-content">
+          <v-card tile>
+            <v-card-title>Activities</v-card-title>
+            <v-divider />
+            <v-card-text>
               <v-timeline align-top dense>
                 <v-timeline-item
                   :color="item.color"
@@ -197,8 +208,8 @@
                   </v-row>
                 </v-timeline-item>
               </v-timeline>
-            </div>
-          </v-widget>
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="12">
           <plain-table />
