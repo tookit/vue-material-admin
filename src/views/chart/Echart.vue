@@ -341,13 +341,11 @@ import {
 import Material from 'vuetify/es5/util/colors'
 import MiniChart from '@/components/widgets/chart/MiniChart'
 import BoxChart from '@/components/widgets/chart/BoxChart'
-import VWidget from '@/components/VWidget'
 export default {
   components: {
     BoxChart,
     MiniChart,
-    EChart,
-    VWidget
+    EChart
   },
   data() {
     return {
