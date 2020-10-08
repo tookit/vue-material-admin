@@ -9,7 +9,7 @@
         <mini-chart
           title="Monthly Sales"
           sub-title="10%"
-          icon="trending_up"
+          icon="mdi-trending-up"
           :data="dataset.monthVisit"
           :chart-color="color.blue.base"
           type="bar"
@@ -19,7 +19,7 @@
         <mini-chart
           title="Daily Visit"
           sub-title="20%"
-          icon="trending_up"
+          icon="mdi-trending-up"
           :data="dataset.monthVisit"
           :chart-color="color.green.base"
           type="area"
@@ -29,7 +29,7 @@
         <mini-chart
           sub-title="10%"
           title="Daily Quote"
-          icon="trending_down"
+          icon="mdi-trending-down"
           :data="dataset.monthVisit"
           :chart-color="color.red.base"
           type="line"
@@ -39,7 +39,7 @@
         <mini-chart
           title="Weekly Visit"
           sub-title="10%"
-          icon="trending_down"
+          icon="mdi-trending-down"
           :data="dataset.monthVisit"
           :chart-color="color.red.base"
           type="bar"
@@ -55,33 +55,33 @@
         <box-chart
           title="Page views"
           sub-title="10%"
-          icon="trending_up"
+          icon="mdi-trending-up"
           :data="dataset.monthVisit"
           :chart-color="[color.blue.darken1]"
           type="area"
-        ></box-chart>
+        />
       </v-col>
       <v-col :cols="12" lg="4" :sm="12">
         <box-chart
           title="Monthly Sales"
           sub-title="10%"
-          icon="trending_up"
+          icon="mdi-trending-up"
           card-color="pink"
           :data="dataset.monthVisit"
           :chart-color="[color.pink.lighten2]"
           type="bar"
-        ></box-chart>
+        />
       </v-col>
       <v-col :cols="12" lg="4" :sm="12">
         <box-chart
           card-color="indigo"
           title="Page views"
           sub-title="10%"
-          icon="trending_up"
+          icon="mdi-trending-down"
           :data="dataset.monthVisit"
           :chart-color="[color.shades.white]"
           type="line"
-        ></box-chart>
+        />
       </v-col>
     </v-row>
     <!-- complex chart -->
@@ -95,7 +95,7 @@
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
               <v-spacer></v-spacer>
-              <div class="caption"><v-icon>trending_up</v-icon>20%</div>
+              <div class="caption"><v-icon>mdi-trending-up</v-icon>20%</div>
             </div>
           </v-card-title>
           <v-responsive class="white--text">
@@ -146,7 +146,7 @@
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
               <v-spacer></v-spacer>
-              <div class="caption"><v-icon>trending_up</v-icon>20%</div>
+              <div class="caption"><v-icon>mdi-trending-up</v-icon>20%</div>
             </div>
           </v-card-title>
           <v-responsive class="white--text">
@@ -191,7 +191,7 @@
             <div class="layout row ma-0">
               <div class="subheading">Today</div>
               <v-spacer></v-spacer>
-              <div class="caption"><v-icon>trending_up</v-icon>20%</div>
+              <div class="caption"><v-icon>mdi-trending-up</v-icon>20%</div>
             </div>
           </v-card-title>
           <v-responsive>
@@ -234,8 +234,8 @@
         </v-card>
       </v-col>
       <v-col :cols="12" lg="6" :sm="12">
-        <v-widget title="Analysis - Donut">
-          <div slot="widget-content">
+        <v-card>
+          <v-card-text>
             <e-chart
               :path-option="[
                 ['dataset.source', dataset.campaign],
@@ -261,12 +261,12 @@
               height="350px"
               width="100%"
             ></e-chart>
-          </div>
-        </v-widget>
+          </v-card-text>
+        </v-card>
       </v-col>
       <v-col :cols="12" lg="6" :sm="12">
-        <v-widget title="Analysis - Pie">
-          <div slot="widget-content">
+        <v-card tile title="Analysis - Pie">
+          <v-card-text>
             <e-chart
               :path-option="[
                 ['dataset.source', dataset.campaign],
@@ -290,8 +290,8 @@
               height="350px"
               width="100%"
             ></e-chart>
-          </div>
-        </v-widget>
+          </v-card-text>
+        </v-card>
       </v-col>
       <v-col cols="12">
         <v-card tile>
