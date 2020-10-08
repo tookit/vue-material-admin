@@ -89,7 +89,7 @@ export default {
           caption: 'increase',
           percent: 15,
           icon: {
-            label: 'trending_up',
+            label: 'mdi-trending-up',
             color: 'success'
           },
           linear: {
@@ -103,7 +103,7 @@ export default {
           caption: 'increase',
           percent: 10,
           icon: {
-            label: 'trending_down',
+            label: 'mdi-trending-down',
             color: 'error'
           },
           linear: {
@@ -117,7 +117,7 @@ export default {
           caption: 'increase',
           percent: 50,
           icon: {
-            label: 'arrow_upward',
+            label: 'mdi-arrow-up',
             color: 'info'
           },
           linear: {
@@ -133,7 +133,7 @@ export default {
           caption: 'email opens',
           percent: 15,
           icon: {
-            label: 'email',
+            label: 'mdi-email',
             color: 'info'
           },
           linear: {
@@ -147,7 +147,7 @@ export default {
           caption: 'tasks completed.',
           percent: 90,
           icon: {
-            label: 'list',
+            label: 'mdi-view-list',
             color: 'primary'
           },
           linear: {
@@ -161,7 +161,7 @@ export default {
           caption: 'issues fixed.',
           percent: 100,
           icon: {
-            label: 'bug_report',
+            label: 'mdi-bug',
             color: 'primary'
           },
           linear: {
