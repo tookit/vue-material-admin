@@ -84,27 +84,7 @@ export const protectedRoute = [
         }),
         component: () => import('@/views/Calendar.vue')
       },
-      {
-        path: '/cms',
-        component: RouteWrapper,
-        redirect: '/cms/table',
-        meta: {
-          title: 'CMS',
-          icon: 'mdi-view-grid',
-          group: 'cms'
-        },
-        children: [
-          {
-            path: '/cms/table',
-            name: 'cms.table',
-            meta: {
-              title: 'table',
-              icon: 'mdi-database'
-            },
-            component: () => import('@/views/list/Table.vue')
-          }
-        ]
-      },
+
       {
         path: '/acl',
         component: RouteWrapper,
