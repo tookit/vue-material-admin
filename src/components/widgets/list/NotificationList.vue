@@ -3,7 +3,7 @@
     <v-card-title>
       Notification
     </v-card-title>
-    <v-divider></v-divider>
+    <v-divider />
     <v-card-text class="pa-0">
       <v-list two-line class="pa-0">
         <template v-for="(item, index) in items">
