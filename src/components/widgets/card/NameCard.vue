@@ -1,13 +1,13 @@
 <template>
-  <div class="name-card" tile>
-    <v-card :color="color" ref="card" :dark="dark" :img="cardBgImage">
+  <div class="name-card">
+    <v-card tile :color="color" ref="card" :dark="dark" :img="cardBgImage">
       <v-responsive v-if="showTopNav">
-        <v-layout row justify-space-between class="ma-0">
-          <v-flex xs2> <v-icon color="pink">favorite</v-icon> </v-flex>
-          <v-flex xs2 class="text-sm-right">
-            <v-icon>more_vert</v-icon>
-          </v-flex>
-        </v-layout>
+        <v-row justify-space-between class="ma-0">
+          <v-col xs2> <v-icon color="pink">mdi-heart</v-icon> </v-col>
+          <v-col xs2 class="text-sm-right">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-col>
+        </v-row>
       </v-responsive>
       <v-card-text>
         <div class="layout ma-0 align-center" :class="computeCardLayout">
@@ -32,15 +32,15 @@
     >
       <v-btn text color="teal" value="recent">
         <span>Recent</span>
-        <v-icon>history</v-icon>
+        <v-icon>mdi-history</v-icon>
       </v-btn>
       <v-btn text color="teal" value="favorites">
         <span>Favorites</span>
-        <v-icon>favorite</v-icon>
+        <v-icon>mdi-heart</v-icon>
       </v-btn>
       <v-btn text color="teal" value="nearby">
         <span>Nearby</span>
-        <v-icon>place</v-icon>
+        <v-icon>mdi-map-marker</v-icon>
       </v-btn>
     </v-bottom-navigation>
   </div>
