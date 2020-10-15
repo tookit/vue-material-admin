@@ -15,21 +15,44 @@
         <router-view></router-view>
       </v-col>
     </v-row>
+    <v-dialog v-model="showDialog" scrollable>
+      <compose-email />
+
+      <!-- <v-card>
+        <v-card-text style="height: 500px;">
+        </v-card-text>
+        <v-divider />
+        <v-card-actions>
+          <v-btn color="blue darken-1" text @click="showDialog = false">
+            Close
+          </v-btn>
+          <v-btn color="blue darken-1" text @click="showDialog = false">
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card> -->
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
 import MailMenu from '@/components/email/MailMenu'
+import ComposeEmail from '@/components/email/Compose'
 export default {
   components: {
-    MailMenu
+    MailMenu,
+    ComposeEmail
   },
   data() {
-    return {}
+    return {
+      showDialog: false
+    }
   },
   computed: {},
   methods: {
-    handleCompose() {}
+    handleCompose() {
+      this.showDialog = true
+    }
   },
 
   created() {}
