@@ -88,7 +88,7 @@ export default {
         {
           icon: 'mdi-radiobox-marked',
           iconColor: 'grey',
-          title: 'Peronal',
+          title: 'Personal',
           iconSize: 'small'
         }
       ]

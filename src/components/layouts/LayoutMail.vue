@@ -42,7 +42,6 @@
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
             @click="item.click"
-            ripple="ripple"
             :disabled="item.disabled"
             :target="item.target"
             rel="noopener"

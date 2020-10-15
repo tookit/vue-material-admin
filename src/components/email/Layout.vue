@@ -48,7 +48,6 @@
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
             @click="item.click"
-            ripple="ripple"
             :disabled="item.disabled"
             :target="item.target"
             rel="noopener"
@@ -108,10 +107,10 @@ import { MailMenu } from '@/api/mail'
 import Compose from './Compose'
 export default {
   components: {
-    Compose,
+    Compose
   },
   props: {
-    source: String,
+    source: String
   },
   data: () => ({
     selected: [2],
@@ -124,50 +123,50 @@ export default {
         icon: 'account_circle',
         href: '#',
         title: 'Profile',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         icon: 'settings',
         href: '#',
         title: 'Settings',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         icon: 'fullscreen_exit',
         href: '#',
         title: 'Logout',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
-      },
+        }
+      }
     ],
     mailActions: [
       {
         href: '#',
         title: 'Delete',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Mark as read',
         title: 'Mark as read',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Spam',
         title: 'Spam',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
-      },
-    ],
+        }
+      }
+    ]
   }),
 
   created() {
@@ -193,8 +192,8 @@ export default {
       } else {
         this.selected.push(index)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="sass" scoped></style>

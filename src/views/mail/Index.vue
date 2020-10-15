@@ -4,7 +4,9 @@
       <v-col lg="2" md="3">
         <v-card flat tile class="mail-menu">
           <v-card-text>
-            <v-btn block color="primary" @click="handleCompose">compose</v-btn>
+            <v-btn tile block dark color="red" @click="handleCompose"
+              >compose</v-btn
+            >
             <mail-menu />
           </v-card-text>
         </v-card>
