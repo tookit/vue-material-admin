@@ -4,6 +4,7 @@ export default {
   label: 'English',
   //page login
   login: 'Login',
+  register: 'Register',
   username: 'Username',
   password: 'Password',
   login_account: 'Login accoount',

@@ -9,7 +9,9 @@
                 text
                 solo
                 flat
-                prepend-icon="mdi-filter-variant-plus"
+                :prepend-icon="
+                  showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'
+                "
                 append-icon="mdi-magnify"
                 placeholder="Type something"
                 v-model="filter['filter[username]']"
@@ -17,6 +19,7 @@
                 clearable
                 @keyup.enter="handleApplyFilter"
                 @click:append="handleApplyFilter"
+                @click:prepend="showFilter = !showFilter"
                 @click:clear="handleClear"
               />
               <v-btn @click="handleRefreshItem" icon>
@@ -26,7 +29,33 @@
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </v-toolbar>
-            <v-divider></v-divider>
+            <v-divider />
+            <v-card v-show="showFilter" flat class="grey lighten-4">
+              <v-card-text>
+                <v-btn-toggle
+                  v-model="filter['filter[gender]']"
+                  tile
+                  color="deep-purple accent-3"
+                >
+                  <v-btn value="male" icon>
+                    <v-icon>mdi-gender-male</v-icon>
+                  </v-btn>
+                  <v-btn value="female">
+                    <v-icon>mdi-gender-female</v-icon>
+                  </v-btn>
+                  <v-btn value="other">
+                    <v-icon>mdi-gender-non-binary</v-icon>
+                  </v-btn>
+                </v-btn-toggle>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="handleResetFilter" text>Reset</v-btn>
+                <v-btn tile @click="handleApplyFilter" color="primary"
+                  >Apply</v-btn
+                >
+              </v-card-actions>
+            </v-card>
             <v-card-text class="pa-0">
               <v-data-table
                 :loading="loadingItems"
@@ -94,9 +123,11 @@ export default {
       loadingItems: false,
       serverItemsLength: 0,
       itemsPerPage: 15,
+      showFilter: false,
       filter: {
         page: 1,
-        'filter[username]': null
+        'filter[username]': null,
+        'filter[gender]': null
       },
       headers: [
         {
@@ -203,6 +234,16 @@ export default {
       this.$router.replace({
         path: this.$route.path,
         query: this.filter
+      })
+    },
+    handleResetFilter() {
+      this.filter = {
+        page: 1,
+        'filter[username]': null,
+        'filter[gender]': null
+      }
+      this.$router.replace({
+        path: this.$route.path
       })
     },
     handleApplyFilter() {

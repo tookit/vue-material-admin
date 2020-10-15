@@ -4,6 +4,7 @@ export default {
   label: '简体中文',
   // page login
   login: '登录',
+  register: '注册',
   username: '用户名',
   password: '密码',
   //app drawer

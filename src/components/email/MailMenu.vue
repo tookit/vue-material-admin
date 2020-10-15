@@ -34,59 +34,59 @@ export default {
         {
           title: 'Inbox',
           group: 'email',
-          icon: 'email',
+          icon: 'mdi-email',
           to: { path: '/mail/inbox' },
           chip: 10
         },
         {
           title: 'Sent',
           group: 'email',
-          icon: 'send',
+          icon: 'mdi-send',
           to: { path: '/mail/sent' },
           chip: 5
         },
         {
           title: 'Starred',
           group: 'email',
-          icon: 'star',
+          icon: 'mdi-star',
           to: { path: '/mail/starred' },
           chip: 2
         },
         {
           title: 'Draft',
           group: 'email',
-          icon: 'content_copy',
+          icon: 'mdi-content-copy',
           to: { path: '/mail/draft' },
           chip: 3
         },
         {
           title: 'Trash',
           group: 'email',
-          icon: 'delete',
+          icon: 'mdi-delete',
           to: { path: '/mail/trashed' },
           chip: 1
         },
         { heading: 'Label' },
         {
-          icon: 'radio_button_checked',
+          icon: 'mdi-radiobox-marked',
           iconColor: 'yellow',
           title: 'Work',
           iconSize: 'small'
         },
         {
-          icon: 'radio_button_checked',
+          icon: 'mdi-radiobox-marked',
           iconColor: 'green',
           title: 'Client',
           iconSize: 'small'
         },
         {
-          icon: 'radio_button_checked',
+          icon: 'mdi-radiobox-marked',
           iconColor: 'red',
           title: 'Project',
           iconSize: 'small'
         },
         {
-          icon: 'radio_button_checked',
+          icon: 'mdi-radiobox-marked',
           iconColor: 'grey',
           title: 'Peronal',
           iconSize: 'small'

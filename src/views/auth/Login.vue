@@ -54,17 +54,22 @@
           <v-card-actions>
             <v-tooltip v-for="item in socialIcons" :key="item.text" bottom>
               <template v-slot:activator="{ on, attrs }">
-                <v-icon
-                  class="mr-3"
-                  v-text="item.icon"
+                <v-btn
+                  color="primary"
+                  icon
                   v-bind="attrs"
                   v-on="on"
                   @click="handleSocialLogin"
-                />
+                >
+                  <v-icon v-text="item.icon" />
+                </v-btn>
               </template>
               <span>{{ item.text }}</span>
             </v-tooltip>
             <v-spacer />
+            <v-btn large tile @click="login" :loading="loading">
+              {{ $vuetify.lang.t('$vuetify.register') }}
+            </v-btn>
             <v-btn large tile color="primary" @click="login" :loading="loading">
               {{ $vuetify.lang.t('$vuetify.login') }}
             </v-btn>
