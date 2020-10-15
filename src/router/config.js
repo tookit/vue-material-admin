@@ -252,13 +252,34 @@ export const protectedRoute = [
         children: [
           {
             path: '/mail/:category',
-            name: 'inbox',
+            name: 'mail.category',
             props: true,
+            meta: {
+              title: 'inbox',
+              icon: 'mdi-view-list',
+              hiddenInMenu: true
+            },
+            component: () => import('@/views/mail/Inbox.vue')
+          },
+          {
+            path: '/mail/inbox',
+            name: 'mail.inbox',
             meta: {
               title: 'inbox',
               icon: 'mdi-view-list'
             },
             component: () => import('@/views/mail/Inbox.vue')
+          },
+          {
+            path: '/mail/inbox/:uuid',
+            name: 'inbox',
+            props: true,
+            meta: {
+              title: 'mail',
+              icon: 'mdi-view-list',
+              hiddenInMenu: true
+            },
+            component: () => import('@/views/mail/Read.vue')
           }
         ]
       },
@@ -320,28 +341,6 @@ export const protectedRoute = [
         },
         name: 'ChatContact',
         component: () => import('@/views/chat/ChatContact.vue')
-      }
-    ]
-  },
-
-  //mail app
-  {
-    path: '/email',
-    name: 'Mail',
-    component: () => import('@/components/email/Layout.vue'),
-    redirect: {
-      path: '/email/all'
-    },
-    children: [
-      {
-        path: '/email/:mailType',
-        name: 'MailIndex',
-        component: () => import('@/components/email/List.vue')
-      },
-      {
-        path: '/email/0/:uuid',
-        name: 'MailDetail',
-        component: () => import('@/components/email/Reply.vue')
       }
     ]
   }

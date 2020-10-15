@@ -5,6 +5,7 @@ const MailItem = [
     uuid: 'bb428c03-1bc6-4f3d-9d5e-268ec44eebc3',
     type: 'trashed',
     tag: 'Promotion',
+    unread: true,
     title: 'Similique voluptate laboriosam laborum.',
     created_at: '2018-04-10T23:10:41.266Z',
     content:
@@ -49,6 +50,7 @@ const MailItem = [
     uuid: '35bddac1-1046-4c96-a1ac-ffd75def7f5a',
     type: 'trashed',
     tag: 'Social',
+    unread: true,
     title: 'Reiciendis sunt aliquid.',
     created_at: '2018-04-10T19:58:14.408Z',
     content:

@@ -35,39 +35,7 @@ $color-pack: true
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
     &--scrollbar
       height: calc(100vh - 48px - 80px)
-/*------------------------------------------------------------------
- * [Components / mail]
- */
-.mail
-  &-toolbar
-    border-bottom: 1px solid rgba(0,0,0,0.12)
-  &-list
-    &--layout
-      padding-top: 64px!important
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        padding-top: 56px!important
-    &--toolbar
-      margin-top: 64px!important
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        margin-top: 56px!important
-      .check-all
-        flex: 0 0
-        margin-top: 0
-    &--wrap
-      height: calc(100vh - 64px - 64px)
-  &-reply
-    &--layout
-      padding-top: 64px!important
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        padding-top: 56px!important
-    &--toolbar
-      margin-top: 64px !important
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        margin-top: 56px!important
-    &--scrollbar
-      height: calc(100vh - 64px - 64px)
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        height : calc(100vh - 56px - 56px)
+
 .v-input.search
   .v-input__slot
     margin-top: 8px

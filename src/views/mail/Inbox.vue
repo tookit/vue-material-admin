@@ -34,6 +34,12 @@
         :headers="headers"
         :items="mails"
         :items-per-page="5"
+        :item-class="
+          (row) => {
+            return row.unread ? 'mail-item__unread' : ''
+          }
+        "
+        @click:row="handleRowClick"
         item-key="uuid"
         hide-default-header
       >
@@ -133,14 +139,19 @@ export default {
     fetchRecords(type) {
       this.mails = getMailByType(type)
     },
-    handleStarEmail() {}
+    handleStarEmail() {},
+    handleRowClick(item) {
+      this.$router.push({
+        path: `/mail/inbox/${item.uuid}`
+      })
+    }
   },
 
   created() {}
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .mail-inbox
   min-height: calc(100vh - 112px - 48px)
   &__list
@@ -149,4 +160,8 @@ export default {
   &__table
     .v-data-table__wrapper
       min-height: calc(100vh - 48px - 112px - 64px - 48px) !important
+      .mail-item__unread
+        background: #f7f7f7 !important
+        td > span
+          font-weight: 500
 </style>

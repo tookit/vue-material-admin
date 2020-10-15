@@ -36,8 +36,8 @@
         </v-flex>
       </v-layout>
       <v-tabs v-model="selectedTab">
-        <v-tab ripple href="#tab-1"> Profile </v-tab>
-        <v-tab ripple href="#tab-2"> Activity </v-tab>
+        <v-tab href="#tab-1"> Profile </v-tab>
+        <v-tab href="#tab-2"> Activity </v-tab>
         <v-tabs-items v-model="selectedTab">
           <v-tab-item value="tab-1">
             <v-card text>
@@ -108,18 +108,18 @@ export default {
   data() {
     return {
       chat: null,
-      selectedTab: null,
+      selectedTab: null
     }
   },
   computed: {
     user() {
       let Origin = {
         name: 'Chat',
-        avatar: '',
+        avatar: ''
       }
       let user = getUserById(this.$route.params.uuid)
       return Object.assign(Origin, user)
-    },
-  },
+    }
+  }
 }
 </script>

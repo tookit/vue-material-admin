@@ -1,5 +1,5 @@
 <template>
-  <v-list-item :to="to" v-bind="customAttrs" ripple v-on="$listeners">
+  <v-list-item :to="to" v-bind="customAttrs" v-on="$listeners">
     <v-list-item-avatar v-if="avatar" :color="avatarColor">
       <v-icon dark v-text="avatar" />
     </v-list-item-avatar>
@@ -25,48 +25,48 @@ export default {
   props: {
     avatar: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     avatarColor: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     href: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     icon: {
       type: [Boolean, String],
-      default: false,
+      default: false
     },
     chip: {
       type: String,
-      default: '',
+      default: ''
     },
     subtext: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     to: {
       type: String,
-      default: undefined,
-    },
+      default: undefined
+    }
   },
   data() {
     return {
       chipMap: {
         new: 'primary',
         updated: 'warning',
-        deprecated: 'black',
-      },
+        deprecated: 'black'
+      }
     }
   },
   computed: {
@@ -75,7 +75,7 @@ export default {
     },
     customAttrs() {
       const attrs = {
-        ...this.$attrs,
+        ...this.$attrs
       }
       if (this.href) {
         attrs.target = '_blank'
@@ -88,9 +88,9 @@ export default {
       if (!this.to) return this.to
       const lang = this.$route.params.lang || this.$i18n.fallbackLocale
       return {
-        path: `/${lang}/${this.to}`,
+        path: `/${lang}/${this.to}`
       }
-    },
-  },
+    }
+  }
 }
 </script>
