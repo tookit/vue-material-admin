@@ -129,8 +129,11 @@ export default {
         this.$store
           .dispatch('login', this.formModel)
           .then(() => {
+            const path = this.$route.query
+              ? this.$route.query.redirect
+              : '/dashboard'
             this.loading = false
-            this.$router.push('/dashboard')
+            this.$router.push(path)
           })
           .catch(() => {
             this.loading = false

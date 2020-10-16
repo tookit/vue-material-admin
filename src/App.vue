@@ -80,12 +80,19 @@ export default {
         color: e.color
       }
     })
-    this.$on('AUTH_FAIELD', () => {
+    this.$on('AUTH_FAIELD', (e) => {
+      console.log(e)
       this.snackbar = {
         show: true,
-        text: 'Username or password is wrong!',
+        text: 'Auth Failed',
         color: 'error'
       }
+      this.$router.push({
+        path: '/auth/login',
+        query: {
+          redirect: this.$route.path
+        }
+      })
     })
     this.$on('SERVER_ERROR', () => {
       this.snackbar = {

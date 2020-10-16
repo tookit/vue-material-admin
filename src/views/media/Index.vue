@@ -62,11 +62,7 @@ export default {
     }
   },
 
-  created() {
-    this.$store.dispatch('fetchDir').then((resp) => {
-      this.dirs = resp.data
-    })
-  }
+  created() {}
 }
 </script>
 
