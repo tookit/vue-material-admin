@@ -59,7 +59,7 @@ export default {
         },
         {
           version: '0.2.0',
-          tag: 'patch',
+          tag: 'release',
           color: 'primary',
           logs: [
             '* update email (b4434aa)',
@@ -67,6 +67,16 @@ export default {
             '* fixed mail inbox issue (17309cb)',
             '* fixed mail menu (b188dcf)',
             '* add error message when auth failed (f5e2bf8)'
+          ]
+        },
+        {
+          version: '0.3.0',
+          tag: 'release',
+          color: 'primary',
+          logs: [
+            '*  fixed redirect issue (b48e070)',
+            '* update media layout (3565dcb',
+            '* fixed mail inbox issue (17309cb)'
           ]
         }
       ]
