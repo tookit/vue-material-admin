@@ -56,6 +56,18 @@ export default {
             '* update work flow (79d77b9)',
             '* docs: update readme (a30b6bd)'
           ]
+        },
+        {
+          version: '0.2.0',
+          tag: 'patch',
+          color: 'primary',
+          logs: [
+            '* update email (b4434aa)',
+            '* update compose email component (5d7069d)',
+            '* fixed mail inbox issue (17309cb)',
+            '* fixed mail menu (b188dcf)',
+            '* add error message when auth failed (f5e2bf8)'
+          ]
         }
       ]
     }
