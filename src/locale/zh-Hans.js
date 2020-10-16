@@ -36,7 +36,8 @@ export default {
     edit_user: '编辑用户',
     create_user: '创建用户',
     changelog: '更新记录',
-    calendar: '日历'
+    calendar: '日历',
+    all: '所有'
   },
   //media
   media: '媒体',

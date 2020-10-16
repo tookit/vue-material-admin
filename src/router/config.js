@@ -294,8 +294,8 @@ export const protectedRoute = [
         redirect: '/media/all',
         children: [
           {
-            path: '/media/:dir',
-            name: 'media.dir',
+            path: '/media/file',
+            name: 'media.file',
             props: true,
             meta: {
               title: 'dir',

@@ -3,7 +3,6 @@
     <v-row>
       <v-progress-linear
         v-if="loading"
-        value="15"
         :indeterminate="loading"
       ></v-progress-linear>
       <template v-for="dir in dirs">
