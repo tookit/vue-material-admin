@@ -67,7 +67,7 @@
               <span>{{ item.text }}</span>
             </v-tooltip>
             <v-spacer />
-            <v-btn large tile @click="login" :loading="loading">
+            <v-btn large text @click="login">
               {{ $vuetify.lang.t('$vuetify.register') }}
             </v-btn>
             <v-btn large tile color="primary" @click="login" :loading="loading">
@@ -129,11 +129,8 @@ export default {
         this.$store
           .dispatch('login', this.formModel)
           .then(() => {
-            const path = this.$route.query
-              ? this.$route.query.redirect
-              : '/dashboard'
             this.loading = false
-            this.$router.push(path)
+            this.$router.push('/dashboard')
           })
           .catch(() => {
             this.loading = false

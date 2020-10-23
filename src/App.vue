@@ -81,7 +81,6 @@ export default {
       }
     })
     this.$on('AUTH_FAIELD', (e) => {
-      console.log(e)
       this.snackbar = {
         show: true,
         text: 'Auth Failed',
