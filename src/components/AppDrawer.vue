@@ -159,8 +159,8 @@ export default {
       },
       sponsor: {
         href: 'https://www.theopticalfiber.com/',
-        src: 'https://www.theopticalfiber.com/images/logo/logo.png',
-        srcMini: 'https://www.theopticalfiber.com/images/logo/logo_mini.png'
+        src: 'https://www.theopticalfiber.com/logo/logo.png',
+        srcMini: 'https://www.theopticalfiber.com/logo/logo_mini.png'
       }
     }
   },
@@ -191,6 +191,7 @@ export default {
   overflow: hidden !important
   &__inner
     height: calc(100vh - 48px)
+    overflow: auto
   .drawer-menu--scroll
     height: calc(100vh - 48px)
     overflow: auto

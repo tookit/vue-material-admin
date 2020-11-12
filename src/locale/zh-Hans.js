@@ -37,7 +37,8 @@ export default {
     create_user: '创建用户',
     changelog: '更新记录',
     calendar: '日历',
-    all: '所有'
+    all: '所有',
+    dir: '文件夹'
   },
   //media
   media: '媒体',
