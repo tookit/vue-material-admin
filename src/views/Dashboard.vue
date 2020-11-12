@@ -184,6 +184,7 @@
         <!-- acitivity/chat widget -->
         <v-col :lg="6" :sm="12" :cols="12">
           <chat-window height="308px" />
+          <weather-card class="mt-2" />
         </v-col>
         <v-col :lg="6" :sm="12" :cols="12">
           <v-card tile>
@@ -227,6 +228,7 @@ import API from '@/api'
 import EChart from '@/components/chart/echart'
 import MiniStatistic from '@/components/widgets/statistic/MiniStatistic'
 import ProfileCard from '@/components/widgets/card/ProfileCard'
+import WeatherCard from '@/components/widgets/card/WeatherCard'
 import PlainTable from '@/components/widgets/list/PlainTable'
 import PlainTableOrder from '@/components/widgets/list/PlainTableOrder'
 import Material from 'vuetify/es5/util/colors'
@@ -240,6 +242,7 @@ export default {
     MiniStatistic,
     ChatWindow,
     ProfileCard,
+    WeatherCard,
     EChart,
     BoxChart,
     CircleStatistic,

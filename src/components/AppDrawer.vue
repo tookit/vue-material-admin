@@ -25,7 +25,7 @@
           />
         </a>
       </div>
-      <v-list class="pa-0">
+      <v-list :dense="drawerWidth !== 64" class="pa-0">
         <template v-for="(item, key) in computeMenu">
           <template v-if="item.children && item.children.length > 0">
             <v-list-group :key="key" no-action :to="item.path">
@@ -191,7 +191,7 @@ export default {
   overflow: hidden !important
   &__inner
     height: calc(100vh - 48px)
-    overflow: auto
+    overflow-y: scroll
   .drawer-menu--scroll
     height: calc(100vh - 48px)
     overflow: auto

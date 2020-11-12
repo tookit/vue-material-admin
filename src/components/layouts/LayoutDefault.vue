@@ -10,7 +10,7 @@
         <span>isocked.com Design &copy; {{ new Date().getFullYear() }}</span>
         <v-spacer />
         <span class="caption mr-1">Make With Love</span>
-        <v-icon color="pink" small>md-favorite</v-icon>
+        <v-icon color="pink" small>mdi-heart</v-icon>
       </v-footer>
     </v-main>
     <!-- Go to top -->
