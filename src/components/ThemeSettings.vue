@@ -26,9 +26,10 @@
                   name="color"
                   :value="option.key"
                   v-model="themeColor"
+                  @click="handleChangeColor(option)"
                 />
                 <span class="color-option--item bg">
-                  <span class="overlay">
+                  <span class="overlay" :class="option.key === theme ? 'selected' : ''">
                     <v-icon color="white">mdi-check</v-icon>
                   </span>
                   <span
@@ -64,7 +65,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   data() {
     return {
-      themeColor: 'indigo',
+      theme: this.$store.getters.getTheme,
+      themeColor: this.$store.getters.getThemeColor,
       sideBarOption: 'light',
       colors: colors
     }
@@ -157,13 +159,6 @@ export default {
     }
   },
   watch: {
-    themeColor: {
-      handler(val) {
-        console.log(this.$vuetify)
-        this.$vuetify.theme.themes.light.primary = this.colors[val].base
-      },
-      immediate: true
-    },
     sideBarOption: {
       handler(val) {
         this.$vuetify.theme.dark = val === 'dark'
@@ -175,6 +170,12 @@ export default {
   methods: {
     changeLocale(lang) {
       this.$vuetify.lang.current = lang
+    },
+    handleChangeColor(option) {
+      const color = this.colors[option.key].base
+      this.$store.commit('setTheme', option.key)
+      this.$store.commit('setThemeColor', color)
+      this.$vuetify.theme.themes.light.primary = color
     }
   }
 }

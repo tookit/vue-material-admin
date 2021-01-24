@@ -80,7 +80,7 @@ export default {
         color: e.color
       }
     })
-    this.$on('AUTH_FAIELD', (e) => {
+    this.$on('AUTH_FAIELD', () => {
       this.snackbar = {
         show: true,
         text: 'Auth Failed',

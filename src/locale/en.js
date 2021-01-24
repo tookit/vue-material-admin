@@ -7,7 +7,7 @@ export default {
   register: 'Register',
   username: 'Username',
   password: 'Password',
-  login_account: 'Login accoount',
+  login_account: 'Login account',
   //app drawer
   sponsor: 'Sponsor',
   // menu
