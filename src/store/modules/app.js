@@ -1,14 +1,16 @@
-import colors from 'vuetify/es5/util/colors'
-
 const state = {
   mode: 'light',
-  themeColor: 'pink'
+  themeColor: '#3f51b5',
+  theme: 'inidigo'
 }
 
 // getters
 const getters = {
+  getTheme: (state) => {
+    return state.theme
+  },
   getThemeColor: (state) => {
-    return colors[state.themeColor].base
+    return state.themeColor
   }
 }
 
@@ -19,6 +21,9 @@ const actions = {}
 const mutations = {
   setThemeColor(state, payload) {
     state.themeColor = payload
+  },
+  setTheme(state, payload) {
+    state.theme = payload
   }
 }
 

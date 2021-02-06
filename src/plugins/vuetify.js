@@ -4,7 +4,7 @@ import Vuetify from 'vuetify/lib'
 // locale
 import zhHans from '@/locale/zh-Hans'
 import en from '@/locale/en'
-
+import store from '../store'
 Vue.use(Vuetify)
 
 export default new Vuetify({
@@ -18,7 +18,7 @@ export default new Vuetify({
     },
     themes: {
       light: {
-        primary: '#ee44aa',
+        primary: store.getters.getThemeColor,
         secondary: '#424242',
         accent: '#82B1FF',
         error: '#FF5252',
