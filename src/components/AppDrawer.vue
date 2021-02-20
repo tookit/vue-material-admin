@@ -158,9 +158,9 @@ export default {
         maxScrollbarLength: 160
       },
       sponsor: {
-        href: 'https://www.theopticalfiber.com/',
-        src: 'https://www.theopticalfiber.com/logo/logo.png',
-        srcMini: 'https://www.theopticalfiber.com/logo/logo_mini.png'
+        href: 'https://www.kamefiber.com/',
+        src: '/sponsor/logo.png',
+        srcMini: '/sponsor/logo_mini.png'
       }
     }
   },
@@ -191,7 +191,6 @@ export default {
   overflow: hidden !important
   &__inner
     height: calc(100vh - 100px)
-    overflow-y: scroll
   .drawer-menu--scroll
     height: calc(100vh - 48px)
     overflow: auto

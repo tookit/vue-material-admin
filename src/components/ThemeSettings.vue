@@ -29,7 +29,10 @@
                   @click="handleChangeColor(option)"
                 />
                 <span class="color-option--item bg">
-                  <span class="overlay" :class="option.key === theme ? 'selected' : ''">
+                  <span
+                    class="overlay"
+                    :class="option.key === theme ? 'selected' : ''"
+                  >
                     <v-icon color="white">mdi-check</v-icon>
                   </span>
                   <span
