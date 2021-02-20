@@ -42,11 +42,11 @@ import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 export default {
   components: {
     VuePerfectScrollbar,
-    VCircle,
+    VCircle
   },
   data() {
     return {
-      users: getUser(),
+      users: getUser()
     }
   },
   computed: {},
@@ -62,13 +62,13 @@ export default {
     },
     handleSearch(q) {
       if (q.length > 3) {
-        this.users.filter(u => {
+        this.users.filter((u) => {
           const name = u.name.toLowerCase()
           return name.startsWith(q) === true
         })
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

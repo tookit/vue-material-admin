@@ -39,9 +39,7 @@ export default {
     handleCompose() {
       this.showDialog = true
     }
-  },
-
-  created() {}
+  }
 }
 </script>
 
@@ -50,4 +48,5 @@ export default {
   &-menu
     height: calc(100vh - 112px - 48px)
     overflow: auto
+    border-right: 1px solid #eee
 </style>

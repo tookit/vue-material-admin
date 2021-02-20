@@ -6,7 +6,10 @@
       <v-btn icon @click="handleClose">
         <v-icon color="white">close</v-icon>
       </v-btn>
-      <div slot="extension" class="layout row align-center white grey--text px-2">
+      <div
+        slot="extension"
+        class="layout row align-center white grey--text px-2"
+      >
         <v-avatar size="32">
           <img src="https://randomuser.me/api/portraits/men/92.jpg" />
         </v-avatar>
@@ -24,13 +27,18 @@
     <v-container fluid class="pa-0">
       <v-layout wrap column>
         <v-expansion-panel expand>
-          <v-expansion-panel-content v-for="(item, i) in 1" :key="i" :value="item === 2">
+          <v-expansion-panel-content
+            v-for="(item, i) in 1"
+            :key="i"
+            :value="item === 2"
+          >
             <div slot="header">10 More Messages</div>
             <v-card>
               <v-card-text class="grey lighten-3"
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</v-card-text
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.</v-card-text
               >
             </v-card>
           </v-expansion-panel-content>
@@ -42,14 +50,16 @@
             <br />
             <div class="mail">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
             <div class="subheading">Joe Doe</div>
@@ -65,7 +75,13 @@
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text class="pa-0">
-                <v-text-field class="" v-model="title" counter full-width multi-line></v-text-field>
+                <v-text-field
+                  class=""
+                  v-model="title"
+                  counter
+                  full-width
+                  multi-line
+                ></v-text-field>
               </v-card-text>
               <v-toolbar dense class="elevation-1">
                 <v-btn text icon> <v-icon>send</v-icon> </v-btn>
@@ -87,12 +103,12 @@ export default {
   data: () => ({
     toggle_exclusive: 2,
     title:
-      'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa',
+      'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa'
   }),
   methods: {
     handleClose() {
       window.AppMail.$emit('MAIL_REPLY_DIALOG_CLOSE')
-    },
-  },
+    }
+  }
 }
 </script>

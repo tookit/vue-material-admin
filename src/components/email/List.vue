@@ -22,7 +22,6 @@
               :to="!item.href ? { name: item.name } : null"
               :href="item.href"
               @click="item.click"
-              ripple="ripple"
               :disabled="item.disabled"
               :target="item.target"
               rel="noopener"
@@ -51,7 +50,7 @@
           </v-tabs>
           <v-list two-line class="mail-list--list">
             <template v-for="(item, index) in mails">
-              <v-list-item ripple :key="index" :to="computeMailPath(item.uuid)">
+              <v-list-item :key="index" :to="computeMailPath(item.uuid)">
                 <v-list-item-action>
                   <v-checkbox></v-checkbox>
                 </v-list-item-action>
@@ -88,13 +87,13 @@ import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import { getMailByType } from '@/api/mail'
 export default {
   components: {
-    VuePerfectScrollbar,
+    VuePerfectScrollbar
   },
   props: {
     mailType: {
       type: String,
-      default: 'All',
-    },
+      default: 'All'
+    }
   },
   data: () => ({
     selected: [2],
@@ -102,30 +101,30 @@ export default {
       {
         href: '#',
         title: 'Delete',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Mark as read',
         title: 'Mark as read',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
+        }
       },
       {
         href: 'Spam',
         title: 'Spam',
-        click: e => {
+        click: (e) => {
           console.log(e)
-        },
-      },
-    ],
+        }
+      }
+    ]
   }),
   computed: {
     mails() {
       return getMailByType(this.$route.params.mailType)
-    },
+    }
   },
 
   created() {
@@ -149,7 +148,7 @@ export default {
       } else {
         this.selected.push(index)
       }
-    },
-  },
+    }
+  }
 }
 </script>
