@@ -25,13 +25,8 @@
     "vue": "^2.6.10",
     "vue-api-query": "^1.5.2",
     "vue-perfect-scrollbar": "^0.1.0",
-<<<<<<< HEAD
-    "vue-router": "^3.1.1",
-    "vuetify": "^2.3.21",
-=======
     "vue-router": "^3.4.9",
-    "vuetify": "^2.4.3",
->>>>>>> d824714704281301fdab713d7f91ce7af631f370
+    "vuetify": "^2.4.4",
     "vuex": "^3.1.1",
     "vuex-persist": "^2.1.2"
   },

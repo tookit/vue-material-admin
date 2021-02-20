@@ -190,7 +190,7 @@ export default {
 .app-drawer
   overflow: hidden !important
   &__inner
-    height: calc(100vh - 48px)
+    height: calc(100vh - 100px)
     overflow-y: scroll
   .drawer-menu--scroll
     height: calc(100vh - 48px)
