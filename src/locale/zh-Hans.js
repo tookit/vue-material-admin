@@ -9,6 +9,7 @@ export default {
   password: '密码',
   //app drawer
   sponsor: '赞助商',
+  login_account: '登录账户',
   // menu
   menu: {
     home: '首页',

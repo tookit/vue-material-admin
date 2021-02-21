@@ -20,5 +20,8 @@ const app = new Vue({
   vuetify,
   render: (h) => h(App)
 })
+Vue.prototype.__ = (key, ...parrams) => {
+  return app.$vuetify.lang.translator(key, ...parrams)
+}
 
 app.$mount('#app')

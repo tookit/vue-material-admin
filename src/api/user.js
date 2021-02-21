@@ -6,7 +6,7 @@ const Items = [
     username: 'Dessie79',
     jobTitle: 'Web Developer',
     phone: '1-360-812-9380 x511',
-    avatar: '/static/avatar/a2.jpg',
+    avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
     address: {
       street: '655 Archibald Groves',
       suite: 'Apt. 818',
@@ -27,7 +27,7 @@ const Items = [
     email: 'Jakayla_Crooks867@yahoo.com',
     username: 'Jakayla_Crooks86',
     phone: '610.499.1240',
-    avatar: '/static/avatar/a3.jpg',
+    avatar: 'https://randomuser.me/api/portraits/men/10.jpg',
     address: {
       street: '281 Tillman Forge',
       suite: 'Apt. 381',
@@ -303,7 +303,7 @@ const Items = [
     username: 'Murl_Abshire41',
     jobTitle: 'Web Developer',
     phone: '107-733-1219 x0615',
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/stayuber/128.jpg',
+    avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
     address: {
       street: '4880 Tanner Circles',
       suite: 'Apt. 994',

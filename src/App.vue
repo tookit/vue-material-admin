@@ -1,5 +1,5 @@
 <template>
-  <v-app :dark="true">
+  <v-app dark>
     <router-view></router-view>
     <!-- theme setting -->
     <v-btn

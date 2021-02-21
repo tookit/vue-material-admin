@@ -16,7 +16,7 @@
           </v-card-title>
           <v-card-text>
             <v-alert type="info">
-              {{ $vuetify.lang.t('$vuetify.login_account') }} : admin/admin
+              {{ __('login_account') }} : admin/admin
             </v-alert>
             <v-form
               ref="form"
@@ -28,8 +28,8 @@
                 append-icon="mdi-email"
                 autocomplete="off"
                 name="login"
-                :label="$vuetify.lang.t('$vuetify.username')"
-                :placeholder="$vuetify.lang.t('$vuetify.username')"
+                :label="__('username')"
+                :placeholder="__('username')"
                 type="text"
                 required
                 outlined
@@ -40,8 +40,8 @@
                 append-icon="mdi-lock"
                 autocomplete="off"
                 name="password"
-                :label="$vuetify.lang.t('$vuetify.password')"
-                :placeholder="$vuetify.lang.t('$vuetify.password')"
+                :label="__('password')"
+                :placeholder="__('password')"
                 type="password"
                 :rules="formRule.password"
                 required
@@ -68,10 +68,10 @@
             </v-tooltip>
             <v-spacer />
             <v-btn large text @click="login">
-              {{ $vuetify.lang.t('$vuetify.register') }}
+              {{ __('register') }}
             </v-btn>
             <v-btn large tile color="primary" @click="login" :loading="loading">
-              {{ $vuetify.lang.t('$vuetify.login') }}
+              {{ __('login') }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -92,14 +92,8 @@ export default {
         password: null
       },
       formRule: {
-        username: [
-          (v) =>
-            !!v || this.$vuetify.lang.t('$vuetify.rule.required', ['username'])
-        ],
-        password: [
-          (v) =>
-            !!v || this.$vuetify.lang.t('$vuetify.rule.required', ['password'])
-        ]
+        username: [(v) => !!v || this.__('rule.required', ['username'])],
+        password: [(v) => !!v || this.__('rule.required', ['password'])]
       },
       socialIcons: [
         {
