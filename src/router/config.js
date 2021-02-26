@@ -146,17 +146,8 @@ export const protectedRoute = [
           icon: 'mdi-widgets',
           group: 'advance'
         },
-        redirect: '/widgets/list',
+        redirect: '/widgets/social',
         children: [
-          {
-            path: '/widgets/list',
-            name: 'ListWidget',
-            meta: {
-              title: 'list',
-              icon: 'mdi-table'
-            },
-            component: () => import('@/views/widgets/List.vue')
-          },
           {
             path: '/widgets/social',
             name: 'SocialWidget',

@@ -5,7 +5,6 @@
     :mini-variant.sync="mini"
     v-model="drawer"
     :width="drawerWidth"
-    :dark="$vuetify.dark"
   >
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
@@ -16,7 +15,7 @@
     <div class="app-drawer__inner">
       <div class="pa-3">
         <v-subheader v-if="drawerWidth !== 64">
-          {{ $vuetify.lang.t('$vuetify.sponsor') }}
+          {{ __('sponsor') }}
         </v-subheader>
         <a :href="sponsor.href">
           <v-img
@@ -28,22 +27,25 @@
       <v-list :dense="drawerWidth !== 64" class="pa-0">
         <template v-for="(item, key) in computeMenu">
           <template v-if="item.children && item.children.length > 0">
-            <v-list-group :key="key" no-action :to="item.path">
+            <v-list-group
+              :key="key"
+              no-action
+              :to="item.path"
+              :value="computeGroupExpanded(item, $route)"
+            >
               <template v-slot:prependIcon>
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on, attrs }">
                     <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
                   </template>
                   <span>
-                    {{ $vuetify.lang.t('$vuetify.menu.' + item.meta.title) }}
+                    {{ __('menu.' + item.meta.title) }}
                   </span>
                 </v-tooltip>
               </template>
               <template v-slot:activator>
                 <v-list-item-content>
-                  <v-list-item-title
-                    v-text="$vuetify.lang.t('$vuetify.menu.' + item.meta.title)"
-                  />
+                  <v-list-item-title v-text="__('menu.' + item.meta.title)" />
                 </v-list-item-content>
               </template>
               <v-list-item
@@ -63,18 +65,14 @@
                           v-text="subItem.meta.icon"
                         />
                       </template>
-                      <span>{{
-                        $vuetify.lang.t('$vuetify.menu.' + subItem.meta.title)
-                      }}</span>
+                      <span>{{ __('menu.' + subItem.meta.title) }}</span>
                     </v-tooltip>
                   </v-list-item-icon>
                 </template>
                 <template v-else>
                   <v-list-item-content>
                     <v-list-item-title
-                      v-text="
-                        $vuetify.lang.t('$vuetify.menu.' + subItem.meta.title)
-                      "
+                      v-text="__('menu.' + subItem.meta.title)"
                     />
                   </v-list-item-content>
                 </template>
@@ -92,15 +90,11 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
                   </template>
-                  <span>{{
-                    $vuetify.lang.t('$vuetify.menu.' + item.meta.title)
-                  }}</span>
+                  <span>{{ __('menu.' + item.meta.title) }}</span>
                 </v-tooltip>
               </v-list-item-icon>
               <v-list-item-content v-if="drawerWidth !== 64">
-                <v-list-item-title
-                  v-text="$vuetify.lang.t('$vuetify.menu.' + item.meta.title)"
-                />
+                <v-list-item-title v-text="__('menu.' + item.meta.title)" />
               </v-list-item-content>
               <v-list-item-action v-if="item.meta.new">
                 <v-icon color="green">mdi-new-box </v-icon>
@@ -110,7 +104,6 @@
         </template>
       </v-list>
     </div>
-
     <template v-slot:append>
       <div class="grey lighten-3">
         <template v-if="drawerWidth === 64">
@@ -181,6 +174,9 @@ export default {
     },
     toggleDrawer() {
       this.drawer = !this.drawer
+    },
+    computeGroupExpanded(item, $route) {
+      return $route.matched.map((item) => item.path).includes(item.path)
     }
   }
 }
