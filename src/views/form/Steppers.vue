@@ -3,12 +3,14 @@
     <v-container>
       <v-row>
         <v-col :cols="12">
-          <v-card tile>
-            <v-card-title>
-              Book A Room
-            </v-card-title>
+          <v-toolbar dark color="primary">Book Room</v-toolbar>
+          <v-card>
             <v-card-text class="pa-0">
-              <v-stepper ref="stepper" class="rounded-0" v-model="step">
+              <v-stepper
+                ref="stepper"
+                class="rounded-0 elevation-0"
+                v-model="step"
+              >
                 <v-stepper-header class="elevation-1">
                   <template v-for="item in steps">
                     <v-stepper-step

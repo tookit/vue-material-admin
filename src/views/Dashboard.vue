@@ -238,7 +238,7 @@ export default {
     EChart,
     BoxChart,
     CircleStatistic,
-    LinearStatistic,
+    LinearStatistic
   },
   data: () => ({
     color: Material,
