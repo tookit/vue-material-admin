@@ -212,12 +212,6 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12">
-          <plain-table />
-        </v-col>
-        <v-col cols="12">
-          <plain-table-order />
-        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -229,8 +223,6 @@ import EChart from '@/components/chart/echart'
 import MiniStatistic from '@/components/widgets/statistic/MiniStatistic'
 import ProfileCard from '@/components/widgets/card/ProfileCard'
 import WeatherCard from '@/components/widgets/card/WeatherCard'
-import PlainTable from '@/components/widgets/list/PlainTable'
-import PlainTableOrder from '@/components/widgets/list/PlainTableOrder'
 import Material from 'vuetify/es5/util/colors'
 import BoxChart from '@/components/widgets/chart/BoxChart'
 import ChatWindow from '@/components/chat/ChatWindow'
@@ -247,8 +239,6 @@ export default {
     BoxChart,
     CircleStatistic,
     LinearStatistic,
-    PlainTable,
-    PlainTableOrder
   },
   data: () => ({
     color: Material,
