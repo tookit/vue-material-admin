@@ -70,6 +70,7 @@ export const protectedRoute = [
         },
         component: () => import('@/views/Dashboard.vue')
       },
+      //calendar
       {
         path: '/calendar',
         meta: {
@@ -85,6 +86,28 @@ export const protectedRoute = [
         component: () => import('@/views/Calendar.vue')
       },
 
+      //element
+      {
+        path: '/element',
+        component: RouteWrapper,
+        meta: {
+          title: 'element',
+          icon: 'mdi-dots-square'
+        },
+        redirect: '/element/cascader',
+        children: [
+          {
+            path: '/element/cascader',
+            name: 'forms.basic',
+            meta: {
+              title: 'cascader',
+              icon: 'mdi-alpha-c'
+            },
+            component: () => import('@/views/element/Cascader.vue')
+          }
+        ]
+      },
+      //acl
       {
         path: '/acl',
         component: RouteWrapper,
@@ -327,7 +350,6 @@ export const protectedRoute = [
       }
     ]
   },
-
   // chat app
   {
     path: '/chat',

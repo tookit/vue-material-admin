@@ -119,7 +119,6 @@ export default {
     validateAccount() {
       const step = this.steps.find((item) => item.step === 1)
       const formAccount = this.$refs.formAccount
-      console.log(formAccount.$refs.form.validate())
       if (formAccount.$refs.form.validate()) {
         step.complete = true
         step.rules = []

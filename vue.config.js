@@ -7,27 +7,11 @@ module.exports = {
   productionSourceMap: false,
   outputDir: 'dist',
   configureWebpack: {
-    // optimization: {
-    //   splitChunks: {
-    //     cacheGroups: {
-    //       app: {
-    //         chunks: 'all',
-    //         name: 'main',
-    //         test: /[\\/]src[\\/](.*)[\\/]/,
-    //       },          
-    //       vendor: {
-    //         test: /[\\/]node_modules[\\/][\\/]/,
-    //         name: 'vendor',
-    //         chunks: 'all',
-    //       }
-    //     }
-    //   }
-    // }    
+
   },
 
   chainWebpack: config => {
-    // config.resolve.alias.set("@$", resolve("src")).set("@views", resolve("src/views"));
-    config.resolve.alias.set("@$", resolve("src"))
+    config.resolve.alias.set("~$", resolve("./")).set("@$", resolve("src"))
   },
   css: {
     loaderOptions: {

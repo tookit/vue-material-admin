@@ -39,7 +39,9 @@ export default {
     changelog: '更新记录',
     calendar: '日历',
     all: '所有',
-    dir: '文件夹'
+    dir: '文件夹',
+    element: '组件',
+    cascader: '级联选择'
   },
   //media
   media: '媒体',

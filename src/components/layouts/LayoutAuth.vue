@@ -9,8 +9,7 @@
 <script>
 export default {
   data: () => ({}),
-
-  methods: {},
+  methods: {}
 }
 </script>
 <style lang="sass" scoped>

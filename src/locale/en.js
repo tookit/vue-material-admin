@@ -39,7 +39,9 @@ export default {
     changelog: 'Changelog',
     calendar: 'Calendar',
     all: 'All',
-    dir: 'Directory'
+    dir: 'Directory',
+    element: 'Element',
+    cascader: 'Cascader'
   },
   //media
   media: 'Media',

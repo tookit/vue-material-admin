@@ -69,10 +69,10 @@
                 item-key="id"
                 show-select
               >
-                <template v-slot:item.avatar="{ item }">
+                <template v-slot:[`item.avatar`]="{ item }">
                   <c-avatar class="my-3" :username="item.username" />
                 </template>
-                <template v-slot:item.action="{ item }">
+                <template v-slot:[`item.action`]="{ item }">
                   <v-menu>
                     <template v-slot:activator="{ on: menu }">
                       <v-tooltip bottom>
