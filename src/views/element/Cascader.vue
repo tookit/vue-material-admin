@@ -5,6 +5,8 @@
         <v-col :cols="12">
           <v-card>
             <v-toolbar flat>
+              <v-toolbar-title>Option</v-toolbar-title>
+              <v-spacer></v-spacer>
               <v-toolbar-items class="align-center">
                 <v-checkbox
                   v-model="option.outlined"
@@ -13,7 +15,6 @@
                 />
                 <v-checkbox v-model="option.dense" label="Dense" hide-details />
               </v-toolbar-items>
-              <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text style="height: 350px">
