@@ -1,75 +1,61 @@
 <template>
-  <v-container fluid class="pa-0 page-media">
-    <v-row no-gutters>
-      <v-col lg="3" md="3">
-        <v-card flat tile class="media-menu">
-          <v-toolbar flat>
-            <v-btn tile block dark color="primary" @click="handleCompose"
-              >create folder</v-btn
-            >
-          </v-toolbar>
-          <v-divider />
-          <v-card-text>
-            <media-menu />
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col lg="9" md="9">
-        <div style="border-left: 1px solid #eee">
-          <v-toolbar tag="div" flat>
-            <v-text-field
-              flat
-              hide-details
-              solo
-              prepend-icon="mdi-magnify"
-              label="search files, folders"
-              placeholder="search"
-            />
-            <v-btn-toggle tile dense mandatory>
-              <v-btn icon value="refresh" @click="handleRefresh">
-                <v-icon>mdi-refresh</v-icon>
-              </v-btn>
-              <v-btn icon value="upload">
-                <v-icon>mdi-upload</v-icon>
-              </v-btn>
-              <v-btn icon value="grid">
-                <v-icon>mdi-view-grid</v-icon>
-              </v-btn>
-              <v-btn icon value="list">
-                <v-icon>mdi-view-list</v-icon>
-              </v-btn>
-            </v-btn-toggle>
-          </v-toolbar>
-          <v-divider />
-          <v-breadcrumbs :items="breadcrumbs" />
-          <v-divider />
-          <v-sheet class="grey lighten-4 media-view">
-            <v-progress-linear v-if="loading" :indeterminate="true" />
-            <v-list dense class="grey lighten-4">
-              <v-list-item-group color="primary" v-model="selectedItem">
-                <v-list-item
-                  v-for="(item, i) in items"
-                  :key="i"
-                  :value="item.path"
-                  exact
-                  @click="handleSelectItem(item)"
-                >
-                  <v-list-item-icon>
-                    <v-icon v-text="computeIcon(item)"></v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-content>
-                    <v-list-item-title
-                      v-text="item.basename"
-                    ></v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-sheet>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="media-manager">
+    <div class="media-manager__drawer">
+      <media-menu />
+    </div>
+    <div class="media-manager__content grey lighten-5">
+      <div style="border-left: 1px solid #eee">
+        <v-toolbar tag="div" flat>
+          <v-text-field
+            flat
+            hide-details
+            solo
+            prepend-icon="mdi-magnify"
+            label="search files, folders"
+            placeholder="search"
+          />
+          <v-btn-toggle tile dense mandatory>
+            <v-btn icon value="refresh" @click="handleRefresh">
+              <v-icon>mdi-refresh</v-icon>
+            </v-btn>
+            <v-btn icon value="upload">
+              <v-icon>mdi-upload</v-icon>
+            </v-btn>
+            <v-btn icon value="grid">
+              <v-icon>mdi-view-grid</v-icon>
+            </v-btn>
+            <v-btn icon value="list">
+              <v-icon>mdi-view-list</v-icon>
+            </v-btn>
+          </v-btn-toggle>
+        </v-toolbar>
+        <v-divider />
+        <v-breadcrumbs :items="breadcrumbs" />
+        <v-divider />
+        <v-sheet class=" media-view">
+          <v-progress-linear v-if="loading" :indeterminate="true" />
+          <v-list dense class="grey lighten-5 media_manager__list">
+            <v-list-item-group color="primary" v-model="selectedItem">
+              <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+                :value="item.path"
+                exact
+                @click="handleSelectItem(item)"
+              >
+                <v-list-item-icon>
+                  <v-icon v-text="computeIcon(item)"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.basename"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-sheet>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -170,8 +156,16 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.media
-  &-view
+.media-manager
+    display: flex
+    flex-direction: row
     height: calc(100vh - 112px - 48px)
     overflow: auto
+    &__drawer
+      display: flex
+    &__content
+      flex: 1 1 auto
+      width: 100%
+    &__list
+      height: calc(100vh - 112px - 48px)
 </style>
