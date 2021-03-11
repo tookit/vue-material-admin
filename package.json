@@ -14,7 +14,7 @@
   "dependencies": {
     "@antv/g2plot": "^1.1.25",
     "@mdi/font": "^5.9.55",
-    "axios": "0.20.1",
+    "axios": "0.21.1",
     "core-js": "^3.3.2",
     "date-fns": "^2.16.1",
     "lodash.truncate": "^4.4.2",
