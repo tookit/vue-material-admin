@@ -28,7 +28,7 @@ import ChatWindow from '@/components/chat/ChatWindow'
 export default {
   components: {
     ChatHistory,
-    ChatWindow,
+    ChatWindow
   },
   data() {
     return {}
@@ -39,7 +39,7 @@ export default {
     },
     showWindow() {
       return this.$route.params.uuid !== undefined
-    },
-  },
+    }
+  }
 }
 </script>

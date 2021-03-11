@@ -7,10 +7,12 @@ const getters = {}
 
 // actions
 const actions = {
-  fetchDir(context) {
+  fetchDir({ commit }, query) {
+    console.log(query)
     return request({
-      url: `/storage/dir`,
-      method: 'get'
+      url: `/storage/file`,
+      method: 'get',
+      params: query
     }).then((resp) => {
       return resp
     })

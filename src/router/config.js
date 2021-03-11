@@ -304,30 +304,8 @@ export const protectedRoute = [
           icon: 'mdi-image'
         },
         name: 'media',
-        component: () => import('@/views/media/Index.vue'),
-        redirect: '/media/all',
-        children: [
-          {
-            path: '/media/file',
-            name: 'media.file',
-            props: true,
-            meta: {
-              title: 'dir',
-              icon: 'mdi-view-list',
-              hiddenInMenu: true
-            },
-            component: () => import('@/views/media/List.vue')
-          },
-          {
-            path: '/media/all',
-            name: 'media.all',
-            meta: {
-              title: 'all',
-              icon: 'mdi-view-list'
-            },
-            component: () => import('@/views/media/List.vue')
-          }
-        ]
+        component: () => import('@/views/media/MediaManger.vue')
+        // redirect: '/media/list'
       },
       {
         path: '/changelog',
