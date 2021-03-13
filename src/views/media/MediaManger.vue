@@ -21,10 +21,10 @@
             <v-btn icon value="upload">
               <v-icon>mdi-upload</v-icon>
             </v-btn>
-            <v-btn icon value="grid">
+            <v-btn icon value="grid" @click="handleChangeView('grid')">
               <v-icon>mdi-view-grid</v-icon>
             </v-btn>
-            <v-btn icon value="list">
+            <v-btn icon value="list" @click="handleChangeView('list')">
               <v-icon>mdi-view-list</v-icon>
             </v-btn>
           </v-btn-toggle>
@@ -34,24 +34,8 @@
         <v-divider />
         <v-sheet class=" media-view">
           <v-progress-linear v-if="loading" :indeterminate="true" />
-          <v-list dense class="grey lighten-5 media_manager__list">
-            <v-list-item-group color="primary" v-model="selectedItem">
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-                :value="item.path"
-                exact
-                @click="handleSelectItem(item)"
-              >
-                <v-list-item-icon>
-                  <v-icon v-text="computeIcon(item)"></v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.basename"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
+          <media-view-list v-if="viewMode === 'list'" :items="items" />
+          <media-view-card v-else :items="items" />
         </v-sheet>
       </div>
     </div>
@@ -60,10 +44,14 @@
 
 <script>
 import MediaMenu from '@/components/media/MediaMenu'
+import MediaViewList from '@/components/media/MediaViewList'
+import MediaViewCard from '@/components/media/MediaViewCard'
 export default {
   name: 'MediaManager',
   components: {
-    MediaMenu
+    MediaMenu,
+    MediaViewList,
+    MediaViewCard
   },
   data() {
     return {
@@ -71,14 +59,7 @@ export default {
       loading: false,
       viewMode: 'list',
       items: [],
-      selectedItem: this.$route.query.path,
-      icons: {
-        txt: 'mdi-format-text',
-        json: 'mdi-code-json',
-        html: 'mdi-language-html5',
-        png: 'mdi-image',
-        svg: 'mdi-svg'
-      }
+      selectedItem: this.$route.query.path
     }
   },
   computed: {
@@ -131,14 +112,8 @@ export default {
           }
         : false
     },
-    computeIcon(item) {
-      return item.type === 'dir' ? 'mdi-folder' : this.computeFileIcon(item)
-    },
-    computeFileIcon(item) {
-      return this.icons[item.extension] ?? 'mdi-file'
-    },
-    handleCompose() {
-      this.showDialog = true
+    handleChangeView(mode) {
+      this.viewMode = mode
     },
     handleRefresh() {
       this.fetchRecord(this.$route.query)

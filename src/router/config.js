@@ -305,7 +305,6 @@ export const protectedRoute = [
         },
         name: 'media',
         component: () => import('@/views/media/MediaManger.vue')
-        // redirect: '/media/list'
       },
       {
         path: '/changelog',

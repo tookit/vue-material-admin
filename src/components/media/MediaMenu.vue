@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent>
+  <v-navigation-drawer width="240">
     <v-btn height="64" block color="primary" tile>Storage</v-btn>
     <v-list class="media-list pa-0">
       <template v-for="item in items">

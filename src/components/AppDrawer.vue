@@ -20,11 +20,12 @@
         <a :href="sponsor.href">
           <v-img
             :src="drawerWidth === 64 ? sponsor.srcMini : sponsor.src"
+            height="64px"
             alt="Optic fiber component provider"
           />
         </a>
       </div>
-      <v-list :dense="drawerWidth !== 64" class="pa-0">
+      <v-list class="pa-0">
         <template v-for="(item, key) in computeMenu">
           <template v-if="item.children && item.children.length > 0">
             <v-list-group
