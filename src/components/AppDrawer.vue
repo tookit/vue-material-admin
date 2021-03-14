@@ -12,99 +12,109 @@
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
-    <div class="app-drawer__inner">
-      <div class="pa-3">
-        <v-subheader v-if="drawerWidth !== 64">
-          {{ __('sponsor') }}
-        </v-subheader>
-        <a :href="sponsor.href">
-          <v-img
-            :src="drawerWidth === 64 ? sponsor.srcMini : sponsor.src"
-            height="64px"
-            alt="Optic fiber component provider"
-          />
-        </a>
-      </div>
-      <v-list class="pa-0">
-        <template v-for="(item, key) in computeMenu">
-          <template v-if="item.children && item.children.length > 0">
-            <v-list-group
-              :key="key"
-              no-action
-              :to="item.path"
-              :value="computeGroupExpanded(item, $route)"
-            >
-              <template v-slot:prependIcon>
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
-                  </template>
-                  <span>
-                    {{ __('menu.' + item.meta.title) }}
-                  </span>
-                </v-tooltip>
-              </template>
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title v-text="__('menu.' + item.meta.title)" />
-                </v-list-item-content>
-              </template>
-              <v-list-item
-                :class="drawerWidth === 64 ? 'pl-4' : ''"
-                v-for="subItem in item.children"
-                :key="subItem.name"
-                :to="subItem.path"
-                v-show="!subItem.meta.hiddenInMenu"
+    <vue-perfect-scrollbar>
+      <div class="app-drawer__inner">
+        <div class="pa-3">
+          <v-subheader v-if="drawerWidth !== 64">
+            {{ __('sponsor') }}
+          </v-subheader>
+          <a :href="sponsor.href">
+            <v-img
+              :src="drawerWidth === 64 ? sponsor.srcMini : sponsor.src"
+              height="64px"
+              alt="Optic fiber component provider"
+            />
+          </a>
+        </div>
+        <v-list class="pa-0">
+          <template v-for="(item, key) in computeMenu">
+            <template v-if="item.children && item.children.length > 0">
+              <v-list-group
+                :key="key"
+                no-action
+                :to="item.path"
+                :value="computeGroupExpanded(item, $route)"
               >
-                <template v-if="drawerWidth === 64">
-                  <v-list-item-icon>
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-icon
-                          v-bind="attrs"
-                          v-on="on"
-                          v-text="subItem.meta.icon"
-                        />
-                      </template>
-                      <span>{{ __('menu.' + subItem.meta.title) }}</span>
-                    </v-tooltip>
-                  </v-list-item-icon>
+                <template v-slot:prependIcon>
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        v-bind="attrs"
+                        v-on="on"
+                        v-text="item.meta.icon"
+                      />
+                    </template>
+                    <span>
+                      {{ __('menu.' + item.meta.title) }}
+                    </span>
+                  </v-tooltip>
                 </template>
-                <template v-else>
+                <template v-slot:activator>
                   <v-list-item-content>
-                    <v-list-item-title
-                      v-text="__('menu.' + subItem.meta.title)"
-                    />
+                    <v-list-item-title v-text="__('menu.' + item.meta.title)" />
                   </v-list-item-content>
                 </template>
-              </v-list-item>
-            </v-list-group>
-          </template>
-          <template v-else>
-            <v-list-item
-              :key="key"
-              :to="item.path"
-              v-show="!item.meta.hiddenInMenu"
-            >
-              <v-list-item-icon>
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
+                <v-list-item
+                  :class="drawerWidth === 64 ? 'pl-4' : ''"
+                  v-for="subItem in item.children"
+                  :key="subItem.name"
+                  :to="subItem.path"
+                  v-show="!subItem.meta.hiddenInMenu"
+                >
+                  <template v-if="drawerWidth === 64">
+                    <v-list-item-icon>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-icon
+                            v-bind="attrs"
+                            v-on="on"
+                            v-text="subItem.meta.icon"
+                          />
+                        </template>
+                        <span>{{ __('menu.' + subItem.meta.title) }}</span>
+                      </v-tooltip>
+                    </v-list-item-icon>
                   </template>
-                  <span>{{ __('menu.' + item.meta.title) }}</span>
-                </v-tooltip>
-              </v-list-item-icon>
-              <v-list-item-content v-if="drawerWidth !== 64">
-                <v-list-item-title v-text="__('menu.' + item.meta.title)" />
-              </v-list-item-content>
-              <v-list-item-action v-if="item.meta.new">
-                <v-icon color="green">mdi-new-box </v-icon>
-              </v-list-item-action>
-            </v-list-item>
+                  <template v-else>
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-text="__('menu.' + subItem.meta.title)"
+                      />
+                    </v-list-item-content>
+                  </template>
+                </v-list-item>
+              </v-list-group>
+            </template>
+            <template v-else>
+              <v-list-item
+                :key="key"
+                :to="item.path"
+                v-show="!item.meta.hiddenInMenu"
+              >
+                <v-list-item-icon>
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        v-bind="attrs"
+                        v-on="on"
+                        v-text="item.meta.icon"
+                      />
+                    </template>
+                    <span>{{ __('menu.' + item.meta.title) }}</span>
+                  </v-tooltip>
+                </v-list-item-icon>
+                <v-list-item-content v-if="drawerWidth !== 64">
+                  <v-list-item-title v-text="__('menu.' + item.meta.title)" />
+                </v-list-item-content>
+                <v-list-item-action v-if="item.meta.new">
+                  <v-icon color="green">mdi-new-box </v-icon>
+                </v-list-item-action>
+              </v-list-item>
+            </template>
           </template>
-        </template>
-      </v-list>
-    </div>
+        </v-list>
+      </div>
+    </vue-perfect-scrollbar>
     <template v-slot:append>
       <div class="grey lighten-3">
         <template v-if="drawerWidth === 64">
@@ -134,9 +144,10 @@
 </template>
 <script>
 import { protectedRoute as routes } from '@/router/config'
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 export default {
   name: 'AppDrawer',
-  components: {},
+  components: { VuePerfectScrollbar },
   props: {
     expanded: {
       type: Boolean,

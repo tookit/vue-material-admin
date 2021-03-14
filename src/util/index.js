@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { humanReadableFileSize } from 'vuetify/lib/util/helpers'
 
 const formatDate = (d, dateFormat = 'MM/dd/yyyy') => {
   return format(d, dateFormat)
@@ -10,6 +11,10 @@ const randomElement = (arr = []) => {
 
 const kebab = (str) => {
   return (str || '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+const bytes = (byte) => {
+  return humanReadableFileSize(byte)
 }
 
 const toggleFullScreen = () => {
@@ -43,5 +48,6 @@ export default {
   randomElement,
   toggleFullScreen,
   formatDate,
+  bytes,
   kebab
 }

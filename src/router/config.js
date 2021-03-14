@@ -2,6 +2,7 @@ import {
   LayoutAuth,
   LayoutDefault,
   LayoutChat,
+  LayoutMedia,
   RouteWrapper
 } from '@/components/layouts'
 
@@ -297,15 +298,7 @@ export const protectedRoute = [
           }
         ]
       },
-      {
-        path: '/media',
-        meta: {
-          title: 'media',
-          icon: 'mdi-image'
-        },
-        name: 'media',
-        component: () => import('@/views/media/MediaManger.vue')
-      },
+
       {
         path: '/changelog',
         name: 'changelog',
@@ -324,6 +317,28 @@ export const protectedRoute = [
           hiddenInMenu: true
         },
         component: () => import('@/views/error/Deny.vue')
+      }
+    ]
+  },
+  //media
+  {
+    path: '/media',
+    meta: {
+      title: 'media',
+      icon: 'mdi-image'
+    },
+    name: 'media',
+    component: LayoutMedia,
+    redirect: '/media/file',
+    children: [
+      {
+        path: '/media/file',
+        name: 'media.index',
+        meta: {
+          title: 'media manager',
+          icon: 'mdi-view'
+        },
+        component: () => import('@/views/media/MediaView.vue')
       }
     ]
   },

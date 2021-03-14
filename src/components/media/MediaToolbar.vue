@@ -81,14 +81,6 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-    <v-toolbar tag="div" dense slot="extension" color="white" light>
-      <v-icon>mdi-home</v-icon>
-      <v-breadcrumbs :items="breadcrumbs" class="pa-3" />
-      <v-spacer></v-spacer>
-      <v-btn icon small color="black">
-        <v-icon v-text="'mdi-arrow-left'" @click="handleGoBack" />
-      </v-btn>
-    </v-toolbar>
   </v-app-bar>
 </template>
 <script>
@@ -96,11 +88,10 @@ import NotificationList from '@/components/widgets/list/NotificationList'
 import Util from '@/util'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'AppToolbar',
+  name: 'MediaToolbar',
   components: {
     NotificationList
   },
-  props: {},
   data() {
     return {
       profileMenus: [
@@ -144,22 +135,6 @@ export default {
         (item) => item.value === this.$vuetify.lang.current
       )
       return find.text
-    },
-    breadcrumbs() {
-      const { matched } = this.$route
-      return matched.map((route, index) => {
-        const to =
-          index === matched.length - 1
-            ? this.$route.path
-            : route.path || route.redirect
-        const text = this.$vuetify.lang.t('$vuetify.menu.' + route.meta.title)
-        return {
-          text: text,
-          to: to,
-          exact: true,
-          disabled: false
-        }
-      })
     }
   },
   methods: {

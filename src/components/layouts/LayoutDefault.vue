@@ -1,5 +1,5 @@
 <template>
-  <v-app class="app">
+  <div class="admin">
     <app-drawer class="app--drawer" ref="drawer" />
     <app-toolbar class="app--toolbar" @side-icon-click="handleDrawerVisiable" />
     <v-main>
@@ -15,7 +15,7 @@
     </v-main>
     <!-- Go to top -->
     <app-fab />
-  </v-app>
+  </div>
 </template>
 
 <script>
