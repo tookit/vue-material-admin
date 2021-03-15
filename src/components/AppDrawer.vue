@@ -13,11 +13,7 @@
       </v-toolbar-title>
     </v-toolbar>
     <app-switcher class="ma-2" />
-    <vue-perfect-scrollbar
-      :settings="scrollSettings"
-      :style="computeHeight"
-      class="app-drawer__scrollbar"
-    >
+    <vue-perfect-scrollbar class="app-drawer__scrollbar">
       <div class="app-drawer__inner">
         <div class="pa-3">
           <v-subheader v-if="drawerWidth !== 64">
@@ -207,6 +203,8 @@ export default {
 
 <style lang="sass" scoped>
 .app-drawer
-  &__scrollbar
-    height: calc(100vh - 48px)
+  &__srollbar
+    max-height:  calc(100vh - 64px - 36px - 44px)
+  &__inner
+    height: calc(100vh - 64px - 36px - 44px)
 </style>

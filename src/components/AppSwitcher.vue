@@ -1,5 +1,10 @@
 <template>
-  <v-select label="Apps" :items="items" @change="handleChange"></v-select>
+  <v-select
+    hide-details
+    label="Apps"
+    :items="items"
+    @change="handleChange"
+  ></v-select>
 </template>
 
 <script>
