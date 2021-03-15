@@ -25,7 +25,7 @@
             </v-badge>
           </v-btn>
         </template>
-        <notification-list></notification-list>
+        <notification-list />
       </v-menu>
       <v-menu
         offset-y

@@ -1,11 +1,11 @@
 <template>
   <v-card tile>
-    <v-card-title>
-      Notification
-    </v-card-title>
+    <v-toolbar>
+      <v-subheader>Notification</v-subheader>
+    </v-toolbar>
     <v-divider />
     <v-card-text class="pa-0">
-      <v-list two-line class="pa-0">
+      <v-list two-line dense class="pa-0">
         <template v-for="(item, index) in items">
           <v-subheader v-if="item.header" :key="item.header">
             {{ item.header }}
@@ -32,12 +32,15 @@
 </template>
 
 <script>
-import notes from '@/api/notification'
 export default {
-  data() {
-    return {
-      items: notes
+  props: {
+    items: {
+      type: Array,
+      default: () => []
     }
+  },
+  data() {
+    return {}
   },
   methods: {
     handleClick: (e) => {

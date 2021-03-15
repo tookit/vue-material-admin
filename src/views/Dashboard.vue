@@ -183,7 +183,6 @@
         </v-col>
         <!-- acitivity/chat widget -->
         <v-col :lg="6" :sm="12" :cols="12">
-          <chat-window height="308px" />
           <weather-card class="mt-2" />
         </v-col>
         <v-col :lg="6" :sm="12" :cols="12">
@@ -225,14 +224,12 @@ import ProfileCard from '@/components/widgets/card/ProfileCard'
 import WeatherCard from '@/components/widgets/card/WeatherCard'
 import Material from 'vuetify/es5/util/colors'
 import BoxChart from '@/components/widgets/chart/BoxChart'
-import ChatWindow from '@/components/chat/ChatWindow'
 import CircleStatistic from '@/components/widgets/statistic/CircleStatistic'
 import LinearStatistic from '@/components/widgets/statistic/LinearStatistic'
 export default {
   name: 'PageDashboard',
   components: {
     MiniStatistic,
-    ChatWindow,
     ProfileCard,
     WeatherCard,
     EChart,

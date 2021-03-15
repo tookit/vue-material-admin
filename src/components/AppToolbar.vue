@@ -20,12 +20,12 @@
         <template v-slot:activator="{ on }">
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
-              <span slot="badge">3</span>
+              <span slot="badge">{{ notificatons.length }}</span>
               <v-icon medium>mdi-bell</v-icon>
             </v-badge>
           </v-btn>
         </template>
-        <notification-list></notification-list>
+        <notification-list :items="notificatons" />
       </v-menu>
       <v-menu
         offset-y
@@ -126,6 +126,32 @@ export default {
           href: '#',
           title: 'Logout',
           click: this.handleLogut
+        }
+      ],
+      notificatons: [
+        {
+          title: 'New user registered',
+          color: 'light-green',
+          icon: 'mdi-account-circle',
+          timeLabel: 'Just now'
+        },
+        {
+          title: 'New order received',
+          color: 'light-blue',
+          icon: 'mdi-cart-plus',
+          timeLabel: '2 min ago'
+        },
+        {
+          title: 'New payment made',
+          color: 'cyan',
+          icon: 'mdi-receipt',
+          timeLabel: '24 min ago'
+        },
+        {
+          title: 'New message from Michael',
+          color: 'red',
+          icon: 'mdi-email',
+          timeLabel: '1 hour ago'
         }
       ]
     }

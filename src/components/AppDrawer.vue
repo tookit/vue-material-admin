@@ -12,7 +12,12 @@
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
-    <vue-perfect-scrollbar>
+    <app-switcher class="ma-2" />
+    <vue-perfect-scrollbar
+      :settings="scrollSettings"
+      :style="computeHeight"
+      class="app-drawer__scrollbar"
+    >
       <div class="app-drawer__inner">
         <div class="pa-3">
           <v-subheader v-if="drawerWidth !== 64">
@@ -145,9 +150,10 @@
 <script>
 import { protectedRoute as routes } from '@/router/config'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import AppSwitcher from './AppSwitcher'
 export default {
   name: 'AppDrawer',
-  components: { VuePerfectScrollbar },
+  components: { VuePerfectScrollbar, AppSwitcher },
   props: {
     expanded: {
       type: Boolean,
@@ -176,6 +182,11 @@ export default {
     },
     computeMenu() {
       return routes[0].children
+    },
+    computeHeight() {
+      return {
+        height: this.height || ''
+      }
     }
   },
   created() {},
@@ -196,10 +207,6 @@ export default {
 
 <style lang="sass" scoped>
 .app-drawer
-  overflow: hidden !important
-  &__inner
-    height: calc(100vh - 100px)
-  .drawer-menu--scroll
+  &__scrollbar
     height: calc(100vh - 48px)
-    overflow: auto
 </style>

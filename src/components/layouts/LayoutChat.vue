@@ -5,7 +5,7 @@
     <v-main>
       <div class="chat_wrapper"><router-view /></div>
     </v-main>
-    <v-dialog v-model="showDialog" width="420">
+    <v-dialog v-model="showDialog" persistent width="600">
       <register-form @form:success="handleRegisterSucess" />
     </v-dialog>
   </div>

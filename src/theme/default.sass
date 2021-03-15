@@ -13,21 +13,6 @@
 $color-pack: true
 @import '~vuetify/src/styles/main.sass'
 
-/*------------------------------------------------------------------
- * [Components / Chat]
- */
-.chat
-  &-history
-    &--toolbar
-      box-shadow: 0 1px 3px 1px rgba(0,0,0,0.03)
-    &--list
-      a.list__tile--active
-        background: #eee
-    &--scrollbar
-      height: calc(100vh - 48px)
-      @media #{map-get($display-breakpoints, 'sm-and-down')}
-        height: calc(100vh - 48px - 56px)
-
 .v-input.search
   .v-input__slot
     margin-top: 8px
