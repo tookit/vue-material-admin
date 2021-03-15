@@ -1,80 +1,54 @@
 <template>
-  <v-app class="chat">
-    <template v-if="!$vuetify.breakpoint.smAndDown">
-      <v-navigation-drawer
-        class="pa-0 chat-drawer primary"
-        fixed
-        permanent
-        app
-        width="68"
-      >
-        <chat-menu :items="menus" class="chat-drawer--menu"> </chat-menu>
-      </v-navigation-drawer>
-      <v-content class="chat-main">
-        <router-view />
-      </v-content>
-    </template>
-    <template v-else>
-      <v-toolbar color="primary" fixed dark>
-        <v-btn icon @click="handleClick">
-          <v-icon>keyboard_arrow_left</v-icon>
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>more_vert</v-icon>
-        </v-btn>
-      </v-toolbar>
-      <v-content class="chat-main">
-        <transition>
-          <router-view></router-view>
-        </transition>
-      </v-content>
-      <v-bottom-navigation
-        :value="true"
-        absolute
-        color="primary"
-        app
-        fixed
-        v-if="!hideBottomNav"
-      >
-        <v-btn
-          dark
-          text
-          :value="item.to.path"
-          v-for="(item, index) in menus"
-          :key="index"
-          :to="item.to"
-        >
-          <span>{{ item.text }}</span>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-btn>
-      </v-bottom-navigation>
-    </template>
-  </v-app>
+  <div class="chat">
+    <chat-toolbar class="chat_toolbar" />
+    <chat-drawer />
+    <v-main>
+      <div class="chat_wrapper"><router-view /></div>
+    </v-main>
+    <v-dialog v-model="showDialog" width="420">
+      <register-form @form:success="handleRegisterSucess" />
+    </v-dialog>
+  </div>
 </template>
 
 <script>
-import API from '@/api'
-import ChatMenu from '@/components/chat/ChatMenu'
+import ChatToolbar from '@/components/chat/ChatToolbar'
+import ChatDrawer from '@/components/chat/ChatDrawer'
+import RegisterForm from '@/components/form/RegisterForm'
+import { mapGetters } from 'vuex'
 export default {
+  name: 'LayoutChat',
   components: {
-    ChatMenu
+    ChatToolbar,
+    ChatDrawer,
+    RegisterForm
   },
-  data: () => ({
-    menus: API.getChatMenu
-  }),
+  data() {
+    return {}
+  },
   computed: {
-    hideBottomNav() {
-      return (
-        this.$route.params.uuid !== undefined &&
-        this.$route.name === 'ChatMessaging'
-      )
+    ...mapGetters(['getUsername']),
+    showDialog: {
+      get: function() {
+        return this.getUsername === 'admin'
+      },
+      set: function(val) {}
     }
   },
   methods: {
-    handleClick() {
-      this.$router.go(-1)
+    handleRegisterSucess() {
+      this.$store.dispatch('initSocket')
+    }
+  },
+  created() {
+    if (this.getUsername !== 'admin') {
+      this.$store.dispatch('initSocket')
     }
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.chat_wrapper
+  min-height: calc(100vh - 112px)
+</style>

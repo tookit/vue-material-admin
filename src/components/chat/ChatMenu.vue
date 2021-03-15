@@ -24,9 +24,9 @@
 export default {
   props: {
     items: {
-      type: Array,
-    },
-  },
+      type: Array
+    }
+  }
 }
 </script>
 

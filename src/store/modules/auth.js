@@ -28,6 +28,17 @@ const actions = {
       dispatch('fetchProfile')
     })
   },
+  register({ commit, dispatch }, data) {
+    return request({
+      url: '/auth/register',
+      method: 'post',
+      data: data
+    }).then((resp) => {
+      commit('SET_LOGIN', resp)
+      dispatch('fetchProfile')
+      return resp
+    })
+  },
   logout({ commit }) {
     commit('SET_ACCESS_TOKEN', null)
   },

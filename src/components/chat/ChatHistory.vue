@@ -4,9 +4,9 @@
       solo
       clearable
       hide-details
-      prepend-inner-icon="search"
+      prepend-inner-icon="mdi-magnify"
       label="Search"
-    ></v-text-field>
+    />
     <vue-perfect-scrollbar class="chat-history--scrollbar">
       <v-divider></v-divider>
       <v-list two-line class="chat-history--list">
@@ -42,20 +42,16 @@
 </template>
 
 <script>
-import { Groups } from '@/api/chat'
-import { getUserById } from '@/api/user'
 import VCircle from '@/components/circle/VCircle'
 import Util from '@/util'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 export default {
   components: {
     VuePerfectScrollbar,
-    VCircle,
+    VCircle
   },
 
-  data: () => ({
-    chats: Groups,
-  }),
+  data() {},
 
   methods: {
     chatRoute(id) {
@@ -68,9 +64,7 @@ export default {
       return new Date(s).toLocaleDateString()
     },
     computeTitle(item) {
-      let username =
-        item.users.length === 1 ? getUserById(item.users[0]).username : ''
-      return item.users.length === 1 ? username : item.title
+      return ''
     },
     randomAvatarColor(item) {
       return item.users.length === 1
@@ -81,7 +75,7 @@ export default {
     chatStatusColor(item) {
       console.log(item)
       return Util.randomElement(['blue', 'indigo', 'success', 'error', 'pink'])
-    },
-  },
+    }
+  }
 }
 </script>

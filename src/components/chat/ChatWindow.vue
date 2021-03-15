@@ -1,21 +1,12 @@
 <template>
-  <v-card tile class="chat-room">
-    <v-app-bar text dense class="white chat-room--toolbar" light>
+  <div class="chat_window">
+    <v-toolbar text class="chat_window__toolbar" light>
       <v-btn icon>
         <v-icon color="text--secondary">mdi-arrow-left</v-icon>
       </v-btn>
-      <template v-if="chat.users">
-        <c-avatar
-          size="32"
-          class="avatar-stack"
-          v-for="(user_id, index) in chat.users"
-          :src="getAvatar(user_id)"
-          :key="index"
-        />
-      </template>
       <v-spacer />
       <v-toolbar-title>
-        <h4>Chat Channel</h4>
+        <v-subheader>VMA Discuss here</v-subheader>
       </v-toolbar-title>
       <v-spacer />
       <v-tooltip bottom>
@@ -26,117 +17,94 @@
         </template>
         <span>Add user</span>
       </v-tooltip>
-    </v-app-bar>
-    <vue-perfect-scrollbar
-      class="chat-room--scrollbar grey lighten-5"
-      :style="computeHeight"
-    >
-      <v-card-text class="chat-room--list pa-3">
-        <template v-for="(item, index) in chat.messages">
-          <div
-            :class="[index % 2 == 0 ? 'flex-row-reverse' : '']"
-            class="messaging-item"
-            :key="index"
-          >
-            <div class="messaging-item__avatar">
-              <c-avatar
-                :size="36"
-                :src="item.user.avatar"
-                :username="item.user.username"
-                status="online"
-                online
-                :key="index"
-              />
-            </div>
-            <div class="messaging-item__body">
-              <p
-                :value="true"
-                :class="[index % 2 == 0 ? 'primary white--text' : 'white']"
-                class="pa-2"
-              >
-                {{ item.text }}
-              </p>
-              <div class="caption px-2 text--secondary">
-                {{ new Date(item.created_at).toLocaleString() }}
-              </div>
-            </div>
-            <v-spacer></v-spacer>
-          </div>
-        </template>
-      </v-card-text>
-    </vue-perfect-scrollbar>
-    <v-card-actions class="pa-0">
+    </v-toolbar>
+    <v-card>
+      <vue-perfect-scrollbar
+        class="chat_window__scrollbar grey lighten-5"
+        :style="computeHeight"
+      >
+        <v-card-text class="messaging_list pa-3">
+          <template v-for="(item, index) in getMessages">
+            <chat-messaging-item
+              :username="item.username"
+              :text="item.text"
+              :createdAt="item.createdAt"
+              :key="index"
+            />
+          </template>
+        </v-card-text>
+      </vue-perfect-scrollbar>
+    </v-card>
+    <div class="chat_window__input">
       <v-text-field
+        v-model="message"
         full-width
         text
         clearable
         solo
         hide-details
+        autofocus
+        aria-autocomplete="off"
         append-icon="mdi-send"
         label="Type some message here"
+        class="rounded-0"
+        @click:append="handleSendMessage"
+        @keydown.enter="handleSendMessage"
       >
         <div slot="prepend-inner">
           <v-icon>mdi-image-outline</v-icon>
           <v-icon>mdi-face</v-icon>
         </div>
       </v-text-field>
-    </v-card-actions>
-  </v-card>
+    </div>
+  </div>
 </template>
 <script>
-import { getChatById } from '@/api/chat'
-import { getUserById } from '@/api/user'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
-import CAvatar from '@/components/avatar/CAvatar'
+import { mapGetters } from 'vuex'
+import ChatMessagingItem from './ChatMessagingItem'
 export default {
   components: {
     VuePerfectScrollbar,
-    CAvatar
+    ChatMessagingItem
   },
   props: {
-    uuid: {
-      type: String,
-      default: ''
-    },
     height: {
       type: String,
       default: null
     }
   },
+  data() {
+    return {
+      message: null
+    }
+  },
   computed: {
-    chat() {
-      let chatOrigin = {
-        title: 'Chat',
-        users: [],
-        messages: []
-      }
-      let chat = getChatById(this.$route.params.uuid)
-      return Object.assign(chatOrigin, chat)
-    },
+    ...mapGetters(['getMessages', 'getUsername']),
     computeHeight() {
       return {
         height: this.height || ''
       }
     }
   },
-
   methods: {
-    getAvatar(uid) {
-      return getUserById(uid).avatar
+    handleSendMessage() {
+      if (this.message) {
+        this.$store.dispatch('sendMessage', {
+          username: this.getUsername,
+          text: this.message,
+          createdAt: Date.now()
+        })
+        this.message = null
+      }
     }
-  }
+  },
+  created() {}
 }
 </script>
 
-<style lang="scss" scoped>
-.chat-room--scrollbar {
-  height: calc(100vh - 48px - 56px);
-  .messaging-item {
-    display: flex;
-    margin-bottom: 20px;
-    &__avatar {
-      margin-right: 15px;
-    }
-  }
-}
+<style lang="sass" scoped>
+.chat_window
+  &__scrollbar
+    height: calc(100vh - 64px - 64px - 56px) !important
 </style>
