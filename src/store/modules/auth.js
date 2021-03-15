@@ -55,12 +55,14 @@ const actions = {
   },
   // get current login user info
 
-  fetchProfile({ commit }) {
+  fetchProfile({ commit, dispatch }) {
     return request({
       url: '/me',
       method: 'get'
-    }).then(({ data }) => {
-      commit('SET_LOGIN_PROFILE', data)
+    }).then((resp) => {
+      commit('SET_LOGIN_PROFILE', resp.data)
+      dispatch('initSocket')
+      return resp
     })
   }
 }

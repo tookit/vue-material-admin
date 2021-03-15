@@ -15,6 +15,19 @@
     >
       <v-icon>mdi-silverware-variant</v-icon>
     </v-btn>
+    <v-btn
+      small
+      fab
+      dark
+      fixed
+      top="top"
+      right="right"
+      class="chat-fab"
+      color="primary"
+      @click="openOnlineUser"
+    >
+      <v-icon>mdi-chat</v-icon>
+    </v-btn>
     <!-- setting drawer -->
     <v-navigation-drawer
       class="setting-drawer"
@@ -24,7 +37,12 @@
       hide-overlay
       fixed
     >
-      <theme-settings />
+      <template v-if="showSetting">
+        <theme-settings />
+      </template>
+      <template v-else>
+        <online-user />
+      </template>
     </v-navigation-drawer>
     <!-- global snackbar -->
     <v-snackbar
@@ -47,13 +65,16 @@
 
 <script>
 import ThemeSettings from '@/components/ThemeSettings'
+import OnlineUser from '@/components/OnlineUser'
 export default {
   components: {
-    ThemeSettings
+    ThemeSettings,
+    OnlineUser
   },
   data() {
     return {
       rightDrawer: false,
+      showSetting: true,
       snackbar: {
         show: false,
         text: '',
@@ -64,6 +85,12 @@ export default {
   methods: {
     openThemeSettings() {
       this.$vuetify.goTo(0)
+      this.showSetting = true
+      this.rightDrawer = !this.rightDrawer
+    },
+    openOnlineUser() {
+      this.$vuetify.goTo(0)
+      this.showSetting = false
       this.rightDrawer = !this.rightDrawer
     }
   },
@@ -107,6 +134,10 @@ export default {
 <style lang="sass" scoped>
 .setting-fab
   top: 50% !important
+  right: 0
+  border-radius: 0
+.chat-fab
+  top: calc(50% + 40px) !important
   right: 0
   border-radius: 0
 </style>

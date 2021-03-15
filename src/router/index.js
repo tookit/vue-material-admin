@@ -18,7 +18,14 @@ router.beforeEach((to, from, next) => {
   const token = store.getters.getAccessToken
   if (to.name !== 'login') {
     if (token) {
-      next()
+      store
+        .dispatch('fetchProfile')
+        .then(() => {
+          next()
+        })
+        .catch(() => {
+          next({ name: 'login', query: { redirect: to.path } })
+        })
     } else {
       next({ name: 'login', query: { redirect: to.path } })
     }
