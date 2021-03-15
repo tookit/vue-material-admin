@@ -25,7 +25,7 @@ const getters = {
 // actions
 const actions = {
   initSocket({ commit, dispatch, rootState }) {
-    const socket = io.connect('http://127.0.0.1:3000', {
+    const socket = io.connect(process.env.VUE_APP_SOCKET, {
       reconnectionAttempts: 5
     })
     socket.on('connect', () => {
