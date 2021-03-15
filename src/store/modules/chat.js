@@ -15,7 +15,11 @@ const state = {
 const getters = {
   getClientId: (state) => state.clientId,
   getMessages: (state) => state.messages,
-  getChatUsers: (state) => state.chatUsers
+  getChatUsers: (state) => state.chatUsers,
+  getStatusByName: (state) => (username) => {
+    const user = state.chatUsers.find((item) => item.username === username)
+    return user.status ? 'online' : 'offline'
+  }
 }
 
 // actions
@@ -41,6 +45,7 @@ const actions = {
     })
   },
   pushMessage({ commit }, text) {
+    console.log(text)
     commit('UPDATE_MESSAGE_LIST', text)
   },
   sendMessage({ commit }, message) {
@@ -84,7 +89,9 @@ const mutations = {
   },
 
   UPDATE_USER_STATUS(state, { clientId, status }) {
-    const index = state.chatUsers.findIndex((item) => item.clientId === clientId)
+    const index = state.chatUsers.findIndex(
+      (item) => item.clientId === clientId
+    )
     if (index) {
       console.log(index)
       const user = state.chatUsers[index]
@@ -92,14 +99,17 @@ const mutations = {
         user.status = status
         Vue.set(state.chatUsers, index, user)
       }
-
     }
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
   },
   JOIN_ROOM(state, { username }) {
-    state.socket.emit('join', { username: username, clientId: state.clientId, status: 1 })
+    state.socket.emit('join', {
+      username: username,
+      clientId: state.clientId,
+      status: 1
+    })
   }
 }
 

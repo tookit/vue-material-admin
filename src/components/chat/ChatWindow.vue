@@ -6,7 +6,7 @@
       </v-btn>
       <v-spacer />
       <v-toolbar-title>
-        <v-subheader>VMA Discuss here</v-subheader>
+        <v-subheader>The server will not store the message</v-subheader>
       </v-toolbar-title>
       <v-spacer />
       <v-tooltip bottom>

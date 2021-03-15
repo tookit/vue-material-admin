@@ -71,11 +71,7 @@ export default {
     },
     handleLoginSucess() {}
   },
-  created() {
-    if (this.getUsername !== 'admin') {
-      this.$store.dispatch('initSocket')
-    }
-  }
+  created() {}
 }
 </script>
 

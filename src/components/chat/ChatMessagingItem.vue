@@ -1,7 +1,12 @@
 <template>
   <div class="messaging_item" :class="rowReverse">
     <div class="messaging_item__avatar">
-      <c-avatar :size="36" :username="username" status="online" online />
+      <c-avatar
+        :size="36"
+        :username="username"
+        :status="getStatusByName(username)"
+        online
+      />
     </div>
     <div class="messaging_item__body">
       <div class="pa-2">
@@ -31,7 +36,12 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['getAvatar', 'getUsername', 'getClientId']),
+    ...mapGetters([
+      'getAvatar',
+      'getUsername',
+      'getClientId',
+      'getStatusByName'
+    ]),
     isMyOwn() {
       return this.username === this.getUsername
     },
