@@ -1,6 +1,6 @@
 <template>
   <v-card :loading="loading" tile>
-    <v-subheader>Register a new user for chat</v-subheader>
+    <v-subheader>Login as a exist new user</v-subheader>
     <v-divider />
     <v-card-text>
       <v-form ref="form" v-model="valid">
@@ -28,17 +28,6 @@
                 :rules="form.password.rules"
               />
             </v-col>
-            <v-col :cols="12">
-              <v-text-field
-                outlined
-                :label="form.email.label"
-                :placeholder="form.email.placeholder"
-                v-model="formModel.email"
-                required
-                :append-icon="'mdi-email'"
-                :rules="form.email.rules"
-              />
-            </v-col>
           </v-row>
         </v-container>
       </v-form>
@@ -55,7 +44,6 @@
 </template>
 
 <script>
-import { EMAIL } from '@/util/regex'
 export default {
   props: {},
   data: () => ({
@@ -63,10 +51,8 @@ export default {
     loading: false,
     formModel: {
       username: null,
-      password: null,
-      email: null
+      password: null
     },
-
     form: {
       username: {
         label: 'Username',
@@ -77,14 +63,6 @@ export default {
         label: 'Password',
         placeholder: 'xxx',
         rules: [(v) => !!v || 'This field is required']
-      },
-      email: {
-        label: 'Email',
-        placeholder: 'wangqiangshen@gmail.com',
-        rules: [
-          (v) => !!v || 'This field is required',
-          (v) => EMAIL.test(v) || 'Invalid email'
-        ]
       }
     },
 
@@ -92,7 +70,7 @@ export default {
   }),
   computed: {
     formTitle() {
-      return 'Register a new user for Chat'
+      return 'Login'
     }
   },
   watch: {},
@@ -104,10 +82,10 @@ export default {
       this.loading = true
       if (this.$refs.form.validate()) {
         this.$store
-          .dispatch('register', this.formModel)
+          .dispatch('login', this.formModel)
           .then(() => {
             this.loading = false
-            this.$emit('register:success')
+            this.$emit('login:success')
           })
           .catch(() => {
             this.loading = false
