@@ -50,8 +50,8 @@ const actions = {
   pushJoin({ commit }, users) {
     commit('UPDATE_USER_LIST', users)
   },
-  pushLeave({ commit }, clientId) {
-    commit('UPDATE_USER_STATUS', { clientId: clientId, status: 0 })
+  pushLeave({ commit }, users) {
+    commit('UPDATE_USER_LIST', users)
   },
   joinRoom({ commit }, { username }) {
     commit('JOIN_ROOM', { username })
@@ -73,8 +73,7 @@ const mutations = {
       state.chatUsers = users
     } else {
       const online = users.map((item) => item.username)
-      const users = state.chatUsers
-      users.forEach((item) => {
+      state.chatUsers.forEach((item) => {
         if (online.includes(item.username)) {
           item.status = 1
         } else {
@@ -83,23 +82,17 @@ const mutations = {
       })
     }
   },
-  ADD_USER_LIST(state, user) {
-    const index = state.chatUsers.findIndex(
-      (item) => item.username === user.username
-    )
-    if (index === -1) {
-      state.chatUsers.push(user)
-    } else {
-      state.chatUsers[index] = user
-    }
-  },
+
   UPDATE_USER_STATUS(state, { clientId, status }) {
     const index = state.chatUsers.findIndex((item) => item.clientId === clientId)
     if (index) {
+      console.log(index)
       const user = state.chatUsers[index]
-      console.log(user)
-      user.status = status
-      Vue.set(state.chatUsers, index, user)
+      if (user) {
+        user.status = status
+        Vue.set(state.chatUsers, index, user)
+      }
+
     }
   },
   SEND_MESSAGE(state, message) {
