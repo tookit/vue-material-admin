@@ -1,4 +1,12 @@
 import request from '@/util/request'
+import colors from 'vuetify/es5/util/colors'
+
+const randomColor = () => {
+  const temp = Object.keys(colors)
+  const key = temp[Math.floor(Math.random() * temp.length)]
+  const color = colors[key].base
+  return color
+}
 
 const state = {
   access_token: null,
@@ -6,6 +14,7 @@ const state = {
   token_type: 'bearer',
   username: null,
   avatar: null,
+  userColor: '#2196f3',
   status: 'online'
 }
 const getters = {
@@ -66,6 +75,7 @@ const mutations = {
   SET_LOGIN_PROFILE(state, payload) {
     state.username = payload.username
     state.avatar = payload.avatar
+    state.color = randomColor()
   },
   UPDATE_SELF_STATUS(state, status) {
     state.status = status

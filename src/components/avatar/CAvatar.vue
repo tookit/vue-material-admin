@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import colors from 'vuetify/es5/util/colors'
 import { convertToUnit } from 'vuetify/lib/util/helpers'
 export default {
   name: 'CAvatar',
@@ -43,8 +42,9 @@ export default {
       type: String,
       default: ''
     },
-    publicId: {
-      type: [String, Number]
+    color: {
+      type: [String, Number],
+      default: '#2196f3'
     },
     unread: Number
   },
@@ -67,14 +67,11 @@ export default {
     },
 
     charStyles() {
-      const temp = Object.keys(colors)
-      const key = temp[Math.floor(Math.random() * temp.length)]
-      const color = colors[key].base
       return {
         height: convertToUnit(this.size),
         minWidth: convertToUnit(this.size),
         width: convertToUnit(this.size),
-        'background-color': color
+        'background-color': this.color
       }
     },
 

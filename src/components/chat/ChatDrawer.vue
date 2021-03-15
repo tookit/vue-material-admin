@@ -2,13 +2,16 @@
   <v-navigation-drawer app>
     <v-btn dark height="64" block color="#017be8" tile>Chat</v-btn>
     <v-list two-line class="chat_user__list pa-0">
+      <v-subheader>Users</v-subheader>
+      <v-divider />
       <template v-for="item in getChatUsers">
         <v-list-item :key="item.username">
           <v-list-item-avatar>
             <c-avatar
               :size="32"
               :username="item.username"
-              :status="item.status ? 'online' : 'offline'"
+              :status="item.status === 1 ? 'online' : 'offline'"
+              :color="item.color"
               online
             />
           </v-list-item-avatar>

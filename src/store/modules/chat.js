@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 const io = require('socket.io-client')
 
 const state = {
@@ -26,7 +28,6 @@ const actions = {
       const user = { username: rootState.auth.username }
       commit('INIT_CONNECT', socket)
       commit('UPDATE_SELF_STATUS', 'online')
-      commit('ADD_USER_LIST', user)
       dispatch('joinRoom', user)
     })
     socket.on('join', (users) => {
@@ -72,7 +73,8 @@ const mutations = {
       state.chatUsers = users
     } else {
       const online = users.map((item) => item.username)
-      state.chatUsers.forEach((item) => {
+      const users = state.chatUsers
+      users.forEach((item) => {
         if (online.includes(item.username)) {
           item.status = 1
         } else {
@@ -92,9 +94,13 @@ const mutations = {
     }
   },
   UPDATE_USER_STATUS(state, { clientId, status }) {
-    console.log(state.chatUsers, clientId)
-    const user = state.chatUsers.find((item) => item.clientId === clientId)
-    if (user) user.status = status
+    const index = state.chatUsers.findIndex((item) => item.clientId === clientId)
+    if (index) {
+      const user = state.chatUsers[index]
+      console.log(user)
+      user.status = status
+      Vue.set(state.chatUsers, index, user)
+    }
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)

@@ -17,6 +17,7 @@ const bytes = (byte) => {
   return humanReadableFileSize(byte)
 }
 
+
 const toggleFullScreen = () => {
   let doc = window.document
   let docEl = doc.documentElement
