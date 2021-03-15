@@ -46,8 +46,7 @@ export default {
     publicId: {
       type: [String, Number]
     },
-    unread: Number,
-    online: Boolean
+    unread: Number
   },
 
   data() {
@@ -62,20 +61,15 @@ export default {
     imgStyles() {
       return {
         height: convertToUnit(this.size),
-
         minWidth: convertToUnit(this.size),
-
         width: convertToUnit(this.size)
       }
     },
 
     charStyles() {
       const temp = Object.keys(colors)
-
       const key = temp[Math.floor(Math.random() * temp.length)]
-
       const color = colors[key].base
-
       return {
         height: convertToUnit(this.size),
         minWidth: convertToUnit(this.size),

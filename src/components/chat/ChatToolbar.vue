@@ -55,9 +55,12 @@
       <v-menu offset-y origin="center center" transition="scale-transition">
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
-            <v-avatar size="30px">
-              <img :src="getAvatar" :alt="getUsername" />
-            </v-avatar>
+            <c-avatar
+              :size="36"
+              :username="getUsername"
+              :src="getAvatar"
+              :status="getUserStatus"
+            />
           </v-btn>
         </template>
         <v-list class="pa-0">
@@ -85,12 +88,14 @@
 </template>
 <script>
 import NotificationList from '@/components/widgets/list/NotificationList'
+import CAvatar from '@/components/avatar/CAvatar'
 import Util from '@/util'
 import { mapGetters } from 'vuex'
 export default {
   name: 'ChatToolbar',
   components: {
-    NotificationList
+    NotificationList,
+    CAvatar
   },
   data() {
     return {
@@ -117,7 +122,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getAvatar', 'getUsername']),
+    ...mapGetters(['getAvatar', 'getUsername', 'getUserStatus']),
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },

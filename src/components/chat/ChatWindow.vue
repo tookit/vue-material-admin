@@ -22,6 +22,7 @@
       <vue-perfect-scrollbar
         class="chat_window__scrollbar grey lighten-5"
         :style="computeHeight"
+        ref="scrollbar"
       >
         <v-card-text class="messaging_list pa-3">
           <template v-for="(item, index) in getMessages">
@@ -33,6 +34,7 @@
             />
           </template>
         </v-card-text>
+        <div id="#messageBottom"></div>
       </vue-perfect-scrollbar>
     </v-card>
     <div class="chat_window__input">
@@ -84,6 +86,15 @@ export default {
     computeHeight() {
       return {
         height: this.height || ''
+      }
+    }
+  },
+  watch: {
+    'getMessages.length': {
+      handler() {
+        const scrollbar = this.$refs.scrollbar.$el
+        scrollbar.scrollTop = scrollbar.scrollHeight - scrollbar.clientHeight
+        // goTo()
       }
     }
   },

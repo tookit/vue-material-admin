@@ -55,9 +55,12 @@
       <v-menu offset-y origin="center center" transition="scale-transition">
         <template v-slot:activator="{ on }">
           <v-btn icon large text slot="activator" v-on="on">
-            <v-avatar size="30px">
-              <img :src="getAvatar" :alt="getUsername" />
-            </v-avatar>
+            <c-avatar
+              :size="36"
+              :username="getUsername"
+              :src="getAvatar"
+              status="online"
+            />
           </v-btn>
         </template>
         <v-list class="pa-0">
@@ -93,12 +96,14 @@
 </template>
 <script>
 import NotificationList from '@/components/widgets/list/NotificationList'
+import CAvatar from '@/components/avatar/CAvatar'
 import Util from '@/util'
 import { mapGetters } from 'vuex'
 export default {
   name: 'AppToolbar',
   components: {
-    NotificationList
+    NotificationList,
+    CAvatar
   },
   props: {},
   data() {

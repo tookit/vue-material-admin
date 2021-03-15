@@ -1,34 +1,34 @@
 <template>
   <v-navigation-drawer app>
     <v-btn dark height="64" block color="#017be8" tile>Chat</v-btn>
-    <v-list class="media-list pa-0">
-      <template v-for="item in items">
-        <template v-if="item.heading">
-          <v-subheader :key="item.heading">
-            {{ item.heading }}
-          </v-subheader>
-          <v-divider :key="'d' + item.heading" />
-        </template>
-        <template v-else>
-          <v-list-item link exact :key="item.text" :to="item.to">
-            <v-list-item-icon v-if="item.icon">
-              <svg class="icon" aria-hidden="true">
-                <use v-bind:xlink:href="getIconByExt(item.icon)"></use>
-              </svg>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
+    <v-list two-line class="chat_user__list pa-0">
+      <template v-for="item in getChatUsers">
+        <v-list-item :key="item.username">
+          <v-list-item-avatar>
+            <c-avatar
+              :size="32"
+              :username="item.username"
+              :status="item.status ? 'online' : 'offline'"
+              online
+            />
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.username }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider :key="'d' + item.username" />
       </template>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
+import CAvatar from '@/components/avatar/CAvatar'
 import { mapGetters } from 'vuex'
 export default {
+  components: {
+    CAvatar
+  },
   data() {
     return {
       items: [
@@ -50,7 +50,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt'])
+    ...mapGetters(['getIconByExt', 'getChatUsers'])
   }
 }
 </script>

@@ -5,14 +5,16 @@ const state = {
   expires_in: 3600,
   token_type: 'bearer',
   username: null,
-  avatar: null
+  avatar: null,
+  status: 'online'
 }
 const getters = {
   getAccessToken: (state) => {
     return state.access_token
   },
   getAvatar: (state) => state.avatar,
-  getUsername: (state) => state.username
+  getUsername: (state) => state.username,
+  getUserStatus: (state) => state.status
 }
 const actions = {
   login({ commit, dispatch }, { username, password }) {
@@ -64,6 +66,9 @@ const mutations = {
   SET_LOGIN_PROFILE(state, payload) {
     state.username = payload.username
     state.avatar = payload.avatar
+  },
+  UPDATE_SELF_STATUS(state, status) {
+    state.status = status
   }
 }
 
