@@ -81,8 +81,8 @@ const actions = {
     // commit('UPDATE_USER_LIST', users)
     commit('UPDATE_CLIENT_USER_LIST', users)
   },
-  pushLeave({ commit }, users) {
-    commit('UPDATE_USER_LIST', users)
+  pushLeave({ commit }, clientId) {
+    commit('REMOVE_CLIENT_USERS', clientId)
   },
   joinRoom({ commit }, socket) {
     commit('JOIN_ROOM', socket)
@@ -132,6 +132,9 @@ const mutations = {
   },
   UPDATE_CLIENT_USER_LIST(state, users) {
     state.clientUsers = users // return online users only for demo
+  },
+  REMOVE_CLIENT_USERS(state, clientId) {
+    state.clientUsers = state.clientUsers.filter(item => item.clientId !== clientId)
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
