@@ -1,5 +1,5 @@
 <template>
-  <v-card tile>
+  <v-card tile class="notes">
     <v-toolbar tile flat>
       <v-subheader>Notification</v-subheader>
       <v-spacer />
@@ -7,13 +7,9 @@
     </v-toolbar>
     <v-divider />
     <v-card-text class="pa-0">
-      <v-list two-line dense class="pa-0">
+      <v-list dense class="pa-0 notes_list">
         <template v-for="(item, index) in items">
-          <v-subheader v-if="item.header" :key="item.header">
-            {{ item.header }}
-          </v-subheader>
-          <v-divider v-else-if="item.divider" :key="index"></v-divider>
-          <v-list-item v-else :key="item.title" @click="handleClick">
+          <v-list-item :key="index" @click="handleClick">
             <v-list-item-avatar :color="item.color">
               <v-icon dark>{{ item.icon }}</v-icon>
             </v-list-item-avatar>
@@ -24,6 +20,7 @@
               {{ item.timeLabel }}
             </v-list-item-action>
           </v-list-item>
+          <v-divider :key="'d' + index" />
         </template>
       </v-list>
       <v-divider></v-divider>
@@ -54,3 +51,8 @@ export default {
   }
 }
 </script>
+<style lang="sass" scoped>
+.notes_list
+  max-height: 360px
+  overflow-y: auto
+</style>
