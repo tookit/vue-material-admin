@@ -27,7 +27,7 @@
         <v-card-text class="messaging_list pa-3">
           <template v-for="(item, index) in getMessages">
             <chat-messaging-item
-              :username="item.clientId"
+              :username="item.username"
               :text="item.text"
               :createdAt="item.createdAt"
               :key="index"
@@ -92,8 +92,11 @@ export default {
   watch: {
     'getMessages.length': {
       handler() {
-        const scrollbar = this.$refs.scrollbar.$el
-        scrollbar.scrollTop = scrollbar.scrollHeight - scrollbar.clientHeight
+        this.$nextTick(() => {
+          const scrollbar = this.$refs.scrollbar.$el
+          scrollbar.scrollTop = scrollbar.scrollHeight
+        })
+
         // goTo()
       }
     }

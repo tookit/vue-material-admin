@@ -2,7 +2,7 @@
   <v-list two-line class="online_user pa-0">
     <v-subheader>Users</v-subheader>
     <v-divider />
-    <template v-for="item in getChatUsers">
+    <template v-for="item in getClientUsers">
       <v-list-item :key="item.username" @click="handleJoinChat">
         <v-list-item-avatar>
           <c-avatar
@@ -15,6 +15,7 @@
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>{{ item.username }}</v-list-item-title>
+          <v-list-item-subtitle> {{ item.ip }} </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider :key="'d' + item.username" />
@@ -33,7 +34,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['getChatUsers'])
+    ...mapGetters(['getClientUsers'])
   },
   methods: {
     handleJoinChat() {

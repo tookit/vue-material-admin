@@ -19,10 +19,14 @@ const getters = {
   getMessages: (state) => state.messages,
   getChatUsers: (state) => state.chatUsers,
   getClientUsers: (state) => {
-    return state.clientUsers.map((item) => {
-      item.master = item.clientId === state.clientId
-      return item
-    })
+    return state.clientUsers
+      .map((item) => {
+        item.master = item.clientId === state.clientId
+        return item
+      })
+      .sort((a, b) => {
+        return parseInt(a.master) > parseInt(b.master)
+      })
   },
   getStatusByName: (state) => (username) => {
     const user = state.chatUsers.find((item) => item.username === username)
