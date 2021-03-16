@@ -20,12 +20,15 @@
         <template v-slot:activator="{ on }">
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
-              <span slot="badge">{{ notificatons.length }}</span>
+              <span slot="badge">{{ getNotification.length }}</span>
               <v-icon medium>mdi-bell</v-icon>
             </v-badge>
           </v-btn>
         </template>
-        <notification-list :items="notificatons" />
+        <notification-list
+          v-show="getNotification.length > 0"
+          :items="getNotification"
+        />
       </v-menu>
       <v-menu
         offset-y
@@ -127,37 +130,11 @@ export default {
           title: 'Logout',
           click: this.handleLogut
         }
-      ],
-      notificatons: [
-        {
-          title: 'New user registered',
-          color: 'light-green',
-          icon: 'mdi-account-circle',
-          timeLabel: 'Just now'
-        },
-        {
-          title: 'New order received',
-          color: 'light-blue',
-          icon: 'mdi-cart-plus',
-          timeLabel: '2 min ago'
-        },
-        {
-          title: 'New payment made',
-          color: 'cyan',
-          icon: 'mdi-receipt',
-          timeLabel: '24 min ago'
-        },
-        {
-          title: 'New message from Michael',
-          color: 'red',
-          icon: 'mdi-email',
-          timeLabel: '1 hour ago'
-        }
       ]
     }
   },
   computed: {
-    ...mapGetters(['getAvatar', 'getUsername']),
+    ...mapGetters(['getAvatar', 'getUsername', 'getNotification']),
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },

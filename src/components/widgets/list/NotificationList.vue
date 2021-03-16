@@ -1,7 +1,9 @@
 <template>
   <v-card tile>
-    <v-toolbar>
+    <v-toolbar tile flat>
       <v-subheader>Notification</v-subheader>
+      <v-spacer />
+      <v-btn text @click="handleClearNotification">clear</v-btn>
     </v-toolbar>
     <v-divider />
     <v-card-text class="pa-0">
@@ -45,6 +47,9 @@ export default {
   methods: {
     handleClick: (e) => {
       console.log(e)
+    },
+    handleClearNotification() {
+      this.$store.dispatch('clearNotificaton')
     }
   }
 }

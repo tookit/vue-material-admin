@@ -57,7 +57,8 @@ const actions = {
     commit('SEND_MESSAGE', message)
     commit('UPDATE_MESSAGE_LIST', message)
   },
-  pushJoin({ commit }, users) {
+  pushJoin({ commit, dispatch }, users) {
+    dispatch('updateNotification', 'New Client logined.')
     commit('UPDATE_USER_LIST', users)
   },
   pushLeave({ commit }, users) {

@@ -20,12 +20,15 @@
         <template v-slot:activator="{ on }">
           <v-btn icon text slot="activator" v-on="on">
             <v-badge color="red" overlap>
-              <span slot="badge">3</span>
+              <span slot="badge">{{ getNotification.length }}</span>
               <v-icon medium>mdi-bell</v-icon>
             </v-badge>
           </v-btn>
         </template>
-        <notification-list></notification-list>
+        <notification-list
+          v-show="getNotification.length > 0"
+          :items="getNotification"
+        />
       </v-menu>
       <v-menu
         offset-y
@@ -117,7 +120,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getAvatar', 'getUsername']),
+    ...mapGetters(['getAvatar', 'getUsername', 'getNotification']),
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav
     },
