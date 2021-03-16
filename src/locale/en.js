@@ -41,7 +41,8 @@ export default {
     all: 'All',
     dir: 'Directory',
     element: 'Element',
-    cascader: 'Cascader'
+    cascader: 'Cascader',
+    chat: 'Chat'
   },
   //media
   media: 'Media',

@@ -77,14 +77,33 @@ export const protectedRoute = [
         meta: {
           title: 'calendar',
           group: 'apps',
-          icon: 'mdi-calendar-check',
-          new: true
+          icon: 'mdi-calendar-check'
         },
         name: 'calendar',
         props: (route) => ({
           type: route.query.type
         }),
         component: () => import('@/views/Calendar.vue')
+      },
+      {
+        path: '/chat',
+        meta: {
+          title: 'chat',
+          group: 'apps',
+          icon: 'mdi-chat',
+          new: true
+        },
+        redirect: '/chat/messaging'
+      },
+      {
+        path: '/media',
+        meta: {
+          title: 'chat',
+          group: 'apps',
+          icon: 'mdi-image',
+          new: true
+        },
+        redirect: '/media/file'
       },
 
       //element
@@ -99,7 +118,7 @@ export const protectedRoute = [
         children: [
           {
             path: '/element/cascader',
-            name: 'forms.basic',
+            name: 'element.cascader',
             meta: {
               title: 'cascader',
               icon: 'mdi-alpha-c'
@@ -342,7 +361,7 @@ export const protectedRoute = [
       },
       {
         path: '/media/:type',
-        name: 'media.index',
+        name: 'media.type',
         meta: {
           title: 'media manager',
           icon: 'mdi-view'
