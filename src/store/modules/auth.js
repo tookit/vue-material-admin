@@ -46,11 +46,13 @@ const actions = {
       data: data
     }).then((resp) => {
       commit('SET_LOGIN', resp)
+      dispatch('closeConnection')
       dispatch('fetchProfile')
       return resp
     })
   },
-  logout({ commit }) {
+  logout({ commit, dispatch }) {
+    dispatch('closeConnection')
     commit('SET_ACCESS_TOKEN', null)
   },
   // get current login user info

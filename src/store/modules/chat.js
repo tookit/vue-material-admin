@@ -44,8 +44,13 @@ const actions = {
       dispatch('pushLeave', clientId)
     })
   },
+  closeConnection({ commit, state }) {
+    if (state.socket) {
+      state.socket.close()
+      commit('CLOSE_CONNECT')
+    }
+  },
   pushMessage({ commit }, text) {
-    console.log(text)
     commit('UPDATE_MESSAGE_LIST', text)
   },
   sendMessage({ commit }, message) {
@@ -69,6 +74,10 @@ const mutations = {
     state.socket = socket
     state.clientId = socket.id
     state.clients.add(socket.id)
+  },
+  CLOSE_CONNECT(state) {
+    state.socket = null
+    state.clientId = null
   },
   UPDATE_MESSAGE_LIST(state, message) {
     state.messages.push(message)
