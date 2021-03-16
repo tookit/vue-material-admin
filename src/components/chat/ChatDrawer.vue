@@ -1,35 +1,41 @@
 <template>
-  <div>
+  <div class="chat_drawer">
     <v-navigation-drawer app>
       <v-btn dark height="64" block color="#017be8" tile>Chat</v-btn>
-      <v-list two-line class="chat_user__list pa-0">
-        <v-subheader>Users</v-subheader>
-        <v-divider />
-        <v-list-item-group v-model="selectedItem">
-          <template v-for="item in getClientUsers">
-            <v-list-item
-              :key="item.username"
-              @click="handleViewProfile(item)"
-              :value="item"
-            >
-              <v-list-item-avatar>
-                <c-avatar
-                  :size="32"
-                  :username="item.username"
-                  :status="item.status === 1 ? 'online' : 'offline'"
-                  :color="computeColor(item)"
-                  online
-                />
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title>{{ item.username }}</v-list-item-title>
-                <v-list-item-subtitle> {{ item.ip }} </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider :key="'d' + item.username" />
-          </template>
-        </v-list-item-group>
-      </v-list>
+      <vue-perfect-scrollbar
+        class="chat_drawer__scrollbar grey lighten-5"
+        :style="computeHeight"
+        ref="scrollbar"
+      >
+        <v-list two-line class="chat_user__list pa-0">
+          <v-subheader>Users</v-subheader>
+          <v-divider />
+          <v-list-item-group v-model="selectedItem">
+            <template v-for="item in getClientUsers">
+              <v-list-item
+                :key="item.username"
+                @click="handleViewProfile(item)"
+                :value="item"
+              >
+                <v-list-item-avatar>
+                  <c-avatar
+                    :size="32"
+                    :username="item.username"
+                    :status="item.status === 1 ? 'online' : 'offline'"
+                    :color="computeColor(item)"
+                    online
+                  />
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.username }}</v-list-item-title>
+                  <v-list-item-subtitle> {{ item.ip }} </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider :key="'d' + item.username" />
+            </template>
+          </v-list-item-group>
+        </v-list>
+      </vue-perfect-scrollbar>
     </v-navigation-drawer>
     <v-navigation-drawer
       v-model="showProfile"
@@ -91,10 +97,12 @@
 
 <script>
 import CAvatar from '@/components/avatar/CAvatar'
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import { mapGetters } from 'vuex'
 export default {
   components: {
-    CAvatar
+    CAvatar,
+    VuePerfectScrollbar
   },
   data() {
     return {
@@ -103,7 +111,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt', 'getClientUsers', 'getClientId'])
+    ...mapGetters(['getIconByExt', 'getClientUsers', 'getClientId']),
+    computeHeight() {
+      return {
+        height: this.height || ''
+      }
+    }
   },
   methods: {
     computeColor(item) {
@@ -118,15 +131,13 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.center-align
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translateY(-50%) translateX(-50%)
-.icon
-  width: 42px
-  height: 42px
-  vertical-align: -0.15em
-  fill: currentColor
-  overflow: hidden
+.chat_drawer
+  &__scrollbar
+    height: calc(100vh - 64px - 64px) !important
+  .icon
+    width: 42px
+    height: 42px
+    vertical-align: -0.15em
+    fill: currentColor
+    overflow: hidden
 </style>
