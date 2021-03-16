@@ -27,7 +27,7 @@
         <v-card-text class="messaging_list pa-3">
           <template v-for="(item, index) in getMessages">
             <chat-messaging-item
-              :username="item.username"
+              :username="item.clientId"
               :text="item.text"
               :createdAt="item.createdAt"
               :key="index"
@@ -82,7 +82,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getMessages', 'getUsername']),
+    ...mapGetters(['getMessages']),
     computeHeight() {
       return {
         height: this.height || ''
@@ -101,11 +101,7 @@ export default {
   methods: {
     handleSendMessage() {
       if (this.message) {
-        this.$store.dispatch('sendMessage', {
-          username: this.getUsername,
-          text: this.message,
-          createdAt: Date.now()
-        })
+        this.$store.dispatch('sendMessage', this.message)
         this.message = null
       }
     }

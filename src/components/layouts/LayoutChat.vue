@@ -7,7 +7,7 @@
     </v-main>
     <v-dialog v-model="showDialog" persistent width="600">
       <v-card>
-        <v-tabs v-model="defaultTab">
+        <v-tabs v-model="defaultTab" background-color="primary" dark>
           <v-tab v-for="(tab, key) in tabs" :key="key" :href="'#' + tab.value">
             {{ tab.text }}
           </v-tab>
@@ -43,6 +43,7 @@ export default {
   },
   data() {
     return {
+      showDialog: false,
       defaultTab: 'register',
       tabs: [
         {
@@ -57,13 +58,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getUsername']),
-    showDialog: {
-      get: function() {
-        return this.getUsername === 'admin'
-      },
-      set: function(val) {}
-    }
+    ...mapGetters(['getUsername'])
   },
   methods: {
     handleRegisterSucess() {

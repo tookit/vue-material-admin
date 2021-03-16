@@ -1,19 +1,14 @@
 <template>
   <div class="messaging_item" :class="rowReverse">
     <div class="messaging_item__avatar">
-      <c-avatar
-        :size="36"
-        :username="username"
-        :status="getStatusByName(username)"
-        online
-      />
+      <c-avatar :size="36" :username="username" status="online" />
     </div>
     <div class="messaging_item__body">
       <div class="pa-2">
         {{ text }}
       </div>
       <div class="caption px-2 text--secondary">
-        {{ createdAt }}
+        {{ createdAt | formateDate }}
       </div>
     </div>
   </div>
@@ -21,6 +16,7 @@
 
 <script>
 import CAvatar from '@/components/avatar/CAvatar'
+import { format } from 'date-fns'
 import { mapGetters } from 'vuex'
 export default {
   props: {
@@ -35,6 +31,11 @@ export default {
   data() {
     return {}
   },
+  filters: {
+    formateDate(val) {
+      return format(val, 'yyyy-MM-dd H:mm:s')
+    }
+  },
   computed: {
     ...mapGetters([
       'getAvatar',
@@ -43,7 +44,7 @@ export default {
       'getStatusByName'
     ]),
     isMyOwn() {
-      return this.username === this.getUsername
+      return this.username === this.getClientId
     },
     rowReverse() {
       return {

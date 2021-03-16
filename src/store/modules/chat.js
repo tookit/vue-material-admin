@@ -7,7 +7,9 @@ const state = {
   clientId: null,
   messages: [],
   clients: new Set(),
-  // {username: '', status: '', clientId}
+  // user clientId as username
+  clientUsers: [],
+  // {username: '', status: '', clientId, 'device'}
   chatUsers: []
 }
 
@@ -16,6 +18,12 @@ const getters = {
   getClientId: (state) => state.clientId,
   getMessages: (state) => state.messages,
   getChatUsers: (state) => state.chatUsers,
+  getClientUsers: (state) => {
+    return state.clientUsers.map((item) => {
+      item.master = item.clientId === state.clientId
+      return item
+    })
+  },
   getStatusByName: (state) => (username) => {
     const user = state.chatUsers.find((item) => item.username === username)
     return user.status ? 'online' : 'offline'
@@ -29,16 +37,16 @@ const actions = {
       reconnectionAttempts: 5
     })
     socket.on('connect', () => {
-      const user = { username: rootState.auth.username }
+      // const user = { username: rootState.auth.username }
       commit('INIT_CONNECT', socket)
-      commit('UPDATE_SELF_STATUS', 'online')
-      dispatch('joinRoom', user)
+      // commit('UPDATE_SELF_STATUS', 'online')
+      dispatch('joinRoom', socket)
     })
     socket.on('join', (users) => {
       dispatch('pushJoin', users)
     })
-    socket.on('message', ({ username, text, createAt }) => {
-      dispatch('pushMessage', { username, text, createAt })
+    socket.on('message', ({ username, text, createdAt }) => {
+      dispatch('pushMessage', { username, text, createdAt })
     })
     socket.on('leave', (clientId) => {
       dispatch('pushLeave', clientId)
@@ -50,22 +58,30 @@ const actions = {
       commit('CLOSE_CONNECT')
     }
   },
-  pushMessage({ commit }, text) {
+  pushMessage({ commit, dispatch }, text) {
+    console.log(text)
+    dispatch('updateNotification', 'New message')
     commit('UPDATE_MESSAGE_LIST', text)
   },
-  sendMessage({ commit }, message) {
+  sendMessage({ commit, state }, text) {
+    const message = {
+      text: text,
+      clientId: state.clientId,
+      username: state.clientId,
+      createdAt: Date.now()
+    }
     commit('SEND_MESSAGE', message)
     commit('UPDATE_MESSAGE_LIST', message)
   },
-  pushJoin({ commit, dispatch }, users) {
-    dispatch('updateNotification', 'New Client logined.')
-    commit('UPDATE_USER_LIST', users)
+  pushJoin({ commit }, users) {
+    // commit('UPDATE_USER_LIST', users)
+    commit('UPDATE_CLIENT_USER_LIST', users)
   },
   pushLeave({ commit }, users) {
     commit('UPDATE_USER_LIST', users)
   },
-  joinRoom({ commit }, { username }) {
-    commit('JOIN_ROOM', { username })
+  joinRoom({ commit }, socket) {
+    commit('JOIN_ROOM', socket)
   }
 }
 
@@ -97,7 +113,6 @@ const mutations = {
       })
     }
   },
-
   UPDATE_USER_STATUS(state, { clientId, status }) {
     const index = state.chatUsers.findIndex(
       (item) => item.clientId === clientId
@@ -111,12 +126,15 @@ const mutations = {
       }
     }
   },
+  UPDATE_CLIENT_USER_LIST(state, users) {
+    state.clientUsers = users // return online users only for demo
+  },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
   },
-  JOIN_ROOM(state, { username }) {
+  JOIN_ROOM(state, socket) {
     state.socket.emit('join', {
-      username: username,
+      username: state.clientId,
       clientId: state.clientId,
       status: 1
     })

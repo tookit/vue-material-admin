@@ -4,19 +4,20 @@
     <v-list two-line class="chat_user__list pa-0">
       <v-subheader>Users</v-subheader>
       <v-divider />
-      <template v-for="item in getChatUsers">
+      <template v-for="item in getClientUsers">
         <v-list-item :key="item.username">
           <v-list-item-avatar>
             <c-avatar
               :size="32"
               :username="item.username"
               :status="item.status === 1 ? 'online' : 'offline'"
-              :color="item.color"
+              :color="computeColor(item)"
               online
             />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>{{ item.username }}</v-list-item-title>
+            <v-list-item-subtitle> {{ item.ip }} </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-divider :key="'d' + item.username" />
@@ -53,7 +54,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt', 'getChatUsers'])
+    ...mapGetters(['getIconByExt', 'getClientUsers', 'getClientId'])
+  },
+  methods: {
+    computeColor(item) {
+      return item.master ? '#2196f3' : 'grey'
+    }
   }
 }
 </script>
