@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="primary" dark app>
+  <v-app-bar color="primary" dark app clipped-right>
     <v-app-bar-nav-icon @click="handleDrawerToggle" />
     <v-spacer />
     <v-toolbar-items>

@@ -1,29 +1,31 @@
 <template>
-  <v-navigation-drawer app>
-    <v-btn dark height="64" block color="#017be8" tile>Media Manager</v-btn>
-    <v-list class="media-list pa-0">
-      <template v-for="item in items">
-        <template v-if="item.heading">
-          <v-subheader :key="item.heading">
-            {{ item.heading }}
-          </v-subheader>
-          <v-divider :key="'d' + item.heading" />
+  <div class="media_drawer">
+    <v-navigation-drawer app>
+      <v-btn dark height="64" block color="#017be8" tile>Media Manager</v-btn>
+      <v-list class="media-list pa-0">
+        <template v-for="item in items">
+          <template v-if="item.heading">
+            <v-subheader :key="item.heading">
+              {{ item.heading }}
+            </v-subheader>
+            <v-divider :key="'d' + item.heading" />
+          </template>
+          <template v-else>
+            <v-list-item link exact :key="item.text" :to="item.to">
+              <v-list-item-icon v-if="item.icon">
+                <svg class="icon" aria-hidden="true">
+                  <use v-bind:xlink:href="getIconByExt(item.icon)"></use>
+                </svg>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
         </template>
-        <template v-else>
-          <v-list-item link exact :key="item.text" :to="item.to">
-            <v-list-item-icon v-if="item.icon">
-              <svg class="icon" aria-hidden="true">
-                <use v-bind:xlink:href="getIconByExt(item.icon)"></use>
-              </svg>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
-      </template>
-    </v-list>
-  </v-navigation-drawer>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>

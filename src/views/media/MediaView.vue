@@ -39,7 +39,7 @@
                   <template v-for="(item, i) in items">
                     <v-list-item
                       :key="i"
-                      :value="item.path"
+                      :value="item"
                       @click="handleSelectItem(item)"
                       two-line
                       exact
@@ -165,6 +165,54 @@
         </v-row>
       </v-container>
     </template>
+    <v-navigation-drawer
+      v-model="showRight"
+      app
+      right
+      hide-overlay
+      clipped
+      clipped-right
+    >
+      <div v-if="selectedItem">
+        <v-toolbar flat class="border-bottom">
+          <v-subheader>{{ selectedItem.path }}</v-subheader>
+          <v-spacer />
+          <v-btn icon @click="showRight = false"
+            ><v-icon>mdi-close</v-icon></v-btn
+          >
+        </v-toolbar>
+        <div>
+          <v-card flat>
+            <template
+              v-if="
+                selectedItem.type === 'file' && selectedItem.extension === 'png'
+              "
+            >
+              <v-img :src="item.url" height="200px"> </v-img>
+            </template>
+            <template v-else>
+              <v-img height="200px">
+                <svg class="icon icon-64 center-align" aria-hidden="true">
+                  <use v-bind:xlink:href="computeIcon(selectedItem)"></use>
+                </svg>
+              </v-img>
+            </template>
+          </v-card>
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-subtitle v-text="selectedItem.basename" />
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-subtitle v-text="selectedItem.dirname || '/'" />
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-subtitle v-text="computeSize(selectedItem.size)" />
+            </v-list-item>
+          </v-list>
+        </div>
+      </div>
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -173,10 +221,12 @@ import TooltipMixin from '@/mixins/Tooltip'
 import { humanReadableFileSize } from 'vuetify/lib/util/helpers'
 import { mapGetters } from 'vuex'
 export default {
+  name: 'MediaView',
   components: {},
   mixins: [TooltipMixin],
   data() {
     return {
+      showRight: false,
       viewMode: 'list',
       selectedItem: null,
       icons: {
@@ -282,6 +332,8 @@ export default {
       if (item.type === 'dir') {
         this.$router.push(this.computePath(item))
       } else {
+        this.selectedItem = item
+        this.showRight = true
         // view file
       }
     }
