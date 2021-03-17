@@ -98,7 +98,7 @@ export const protectedRoute = [
       {
         path: '/media',
         meta: {
-          title: 'chat',
+          title: 'media',
           group: 'apps',
           icon: 'mdi-image',
           new: true

@@ -46,19 +46,15 @@
     <v-list class="transparent">
       <v-list-item v-for="item in forecast" :key="item.day">
         <v-list-item-title>{{ item.day }}</v-list-item-title>
-
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
-
         <v-list-item-subtitle class="text-right">
           {{ item.temp }}
         </v-list-item-subtitle>
       </v-list-item>
     </v-list>
-
     <v-divider></v-divider>
-
     <v-card-actions>
       <v-btn text>
         Full Report

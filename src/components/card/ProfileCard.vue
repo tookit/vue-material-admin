@@ -1,18 +1,19 @@
 <template>
-  <v-card>
-    <v-img src="/static/people/man/m1.jpg" height="390">
-      <v-layout column class="media ma-0">
+  <v-card tile>
+    <v-img src="/static/man.jpeg" height="380">
+      <div class="d-flex flex-column fill-height">
         <v-card-title>
-          <v-btn dark icon> <v-icon>mdi-chevron-left</v-icon> </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn dark icon class="mr-3"> <v-icon>mdi-edit</v-icon> </v-btn>
+          <v-btn dark icon> <v-icon>mdi-heart</v-icon> </v-btn>
+          <v-spacer />
           <v-btn dark icon> <v-icon>mdi-dots-vertical</v-icon> </v-btn>
         </v-card-title>
-        <v-spacer></v-spacer>
-        <v-card-title class="white--text pl-5 pt-5">
-          <div class="display-1 pl-5 pt-5">Ali Conners</div>
+        <v-spacer />
+        <v-card-title>
+          <div class="white--text">
+            Ali Conners
+          </div>
         </v-card-title>
-      </v-layout>
+      </div>
     </v-img>
     <v-list two-line class="pa-0">
       <v-list-item href="#">
