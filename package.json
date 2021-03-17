@@ -21,12 +21,10 @@
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.6.2",
     "socket.io-client": "^4.0.0",
-    "vee-validate": "^2.2.14",
     "vue": "^2.6.10",
-    "vue-api-query": "^1.5.2",
     "vue-perfect-scrollbar": "^0.2.1",
     "vue-router": "^3.4.9",
-    "vuetify": "^2.4.6",
+    "vuetify": "^2.4.7",
     "vuetify-cascader": "^0.2.1",
     "vuex": "^3.1.1",
     "vuex-persist": "^2.1.2"

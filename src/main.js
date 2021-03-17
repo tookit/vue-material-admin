@@ -7,9 +7,6 @@ import './theme/default.sass'
 
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
-import axios from 'axios'
-import { Model } from 'vue-api-query'
-Model.$http = axios
 import '@mdi/font/css/materialdesignicons.css'
 
 Vue.config.productionTip = false
