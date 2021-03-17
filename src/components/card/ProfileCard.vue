@@ -66,5 +66,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    username: String,
+    phone: String,
+    email: String,
+    address: String
+  }
+}
 </script>
