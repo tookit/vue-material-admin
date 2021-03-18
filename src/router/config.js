@@ -274,49 +274,49 @@ export const protectedRoute = [
         ]
       },
       //email
-      {
-        path: '/mail',
-        component: () => import('@/views/mail/Index.vue'),
-        meta: {
-          title: 'mail',
-          icon: 'mdi-email',
-          group: 'email'
-        },
-        redirect: '/mail/inbox',
-        children: [
-          {
-            path: '/mail/:category',
-            name: 'mail.category',
-            props: true,
-            meta: {
-              title: 'inbox',
-              icon: 'mdi-view-list',
-              hiddenInMenu: true
-            },
-            component: () => import('@/views/mail/Inbox.vue')
-          },
-          {
-            path: '/mail/inbox',
-            name: 'mail.inbox',
-            meta: {
-              title: 'inbox',
-              icon: 'mdi-view-list'
-            },
-            component: () => import('@/views/mail/Inbox.vue')
-          },
-          {
-            path: '/mail/inbox/:uuid',
-            name: 'inbox',
-            props: true,
-            meta: {
-              title: 'mail',
-              icon: 'mdi-view-list',
-              hiddenInMenu: true
-            },
-            component: () => import('@/views/mail/Read.vue')
-          }
-        ]
-      },
+      // {
+      //   path: '/mail',
+      //   component: () => import('@/views/mail/Index.vue'),
+      //   meta: {
+      //     title: 'mail',
+      //     icon: 'mdi-email',
+      //     group: 'email'
+      //   },
+      //   redirect: '/mail/inbox',
+      //   children: [
+      //     {
+      //       path: '/mail/:category',
+      //       name: 'mail.category',
+      //       props: true,
+      //       meta: {
+      //         title: 'inbox',
+      //         icon: 'mdi-view-list',
+      //         hiddenInMenu: true
+      //       },
+      //       component: () => import('@/views/mail/Inbox.vue')
+      //     },
+      //     {
+      //       path: '/mail/inbox',
+      //       name: 'mail.inbox',
+      //       meta: {
+      //         title: 'inbox',
+      //         icon: 'mdi-view-list'
+      //       },
+      //       component: () => import('@/views/mail/Inbox.vue')
+      //     },
+      //     {
+      //       path: '/mail/inbox/:uuid',
+      //       name: 'inbox',
+      //       props: true,
+      //       meta: {
+      //         title: 'mail',
+      //         icon: 'mdi-view-list',
+      //         hiddenInMenu: true
+      //       },
+      //       component: () => import('@/views/mail/Read.vue')
+      //     }
+      //   ]
+      // },
 
       {
         path: '/changelog',

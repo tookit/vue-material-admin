@@ -219,7 +219,6 @@
 <script>
 import API from '@/api'
 import EChart from '@/components/chart/echart'
-
 import Material from 'vuetify/es5/util/colors'
 import BoxChart from '@/components/chart/echart/BoxChart'
 import ProfileCard from '@/components/card/ProfileCard'
