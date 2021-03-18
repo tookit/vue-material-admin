@@ -109,7 +109,6 @@
 
 <script>
 import TooltipMixin from '@/mixins/Tooltip'
-import { fetchUsers } from '@/api/service'
 import CAvatar from '@/components/avatar/CAvatar'
 
 export default {
@@ -200,7 +199,8 @@ export default {
     fetchRecords(query) {
       this.loadingItems = true
       this.items = []
-      return fetchUsers(query)
+      return this.$store
+        .dispatch('fetchUser', query)
         .then(({ data, meta }) => {
           this.items = data
           this.serverItemsLength = meta.total

@@ -390,14 +390,6 @@ export const protectedRoute = [
         name: 'ChatMessaging',
         props: true,
         component: () => import('@/views/chat/ChatMessaging.vue')
-      },
-      {
-        path: '/chat/contact/:uuid?',
-        meta: {
-          public: true
-        },
-        name: 'ChatContact',
-        component: () => import('@/views/chat/ChatContact.vue')
       }
     ]
   }

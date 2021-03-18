@@ -23,7 +23,7 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
-      <div class="headline">{{ subTitle }}</div>
+      <div class="subheading mr-2">{{ subTitle }}</div>
       <div class="caption">{{ caption }}</div>
     </v-card-actions>
   </v-card>
@@ -41,5 +41,3 @@ export default {
   }
 }
 </script>
-
-<style></style>

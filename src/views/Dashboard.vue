@@ -4,7 +4,7 @@
       <v-row>
         <!-- mini statistic start -->
         <v-col :cols="12" :sm="6" :lg="3">
-          <mini-statistic
+          <mini-statistic-card
             icon="mdi-facebook"
             title="100+"
             sub-title="Likes"
@@ -12,7 +12,7 @@
           />
         </v-col>
         <v-col :cols="12" :sm="6" :lg="3">
-          <mini-statistic
+          <mini-statistic-card
             icon="mdi-google"
             title="150+"
             sub-title="Connections"
@@ -20,7 +20,7 @@
           />
         </v-col>
         <v-col :cols="12" :sm="6" :lg="3">
-          <mini-statistic
+          <mini-statistic-card
             icon="mdi-twitter"
             title="200+"
             sub-title="Followers"
@@ -28,7 +28,7 @@
           />
         </v-col>
         <v-col :cols="12" :sm="6" :lg="3">
-          <mini-statistic
+          <mini-statistic-card
             icon="mdi-instagram"
             title="50+"
             sub-title="Shots"
@@ -40,7 +40,7 @@
           <v-card tile>
             <v-toolbar flat>
               <v-toolbar-title>Site Traffic</v-toolbar-title>
-              <v-btn icon slot="widget-header-action">
+              <v-btn slot="widget-header-action" icon>
                 <v-icon class="text--secondary">mdi-refresh</v-icon>
               </v-btn>
             </v-toolbar>
@@ -72,7 +72,7 @@
           <v-card tile>
             <v-toolbar flat>
               <v-toolbar-title>Top Location</v-toolbar-title>
-              <v-btn icon slot="widget-header-action">
+              <v-btn slot="widget-header-action" icon>
                 <v-icon class="text--secondary">mdi-refresh</v-icon>
               </v-btn>
             </v-toolbar>
@@ -132,14 +132,14 @@
         </v-col>
         <!-- statistic section -->
         <v-col :lg="4" :cols="12" :sm="12">
-          <linear-statistic
+          <linear-statistic-card
             title="Sales"
             sub-title="Sales increase"
             icon="mdi-trending-up"
             color="success"
             :value="15"
           />
-          <linear-statistic
+          <linear-statistic-card
             class="my-4"
             title="Orders"
             sub-title="Increase"
@@ -147,7 +147,7 @@
             color="pink"
             :value="30"
           />
-          <linear-statistic
+          <linear-statistic-card
             class="my-4"
             title="Revenue"
             sub-title="Revenue increase"
@@ -166,13 +166,13 @@
         </v-col>
         <!-- Circle statistic -->
         <v-col
+          v-for="(item, index) in trending"
+          :key="'c-trending' + index"
           :lg="4"
           :sm="12"
           :cols="12"
-          v-for="(item, index) in trending"
-          :key="'c-trending' + index"
         >
-          <circle-statistic
+          <circle-statistic-card
             :title="item.subheading"
             :sub-title="item.headline"
             :caption="item.caption"
@@ -192,10 +192,10 @@
             <v-card-text>
               <v-timeline align-top dense>
                 <v-timeline-item
-                  :color="item.color"
-                  small
                   v-for="(item, index) in activity"
                   :key="index"
+                  :color="item.color"
+                  small
                 >
                   <v-row class="pt-1">
                     <v-col cols="3">
@@ -219,23 +219,23 @@
 <script>
 import API from '@/api'
 import EChart from '@/components/chart/echart'
-import MiniStatistic from '@/components/widgets/statistic/MiniStatistic'
 import ProfileCard from '@/components/card/ProfileCard'
 import WeatherCard from '@/components/widgets/card/WeatherCard'
 import Material from 'vuetify/es5/util/colors'
 import BoxChart from '@/components/widgets/chart/BoxChart'
-import CircleStatistic from '@/components/widgets/statistic/CircleStatistic'
-import LinearStatistic from '@/components/widgets/statistic/LinearStatistic'
+import MiniStatisticCard from '@/components/card/MiniStatisticCard'
+import CircleStatisticCard from '@/components/card/CircleStatisticCard'
+import LinearStatisticCard from '@/components/card/LinearStatisticCard'
 export default {
   name: 'PageDashboard',
   components: {
-    MiniStatistic,
     ProfileCard,
     WeatherCard,
     EChart,
     BoxChart,
-    CircleStatistic,
-    LinearStatistic
+    MiniStatisticCard,
+    CircleStatisticCard,
+    LinearStatisticCard
   },
   data: () => ({
     color: Material,

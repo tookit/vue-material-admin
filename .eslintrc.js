@@ -4,12 +4,14 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
+  extends: ['plugin:vue/essential', 'plugin:vue/recommended', '@vue/prettier'],
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
     'no-unused-vars': 1,
-    'vue/max-attributes-per-line': 'off'
+    'vue/max-attributes-per-line': 'off',
+    'vue/no-html': 'off',
+    'vue/require-default-prop': 'off'
   },
   parserOptions: {
     parser: 'babel-eslint',

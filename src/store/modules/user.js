@@ -7,6 +7,13 @@ const getters = {}
 
 // actions
 const actions = {
+  fetchUser(context, query) {
+    return request({
+      url: `/acl/user/`,
+      method: 'get',
+      params: query
+    })
+  },
   createUser(context, data) {
     return request({
       url: `/acl/user/`,

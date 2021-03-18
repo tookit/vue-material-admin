@@ -82,15 +82,14 @@ const state = {
 // getters
 const getters = {
   getIconByExt: (state) => (ext) => {
-    const find = state.icons.find(item => item.ext === ext)
+    const find = state.icons.find((item) => item.ext === ext)
     return find ? find.icon : '#icon-weizhi'
   }
 }
 
 // actions
 const actions = {
-  fetchDir({ commit }, query) {
-    console.log(query)
+  fetchDir(context, query) {
     return request({
       url: `/storage/file`,
       method: 'get',
