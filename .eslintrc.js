@@ -10,7 +10,7 @@ module.exports = {
     'no-debugger': 'off',
     'no-unused-vars': 1,
     'vue/max-attributes-per-line': 'off',
-    'vue/no-html': 'off',
+    'vue/no-v-html': 'off',
     'vue/require-default-prop': 'off'
   },
   parserOptions: {

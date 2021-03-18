@@ -339,8 +339,8 @@ import {
   locationData
 } from '@/api/chart'
 import Material from 'vuetify/es5/util/colors'
-import MiniChart from '@/components/widgets/chart/MiniChart'
-import BoxChart from '@/components/widgets/chart/BoxChart'
+import MiniChart from '@/components/chart/echart/MiniChart'
+import BoxChart from '@/components/chart/echart/BoxChart'
 export default {
   components: {
     BoxChart,

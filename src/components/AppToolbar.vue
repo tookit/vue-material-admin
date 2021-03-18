@@ -18,7 +18,7 @@
         transition="scale-transition"
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon text slot="activator" v-on="on">
+          <v-btn slot="activator" icon text v-on="on">
             <v-badge color="red" overlap>
               <span slot="badge">{{ getNotification.length }}</span>
               <v-icon medium>mdi-bell</v-icon>
@@ -37,7 +37,7 @@
         transition="scale-transition"
       >
         <template v-slot:activator="{ on }">
-          <v-btn text slot="activator" v-on="on">
+          <v-btn slot="activator" text v-on="on">
             <v-icon medium>mdi-translate</v-icon>
             <span class="ml-2"> {{ localeText }} </span>
           </v-btn>
@@ -45,10 +45,10 @@
         <v-list>
           <v-list-item-group v-model="$vuetify.lang.current">
             <v-list-item
-              @click="handleChangeLocale(item)"
               v-for="item in availableLanguages"
               :key="item.value"
               :value="item.value"
+              @click="handleChangeLocale(item)"
             >
               <v-list-item-title v-text="item.text" />
             </v-list-item>
@@ -57,7 +57,7 @@
       </v-menu>
       <v-menu offset-y origin="center center" transition="scale-transition">
         <template v-slot:activator="{ on }">
-          <v-btn icon large text slot="activator" v-on="on">
+          <v-btn slot="activator" icon large text v-on="on">
             <c-avatar
               :size="36"
               :username="getUsername"
@@ -69,13 +69,13 @@
         <v-list class="pa-0">
           <v-list-item
             v-for="(item, index) in profileMenus"
+            :key="index"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
-            @click="item.click"
             :disabled="item.disabled"
             :target="item.target"
             rel="noopener"
-            :key="index"
+            @click="item.click"
           >
             <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
@@ -87,18 +87,18 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-    <v-toolbar tag="div" dense slot="extension" color="white" light>
+    <v-toolbar slot="extension" tag="div" dense color="white" light>
       <v-icon>mdi-home</v-icon>
       <v-breadcrumbs :items="breadcrumbs" class="pa-3" />
       <v-spacer></v-spacer>
       <v-btn icon small color="black">
-        <v-icon v-text="'mdi-arrow-left'" @click="handleGoBack" />
+        <v-icon @click="handleGoBack" v-text="'mdi-arrow-left'" />
       </v-btn>
     </v-toolbar>
   </v-app-bar>
 </template>
 <script>
-import NotificationList from '@/components/widgets/list/NotificationList'
+import NotificationList from '@/components/list/NotificationList'
 import CAvatar from '@/components/avatar/CAvatar'
 import Util from '@/util'
 import { mapGetters } from 'vuex'
@@ -170,6 +170,7 @@ export default {
       })
     }
   },
+  created() {},
   methods: {
     handleDrawerToggle() {
       this.$emit('side-icon-click')
@@ -195,8 +196,7 @@ export default {
     handleGoBack() {
       this.$router.go(-1)
     }
-  },
-  created() {}
+  }
 }
 </script>
 

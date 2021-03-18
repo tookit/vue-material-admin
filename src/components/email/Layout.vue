@@ -36,7 +36,7 @@
         transition="scale-transition"
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon large text slot="activator" v-on="on">
+          <v-btn slot="activator" icon large text v-on="on">
             <v-avatar size="32px">
               <img src="https://randomuser.me/api/portraits/men/1.jpg" />
             </v-avatar>
@@ -45,13 +45,13 @@
         <v-list class="pa-0">
           <v-list-item
             v-for="(item, index) in items"
+            :key="index"
             :to="!item.href ? { name: item.name } : null"
             :href="item.href"
-            @click="item.click"
             :disabled="item.disabled"
             :target="item.target"
             rel="noopener"
-            :key="index"
+            @click="item.click"
           >
             <v-list-item-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
@@ -63,7 +63,7 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-navigation-drawer class="mail-drawer" fixed clipped v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" class="mail-drawer" fixed clipped app>
       <div class="layout column pa-3">
         <v-btn large block color="red" dark @click.stop="dialog = true">
           + COMPOSE</v-btn
@@ -71,7 +71,7 @@
       </div>
       <v-list class="mail-list" dense>
         <template v-for="item in menus">
-          <v-layout row v-if="item.heading" align-center :key="item.heading">
+          <v-layout v-if="item.heading" :key="item.heading" row align-center>
             <v-flex xs12>
               <v-subheader v-if="item.heading">
                 {{ item.heading }}

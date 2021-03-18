@@ -1,6 +1,6 @@
 <template>
   <div class="name-card">
-    <v-card tile :color="color" ref="card" :dark="dark" :img="cardBgImage">
+    <v-card ref="card" tile :color="color" :dark="dark" :img="cardBgImage">
       <v-responsive v-if="showTopNav">
         <v-row justify-space-between class="ma-0">
           <v-col xs2> <v-icon color="pink">mdi-heart</v-icon> </v-col>
@@ -12,7 +12,7 @@
       <v-card-text>
         <div class="layout ma-0 align-center" :class="computeCardLayout">
           <v-avatar :size="computeAvatarSize" color="primary">
-            <img :src="avatar.src" :alt="name" v-if="showAvatar" />
+            <img v-if="showAvatar" :src="avatar.src" :alt="name" />
             <span v-else class="white--text headline">{{
               name.charAt(0)
             }}</span>
@@ -25,10 +25,10 @@
       </v-card-text>
     </v-card>
     <v-bottom-navigation
+      v-if="showBottomNav"
       :value="true"
       color="transparent"
       :height="64"
-      v-if="showBottomNav"
     >
       <v-btn text color="teal" value="recent">
         <span>Recent</span>

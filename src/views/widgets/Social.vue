@@ -2,22 +2,22 @@
   <v-container>
     <v-subheader>Mini Card</v-subheader>
     <v-row>
-      <v-col cols="3" v-for="(item, index) in users" :key="'mini' + index">
+      <v-col v-for="(item, index) in users" :key="'mini' + index" cols="3">
         <name-card mini v-bind="item"></name-card>
       </v-col>
     </v-row>
     <v-subheader>Basic Name Card</v-subheader>
     <v-row>
-      <v-col cols="3" v-for="(item, index) in users" :key="'basic' + index">
+      <v-col v-for="(item, index) in users" :key="'basic' + index" cols="3">
         <name-card v-bind="item"></name-card>
       </v-col>
     </v-row>
     <v-subheader>Basic Name Card with top nav</v-subheader>
     <v-row>
       <v-col
-        cols="3"
         v-for="(item, index) in users"
         :key="'basic-top-nav' + index"
+        cols="3"
       >
         <name-card top-nav v-bind="item"></name-card>
       </v-col>
@@ -25,10 +25,10 @@
     <v-subheader>Bottom Nav Name Card</v-subheader>
     <v-row>
       <v-col
-        cols="3"
-        sm12
         v-for="(item, index) in users"
         :key="'bottom-nav' + index"
+        cols="3"
+        sm12
       >
         <name-card bottom-nav v-bind="item"></name-card>
       </v-col>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import NameCard from '@/components/widgets/card/NameCard'
+import NameCard from '@/components/card/NameCard'
 export default {
   components: {
     NameCard

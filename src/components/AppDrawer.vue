@@ -1,9 +1,9 @@
 <template>
   <v-navigation-drawer
+    v-model="drawer"
     app
     class="app-drawer"
     :mini-variant.sync="mini"
-    v-model="drawer"
     :width="drawerWidth"
   >
     <v-toolbar color="primary darken-1" dark>
@@ -56,11 +56,11 @@
                   </v-list-item-content>
                 </template>
                 <v-list-item
-                  :class="drawerWidth === 64 ? 'pl-4' : ''"
                   v-for="subItem in item.children"
-                  :key="subItem.name"
-                  :to="subItem.path"
                   v-show="!subItem.meta.hiddenInMenu"
+                  :key="subItem.name"
+                  :class="drawerWidth === 64 ? 'pl-4' : ''"
+                  :to="subItem.path"
                 >
                   <template v-if="drawerWidth === 64">
                     <v-list-item-icon>
@@ -88,9 +88,9 @@
             </template>
             <template v-else>
               <v-list-item
+                v-show="!item.meta.hiddenInMenu"
                 :key="key"
                 :to="item.path"
-                v-show="!item.meta.hiddenInMenu"
               >
                 <v-list-item-icon>
                   <v-tooltip bottom>
@@ -124,8 +124,8 @@
               width="64"
               icon
               tile
-              @click="handleDrawerCollapse"
               class="mx-auto"
+              @click="handleDrawerCollapse"
             >
               <v-icon>mdi-arrow-collapse-right</v-icon>
             </v-btn>
@@ -134,7 +134,7 @@
         <template v-else>
           <div class="d-flex">
             <v-spacer />
-            <v-btn icon tile @click="handleDrawerCollapse" class="mr-2">
+            <v-btn icon tile class="mr-2" @click="handleDrawerCollapse">
               <v-icon>mdi-arrow-collapse-left</v-icon>
             </v-btn>
           </div>

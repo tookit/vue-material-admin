@@ -155,7 +155,7 @@
             color="primary"
             :value="50"
           />
-          <linear-statistic
+          <linear-statistic-card
             class="mt-4"
             title="Cost"
             sub-title="Cost reduce"
@@ -219,10 +219,11 @@
 <script>
 import API from '@/api'
 import EChart from '@/components/chart/echart'
-import ProfileCard from '@/components/card/ProfileCard'
-import WeatherCard from '@/components/widgets/card/WeatherCard'
+
 import Material from 'vuetify/es5/util/colors'
-import BoxChart from '@/components/widgets/chart/BoxChart'
+import BoxChart from '@/components/chart/echart/BoxChart'
+import ProfileCard from '@/components/card/ProfileCard'
+import WeatherCard from '@/components/card/WeatherCard'
 import MiniStatisticCard from '@/components/card/MiniStatisticCard'
 import CircleStatisticCard from '@/components/card/CircleStatisticCard'
 import LinearStatisticCard from '@/components/card/LinearStatisticCard'
@@ -331,10 +332,43 @@ export default {
   }),
   computed: {
     activity() {
-      return API.getActivity()
-    },
-    posts() {
-      return API.getPost(3)
+      return [
+        {
+          avatar:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/ludwiczakpawel/128.jpg',
+          timeString: 'Just now',
+          color: 'primary',
+          text: 'Michael finished  one task just now.'
+        },
+        {
+          avatar:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg',
+          timeString: '30 min ago',
+          color: 'teal',
+          text: 'Jim created a new  task.'
+        },
+        {
+          avatar:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg',
+          timeString: '1 hour ago',
+          color: 'indigo',
+          text: 'Li completed the PSD to html convert.'
+        },
+        {
+          avatar:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg',
+          timeString: '3 hour ago',
+          color: 'pink',
+          text: 'Michael upload a new pic.'
+        },
+        {
+          avatar:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/suprb/128.jpg',
+          timeString: '10 min ago',
+          color: 'cyan',
+          text: 'Li assigned a a task to Michael'
+        }
+      ]
     },
     siteTrafficData() {
       return API.getMonthVisit

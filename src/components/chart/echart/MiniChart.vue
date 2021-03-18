@@ -64,6 +64,11 @@ export default {
       ]
     }
   },
+  computed: {
+    computeChartOption() {
+      return this.defaultOption
+    }
+  },
 
   watch: {
     type: {
@@ -82,11 +87,6 @@ export default {
         return this.defaultOption
       },
       immediate: true
-    }
-  },
-  computed: {
-    computeChartOption() {
-      return this.defaultOption
     }
   }
 }
