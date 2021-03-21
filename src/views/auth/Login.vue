@@ -1,8 +1,8 @@
 <template>
-  <v-container class="page-login" fill-height>
+  <v-container class="page_login" fill-height>
     <v-row>
       <v-col>
-        <v-card class="pa-3 page-login__card" tile>
+        <v-card class="pa-3 page_login__card" tile>
           <v-card-title>
             <img
               src="/static/m.png"
@@ -20,11 +20,12 @@
             </v-alert>
             <v-form
               ref="form"
+              v-model="formValid"
               class="my-10"
               lazy-validation
-              v-model="formValid"
             >
               <v-text-field
+                v-model="formModel.username"
                 append-icon="mdi-email"
                 autocomplete="off"
                 name="login"
@@ -34,9 +35,9 @@
                 required
                 outlined
                 :rules="formRule.username"
-                v-model="formModel.username"
               />
               <v-text-field
+                v-model="formModel.password"
                 append-icon="mdi-lock"
                 autocomplete="off"
                 name="password"
@@ -46,8 +47,7 @@
                 :rules="formRule.password"
                 required
                 outlined
-                v-model="formModel.password"
-                v-on:keyup.enter="login"
+                @keyup.enter="login"
               />
             </v-form>
           </v-card-text>
@@ -70,7 +70,7 @@
             <v-btn large text @click="login">
               {{ __('register') }}
             </v-btn>
-            <v-btn large tile color="primary" @click="login" :loading="loading">
+            <v-btn large tile color="primary" :loading="loading" @click="login">
               {{ __('login') }}
             </v-btn>
           </v-card-actions>
@@ -137,7 +137,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.page-login
+.page_login
   &__card
   max-width: 600px
   margin: 0 auto

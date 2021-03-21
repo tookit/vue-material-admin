@@ -14,6 +14,11 @@
                   hide-details
                 />
                 <v-checkbox v-model="option.dense" label="Dense" hide-details />
+                <v-checkbox
+                  v-model="option.clearable"
+                  label="Clearable"
+                  hide-details
+                />
               </v-toolbar-items>
             </v-toolbar>
             <v-divider></v-divider>
@@ -26,6 +31,7 @@
                 :items="items"
                 :outlined="option.outlined"
                 :dense="option.dense"
+                :clearable="option.clearable"
               />
             </v-card-text>
           </v-card>
@@ -39,12 +45,13 @@
 import VCascader from 'vuetify-cascader'
 
 export default {
-  name: 'page-cascader',
+  name: 'PageCascader',
   components: { VCascader },
   data() {
     return {
       option: {
         outlined: true,
+        clearable: false,
         dense: false
       },
       items: [
