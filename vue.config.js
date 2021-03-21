@@ -13,13 +13,10 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias.set("~$", resolve("./")).set("@$", resolve("src"))
   },
-  css: {
-    loaderOptions: {
-      less: {
-        modifyVars: {},
-        javascriptEnabled: true
-      }
-    }
+  loaderOptions: {
+    postcss: {
+      plugins: [require('autoprefixer')()],
+    },
   },
   devServer: {
     proxy: {
