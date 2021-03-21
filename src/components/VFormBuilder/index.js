@@ -1,11 +1,37 @@
-import VContainer from 'vuetify/lib/components/VGrid/VContainer'
-import VRow from 'vuetify/lib/components/VGrid/VRow'
-import VCol from 'vuetify/lib/components/VGrid/VCol'
-import VForm from 'vuetify/lib/components/VForm/VForm'
+import {
+  VContainer,
+  VRow,
+  VCol,
+  VForm,
+  VCard,
+  VCardActions,
+  VToolbar,
+  VToolbarTitle,
+  VBtn
+} from 'vuetify/lib'
+
 import { getObjectValueByPath } from 'vuetify/lib/util/helpers'
 export default {
   name: 'v-form-builder',
   props: {
+    showHeader: Boolean,
+    title: {
+      type: String,
+      default: 'Form'
+    },
+    saveText: {
+      type: String,
+      default: 'Save'
+    },
+    cancelText: {
+      type: String,
+      default: 'Cancel'
+    },
+    loading: Boolean,
+    color: {
+      type: String,
+      default: 'white'
+    },
     items: {
       type: Array,
       default: () => []
@@ -23,7 +49,7 @@ export default {
   watch: {
     value: {
       handler(val) {
-        this.formData = val ?? {}
+        this.formData = val || {}
       },
       immediate: true
     }
@@ -31,7 +57,20 @@ export default {
   methods: {
     genFormItem(item) {
       const { name } = item.props
-      const value = getObjectValueByPath(this.formData, item.props.name) ?? null
+      const VNode = this.$createElement(item.element, {
+        props: {
+          ...item.props,
+          label: item.props.label ?? name.toUpperCase(),
+          placeholder: item.props.placeholder ?? name.toUpperCase(),
+          value: this.formData[name]
+        },
+        on: {
+          input: (e) => {
+            this.formData[name] = e
+            this.$emit('input', this.formData)
+          }
+        }
+      })
       return this.$createElement(
         VCol,
         {
@@ -39,22 +78,7 @@ export default {
             cols: item.cols ?? 12
           }
         },
-        [
-          this.$createElement(item.element, {
-            props: {
-              ...item.props,
-              label: item.props.label ?? name.toUpperCase(),
-              placeholder: item.props.placeholder ?? name.toUpperCase(),
-              value: value
-            },
-            on: {
-              input: (e) => {
-                this.formData[name] = e
-                this.$emit('input', this.formData)
-              }
-            }
-          })
-        ]
+        [VNode]
       )
     },
     genFormItems() {
@@ -63,23 +87,99 @@ export default {
       })
     },
     genFormWrapper() {
-      return this.$createElement(VForm, [
-        this.$createElement(
-          VContainer,
-          {
-            props: {
-              fluid: true
+      return this.$createElement(
+        VForm,
+        { ref: 'form', class: 'v-card__text' },
+        [
+          this.$createElement(
+            VContainer,
+            {
+              props: {
+                fluid: true
+              },
+              on: {
+                submit: this.$emit('submit')
+              }
             },
-            on: {
-              submit: this.$emit('submit')
-            }
-          },
-          [this.$createElement(VRow, [this.genFormItems()])]
-        )
-      ])
+            [this.$createElement(VRow, [this.genFormItems()])]
+          )
+        ]
+      )
+    },
+    genFormTitle() {
+      return this.$createElement(
+        VToolbar,
+        {
+          props: {
+            color: this.color,
+            dark: true
+          }
+        },
+        [
+          this.$createElement(
+            VToolbarTitle,
+            {
+              props: {}
+            },
+            this.title
+          )
+        ]
+      )
+    },
+    genFormFooter() {
+      return this.$createElement(
+        VCardActions,
+        {
+          class: 'justify-end',
+          props: {}
+        },
+        [
+          this.$createElement(
+            VBtn,
+            {
+              props: {
+                text: true,
+                tile: true
+              },
+              on: {
+                click: () => {
+                  this.$emit('form:cancel')
+                }
+              }
+            },
+            this.cancelText
+          ),
+          this.$createElement(
+            VBtn,
+            {
+              props: {
+                color: this.color,
+                loading: this.loading,
+                tile: true
+              },
+              on: {
+                click: () => {
+                  this.$emit('form:submit')
+                }
+              }
+            },
+            this.saveText
+          )
+        ]
+      )
     }
   },
   render(h) {
-    return h('div', [this.genFormWrapper()])
+    const nodes = [
+      this.genFormTitle(),
+      this.genFormWrapper(),
+      this.genFormFooter()
+    ]
+    if (!this.showHeader) nodes.shift()
+    return h(
+      VCard,
+      { props: { loading: this.loading, tile: true, flat: true } },
+      nodes
+    )
   }
 }
