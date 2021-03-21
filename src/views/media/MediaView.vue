@@ -17,7 +17,7 @@
       <v-btn icon value="upload">
         <v-icon>mdi-upload</v-icon>
       </v-btn>
-      <v-btn-toggle tile dense mandatory v-model="viewMode">
+      <v-btn-toggle v-model="viewMode" tile dense mandatory>
         <v-btn icon value="grid">
           <v-icon>mdi-view-grid</v-icon>
         </v-btn>
@@ -35,19 +35,18 @@
           <template v-if="viewMode === 'list'">
             <v-col :cols="12">
               <v-list class="media_manager__list">
-                <v-list-item-group color="primary" v-model="selectedItem">
+                <v-list-item-group v-model="selectedItem" color="primary">
                   <template v-for="(item, i) in items">
                     <v-list-item
                       :key="i"
                       :value="item"
-                      @click="handleSelectItem(item)"
                       two-line
                       exact
+                      @click="handleSelectItem(item)"
                     >
                       <v-list-item-avatar>
-                        <!-- <v-icon size="32" v-text="computeIcon(item)"></v-icon> -->
                         <svg class="icon" aria-hidden="true">
-                          <use v-bind:xlink:href="computeIcon(item)"></use>
+                          <use :xlink:href="computeIcon(item)"></use>
                         </svg>
                       </v-list-item-avatar>
                       <v-list-item-content>
@@ -98,7 +97,7 @@
           </template>
           <template v-else>
             <template v-for="item in items">
-              <v-col :cols="3" :key="item.basename">
+              <v-col :key="item.basename" :cols="3">
                 <v-card tile @click="handleSelectItem(item)">
                   <template
                     v-if="item.type === 'file' && item.extension === 'png'"
@@ -108,7 +107,7 @@
                   <template v-else>
                     <v-img height="200px">
                       <svg class="icon icon-64 center-align" aria-hidden="true">
-                        <use v-bind:xlink:href="computeIcon(item)"></use>
+                        <use :xlink:href="computeIcon(item)"></use>
                       </svg>
                     </v-img>
                   </template>
@@ -193,7 +192,7 @@
             <template v-else>
               <v-img height="200px">
                 <svg class="icon icon-64 center-align" aria-hidden="true">
-                  <use v-bind:xlink:href="computeIcon(selectedItem)"></use>
+                  <use :xlink:href="computeIcon(selectedItem)"></use>
                 </svg>
               </v-img>
             </template>

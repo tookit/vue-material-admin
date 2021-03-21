@@ -8,16 +8,16 @@
             <v-card-text class="pa-0">
               <v-stepper
                 ref="stepper"
-                class="rounded-0 elevation-0"
                 v-model="step"
+                class="rounded-0 elevation-0"
               >
                 <v-stepper-header class="elevation-1">
                   <template v-for="item in steps">
                     <v-stepper-step
+                      :key="'book' + item.step"
                       :step="item.step"
                       :complete="item.complete"
                       color="success"
-                      :key="'book' + item.step"
                       :rules="item.rules"
                       >{{ item.text }}
                     </v-stepper-step>
@@ -45,7 +45,7 @@
               </v-stepper>
             </v-card-text>
             <v-card-actions>
-              <v-btn v-show="step > 1" @click="handleBack" text>Back</v-btn>
+              <v-btn v-show="step > 1" text @click="handleBack">Back</v-btn>
               <v-spacer />
               <v-btn tile color="primary" @click="handleContinue">{{
                 step === 3 ? 'confirm' : 'next'

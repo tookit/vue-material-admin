@@ -6,6 +6,7 @@
           <v-card tile>
             <v-toolbar flat>
               <v-text-field
+                v-model="filter['filter[username]']"
                 text
                 solo
                 flat
@@ -14,7 +15,6 @@
                 "
                 append-icon="mdi-magnify"
                 placeholder="Type something"
-                v-model="filter['filter[username]']"
                 hide-details
                 clearable
                 @keyup.enter="handleApplyFilter"
@@ -22,10 +22,10 @@
                 @click:prepend="showFilter = !showFilter"
                 @click:clear="handleClear"
               />
-              <v-btn @click="handleRefreshItem" icon>
+              <v-btn icon @click="handleRefreshItem">
                 <v-icon>mdi-refresh</v-icon>
               </v-btn>
-              <v-btn @click="handleCreateItem" icon>
+              <v-btn icon @click="handleCreateItem">
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </v-toolbar>
@@ -50,8 +50,8 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn @click="handleResetFilter" text>Reset</v-btn>
-                <v-btn tile @click="handleApplyFilter" color="primary"
+                <v-btn text @click="handleResetFilter">Reset</v-btn>
+                <v-btn tile color="primary" @click="handleApplyFilter"
                   >Apply</v-btn
                 >
               </v-card-actions>
@@ -65,9 +65,9 @@
                 :server-items-length="serverItemsLength"
                 :items-per-page="itemsPerPage"
                 :page.sync="filter['page']"
-                @update:page="handlePageChanged"
                 item-key="id"
                 show-select
+                @update:page="handlePageChanged"
               >
                 <template v-slot:[`item.avatar`]="{ item }">
                   <c-avatar class="my-3" :username="item.username" />
