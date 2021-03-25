@@ -8,17 +8,9 @@
               <v-toolbar-title>Option</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-toolbar-items class="align-center">
-                <v-checkbox
-                  v-model="option.outlined"
-                  label="Outline"
-                  hide-details
-                />
+                <v-checkbox v-model="option.outlined" label="Outline" hide-details />
                 <v-checkbox v-model="option.dense" label="Dense" hide-details />
-                <v-checkbox
-                  v-model="option.clearable"
-                  label="Clearable"
-                  hide-details
-                />
+                <v-checkbox v-model="option.clearable" label="Clearable" hide-details />
               </v-toolbar-items>
             </v-toolbar>
             <v-divider></v-divider>
@@ -42,7 +34,7 @@
 </template>
 
 <script>
-import VCascader from 'vuetify-cascader'
+import { VCascader } from '@tookit/vma'
 
 export default {
   name: 'PageCascader',
@@ -52,7 +44,7 @@ export default {
       option: {
         outlined: true,
         clearable: false,
-        dense: false
+        dense: false,
       },
       items: [
         {
@@ -68,16 +60,16 @@ export default {
                 {
                   id: 3,
                   text: 'IPhone 12',
-                  value: 'iphone 12'
+                  value: 'iphone 12',
                 },
                 {
                   id: 99,
                   text: 'IPhone 8',
-                  value: 'iphone 8'
-                }
-              ]
-            }
-          ]
+                  value: 'iphone 8',
+                },
+              ],
+            },
+          ],
         },
         {
           id: 11,
@@ -92,9 +84,9 @@ export default {
                 {
                   id: 13,
                   text: 'Mac Air',
-                  value: 'Mac air'
-                }
-              ]
+                  value: 'Mac air',
+                },
+              ],
             },
             {
               id: 14,
@@ -104,17 +96,17 @@ export default {
                 {
                   id: 15,
                   text: 'Surface',
-                  value: 'surface '
-                }
-              ]
-            }
-          ]
-        }
+                  value: 'surface ',
+                },
+              ],
+            },
+          ],
+        },
       ],
-      selectedItem: 99
+      selectedItem: 99,
     }
   },
   computed: {},
-  methods: {}
+  methods: {},
 }
 </script>
