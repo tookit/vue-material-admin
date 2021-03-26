@@ -1,11 +1,5 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    app
-    class="app-drawer"
-    :mini-variant.sync="mini"
-    :width="drawerWidth"
-  >
+  <v-navigation-drawer v-model="drawer" app class="app-drawer" :mini-variant.sync="mini" :width="drawerWidth">
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">
@@ -30,27 +24,18 @@
         <v-list class="pa-0">
           <template v-for="(item, key) in computeMenu">
             <template v-if="item.children && item.children.length > 0">
-              <v-list-group
-                :key="key"
-                no-action
-                :to="item.path"
-                :value="computeGroupExpanded(item, $route)"
-              >
-                <template v-slot:prependIcon>
+              <v-list-group :key="key" no-action :to="item.path" :value="computeGroupExpanded(item, $route)">
+                <template #prependIcon>
                   <v-tooltip bottom>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-icon
-                        v-bind="attrs"
-                        v-on="on"
-                        v-text="item.meta.icon"
-                      />
+                    <template #activator="{ on, attrs }">
+                      <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
                     </template>
                     <span>
                       {{ __('menu.' + item.meta.title) }}
                     </span>
                   </v-tooltip>
                 </template>
-                <template v-slot:activator>
+                <template #activator>
                   <v-list-item-content>
                     <v-list-item-title v-text="__('menu.' + item.meta.title)" />
                   </v-list-item-content>
@@ -65,12 +50,8 @@
                   <template v-if="drawerWidth === 64">
                     <v-list-item-icon>
                       <v-tooltip bottom>
-                        <template v-slot:activator="{ on, attrs }">
-                          <v-icon
-                            v-bind="attrs"
-                            v-on="on"
-                            v-text="subItem.meta.icon"
-                          />
+                        <template #activator="{ on, attrs }">
+                          <v-icon v-bind="attrs" v-on="on" v-text="subItem.meta.icon" />
                         </template>
                         <span>{{ __('menu.' + subItem.meta.title) }}</span>
                       </v-tooltip>
@@ -78,28 +59,18 @@
                   </template>
                   <template v-else>
                     <v-list-item-content>
-                      <v-list-item-title
-                        v-text="__('menu.' + subItem.meta.title)"
-                      />
+                      <v-list-item-title v-text="__('menu.' + subItem.meta.title)" />
                     </v-list-item-content>
                   </template>
                 </v-list-item>
               </v-list-group>
             </template>
             <template v-else>
-              <v-list-item
-                v-show="!item.meta.hiddenInMenu"
-                :key="key"
-                :to="item.path"
-              >
+              <v-list-item v-show="!item.meta.hiddenInMenu" :key="key" :to="item.path">
                 <v-list-item-icon>
                   <v-tooltip bottom>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-icon
-                        v-bind="attrs"
-                        v-on="on"
-                        v-text="item.meta.icon"
-                      />
+                    <template #activator="{ on, attrs }">
+                      <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
                     </template>
                     <span>{{ __('menu.' + item.meta.title) }}</span>
                   </v-tooltip>
@@ -116,17 +87,11 @@
         </v-list>
       </div>
     </vue-perfect-scrollbar>
-    <template v-slot:append>
+    <template #append>
       <div class="grey lighten-3">
         <template v-if="drawerWidth === 64">
           <div class="d-flex">
-            <v-btn
-              width="64"
-              icon
-              tile
-              class="mx-auto"
-              @click="handleDrawerCollapse"
-            >
+            <v-btn width="64" icon tile class="mx-auto" @click="handleDrawerCollapse">
               <v-icon>mdi-arrow-collapse-right</v-icon>
             </v-btn>
           </div>
@@ -153,8 +118,8 @@ export default {
   props: {
     expanded: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
@@ -162,13 +127,13 @@ export default {
       drawerWidth: 256,
       drawer: true,
       scrollSettings: {
-        maxScrollbarLength: 160
+        maxScrollbarLength: 160,
       },
       sponsor: {
         href: 'https://www.kamefiber.com/',
         src: '/sponsor/logo.png',
-        srcMini: '/sponsor/logo_mini.png'
-      }
+        srcMini: '/sponsor/logo_mini.png',
+      },
     }
   },
 
@@ -181,9 +146,9 @@ export default {
     },
     computeHeight() {
       return {
-        height: this.height || ''
+        height: this.height || '',
       }
-    }
+    },
   },
   created() {},
 
@@ -196,8 +161,8 @@ export default {
     },
     computeGroupExpanded(item, $route) {
       return $route.matched.map((item) => item.path).includes(item.path)
-    }
-  }
+    },
+  },
 }
 </script>
 
