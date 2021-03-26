@@ -11,13 +11,8 @@
       <v-btn icon @click="handleFullScreen()">
         <v-icon>mdi-fullscreen</v-icon>
       </v-btn>
-      <v-menu
-        offset-y
-        origin="center center"
-        class="elelvation-1"
-        transition="scale-transition"
-      >
-        <template v-slot:activator="{ on }">
+      <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
+        <template #activator="{ on }">
           <v-btn slot="activator" icon text v-on="on">
             <v-badge color="red" overlap>
               <span slot="badge">{{ getNotification.length }}</span>
@@ -25,18 +20,10 @@
             </v-badge>
           </v-btn>
         </template>
-        <notification-list
-          v-show="getNotification.length > 0"
-          :items="getNotification"
-        />
+        <notification-list v-show="getNotification.length > 0" :items="getNotification" />
       </v-menu>
-      <v-menu
-        offset-y
-        origin="center center"
-        class="elelvation-1"
-        transition="scale-transition"
-      >
-        <template v-slot:activator="{ on }">
+      <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
+        <template #activator="{ on }">
           <v-btn slot="activator" text v-on="on">
             <v-icon medium>mdi-translate</v-icon>
             <span class="ml-2"> {{ localeText }} </span>
@@ -56,14 +43,9 @@
         </v-list>
       </v-menu>
       <v-menu offset-y origin="center center" transition="scale-transition">
-        <template v-slot:activator="{ on }">
+        <template #activator="{ on }">
           <v-btn slot="activator" icon large text v-on="on">
-            <c-avatar
-              :size="36"
-              :username="getUsername"
-              :src="getAvatar"
-              status="online"
-            />
+            <c-avatar :size="36" :username="getUsername" :src="getAvatar" status="online" />
           </v-btn>
         </template>
         <v-list class="pa-0">
@@ -106,7 +88,7 @@ export default {
   name: 'AppToolbar',
   components: {
     NotificationList,
-    CAvatar
+    CAvatar,
   },
   props: {},
   data() {
@@ -116,21 +98,21 @@ export default {
           icon: 'mdi-account',
           href: '#',
           title: 'Profile',
-          click: this.handleProfile
+          click: this.handleProfile,
         },
         {
           icon: 'mdi-cog',
           href: '#',
           title: 'Settings',
-          click: this.handleSetting
+          click: this.handleSetting,
         },
         {
           icon: 'mdi-power',
           href: '#',
           title: 'Logout',
-          click: this.handleLogut
-        }
-      ]
+          click: this.handleLogut,
+        },
+      ],
     }
   },
   computed: {
@@ -143,32 +125,27 @@ export default {
       return Object.keys(locales).map((lang) => {
         return {
           text: locales[lang].label,
-          value: lang
+          value: lang,
         }
       })
     },
     localeText() {
-      const find = this.availableLanguages.find(
-        (item) => item.value === this.$vuetify.lang.current
-      )
+      const find = this.availableLanguages.find((item) => item.value === this.$vuetify.lang.current)
       return find.text
     },
     breadcrumbs() {
       const { matched } = this.$route
       return matched.map((route, index) => {
-        const to =
-          index === matched.length - 1
-            ? this.$route.path
-            : route.path || route.redirect
+        const to = index === matched.length - 1 ? this.$route.path : route.path || route.redirect
         const text = this.$vuetify.lang.t('$vuetify.menu.' + route.meta.title)
         return {
           text: text,
           to: to,
           exact: true,
-          disabled: false
+          disabled: false,
         }
       })
-    }
+    },
   },
   created() {},
   methods: {
@@ -183,7 +160,7 @@ export default {
         this.$store.dispatch('logout')
         window._VMA.$emit('SHOW_SNACKBAR', {
           text: 'Logout successfull',
-          color: 'success'
+          color: 'success',
         })
         this.$router.push('/auth/login')
       }
@@ -195,8 +172,8 @@ export default {
     handleProfile() {},
     handleGoBack() {
       this.$router.go(-1)
-    }
-  }
+    },
+  },
 }
 </script>
 
