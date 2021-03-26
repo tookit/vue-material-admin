@@ -25,18 +25,22 @@ Vuetify is Awesome.
 
 ## Demo
 [http://vma.isocked.com/#/dashboard]
+
+
 ## Preview
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
 
+## Documentation
+
+[doc](http://doc.isocked.com/)
+
 ## Project Structure
 ``` bash
-├── build
-├── config (Webpack)
 ├── src
 │   ├── api
 │   ├── components
 │   ├── mixins
-│   ├── views (or views)
+│   ├── views
 │   ├── router
 │   ├── store
 │   ├── util
@@ -48,11 +52,11 @@ Vuetify is Awesome.
 ├── dist
 ├── release
 ├── static (or asset)
-├── mock (or script to build mock data)
 ├── node_modules
 ├── test
 ├── README.md
 ├── package.json
+├── vue.config.js
 ├── index.html
 └── .gitignore
 ```

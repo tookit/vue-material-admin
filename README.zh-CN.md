@@ -9,7 +9,6 @@
 关于Vue Material Admin 的开发，请关注我的博客 [http://isocked.com], 基于vuetify 2.3.10开发的vuepress主题
 
 ## 计划
-* 增加Vuex
 * 重构 媒体/文件管理
 * 重构 邮件管理
 * 重构 聊天
@@ -22,21 +21,21 @@ Vue Material Admin Template 是一个由[Vue](https://vuejs.org/index.html/) 和
 
 ## 你可以在这里找到我
 [VMA](https://discord.gg/7f6TVx)
-## 预览
-[http://vma.isocked.com/#/dashboard]
 
 ## 预览
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)
 
+## 文档
+
+[doc](http://doc.isocked.com/)
+
 ## 目录结构
 ``` bash
-├── build
-├── config (Webpack)
 ├── src
 │   ├── api
 │   ├── components
 │   ├── mixins
-│   ├── views (or views)
+│   ├── views
 │   ├── router
 │   ├── store
 │   ├── util
@@ -48,11 +47,11 @@ Vue Material Admin Template 是一个由[Vue](https://vuejs.org/index.html/) 和
 ├── dist
 ├── release
 ├── static (or asset)
-├── mock (or script to build mock data)
 ├── node_modules
 ├── test
 ├── README.md
 ├── package.json
+├── vue.config.js
 ├── index.html
 └── .gitignore
 ```
