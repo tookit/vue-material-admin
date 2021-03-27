@@ -138,7 +138,7 @@ export default {
       const { matched } = this.$route
       return matched.map((route, index) => {
         const to = index === matched.length - 1 ? this.$route.path : route.path || route.redirect
-        const text = this.$vuetify.lang.t('$vuetify.menu.' + route.meta.title)
+        const text = this.__('menu.' + route.meta.title)
         return {
           text: text,
           to: to,

@@ -41,13 +41,13 @@ export default {
     all: '所有',
     dir: '文件夹',
     element: '组件',
-    cascader: '级联选择'
+    cascader: '级联选择',
   },
   //media
   media: '媒体',
   // rules
   rule: {
-    required: '请输入{0}'
+    required: '请输入{0}',
   },
-  ...zhHans
+  ...zhHans,
 }

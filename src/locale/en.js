@@ -42,16 +42,16 @@ export default {
     dir: 'Directory',
     element: 'Element',
     cascader: 'Cascader',
-    chat: 'Chat'
+    chat: 'Chat',
   },
   //media
   media: 'Media',
   // rules
   rule: {
-    required: '{0} is required'
+    required: '{0} is required',
   },
 
   //error
 
-  ...en
+  ...en,
 }

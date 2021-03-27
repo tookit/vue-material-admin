@@ -15,7 +15,7 @@ const app = new Vue({
   router,
   store,
   vuetify,
-  render: (h) => h(App)
+  render: (h) => h(App),
 })
 Vue.prototype.__ = (key, ...parrams) => {
   return app.$vuetify.lang.translator(key, ...parrams)
