@@ -3,9 +3,9 @@
     <v-card-title>Payment Form</v-card-title>
     <v-divider />
     <v-card-text>
-      <v-form v-model="valid" ref="form">
+      <v-form ref="form" v-model="valid">
         <v-subheader class="pl-0">Payment Method</v-subheader>
-        <v-btn-toggle color="primary" group v-model="formModel.payment_method">
+        <v-btn-toggle v-model="formModel.payment_method" color="primary" group>
           <v-btn icon value="apple">
             <v-icon>mdi-apple</v-icon>
           </v-btn>
@@ -18,27 +18,27 @@
         </v-btn-toggle>
         <v-subheader class="pl-0 mt-3">Payment Detail</v-subheader>
         <v-select
+          v-model="formModel.card_type"
           :items="cardTypes"
           :label="form.card_type.label"
           :placeholder="form.card_type.placeholder"
-          v-model="formModel.card_type"
           required
           :append-icon="'mdi-credit-card'"
           :rules="form.card_type.rules"
         />
         <v-text-field
+          v-model="formModel.card_number"
           :label="form.card_number.label"
           :placeholder="form.card_number.placeholder"
-          v-model="formModel.card_number"
           required
           :append-icon="'mdi-credit-card'"
           :rules="form.card_number.rules"
           mask="credit-card"
         />
         <v-text-field
+          v-model="formModel.card_name"
           :label="form.card_name.label"
           :placeholder="form.card_name.placeholder"
-          v-model="formModel.card_name"
           required
           :append-icon="'mdi-credit-account'"
           :rules="form.card_name.rules"
@@ -53,37 +53,30 @@
             offset-y
             min-width="290px"
           >
-            <template v-slot:activator="{ on, attrs }">
+            <template #activator="{ on, attrs }">
               <v-text-field
+                v-model="formModel.expire"
                 class="mr-2"
                 v-bind="attrs"
-                v-on="on"
                 :label="form.expire.label"
                 :placeholder="form.expire.placeholder"
-                v-model="formModel.expire"
                 required
                 :append-icon="'mdi-credit-card-clock'"
                 :rules="form.expire.rules"
+                v-on="on"
               />
             </template>
             <v-date-picker v-model="formModel.expire" no-title scrollable>
               <v-spacer></v-spacer>
-              <v-btn text color="primary" @click="showMenu = false"
-                >Cancel</v-btn
-              >
-              <v-btn
-                text
-                color="primary"
-                @click="$refs.menu.save(formModel.expire)"
-                >OK</v-btn
-              >
+              <v-btn text color="primary" @click="showMenu = false">Cancel</v-btn>
+              <v-btn text color="primary" @click="$refs.menu.save(formModel.expire)">OK</v-btn>
             </v-date-picker>
           </v-menu>
 
           <v-text-field
+            v-model="formModel.cvv"
             :label="form.cvv.label"
             :placeholder="form.cvv.placeholder"
-            v-model="formModel.cvv"
             required
             type="number"
             :append-icon="'mdi-credit-account'"
@@ -91,13 +84,13 @@
           />
         </div>
         <div class="d-flex">
-          <v-switch label="Saved Card Detials" v-model="saveCard"></v-switch>
+          <v-switch v-model="saveCard" label="Saved Card Detials"></v-switch>
         </div>
       </v-form>
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
     <v-card-actions>
-      <v-btn @click="handleCancelForm" text>Cancel</v-btn>
+      <v-btn text @click="handleCancelForm">Cancel</v-btn>
       <v-spacer />
       <v-btn tile color="primary" @click="handleSubmitForm">Submit</v-btn>
     </v-card-actions>
@@ -114,46 +107,46 @@ export default {
         payment_method: 'apple',
         card_number: null,
         card_name: null,
-        expire: new Date().toISOString().substr(0, 10)
+        expire: new Date().toISOString().substr(0, 10),
       },
       form: {
         card_type: {
           label: 'Card type',
           placeholder: 'Mater',
-          rules: [(v) => !!v || 'This field is required']
+          rules: [(v) => !!v || 'This field is required'],
         },
         card_number: {
           label: 'Card number',
           placeholder: 'xx-xx-xxxxx',
-          rules: [(v) => !!v || 'This field is required']
+          rules: [(v) => !!v || 'This field is required'],
         },
         card_name: {
           label: 'Card name',
           placeholder: 'Michael Wang',
-          rules: [(v) => !!v || 'This field is required']
+          rules: [(v) => !!v || 'This field is required'],
         },
         expire: {
           label: 'Expire date',
           placeholder: new Date().toISOString().substr(0, 10),
-          rules: [(v) => !!v || 'This field is required']
+          rules: [(v) => !!v || 'This field is required'],
         },
         cvv: {
           label: 'CVV',
           placeholder: 'CVV',
-          rules: [(v) => !!v || 'This field is required']
-        }
+          rules: [(v) => !!v || 'This field is required'],
+        },
       },
       saveCard: true,
       cardTypes: [
         {
           value: 'visa',
-          text: 'Visa Express'
+          text: 'Visa Express',
         },
         {
           value: 'master',
-          text: 'Mastard'
-        }
-      ]
+          text: 'Mastard',
+        },
+      ],
     }
   },
   mounted() {},
@@ -166,7 +159,7 @@ export default {
       if (this.$refs.form.validate()) {
         console.log('handle form process logic here')
       }
-    }
-  }
+    },
+  },
 }
 </script>

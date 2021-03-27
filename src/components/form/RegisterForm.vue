@@ -8,10 +8,10 @@
           <v-row>
             <v-col :cols="6">
               <v-text-field
+                v-model="formModel.username"
                 outlined
                 :label="form.username.label"
                 :placeholder="form.username.placeholder"
-                v-model="formModel.username"
                 required
                 :append-icon="'mdi-account-check'"
                 :rules="form.username.rules"
@@ -19,10 +19,10 @@
             </v-col>
             <v-col :cols="6">
               <v-text-field
+                v-model="formModel.password"
                 outlined
                 :label="form.password.label"
                 :placeholder="form.password.placeholder"
-                v-model="formModel.password"
                 required
                 :append-icon="'mdi-account-check'"
                 :rules="form.password.rules"
@@ -30,10 +30,10 @@
             </v-col>
             <v-col :cols="12">
               <v-text-field
+                v-model="formModel.email"
                 outlined
                 :label="form.email.label"
                 :placeholder="form.email.placeholder"
-                v-model="formModel.email"
                 required
                 :append-icon="'mdi-email'"
                 :rules="form.email.rules"
@@ -45,11 +45,9 @@
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
     <v-card-actions>
-      <v-btn @click="handleCancelForm" text>Cancel</v-btn>
+      <v-btn text @click="handleCancelForm">Cancel</v-btn>
       <v-spacer />
-      <v-btn :loaidng="loading" tile color="primary" @click="handleSubmitForm"
-        >Submit</v-btn
-      >
+      <v-btn :loaidng="loading" tile color="primary" @click="handleSubmitForm">Submit</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -64,36 +62,33 @@ export default {
     formModel: {
       username: null,
       password: null,
-      email: null
+      email: null,
     },
 
     form: {
       username: {
         label: 'Username',
         placeholder: 'Tookit',
-        rules: [(v) => !!v || 'This field is required']
+        rules: [(v) => !!v || 'This field is required'],
       },
       password: {
         label: 'Password',
         placeholder: 'xxx',
-        rules: [(v) => !!v || 'This field is required']
+        rules: [(v) => !!v || 'This field is required'],
       },
       email: {
         label: 'Email',
         placeholder: 'wangqiangshen@gmail.com',
-        rules: [
-          (v) => !!v || 'This field is required',
-          (v) => EMAIL.test(v) || 'Invalid email'
-        ]
-      }
+        rules: [(v) => !!v || 'This field is required', (v) => EMAIL.test(v) || 'Invalid email'],
+      },
     },
 
-    formHasErrors: false
+    formHasErrors: false,
   }),
   computed: {
     formTitle() {
       return 'Register a new user for Chat'
-    }
+    },
   },
   watch: {},
   methods: {
@@ -113,7 +108,7 @@ export default {
             this.loading = false
           })
       }
-    }
-  }
+    },
+  },
 }
 </script>

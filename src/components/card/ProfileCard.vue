@@ -9,9 +9,7 @@
         </v-card-title>
         <v-spacer />
         <v-card-title>
-          <div class="white--text">
-            Ali Conners
-          </div>
+          <div class="white--text">Ali Conners</div>
         </v-card-title>
       </div>
     </v-img>
@@ -71,7 +69,7 @@ export default {
     username: String,
     phone: String,
     email: String,
-    address: String
-  }
+    address: String,
+  },
 }
 </script>

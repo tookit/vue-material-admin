@@ -13,9 +13,7 @@
         <div class="layout ma-0 align-center" :class="computeCardLayout">
           <v-avatar :size="computeAvatarSize" color="primary">
             <img v-if="showAvatar" :src="avatar.src" :alt="name" />
-            <span v-else class="white--text headline">{{
-              name.charAt(0)
-            }}</span>
+            <span v-else class="headline">{{ name.charAt(0) }}</span>
           </v-avatar>
           <div class="flex" :class="computeTextAlgin">
             <div class="subheading">{{ name }}</div>
@@ -24,12 +22,7 @@
         </div>
       </v-card-text>
     </v-card>
-    <v-bottom-navigation
-      v-if="showBottomNav"
-      :value="true"
-      color="transparent"
-      :height="64"
-    >
+    <v-bottom-navigation v-if="showBottomNav" color="transparent" :height="64">
       <v-btn text color="teal" value="recent">
         <span>Recent</span>
         <v-icon>mdi-history</v-icon>
@@ -51,39 +44,39 @@ export default {
   props: {
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     avatar: {
       type: Object,
-      default: null
+      default: null,
     },
     jobTitle: {
       type: String,
-      default: ''
+      default: '',
     },
     cardBgImage: {
-      type: String
+      type: String,
     },
     color: {
       type: String,
-      default: ''
+      default: '',
     },
     dark: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bottomNav: {
       type: Boolean,
-      default: false
+      default: false,
     },
     topNav: {
       type: Boolean,
-      default: false
+      default: false,
     },
     mini: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({}),
 
@@ -107,10 +100,10 @@ export default {
 
     showTopNav() {
       return this.mini === false && this.topNav
-    }
+    },
   },
 
-  methods: {}
+  methods: {},
 }
 </script>
 

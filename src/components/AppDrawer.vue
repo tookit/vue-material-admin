@@ -22,19 +22,14 @@
     <template #append>
       <div class="grey lighten-3">
         <template v-if="mini">
-          <div class="d-flex">
-            <v-btn width="64" icon tile class="mx-auto" @click="handleDrawerCollapse">
-              <v-icon>mdi-arrow-collapse-right</v-icon>
-            </v-btn>
-          </div>
+          <v-btn block width="64" height="48" icon tile class="mx-auto" @click="handleDrawerCollapse">
+            <v-icon>mdi-arrow-collapse-right</v-icon>
+          </v-btn>
         </template>
         <template v-else>
-          <div class="d-flex">
-            <v-spacer />
-            <v-btn icon tile class="mr-2" @click="handleDrawerCollapse">
-              <v-icon>mdi-arrow-collapse-left</v-icon>
-            </v-btn>
-          </div>
+          <v-btn right block height="48" icon tile @click="handleDrawerCollapse">
+            <v-icon>mdi-arrow-collapse-left</v-icon>
+          </v-btn>
         </template>
       </div>
     </template>
