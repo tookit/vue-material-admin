@@ -89,7 +89,6 @@ export const protectedRoute = [
         path: '/media',
         meta: {
           title: 'media',
-          group: 'apps',
           icon: 'mdi-image',
           isNew: true,
         },
@@ -125,7 +124,6 @@ export const protectedRoute = [
         meta: {
           title: 'acl',
           icon: 'mdi-shield',
-          group: 'cms',
         },
         children: [
           {
@@ -177,7 +175,6 @@ export const protectedRoute = [
         meta: {
           title: 'widget',
           icon: 'mdi-widgets',
-          group: 'advance',
         },
         redirect: '/widgets/social',
         children: [
@@ -208,7 +205,6 @@ export const protectedRoute = [
         meta: {
           title: 'form',
           icon: 'mdi-form-textbox',
-          group: 'advance',
         },
         redirect: '/forms/basic',
         children: [
@@ -239,7 +235,6 @@ export const protectedRoute = [
         meta: {
           title: 'chart',
           icon: 'mdi-chart-line',
-          group: 'advance',
         },
         redirect: '/chart/echart',
         children: [
@@ -326,7 +321,6 @@ export const protectedRoute = [
     },
     meta: {
       title: 'Chat',
-      group: 'apps',
       icon: 'chat_bubble',
     },
     children: [

@@ -1,5 +1,12 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app class="app-drawer" :mini-variant.sync="mini" :width="drawerWidth">
+  <v-navigation-drawer
+    v-model="showDrawer"
+    app
+    class="app-drawer"
+    :mini-variant.sync="mini"
+    mini-variant-width="64"
+    :width="drawerWidth"
+  >
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">
@@ -9,12 +16,12 @@
     <app-switcher class="ma-2" />
     <vue-perfect-scrollbar class="app-drawer__scrollbar">
       <div class="app-drawer__inner">
-        <nav-list :items="computeMenu" />
+        <nav-list :items="computeMenu" :mini="mini" />
       </div>
     </vue-perfect-scrollbar>
     <template #append>
       <div class="grey lighten-3">
-        <template v-if="drawerWidth === 64">
+        <template v-if="mini">
           <div class="d-flex">
             <v-btn width="64" icon tile class="mx-auto" @click="handleDrawerCollapse">
               <v-icon>mdi-arrow-collapse-right</v-icon>
@@ -41,17 +48,12 @@ import NavList from '@/components/nav/NavList'
 export default {
   name: 'AppDrawer',
   components: { VuePerfectScrollbar, AppSwitcher, NavList },
-  props: {
-    expanded: {
-      type: Boolean,
-      default: true,
-    },
-  },
+  props: {},
   data() {
     return {
       mini: false,
+      showDrawer: true,
       drawerWidth: 256,
-      drawer: true,
       scrollSettings: {
         maxScrollbarLength: 160,
       },
@@ -82,20 +84,16 @@ export default {
             title: item.meta.title,
             icon: item.meta.icon,
             path: item.path,
-            isNew: item.isNew || false,
+            isNew: item.meta.isNew || false,
             children: item.children ? this.filterRouteItem(item.children) : [],
           }
         })
     },
-
     handleDrawerCollapse() {
-      this.drawerWidth = this.drawerWidth === 256 ? 64 : 256
+      this.mini = !this.mini
     },
     toggleDrawer() {
-      this.drawer = !this.drawer
-    },
-    computeGroupExpanded(item, $route) {
-      return $route.matched.map((item) => item.path).includes(item.path)
+      this.showDrawer = !this.showDrawer
     },
   },
 }
