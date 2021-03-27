@@ -9,11 +9,11 @@
   >
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
-      <v-toolbar-title class="ml-0 pl-3">
+      <v-toolbar-title>
         <span class="hidden-sm-and-down">Vue Material</span>
       </v-toolbar-title>
     </v-toolbar>
-    <app-switcher class="ma-2" />
+    <app-switcher />
     <vue-perfect-scrollbar class="app-drawer__scrollbar">
       <div class="app-drawer__inner">
         <nav-list :items="computeMenu" :mini="mini" />
