@@ -28,19 +28,19 @@ import { mapGetters } from 'vuex'
 import CAvatar from '@/components/avatar/CAvatar'
 export default {
   components: {
-    CAvatar
+    CAvatar,
   },
   data() {
     return {}
   },
   computed: {
-    ...mapGetters(['getClientUsers'])
+    ...mapGetters(['getClientUsers']),
   },
   methods: {
     handleJoinChat() {
       this.$router.push('/chat')
-    }
-  }
+    },
+  },
 }
 </script>
 

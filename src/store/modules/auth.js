@@ -15,7 +15,7 @@ const state = {
   username: null,
   avatar: null,
   userColor: '#2196f3',
-  status: 'online'
+  status: 'online',
 }
 const getters = {
   getAccessToken: (state) => {
@@ -23,7 +23,7 @@ const getters = {
   },
   getAvatar: (state) => state.avatar,
   getUsername: (state) => state.username,
-  getUserStatus: (state) => state.status
+  getUserStatus: (state) => state.status,
 }
 const actions = {
   login({ commit, dispatch }, { username, password }) {
@@ -32,8 +32,8 @@ const actions = {
       method: 'post',
       data: {
         username,
-        password
-      }
+        password,
+      },
     }).then((resp) => {
       commit('SET_LOGIN', resp)
       dispatch('fetchProfile')
@@ -43,7 +43,7 @@ const actions = {
     return request({
       url: '/auth/register',
       method: 'post',
-      data: data
+      data: data,
     }).then((resp) => {
       commit('SET_LOGIN', resp)
       dispatch('closeConnection')
@@ -60,7 +60,7 @@ const actions = {
   fetchProfile({ commit, dispatch, rootState }) {
     return request({
       url: '/me',
-      method: 'get'
+      method: 'get',
     }).then((resp) => {
       commit('SET_LOGIN_PROFILE', resp.data)
       if (!rootState.socket) {
@@ -68,7 +68,7 @@ const actions = {
       }
       return resp
     })
-  }
+  },
 }
 const mutations = {
   SET_LOGIN(state, { access_token, expires_in }) {
@@ -85,7 +85,7 @@ const mutations = {
   },
   UPDATE_SELF_STATUS(state, status) {
     state.status = status
-  }
+  },
 }
 
 export default {
@@ -93,5 +93,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

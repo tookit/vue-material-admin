@@ -4,7 +4,7 @@ import store from '@/store'
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // api base_url
   timeout: 50000, // timeout,
-  headers: { 'Access-Control-Allow-Origin': '*' }
+  headers: { 'Access-Control-Allow-Origin': '*' },
 })
 
 const err = (error) => {
@@ -19,7 +19,7 @@ const err = (error) => {
       window._VMA.$emit('SHOW_SNACKBAR', {
         show: true,
         text: 'Bad Request ' + data.message,
-        color: 'red'
+        color: 'red',
       })
       break
 
@@ -27,7 +27,7 @@ const err = (error) => {
       window._VMA.$emit('SHOW_SNACKBAR', {
         show: true,
         text: message,
-        color: 'red'
+        color: 'red',
       })
 
       break
@@ -66,7 +66,7 @@ service.interceptors.response.use(({ data, config }) => {
   if (['put', 'post', 'delete', 'patch'].includes(config.method) && data.meta) {
     window._VMA.$emit('SHOW_SNACKBAR', {
       text: data.meta.message,
-      color: 'success'
+      color: 'success',
     })
   }
   if (data.error !== undefined) {

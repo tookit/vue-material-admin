@@ -1,13 +1,7 @@
 <template>
   <figure class="c-avatar">
     <slot name="top"></slot>
-    <img
-      v-if="src"
-      class="c-avatar__image"
-      :style="imgStyles"
-      :src="src"
-      alt=""
-    />
+    <img v-if="src" class="c-avatar__image" :style="imgStyles" :src="src" alt="" />
     <div v-else class="c-avatar__inital" :style="charStyles">
       {{ username.charAt(0).toUpperCase() }}
     </div>
@@ -15,8 +9,7 @@
       <span v-show="unread > 0">{{ unread }}</span>
     </span>
     <v-icon v-if="icon" size="18" class="c-avatar__icon">{{ icon }}</v-icon>
-    <span v-else-if="status" :class="statusClasses" :style="indicatorStyles">
-    </span>
+    <span v-else-if="status" :class="statusClasses" :style="indicatorStyles"> </span>
   </figure>
 </template>
 
@@ -26,27 +19,27 @@ export default {
   name: 'CAvatar',
   props: {
     src: {
-      type: [String, null]
+      type: [String, null],
     },
     size: {
       type: [Number, String],
-      default: 48
+      default: 48,
     },
     status: {
-      type: String
+      type: String,
     },
     icon: {
-      type: String
+      type: String,
     },
     username: {
       type: String,
-      default: ''
+      default: '',
     },
     color: {
       type: [String, Number],
-      default: '#2196f3'
+      default: '#2196f3',
     },
-    unread: Number
+    unread: Number,
   },
 
   data() {
@@ -62,7 +55,7 @@ export default {
       return {
         height: convertToUnit(this.size),
         minWidth: convertToUnit(this.size),
-        width: convertToUnit(this.size)
+        width: convertToUnit(this.size),
       }
     },
 
@@ -71,7 +64,7 @@ export default {
         height: convertToUnit(this.size),
         minWidth: convertToUnit(this.size),
         width: convertToUnit(this.size),
-        'background-color': this.color
+        'background-color': this.color,
       }
     },
 
@@ -80,7 +73,7 @@ export default {
       return {
         height: convertToUnit(size),
         minWidth: convertToUnit(size),
-        width: convertToUnit(size)
+        width: convertToUnit(size),
       }
     },
 
@@ -88,7 +81,7 @@ export default {
       const size = this.size / 2
       return {
         height: convertToUnit(size),
-        minWidth: convertToUnit(size)
+        minWidth: convertToUnit(size),
       }
     },
 
@@ -97,16 +90,16 @@ export default {
     },
     statusClasses() {
       return ['c-avatar__status', this.status]
-    }
+    },
   },
 
   watch: {},
-  methods: {},
   created() {
     if (window._AVATAR === undefined) {
       window._AVATAR = this
     }
-  }
+  },
+  methods: {},
 }
 </script>
 <style lang="scss" scoped>

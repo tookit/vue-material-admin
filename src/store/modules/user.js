@@ -11,14 +11,14 @@ const actions = {
     return request({
       url: `/acl/user/`,
       method: 'get',
-      params: query
+      params: query,
     })
   },
   createUser(context, data) {
     return request({
       url: `/acl/user/`,
       method: 'post',
-      data: data
+      data: data,
     }).then((resp) => {
       return resp
     })
@@ -27,7 +27,7 @@ const actions = {
     return request({
       url: `/acl/user/${id}`,
       method: 'put',
-      data: data
+      data: data,
     }).then((resp) => {
       return resp
     })
@@ -35,11 +35,11 @@ const actions = {
   getUserById(context, id) {
     return request({
       url: `/acl/user/${id}`,
-      method: 'get'
+      method: 'get',
     }).then((resp) => {
       return resp
     })
-  }
+  },
 }
 
 // mutations
@@ -50,5 +50,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

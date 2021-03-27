@@ -17,7 +17,7 @@ const state = {
       start: new Date(today + ' 09:30'),
       end: new Date(today + ' 10:00'),
       color: 'red',
-      timed: true
+      timed: true,
     },
     {
       id: 2,
@@ -25,14 +25,14 @@ const state = {
       start: new Date('2020-10-01'),
       end: new Date('2020-10-07'),
       color: 'green',
-      timed: false
-    }
-  ]
+      timed: false,
+    },
+  ],
 }
 
 // getters
 const getters = {
-  getEvents: (state) => state.events
+  getEvents: (state) => state.events,
 }
 
 // actions
@@ -47,7 +47,7 @@ const actions = {
         item = data
       }
     })
-  }
+  },
 }
 
 // mutations
@@ -58,5 +58,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

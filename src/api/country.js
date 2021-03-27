@@ -1,958 +1,958 @@
 export default [
   {
     country: 'Aruba',
-    abbr: 'AW'
+    abbr: 'AW',
   },
   {
     country: 'Afghanistan',
-    abbr: 'AF'
+    abbr: 'AF',
   },
   {
     country: 'Angola',
-    abbr: 'AO'
+    abbr: 'AO',
   },
   {
     country: 'Anguilla',
-    abbr: 'AI'
+    abbr: 'AI',
   },
   {
     country: 'Albania',
-    abbr: 'AL'
+    abbr: 'AL',
   },
   {
     country: 'Andorra',
-    abbr: 'AD'
+    abbr: 'AD',
   },
   {
     country: 'Netherlands Antilles',
-    abbr: 'AN'
+    abbr: 'AN',
   },
   {
     country: 'United Arab Emirates',
-    abbr: 'AE'
+    abbr: 'AE',
   },
   {
     country: 'Argentina',
-    abbr: 'AR'
+    abbr: 'AR',
   },
   {
     country: 'Armenia',
-    abbr: 'AM'
+    abbr: 'AM',
   },
   {
     country: 'American Samoa',
-    abbr: 'AS'
+    abbr: 'AS',
   },
   {
     country: 'Antarctica',
-    abbr: 'AQ'
+    abbr: 'AQ',
   },
   {
     country: 'French Southern territories',
-    abbr: 'TF'
+    abbr: 'TF',
   },
   {
     country: 'Antigua and Barbuda',
-    abbr: 'AG'
+    abbr: 'AG',
   },
   {
     country: 'Australia',
-    abbr: 'AU'
+    abbr: 'AU',
   },
   {
     country: 'Austria',
-    abbr: 'AT'
+    abbr: 'AT',
   },
   {
     country: 'Azerbaijan',
-    abbr: 'AZ'
+    abbr: 'AZ',
   },
   {
     country: 'Burundi',
-    abbr: 'BI'
+    abbr: 'BI',
   },
   {
     country: 'Belgium',
-    abbr: 'BE'
+    abbr: 'BE',
   },
   {
     country: 'Benin',
-    abbr: 'BJ'
+    abbr: 'BJ',
   },
   {
     country: 'Burkina Faso',
-    abbr: 'BF'
+    abbr: 'BF',
   },
   {
     country: 'Bangladesh',
-    abbr: 'BD'
+    abbr: 'BD',
   },
   {
     country: 'Bulgaria',
-    abbr: 'BG'
+    abbr: 'BG',
   },
   {
     country: 'Bahrain',
-    abbr: 'BH'
+    abbr: 'BH',
   },
   {
     country: 'Bahamas',
-    abbr: 'BS'
+    abbr: 'BS',
   },
   {
     country: 'Bosnia and Herzegovina',
-    abbr: 'BA'
+    abbr: 'BA',
   },
   {
     country: 'Belarus',
-    abbr: 'BY'
+    abbr: 'BY',
   },
   {
     country: 'Belize',
-    abbr: 'BZ'
+    abbr: 'BZ',
   },
   {
     country: 'Bermuda',
-    abbr: 'BM'
+    abbr: 'BM',
   },
   {
     country: 'Bolivia',
-    abbr: 'BO'
+    abbr: 'BO',
   },
   {
     country: 'Brazil',
-    abbr: 'BR'
+    abbr: 'BR',
   },
   {
     country: 'Barbados',
-    abbr: 'BB'
+    abbr: 'BB',
   },
   {
     country: 'Brunei',
-    abbr: 'BN'
+    abbr: 'BN',
   },
   {
     country: 'Bhutan',
-    abbr: 'BT'
+    abbr: 'BT',
   },
   {
     country: 'Bouvet Island',
-    abbr: 'BV'
+    abbr: 'BV',
   },
   {
     country: 'Botswana',
-    abbr: 'BW'
+    abbr: 'BW',
   },
   {
     country: 'Central African Republic',
-    abbr: 'CF'
+    abbr: 'CF',
   },
   {
     country: 'Canada',
-    abbr: 'CA'
+    abbr: 'CA',
   },
   {
     country: 'Cocos (Keeling) Islands',
-    abbr: 'CC'
+    abbr: 'CC',
   },
   {
     country: 'Switzerland',
-    abbr: 'CH'
+    abbr: 'CH',
   },
   {
     country: 'Chile',
-    abbr: 'CL'
+    abbr: 'CL',
   },
   {
     country: 'China',
-    abbr: 'CN'
+    abbr: 'CN',
   },
   {
     country: 'Ivory Coast',
-    abbr: 'CI'
+    abbr: 'CI',
   },
   {
     country: 'Cameroon',
-    abbr: 'CM'
+    abbr: 'CM',
   },
   {
     country: 'Congo, The Democratic Republic of the',
-    abbr: 'CD'
+    abbr: 'CD',
   },
   {
     country: 'Congo',
-    abbr: 'CG'
+    abbr: 'CG',
   },
   {
     country: 'Cook Islands',
-    abbr: 'CK'
+    abbr: 'CK',
   },
   {
     country: 'Colombia',
-    abbr: 'CO'
+    abbr: 'CO',
   },
   {
     country: 'Comoros',
-    abbr: 'KM'
+    abbr: 'KM',
   },
   {
     country: 'Cape Verde',
-    abbr: 'CV'
+    abbr: 'CV',
   },
   {
     country: 'Costa Rica',
-    abbr: 'CR'
+    abbr: 'CR',
   },
   {
     country: 'Cuba',
-    abbr: 'CU'
+    abbr: 'CU',
   },
   {
     country: 'Christmas Island',
-    abbr: 'CX'
+    abbr: 'CX',
   },
   {
     country: 'Cayman Islands',
-    abbr: 'KY'
+    abbr: 'KY',
   },
   {
     country: 'Cyprus',
-    abbr: 'CY'
+    abbr: 'CY',
   },
   {
     country: 'Czech Republic',
-    abbr: 'CZ'
+    abbr: 'CZ',
   },
   {
     country: 'Germany',
-    abbr: 'DE'
+    abbr: 'DE',
   },
   {
     country: 'Djibouti',
-    abbr: 'DJ'
+    abbr: 'DJ',
   },
   {
     country: 'Dominica',
-    abbr: 'DM'
+    abbr: 'DM',
   },
   {
     country: 'Denmark',
-    abbr: 'DK'
+    abbr: 'DK',
   },
   {
     country: 'Dominican Republic',
-    abbr: 'DO'
+    abbr: 'DO',
   },
   {
     country: 'Algeria',
-    abbr: 'DZ'
+    abbr: 'DZ',
   },
   {
     country: 'Ecuador',
-    abbr: 'EC'
+    abbr: 'EC',
   },
   {
     country: 'Egypt',
-    abbr: 'EG'
+    abbr: 'EG',
   },
   {
     country: 'Eritrea',
-    abbr: 'ER'
+    abbr: 'ER',
   },
   {
     country: 'Western Sahara',
-    abbr: 'EH'
+    abbr: 'EH',
   },
   {
     country: 'Spain',
-    abbr: 'ES'
+    abbr: 'ES',
   },
   {
     country: 'Estonia',
-    abbr: 'EE'
+    abbr: 'EE',
   },
   {
     country: 'Ethiopia',
-    abbr: 'ET'
+    abbr: 'ET',
   },
   {
     country: 'Finland',
-    abbr: 'FI'
+    abbr: 'FI',
   },
   {
     country: 'Fiji Islands',
-    abbr: 'FJ'
+    abbr: 'FJ',
   },
   {
     country: 'Falkland Islands',
-    abbr: 'FK'
+    abbr: 'FK',
   },
   {
     country: 'France',
-    abbr: 'FR'
+    abbr: 'FR',
   },
   {
     country: 'Faroe Islands',
-    abbr: 'FO'
+    abbr: 'FO',
   },
   {
     country: 'Federated States of Micronesia',
-    abbr: 'FM'
+    abbr: 'FM',
   },
   {
     country: 'Gabon',
-    abbr: 'GA'
+    abbr: 'GA',
   },
   {
     country: 'United Kingdom',
-    abbr: 'GB'
+    abbr: 'GB',
   },
   {
     country: 'Georgia',
-    abbr: 'GE'
+    abbr: 'GE',
   },
   {
     country: 'Ghana',
-    abbr: 'GH'
+    abbr: 'GH',
   },
   {
     country: 'Gibraltar',
-    abbr: 'GI'
+    abbr: 'GI',
   },
   {
     country: 'Guinea',
-    abbr: 'GN'
+    abbr: 'GN',
   },
   {
     country: 'Guadeloupe',
-    abbr: 'GP'
+    abbr: 'GP',
   },
   {
     country: 'Gambia',
-    abbr: 'GM'
+    abbr: 'GM',
   },
   {
     country: 'Guinea-Bissau',
-    abbr: 'GW'
+    abbr: 'GW',
   },
   {
     country: 'Equatorial Guinea',
-    abbr: 'GQ'
+    abbr: 'GQ',
   },
   {
     country: 'Greece',
-    abbr: 'GR'
+    abbr: 'GR',
   },
   {
     country: 'Grenada',
-    abbr: 'GD'
+    abbr: 'GD',
   },
   {
     country: 'Greenland',
-    abbr: 'GL'
+    abbr: 'GL',
   },
   {
     country: 'Guatemala',
-    abbr: 'GT'
+    abbr: 'GT',
   },
   {
     country: 'French Guiana',
-    abbr: 'GF'
+    abbr: 'GF',
   },
   {
     country: 'Guam',
-    abbr: 'GU'
+    abbr: 'GU',
   },
   {
     country: 'Guyana',
-    abbr: 'GY'
+    abbr: 'GY',
   },
   {
     country: 'Hong Kong',
-    abbr: 'HK'
+    abbr: 'HK',
   },
   {
     country: 'Heard Island and McDonald Islands',
-    abbr: 'HM'
+    abbr: 'HM',
   },
   {
     country: 'Honduras',
-    abbr: 'HN'
+    abbr: 'HN',
   },
   {
     country: 'Croatia',
-    abbr: 'HR'
+    abbr: 'HR',
   },
   {
     country: 'Haiti',
-    abbr: 'HT'
+    abbr: 'HT',
   },
   {
     country: 'Hungary',
-    abbr: 'HU'
+    abbr: 'HU',
   },
   {
     country: 'Indonesia',
-    abbr: 'ID'
+    abbr: 'ID',
   },
   {
     country: 'India',
-    abbr: 'IN'
+    abbr: 'IN',
   },
   {
     country: 'British Indian Ocean Territory',
-    abbr: 'IO'
+    abbr: 'IO',
   },
   {
     country: 'Ireland',
-    abbr: 'IE'
+    abbr: 'IE',
   },
   {
     country: 'Iran',
-    abbr: 'IR'
+    abbr: 'IR',
   },
   {
     country: 'Iraq',
-    abbr: 'IQ'
+    abbr: 'IQ',
   },
   {
     country: 'Iceland',
-    abbr: 'IS'
+    abbr: 'IS',
   },
   {
     country: 'Israel',
-    abbr: 'IL'
+    abbr: 'IL',
   },
   {
     country: 'Italy',
-    abbr: 'IT'
+    abbr: 'IT',
   },
   {
     country: 'Jamaica',
-    abbr: 'JM'
+    abbr: 'JM',
   },
   {
     country: 'Jordan',
-    abbr: 'JO'
+    abbr: 'JO',
   },
   {
     country: 'Japan',
-    abbr: 'JP'
+    abbr: 'JP',
   },
   {
     country: 'Kazakhstan',
-    abbr: 'KZ'
+    abbr: 'KZ',
   },
   {
     country: 'Kenya',
-    abbr: 'KE'
+    abbr: 'KE',
   },
   {
     country: 'Kyrgyzstan',
-    abbr: 'KG'
+    abbr: 'KG',
   },
   {
     country: 'Cambodia',
-    abbr: 'KH'
+    abbr: 'KH',
   },
   {
     country: 'Kiribati',
-    abbr: 'KI'
+    abbr: 'KI',
   },
   {
     country: 'Saint Kitts and Nevis',
-    abbr: 'KN'
+    abbr: 'KN',
   },
   {
     country: 'South Korea',
-    abbr: 'KR'
+    abbr: 'KR',
   },
   {
     country: 'Kuwait',
-    abbr: 'KW'
+    abbr: 'KW',
   },
   {
     country: 'Laos',
-    abbr: 'LA'
+    abbr: 'LA',
   },
   {
     country: 'Lebanon',
-    abbr: 'LB'
+    abbr: 'LB',
   },
   {
     country: 'Liberia',
-    abbr: 'LR'
+    abbr: 'LR',
   },
   {
     country: 'Libyan Arab Jamahiriya',
-    abbr: 'LY'
+    abbr: 'LY',
   },
   {
     country: 'Saint Lucia',
-    abbr: 'LC'
+    abbr: 'LC',
   },
   {
     country: 'Liechtenstein',
-    abbr: 'LI'
+    abbr: 'LI',
   },
   {
     country: 'Sri Lanka',
-    abbr: 'LK'
+    abbr: 'LK',
   },
   {
     country: 'Lesotho',
-    abbr: 'LS'
+    abbr: 'LS',
   },
   {
     country: 'Lithuania',
-    abbr: 'LT'
+    abbr: 'LT',
   },
   {
     country: 'Luxembourg',
-    abbr: 'LU'
+    abbr: 'LU',
   },
   {
     country: 'Latvia',
-    abbr: 'LV'
+    abbr: 'LV',
   },
   {
     country: 'Macao',
-    abbr: 'MO'
+    abbr: 'MO',
   },
   {
     country: 'Morocco',
-    abbr: 'MA'
+    abbr: 'MA',
   },
   {
     country: 'Monaco',
-    abbr: 'MC'
+    abbr: 'MC',
   },
   {
     country: 'Moldova',
-    abbr: 'MD'
+    abbr: 'MD',
   },
   {
     country: 'Madagascar',
-    abbr: 'MG'
+    abbr: 'MG',
   },
   {
     country: 'Maldives',
-    abbr: 'MV'
+    abbr: 'MV',
   },
   {
     country: 'Mexico',
-    abbr: 'MX'
+    abbr: 'MX',
   },
   {
     country: 'Marshall Islands',
-    abbr: 'MH'
+    abbr: 'MH',
   },
   {
     country: 'Macedonia',
-    abbr: 'MK'
+    abbr: 'MK',
   },
   {
     country: 'Mali',
-    abbr: 'ML'
+    abbr: 'ML',
   },
   {
     country: 'Malta',
-    abbr: 'MT'
+    abbr: 'MT',
   },
   {
     country: 'Myanmar',
-    abbr: 'MM'
+    abbr: 'MM',
   },
   {
     country: 'Mongolia',
-    abbr: 'MN'
+    abbr: 'MN',
   },
   {
     country: 'Northern Mariana Islands',
-    abbr: 'MP'
+    abbr: 'MP',
   },
   {
     country: 'Mozambique',
-    abbr: 'MZ'
+    abbr: 'MZ',
   },
   {
     country: 'Mauritania',
-    abbr: 'MR'
+    abbr: 'MR',
   },
   {
     country: 'Montserrat',
-    abbr: 'MS'
+    abbr: 'MS',
   },
   {
     country: 'Martinique',
-    abbr: 'MQ'
+    abbr: 'MQ',
   },
   {
     country: 'Mauritius',
-    abbr: 'MU'
+    abbr: 'MU',
   },
   {
     country: 'Malawi',
-    abbr: 'MW'
+    abbr: 'MW',
   },
   {
     country: 'Malaysia',
-    abbr: 'MY'
+    abbr: 'MY',
   },
   {
     country: 'Mayotte',
-    abbr: 'YT'
+    abbr: 'YT',
   },
   {
     country: 'Namibia',
-    abbr: 'NA'
+    abbr: 'NA',
   },
   {
     country: 'New Caledonia',
-    abbr: 'NC'
+    abbr: 'NC',
   },
   {
     country: 'Niger',
-    abbr: 'NE'
+    abbr: 'NE',
   },
   {
     country: 'Norfolk Island',
-    abbr: 'NF'
+    abbr: 'NF',
   },
   {
     country: 'Nigeria',
-    abbr: 'NG'
+    abbr: 'NG',
   },
   {
     country: 'Nicaragua',
-    abbr: 'NI'
+    abbr: 'NI',
   },
   {
     country: 'Niue',
-    abbr: 'NU'
+    abbr: 'NU',
   },
   {
     country: 'Netherlands',
-    abbr: 'NL'
+    abbr: 'NL',
   },
   {
     country: 'Norway',
-    abbr: 'NO'
+    abbr: 'NO',
   },
   {
     country: 'Nepal',
-    abbr: 'NP'
+    abbr: 'NP',
   },
   {
     country: 'Nauru',
-    abbr: 'NR'
+    abbr: 'NR',
   },
   {
     country: 'New Zealand',
-    abbr: 'NZ'
+    abbr: 'NZ',
   },
   {
     country: 'Oman',
-    abbr: 'OM'
+    abbr: 'OM',
   },
   {
     country: 'Pakistan',
-    abbr: 'PK'
+    abbr: 'PK',
   },
   {
     country: 'Panama',
-    abbr: 'PA'
+    abbr: 'PA',
   },
   {
     country: 'Pitcairn',
-    abbr: 'PN'
+    abbr: 'PN',
   },
   {
     country: 'Peru',
-    abbr: 'PE'
+    abbr: 'PE',
   },
   {
     country: 'Philippines',
-    abbr: 'PH'
+    abbr: 'PH',
   },
   {
     country: 'Palau',
-    abbr: 'PW'
+    abbr: 'PW',
   },
   {
     country: 'Papua New Guinea',
-    abbr: 'PG'
+    abbr: 'PG',
   },
   {
     country: 'Poland',
-    abbr: 'PL'
+    abbr: 'PL',
   },
   {
     country: 'Puerto Rico',
-    abbr: 'PR'
+    abbr: 'PR',
   },
   {
     country: 'North Korea',
-    abbr: 'KP'
+    abbr: 'KP',
   },
   {
     country: 'Portugal',
-    abbr: 'PT'
+    abbr: 'PT',
   },
   {
     country: 'Paraguay',
-    abbr: 'PY'
+    abbr: 'PY',
   },
   {
     country: 'Palestine',
-    abbr: 'PS'
+    abbr: 'PS',
   },
   {
     country: 'French Polynesia',
-    abbr: 'PF'
+    abbr: 'PF',
   },
   {
     country: 'Qatar',
-    abbr: 'QA'
+    abbr: 'QA',
   },
   {
     country: 'Reunion',
-    abbr: 'RE'
+    abbr: 'RE',
   },
   {
     country: 'Romania',
-    abbr: 'RO'
+    abbr: 'RO',
   },
   {
     country: 'Russian Federation',
-    abbr: 'RU'
+    abbr: 'RU',
   },
   {
     country: 'Rwanda',
-    abbr: 'RW'
+    abbr: 'RW',
   },
   {
     country: 'Saudi Arabia',
-    abbr: 'SA'
+    abbr: 'SA',
   },
   {
     country: 'Sudan',
-    abbr: 'SD'
+    abbr: 'SD',
   },
   {
     country: 'Senegal',
-    abbr: 'SN'
+    abbr: 'SN',
   },
   {
     country: 'Singapore',
-    abbr: 'SG'
+    abbr: 'SG',
   },
   {
     country: 'South Georgia and the South Sandwich Islands',
-    abbr: 'GS'
+    abbr: 'GS',
   },
   {
     country: 'Saint Helena',
-    abbr: 'SH'
+    abbr: 'SH',
   },
   {
     country: 'Svalbard and Jan Mayen',
-    abbr: 'SJ'
+    abbr: 'SJ',
   },
   {
     country: 'Solomon Islands',
-    abbr: 'SB'
+    abbr: 'SB',
   },
   {
     country: 'Sierra Leone',
-    abbr: 'SL'
+    abbr: 'SL',
   },
   {
     country: 'El Salvador',
-    abbr: 'SV'
+    abbr: 'SV',
   },
   {
     country: 'San Marino',
-    abbr: 'SM'
+    abbr: 'SM',
   },
   {
     country: 'Somalia',
-    abbr: 'SO'
+    abbr: 'SO',
   },
   {
     country: 'Saint Pierre and Miquelon',
-    abbr: 'PM'
+    abbr: 'PM',
   },
   {
     country: 'Sao Tome and Principe',
-    abbr: 'ST'
+    abbr: 'ST',
   },
   {
     country: 'Suriname',
-    abbr: 'SR'
+    abbr: 'SR',
   },
   {
     country: 'Slovakia',
-    abbr: 'SK'
+    abbr: 'SK',
   },
   {
     country: 'Slovenia',
-    abbr: 'SI'
+    abbr: 'SI',
   },
   {
     country: 'Sweden',
-    abbr: 'SE'
+    abbr: 'SE',
   },
   {
     country: 'Swaziland',
-    abbr: 'SZ'
+    abbr: 'SZ',
   },
   {
     country: 'Seychelles',
-    abbr: 'SC'
+    abbr: 'SC',
   },
   {
     country: 'Syria',
-    abbr: 'SY'
+    abbr: 'SY',
   },
   {
     country: 'Turks and Caicos Islands',
-    abbr: 'TC'
+    abbr: 'TC',
   },
   {
     country: 'Chad',
-    abbr: 'TD'
+    abbr: 'TD',
   },
   {
     country: 'Togo',
-    abbr: 'TG'
+    abbr: 'TG',
   },
   {
     country: 'Thailand',
-    abbr: 'TH'
+    abbr: 'TH',
   },
   {
     country: 'Tajikistan',
-    abbr: 'TJ'
+    abbr: 'TJ',
   },
   {
     country: 'Tokelau',
-    abbr: 'TK'
+    abbr: 'TK',
   },
   {
     country: 'Turkmenistan',
-    abbr: 'TM'
+    abbr: 'TM',
   },
   {
     country: 'East Timor',
-    abbr: 'TP'
+    abbr: 'TP',
   },
   {
     country: 'Tonga',
-    abbr: 'TO'
+    abbr: 'TO',
   },
   {
     country: 'Trinidad and Tobago',
-    abbr: 'TT'
+    abbr: 'TT',
   },
   {
     country: 'Tunisia',
-    abbr: 'TN'
+    abbr: 'TN',
   },
   {
     country: 'Turkey',
-    abbr: 'TR'
+    abbr: 'TR',
   },
   {
     country: 'Tuvalu',
-    abbr: 'TV'
+    abbr: 'TV',
   },
   {
     country: 'Taiwan',
-    abbr: 'TW'
+    abbr: 'TW',
   },
   {
     country: 'Tanzania',
-    abbr: 'TZ'
+    abbr: 'TZ',
   },
   {
     country: 'Uganda',
-    abbr: 'UG'
+    abbr: 'UG',
   },
   {
     country: 'Ukraine',
-    abbr: 'UA'
+    abbr: 'UA',
   },
   {
     country: 'United States Minor Outlying Islands',
-    abbr: 'UM'
+    abbr: 'UM',
   },
   {
     country: 'Uruguay',
-    abbr: 'UY'
+    abbr: 'UY',
   },
   {
     country: 'United States',
-    abbr: 'US'
+    abbr: 'US',
   },
   {
     country: 'Uzbekistan',
-    abbr: 'UZ'
+    abbr: 'UZ',
   },
   {
     country: 'Holy See (Vatican City State)',
-    abbr: 'VA'
+    abbr: 'VA',
   },
   {
     country: 'Saint Vincent and the Grenadines',
-    abbr: 'VC'
+    abbr: 'VC',
   },
   {
     country: 'Venezuela',
-    abbr: 'VE'
+    abbr: 'VE',
   },
   {
     country: 'British Virgin Islands',
-    abbr: 'VG'
+    abbr: 'VG',
   },
   {
     country: 'United States Virgin Islands',
-    abbr: 'VI'
+    abbr: 'VI',
   },
   {
     country: 'Vietnam',
-    abbr: 'VN'
+    abbr: 'VN',
   },
   {
     country: 'Vanuatu',
-    abbr: 'VU'
+    abbr: 'VU',
   },
   {
     country: 'Wallis and Futuna',
-    abbr: 'WF'
+    abbr: 'WF',
   },
   {
     country: 'Samoa',
-    abbr: 'WS'
+    abbr: 'WS',
   },
   {
     country: 'Yemen',
-    abbr: 'YE'
+    abbr: 'YE',
   },
   {
     country: 'Yugoslavia',
-    abbr: 'YU'
+    abbr: 'YU',
   },
   {
     country: 'South Africa',
-    abbr: 'ZA'
+    abbr: 'ZA',
   },
   {
     country: 'Zambia',
-    abbr: 'ZM'
+    abbr: 'ZM',
   },
   {
     country: 'Zimbabwe',
-    abbr: 'ZW'
-  }
+    abbr: 'ZW',
+  },
 ]

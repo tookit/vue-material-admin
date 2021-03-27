@@ -4,7 +4,7 @@
       v-show="fab"
       v-scroll="onScroll"
       :style="{
-        bottom: fab ? '100px' : ''
+        bottom: fab ? '100px' : '',
       }"
       aria-label="Scroll to top"
       bottom
@@ -27,7 +27,7 @@ export default {
   name: 'AppFab',
   data() {
     return {
-      fab: false
+      fab: false,
     }
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
     },
     toTop() {
       this.$vuetify.goTo(0)
-    }
-  }
+    },
+  },
 }
 </script>

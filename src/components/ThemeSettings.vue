@@ -7,42 +7,33 @@
       <v-row column>
         <v-col>
           <v-select
+            v-model="$vuetify.lang.current"
             placeholder="Language"
             label="Language"
             :items="availableLanguages"
-            v-model="$vuetify.lang.current"
             @change="changeLocale"
           />
           <v-subheader class="px-1 my-2">Color Option</v-subheader>
           <div class="color-option">
             <v-layout wrap>
               <label
-                class="color-option--label flex xs6 pa-1"
                 v-for="(option, index) in themeColorOptions"
                 :key="index"
+                class="color-option--label flex xs6 pa-1"
               >
                 <input
+                  v-model="themeColor"
                   type="radio"
                   name="color"
                   :value="option.key"
-                  v-model="themeColor"
                   @click="handleChangeColor(option)"
                 />
                 <span class="color-option--item bg">
-                  <span
-                    class="overlay"
-                    :class="option.key === theme ? 'selected' : ''"
-                  >
+                  <span class="overlay" :class="option.key === theme ? 'selected' : ''">
                     <v-icon color="white">mdi-check</v-icon>
                   </span>
-                  <span
-                    class="color-option--item--header sideNav"
-                    :class="option.value.sideNav"
-                  ></span>
-                  <span
-                    class="color-option--item--header mainNav"
-                    :class="option.value.mainNav"
-                  ></span>
+                  <span class="color-option--item--header sideNav" :class="option.value.sideNav"></span>
+                  <span class="color-option--item--header mainNav" :class="option.value.mainNav"></span>
                   <span class="sideMenu" :class="option.value.sideMenu"></span>
                 </span>
               </label>
@@ -71,7 +62,7 @@ export default {
       theme: this.$store.getters.getTheme,
       themeColor: this.$store.getters.getThemeColor,
       sideBarOption: 'light',
-      colors: colors
+      colors: colors,
     }
   },
   computed: {
@@ -82,73 +73,73 @@ export default {
           value: {
             sideNav: 'blue',
             mainNav: 'blue',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'teal',
           value: {
             sideNav: 'teal',
             mainNav: 'teal',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'red',
           value: {
             sideNav: 'red',
             mainNav: 'red',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'orange',
           value: {
             sideNav: 'orange',
             mainNav: 'orange',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'purple',
           value: {
             sideNav: 'purple',
             mainNav: 'purple',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'indigo',
           value: {
             sideNav: 'indigo',
             mainNav: 'indigo',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'cyan',
           value: {
             sideNav: 'cyan',
             mainNav: 'cyan',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'pink',
           value: {
             sideNav: 'pink',
             mainNav: 'pink',
-            sideMenu: 'white'
-          }
+            sideMenu: 'white',
+          },
         },
         {
           key: 'green',
           value: {
             sideNav: 'green',
             mainNav: 'green',
-            sideMenu: 'white'
-          }
-        }
+            sideMenu: 'white',
+          },
+        },
       ]
     },
     availableLanguages() {
@@ -156,19 +147,19 @@ export default {
       return Object.keys(locales).map((lang) => {
         return {
           text: locales[lang].label,
-          value: lang
+          value: lang,
         }
       })
-    }
+    },
   },
   watch: {
     sideBarOption: {
       handler(val) {
         this.$vuetify.theme.dark = val === 'dark'
       },
-      immediate: true
+      immediate: true,
     },
-    updateTheme() {}
+    updateTheme() {},
   },
   methods: {
     changeLocale(lang) {
@@ -179,8 +170,8 @@ export default {
       this.$store.commit('setTheme', option.key)
       this.$store.commit('setThemeColor', color)
       this.$vuetify.theme.themes.light.primary = color
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="sass" scoped>

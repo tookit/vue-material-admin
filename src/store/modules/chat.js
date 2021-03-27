@@ -10,7 +10,7 @@ const state = {
   // user clientId as username
   clientUsers: [],
   // {username: '', status: '', clientId, 'device'}
-  chatUsers: []
+  chatUsers: [],
 }
 
 // getters
@@ -31,14 +31,14 @@ const getters = {
   getStatusByName: (state) => (username) => {
     const user = state.chatUsers.find((item) => item.username === username)
     return user.status ? 'online' : 'offline'
-  }
+  },
 }
 
 // actions
 const actions = {
   initSocket({ commit, dispatch, rootState }) {
     const socket = io.connect(process.env.VUE_APP_SOCKET, {
-      reconnectionAttempts: 5
+      reconnectionAttempts: 5,
     })
     socket.on('connect', () => {
       // const user = { username: rootState.auth.username }
@@ -72,7 +72,7 @@ const actions = {
       text: text,
       clientId: state.clientId,
       username: state.clientId,
-      createdAt: Date.now()
+      createdAt: Date.now(),
     }
     commit('SEND_MESSAGE', message)
     commit('UPDATE_MESSAGE_LIST', message)
@@ -86,7 +86,7 @@ const actions = {
   },
   joinRoom({ commit }, socket) {
     commit('JOIN_ROOM', socket)
-  }
+  },
 }
 
 // mutations
@@ -118,9 +118,7 @@ const mutations = {
     }
   },
   UPDATE_USER_STATUS(state, { clientId, status }) {
-    const index = state.chatUsers.findIndex(
-      (item) => item.clientId === clientId
-    )
+    const index = state.chatUsers.findIndex((item) => item.clientId === clientId)
     if (index) {
       console.log(index)
       const user = state.chatUsers[index]
@@ -134,7 +132,7 @@ const mutations = {
     state.clientUsers = users // return online users only for demo
   },
   REMOVE_CLIENT_USERS(state, clientId) {
-    state.clientUsers = state.clientUsers.filter(item => item.clientId !== clientId)
+    state.clientUsers = state.clientUsers.filter((item) => item.clientId !== clientId)
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
@@ -143,9 +141,9 @@ const mutations = {
     state.socket.emit('join', {
       username: state.clientId,
       clientId: state.clientId,
-      status: 1
+      status: 1,
     })
-  }
+  },
 }
 
 export default {
@@ -153,5 +151,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

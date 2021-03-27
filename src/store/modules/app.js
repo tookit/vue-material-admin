@@ -7,27 +7,27 @@ const state = {
       title: 'New user registered',
       color: 'light-green',
       icon: 'mdi-account-circle',
-      timeLabel: 'Just now'
+      timeLabel: 'Just now',
     },
     {
       title: 'New order received',
       color: 'light-blue',
       icon: 'mdi-cart-plus',
-      timeLabel: '2 min ago'
+      timeLabel: '2 min ago',
     },
     {
       title: 'New payment made',
       color: 'cyan',
       icon: 'mdi-receipt',
-      timeLabel: '24 min ago'
+      timeLabel: '24 min ago',
     },
     {
       title: 'New message from Michael',
       color: 'red',
       icon: 'mdi-email',
-      timeLabel: '1 hour ago'
-    }
-  ]
+      timeLabel: '1 hour ago',
+    },
+  ],
 }
 
 // getters
@@ -50,13 +50,13 @@ const actions = {
       title: text,
       color: 'light-green',
       icon: 'mdi-account-circle',
-      timeLabel: 'Just now'
+      timeLabel: 'Just now',
     }
     commit('UPDATE_NOTIFICATION', note)
   },
   clearNotificaton({ commit }) {
     commit('CLEAR_NOTIFICATION')
-  }
+  },
 }
 
 // mutations
@@ -72,7 +72,7 @@ const mutations = {
   },
   CLEAR_NOTIFICATION(state) {
     state.notificatons = []
-  }
+  },
 }
 
 export default {
@@ -80,5 +80,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

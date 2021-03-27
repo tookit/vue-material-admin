@@ -35,8 +35,8 @@ export default {
   props: {
     items: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {}
@@ -47,8 +47,8 @@ export default {
     },
     handleClearNotification() {
       this.$store.dispatch('clearNotificaton')
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="sass" scoped>
