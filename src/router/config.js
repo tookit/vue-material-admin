@@ -1,21 +1,15 @@
-import {
-  LayoutAuth,
-  LayoutDefault,
-  LayoutChat,
-  LayoutMedia,
-  RouteWrapper
-} from '@/components/layouts'
+import { LayoutAuth, LayoutDefault, LayoutChat, LayoutMedia, RouteWrapper } from '@/components/layouts'
 
 export const publicRoute = [
   {
     path: '*',
-    component: () => import('@/views/error/NotFound.vue')
+    component: () => import('@/views/error/NotFound.vue'),
   },
   {
     path: '/auth',
     component: LayoutAuth,
     meta: {
-      title: 'Login'
+      title: 'Login',
     },
     redirect: '/auth/login',
     hidden: true,
@@ -24,30 +18,30 @@ export const publicRoute = [
         path: 'login',
         name: 'login',
         meta: {
-          title: 'Login'
+          title: 'Login',
         },
-        component: () => import('@/views/auth/Login.vue')
-      }
-    ]
+        component: () => import('@/views/auth/Login.vue'),
+      },
+    ],
   },
 
   {
     path: '/404',
     name: '404',
     meta: {
-      title: 'Not Found'
+      title: 'Not Found',
     },
-    component: () => import('@/views/error/NotFound.vue')
+    component: () => import('@/views/error/NotFound.vue'),
   },
 
   {
     path: '/500',
     name: '500',
     meta: {
-      title: 'Server Error'
+      title: 'Server Error',
     },
-    component: () => import('@/views/error/Error.vue')
-  }
+    component: () => import('@/views/error/Error.vue'),
+  },
 ]
 
 export const protectedRoute = [
@@ -56,8 +50,7 @@ export const protectedRoute = [
     component: LayoutDefault,
     meta: {
       title: 'home',
-      group: 'apps',
-      icon: ''
+      icon: '',
     },
     redirect: '/dashboard',
     children: [
@@ -66,34 +59,31 @@ export const protectedRoute = [
         name: 'dashboard',
         meta: {
           title: 'dashboard',
-          group: 'apps',
-          icon: 'mdi-view-dashboard'
+          icon: 'mdi-view-dashboard',
         },
-        component: () => import('@/views/Dashboard.vue')
+        component: () => import('@/views/Dashboard.vue'),
       },
       //calendar
       {
         path: '/calendar',
         meta: {
           title: 'calendar',
-          group: 'apps',
-          icon: 'mdi-calendar-check'
+          icon: 'mdi-calendar-check',
         },
         name: 'calendar',
         props: (route) => ({
-          type: route.query.type
+          type: route.query.type,
         }),
-        component: () => import('@/views/Calendar.vue')
+        component: () => import('@/views/Calendar.vue'),
       },
       {
         path: '/chat',
         meta: {
           title: 'chat',
-          group: 'apps',
           icon: 'mdi-chat',
-          new: true
+          isNew: true,
         },
-        redirect: '/chat/messaging'
+        redirect: '/chat/messaging',
       },
       {
         path: '/media',
@@ -101,9 +91,9 @@ export const protectedRoute = [
           title: 'media',
           group: 'apps',
           icon: 'mdi-image',
-          new: true
+          isNew: true,
         },
-        redirect: '/media/file'
+        redirect: '/media/file',
       },
 
       //element
@@ -112,7 +102,7 @@ export const protectedRoute = [
         component: RouteWrapper,
         meta: {
           title: 'element',
-          icon: 'mdi-dots-square'
+          icon: 'mdi-dots-square',
         },
         redirect: '/element/cascader',
         children: [
@@ -121,11 +111,11 @@ export const protectedRoute = [
             name: 'element.cascader',
             meta: {
               title: 'cascader',
-              icon: 'mdi-alpha-c'
+              icon: 'mdi-alpha-c',
             },
-            component: () => import('@/views/element/Cascader.vue')
-          }
-        ]
+            component: () => import('@/views/element/Cascader.vue'),
+          },
+        ],
       },
       //acl
       {
@@ -135,7 +125,7 @@ export const protectedRoute = [
         meta: {
           title: 'acl',
           icon: 'mdi-shield',
-          group: 'cms'
+          group: 'cms',
         },
         children: [
           {
@@ -143,7 +133,7 @@ export const protectedRoute = [
             name: 'acl.user',
             meta: {
               title: 'users',
-              icon: 'mdi-account-multiple'
+              icon: 'mdi-account-multiple',
             },
             redirect: '/acl/user/list',
             component: RouteWrapper,
@@ -153,32 +143,32 @@ export const protectedRoute = [
                 name: 'acl.user.list',
                 meta: {
                   title: 'user_list',
-                  icon: 'mdi-account-multiple'
+                  icon: 'mdi-account-multiple',
                 },
-                component: () => import('@/views/user/UserList.vue')
+                component: () => import('@/views/user/UserList.vue'),
               },
               {
                 path: '/acl/user/create',
                 name: 'acl.user.create',
                 meta: {
                   title: 'create_user',
-                  icon: 'mdi-view-grid'
+                  icon: 'mdi-view-grid',
                 },
-                component: () => import('@/views/user/UserItem.vue')
+                component: () => import('@/views/user/UserItem.vue'),
               },
               {
                 path: '/acl/user/item/:id',
                 name: 'acl.user.edit',
                 meta: {
                   title: 'edit_user',
-                  icon: 'mdi-view-grid'
+                  icon: 'mdi-view-grid',
                 },
                 props: true,
-                component: () => import('@/views/user/UserItem.vue')
-              }
-            ]
-          }
-        ]
+                component: () => import('@/views/user/UserItem.vue'),
+              },
+            ],
+          },
+        ],
       },
       //widgets
       {
@@ -187,7 +177,7 @@ export const protectedRoute = [
         meta: {
           title: 'widget',
           icon: 'mdi-widgets',
-          group: 'advance'
+          group: 'advance',
         },
         redirect: '/widgets/social',
         children: [
@@ -196,20 +186,20 @@ export const protectedRoute = [
             name: 'SocialWidget',
             meta: {
               title: 'social',
-              icon: 'mdi-face-profile'
+              icon: 'mdi-face-profile',
             },
-            component: () => import('@/views/widgets/Social.vue')
+            component: () => import('@/views/widgets/Social.vue'),
           },
           {
             path: '/widgets/statistic',
             name: 'StatisticWidget',
             meta: {
               title: 'statistic',
-              icon: 'mdi-hexagon'
+              icon: 'mdi-hexagon',
             },
-            component: () => import('@/views/widgets/Statistic.vue')
-          }
-        ]
+            component: () => import('@/views/widgets/Statistic.vue'),
+          },
+        ],
       },
       //form
       {
@@ -218,29 +208,29 @@ export const protectedRoute = [
         meta: {
           title: 'form',
           icon: 'mdi-form-textbox',
-          group: 'advance'
+          group: 'advance',
         },
-        redirect: '/forms/list',
+        redirect: '/forms/basic',
         children: [
           {
             path: '/forms/basic',
             name: 'forms.basic',
             meta: {
               title: 'basic_form',
-              icon: 'mdi-alpha-b'
+              icon: 'mdi-alpha-b',
             },
-            component: () => import('@/views/form/BasicForm.vue')
+            component: () => import('@/views/form/BasicForm.vue'),
           },
           {
             path: '/forms/stepper',
             name: 'forms.stepper',
             meta: {
               title: 'step_form',
-              icon: 'mdi-alpha-s'
+              icon: 'mdi-alpha-s',
             },
-            component: () => import('@/views/form/Steppers.vue')
-          }
-        ]
+            component: () => import('@/views/form/Steppers.vue'),
+          },
+        ],
       },
       //chart
       {
@@ -249,74 +239,30 @@ export const protectedRoute = [
         meta: {
           title: 'chart',
           icon: 'mdi-chart-line',
-          group: 'advance'
+          group: 'advance',
         },
         redirect: '/chart/echart',
         children: [
           {
-            path: '/cart/echart',
+            path: '/chart/echart',
             name: 'echart',
             meta: {
               title: 'echart',
-              icon: 'mdi-paw'
+              icon: 'mdi-paw',
             },
-            component: () => import('@/views/chart/Echart.vue')
+            component: () => import('@/views/chart/Echart.vue'),
           },
           {
-            path: '/cart/g2',
+            path: '/chart/g2',
             name: 'g2',
             meta: {
               title: 'g2',
-              icon: 'mdi-alpha-g'
+              icon: 'mdi-alpha-g',
             },
-            component: () => import('@/views/chart/G2.vue')
-          }
-        ]
+            component: () => import('@/views/chart/G2.vue'),
+          },
+        ],
       },
-      //email
-      // {
-      //   path: '/mail',
-      //   component: () => import('@/views/mail/Index.vue'),
-      //   meta: {
-      //     title: 'mail',
-      //     icon: 'mdi-email',
-      //     group: 'email'
-      //   },
-      //   redirect: '/mail/inbox',
-      //   children: [
-      //     {
-      //       path: '/mail/:category',
-      //       name: 'mail.category',
-      //       props: true,
-      //       meta: {
-      //         title: 'inbox',
-      //         icon: 'mdi-view-list',
-      //         hiddenInMenu: true
-      //       },
-      //       component: () => import('@/views/mail/Inbox.vue')
-      //     },
-      //     {
-      //       path: '/mail/inbox',
-      //       name: 'mail.inbox',
-      //       meta: {
-      //         title: 'inbox',
-      //         icon: 'mdi-view-list'
-      //       },
-      //       component: () => import('@/views/mail/Inbox.vue')
-      //     },
-      //     {
-      //       path: '/mail/inbox/:uuid',
-      //       name: 'inbox',
-      //       props: true,
-      //       meta: {
-      //         title: 'mail',
-      //         icon: 'mdi-view-list',
-      //         hiddenInMenu: true
-      //       },
-      //       component: () => import('@/views/mail/Read.vue')
-      //     }
-      //   ]
-      // },
 
       {
         path: '/changelog',
@@ -324,27 +270,26 @@ export const protectedRoute = [
         meta: {
           title: 'changelog',
           icon: 'mdi-timeline-text',
-          hiddenInMenu: false
         },
-        component: () => import('@/views/Changelog.vue')
+        component: () => import('@/views/Changelog.vue'),
       },
       {
         path: '/403',
         name: 'Forbidden',
         meta: {
           title: 'access_denied',
-          hiddenInMenu: true
+          hidden: true,
         },
-        component: () => import('@/views/error/Deny.vue')
-      }
-    ]
+        component: () => import('@/views/error/Deny.vue'),
+      },
+    ],
   },
   //media
   {
     path: '/media',
     meta: {
       title: 'media',
-      icon: 'mdi-image'
+      icon: 'mdi-image',
     },
     name: 'media',
     component: LayoutMedia,
@@ -355,21 +300,21 @@ export const protectedRoute = [
         name: 'media.index',
         meta: {
           title: 'media manager',
-          icon: 'mdi-view'
+          icon: 'mdi-view',
         },
-        component: () => import('@/views/media/MediaView.vue')
+        component: () => import('@/views/media/MediaView.vue'),
       },
       {
         path: '/media/:type',
         name: 'media.type',
         meta: {
           title: 'media manager',
-          icon: 'mdi-view'
+          icon: 'mdi-view',
         },
         props: true,
-        component: () => import('@/views/media/MediaView.vue')
-      }
-    ]
+        component: () => import('@/views/media/MediaView.vue'),
+      },
+    ],
   },
   // chat app
   {
@@ -377,20 +322,20 @@ export const protectedRoute = [
     name: 'Chat',
     component: LayoutChat,
     redirect: {
-      path: '/chat/messaging'
+      path: '/chat/messaging',
     },
     meta: {
       title: 'Chat',
       group: 'apps',
-      icon: 'chat_bubble'
+      icon: 'chat_bubble',
     },
     children: [
       {
         path: '/chat/messaging/:uuid?',
         name: 'ChatMessaging',
         props: true,
-        component: () => import('@/views/chat/ChatMessaging.vue')
-      }
-    ]
-  }
+        component: () => import('@/views/chat/ChatMessaging.vue'),
+      },
+    ],
+  },
 ]

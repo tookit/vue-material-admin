@@ -9,82 +9,7 @@
     <app-switcher class="ma-2" />
     <vue-perfect-scrollbar class="app-drawer__scrollbar">
       <div class="app-drawer__inner">
-        <div class="pa-3">
-          <v-subheader v-if="drawerWidth !== 64">
-            {{ __('sponsor') }}
-          </v-subheader>
-          <a :href="sponsor.href">
-            <v-img
-              :src="drawerWidth === 64 ? sponsor.srcMini : sponsor.src"
-              height="64px"
-              alt="Optic fiber component provider"
-            />
-          </a>
-        </div>
-        <v-list class="pa-0">
-          <template v-for="(item, key) in computeMenu">
-            <template v-if="item.children && item.children.length > 0">
-              <v-list-group :key="key" no-action :to="item.path" :value="computeGroupExpanded(item, $route)">
-                <template #prependIcon>
-                  <v-tooltip bottom>
-                    <template #activator="{ on, attrs }">
-                      <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
-                    </template>
-                    <span>
-                      {{ __('menu.' + item.meta.title) }}
-                    </span>
-                  </v-tooltip>
-                </template>
-                <template #activator>
-                  <v-list-item-content>
-                    <v-list-item-title v-text="__('menu.' + item.meta.title)" />
-                  </v-list-item-content>
-                </template>
-                <v-list-item
-                  v-for="subItem in item.children"
-                  v-show="!subItem.meta.hiddenInMenu"
-                  :key="subItem.name"
-                  :class="drawerWidth === 64 ? 'pl-4' : ''"
-                  :to="subItem.path"
-                >
-                  <template v-if="drawerWidth === 64">
-                    <v-list-item-icon>
-                      <v-tooltip bottom>
-                        <template #activator="{ on, attrs }">
-                          <v-icon v-bind="attrs" v-on="on" v-text="subItem.meta.icon" />
-                        </template>
-                        <span>{{ __('menu.' + subItem.meta.title) }}</span>
-                      </v-tooltip>
-                    </v-list-item-icon>
-                  </template>
-                  <template v-else>
-                    <v-list-item-content>
-                      <v-list-item-title v-text="__('menu.' + subItem.meta.title)" />
-                    </v-list-item-content>
-                  </template>
-                </v-list-item>
-              </v-list-group>
-            </template>
-            <template v-else>
-              <v-list-item v-show="!item.meta.hiddenInMenu" :key="key" :to="item.path">
-                <v-list-item-icon>
-                  <v-tooltip bottom>
-                    <template #activator="{ on, attrs }">
-                      <v-icon v-bind="attrs" v-on="on" v-text="item.meta.icon" />
-                    </template>
-                    <span>{{ __('menu.' + item.meta.title) }}</span>
-                  </v-tooltip>
-                </v-list-item-icon>
-                <v-list-item-content v-if="drawerWidth !== 64">
-                  <v-list-item-title v-text="__('menu.' + item.meta.title)" />
-                </v-list-item-content>
-                <v-list-item-action v-if="item.meta.new">
-                  <v-icon color="green">mdi-new-box </v-icon>
-                </v-list-item-action>
-              </v-list-item>
-            </template>
-          </template>
-        </v-list>
+        <nav-list :items="computeMenu" />
       </div>
     </vue-perfect-scrollbar>
     <template #append>
@@ -112,9 +37,10 @@
 import { protectedRoute as routes } from '@/router/config'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import AppSwitcher from './AppSwitcher'
+import NavList from '@/components/nav/NavList'
 export default {
   name: 'AppDrawer',
-  components: { VuePerfectScrollbar, AppSwitcher },
+  components: { VuePerfectScrollbar, AppSwitcher, NavList },
   props: {
     expanded: {
       type: Boolean,
@@ -129,11 +55,6 @@ export default {
       scrollSettings: {
         maxScrollbarLength: 160,
       },
-      sponsor: {
-        href: 'https://www.kamefiber.com/',
-        src: '/sponsor/logo.png',
-        srcMini: '/sponsor/logo_mini.png',
-      },
     }
   },
 
@@ -142,7 +63,7 @@ export default {
       return '/static/m.png'
     },
     computeMenu() {
-      return routes[0].children
+      return this.filterRouteItem(routes[0].children)
     },
     computeHeight() {
       return {
@@ -153,6 +74,20 @@ export default {
   created() {},
 
   methods: {
+    filterRouteItem(routes) {
+      return routes
+        .filter((item) => item.meta.hidden !== true)
+        .map((item) => {
+          return {
+            title: item.meta.title,
+            icon: item.meta.icon,
+            path: item.path,
+            isNew: item.isNew || false,
+            children: item.children ? this.filterRouteItem(item.children) : [],
+          }
+        })
+    },
+
     handleDrawerCollapse() {
       this.drawerWidth = this.drawerWidth === 256 ? 64 : 256
     },

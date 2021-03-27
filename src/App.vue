@@ -2,41 +2,14 @@
   <v-app dark>
     <router-view></router-view>
     <!-- theme setting -->
-    <v-btn
-      small
-      fab
-      dark
-      fixed
-      top="top"
-      right="right"
-      class="setting-fab"
-      color="red"
-      @click="openThemeSettings"
-    >
+    <v-btn small fab dark fixed top="top" right="right" class="setting-fab" color="red" @click="openThemeSettings">
       <v-icon>mdi-silverware-variant</v-icon>
     </v-btn>
-    <v-btn
-      small
-      fab
-      dark
-      fixed
-      top="top"
-      right="right"
-      class="chat-fab"
-      color="primary"
-      @click="openOnlineUser"
-    >
+    <v-btn small fab dark fixed top="top" right="right" class="chat-fab" color="primary" @click="openOnlineUser">
       <v-icon>mdi-chat</v-icon>
     </v-btn>
     <!-- setting drawer -->
-    <v-navigation-drawer
-      class="setting-drawer"
-      temporary
-      right
-      v-model="rightDrawer"
-      hide-overlay
-      fixed
-    >
+    <v-navigation-drawer v-model="rightDrawer" class="setting-drawer" temporary right hide-overlay fixed>
       <template v-if="showSetting">
         <theme-settings />
       </template>
@@ -45,16 +18,9 @@
       </template>
     </v-navigation-drawer>
     <!-- global snackbar -->
-    <v-snackbar
-      :timeout="3000"
-      app
-      top
-      centered
-      :color="snackbar.color"
-      v-model="snackbar.show"
-    >
+    <v-snackbar v-model="snackbar.show" :timeout="3000" app top centered :color="snackbar.color">
       {{ snackbar.text }}
-      <template v-slot:action="{ attrs }">
+      <template #action="{ attrs }">
         <v-btn icon v-bind="attrs" @click="snackbar.show = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -69,7 +35,7 @@ import OnlineUser from '@/components/OnlineUser'
 export default {
   components: {
     ThemeSettings,
-    OnlineUser
+    OnlineUser,
   },
   data() {
     return {
@@ -78,20 +44,8 @@ export default {
       snackbar: {
         show: false,
         text: '',
-        color: ''
-      }
-    }
-  },
-  methods: {
-    openThemeSettings() {
-      this.$vuetify.goTo(0)
-      this.showSetting = true
-      this.rightDrawer = !this.rightDrawer
-    },
-    openOnlineUser() {
-      this.$vuetify.goTo(0)
-      this.showSetting = false
-      this.rightDrawer = !this.rightDrawer
+        color: '',
+      },
     }
   },
   mounted() {
@@ -104,30 +58,42 @@ export default {
       this.snackbar = {
         show: true,
         text: e.text,
-        color: e.color
+        color: e.color,
       }
     })
     this.$on('AUTH_FAIELD', () => {
       this.snackbar = {
         show: true,
         text: 'Auth Failed',
-        color: 'error'
+        color: 'error',
       }
       this.$router.push({
         path: '/auth/login',
         query: {
-          redirect: this.$route.path
-        }
+          redirect: this.$route.path,
+        },
       })
     })
     this.$on('SERVER_ERROR', () => {
       this.snackbar = {
         show: true,
         text: 'Server Error',
-        color: 'error'
+        color: 'error',
       }
     })
-  }
+  },
+  methods: {
+    openThemeSettings() {
+      this.$vuetify.goTo(0)
+      this.showSetting = true
+      this.rightDrawer = !this.rightDrawer
+    },
+    openOnlineUser() {
+      this.$vuetify.goTo(0)
+      this.showSetting = false
+      this.rightDrawer = !this.rightDrawer
+    },
+  },
 }
 </script>
 
