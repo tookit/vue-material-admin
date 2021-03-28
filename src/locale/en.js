@@ -43,6 +43,9 @@ export default {
     element: 'Element',
     cascader: 'Cascader',
     chat: 'Chat',
+    cms: 'CMS',
+    post: 'Post',
+    post_list: 'Post List',
   },
   //media
   media: 'Media',

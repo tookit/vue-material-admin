@@ -116,53 +116,34 @@ export const protectedRoute = [
           },
         ],
       },
-      //acl
+      //cms
       {
-        path: '/acl',
+        path: '/cms',
         component: RouteWrapper,
-        redirect: '/acl/user/list',
+        redirect: '/cms/post/list',
         meta: {
-          title: 'acl',
-          icon: 'mdi-shield',
+          title: 'cms',
+          icon: 'mdi-grid',
         },
         children: [
           {
-            path: '/acl/user',
-            name: 'acl.user',
+            path: '/cms/post',
+            name: 'cms.post',
             meta: {
-              title: 'users',
-              icon: 'mdi-account-multiple',
+              title: 'post',
+              icon: 'mdi-newspaper',
             },
-            redirect: '/acl/user/list',
+            redirect: '/cms/post/list',
             component: RouteWrapper,
             children: [
               {
-                path: '/acl/user/list',
-                name: 'acl.user.list',
+                path: '/cms/post/list',
+                name: 'cms.post.list',
                 meta: {
-                  title: 'user_list',
-                  icon: 'mdi-account-multiple',
+                  title: 'post_list',
+                  icon: 'mdi-newspaper',
                 },
-                component: () => import('@/views/user/UserList.vue'),
-              },
-              {
-                path: '/acl/user/create',
-                name: 'acl.user.create',
-                meta: {
-                  title: 'create_user',
-                  icon: 'mdi-view-grid',
-                },
-                component: () => import('@/views/user/UserItem.vue'),
-              },
-              {
-                path: '/acl/user/item/:id',
-                name: 'acl.user.edit',
-                meta: {
-                  title: 'edit_user',
-                  icon: 'mdi-view-grid',
-                },
-                props: true,
-                component: () => import('@/views/user/UserItem.vue'),
+                component: () => import('@/views/cms/PostList.vue'),
               },
             ],
           },
