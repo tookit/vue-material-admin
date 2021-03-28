@@ -10,8 +10,8 @@
       </v-toolbar-title>
       <v-spacer />
       <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn icon slot="activator" v-on="on">
+        <template #activator="{ on }">
+          <v-btn slot="activator" icon v-on="on">
             <v-icon color="text--secondary">mdi-plus</v-icon>
           </v-btn>
         </template>
@@ -19,18 +19,14 @@
       </v-tooltip>
     </v-toolbar>
     <v-card>
-      <vue-perfect-scrollbar
-        class="chat_window__scrollbar grey lighten-5"
-        :style="computeHeight"
-        ref="scrollbar"
-      >
+      <vue-perfect-scrollbar ref="scrollbar" class="chat_window__scrollbar grey lighten-5" :style="computeHeight">
         <v-card-text class="messaging_list pa-3">
           <template v-for="(item, index) in getMessages">
             <chat-messaging-item
+              :key="index"
               :username="item.username"
               :text="item.text"
-              :createdAt="item.createdAt"
-              :key="index"
+              :created-at="item.createdAt"
             />
           </template>
         </v-card-text>
@@ -68,26 +64,26 @@ import ChatMessagingItem from './ChatMessagingItem'
 export default {
   components: {
     VuePerfectScrollbar,
-    ChatMessagingItem
+    ChatMessagingItem,
   },
   props: {
     height: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      message: null
+      message: null,
     }
   },
   computed: {
     ...mapGetters(['getMessages']),
     computeHeight() {
       return {
-        height: this.height || ''
+        height: this.height || '',
       }
-    }
+    },
   },
   watch: {
     'getMessages.length': {
@@ -98,18 +94,18 @@ export default {
         })
 
         // goTo()
-      }
-    }
+      },
+    },
   },
+  created() {},
   methods: {
     handleSendMessage() {
       if (this.message) {
         this.$store.dispatch('sendMessage', this.message)
         this.message = null
       }
-    }
+    },
   },
-  created() {}
 }
 </script>
 

@@ -102,6 +102,7 @@ export default {
           .dispatch('register', this.formModel)
           .then(() => {
             this.loading = false
+            this.$store.dispatch('initSocket')
             this.$emit('register:success')
           })
           .catch(() => {

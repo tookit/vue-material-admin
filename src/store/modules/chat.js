@@ -5,29 +5,17 @@ const io = require('socket.io-client')
 const state = {
   socket: null,
   clientId: null,
+  socketConnected: 0,
   messages: [],
-  clients: new Set(),
-  // user clientId as username
-  clientUsers: [],
-  // {username: '', status: '', clientId, 'device'}
-  chatUsers: [],
+  chatUsers: [], // {username: '', status: '', clientId, 'device'}
 }
 
 // getters
 const getters = {
   getClientId: (state) => state.clientId,
+  getSocket: (state) => state.socket,
   getMessages: (state) => state.messages,
   getChatUsers: (state) => state.chatUsers,
-  getClientUsers: (state) => {
-    return state.clientUsers
-      .map((item) => {
-        item.master = item.clientId === state.clientId
-        return item
-      })
-      .sort((a, b) => {
-        return parseInt(a.master) > parseInt(b.master)
-      })
-  },
   getStatusByName: (state) => (username) => {
     const user = state.chatUsers.find((item) => item.username === username)
     return user.status ? 'online' : 'offline'
@@ -39,12 +27,12 @@ const actions = {
   initSocket({ commit, dispatch, rootState }) {
     const socket = io.connect(process.env.VUE_APP_SOCKET, {
       reconnectionAttempts: 5,
+      transports: ['websocket'],
     })
     socket.on('connect', () => {
-      // const user = { username: rootState.auth.username }
-      commit('INIT_CONNECT', socket)
-      // commit('UPDATE_SELF_STATUS', 'online')
-      dispatch('joinRoom', socket)
+      const user = { username: rootState.auth.username }
+      commit('SET_SOCKET', socket)
+      dispatch('joinRoom', user)
     })
     socket.on('join', (users) => {
       dispatch('pushJoin', users)
@@ -56,93 +44,65 @@ const actions = {
       dispatch('pushLeave', clientId)
     })
   },
-  closeConnection({ commit, state }) {
+  closeSocket({ commit, state }) {
     if (state.socket) {
       state.socket.close()
       commit('CLOSE_CONNECT')
     }
   },
   pushMessage({ commit, dispatch }, text) {
-    console.log(text)
-    dispatch('updateNotification', 'New message')
     commit('UPDATE_MESSAGE_LIST', text)
   },
-  sendMessage({ commit, state }, text) {
+  sendMessage({ commit, rootState }, text) {
     const message = {
       text: text,
-      clientId: state.clientId,
-      username: state.clientId,
+      username: rootState.auth.username,
       createdAt: Date.now(),
     }
     commit('SEND_MESSAGE', message)
     commit('UPDATE_MESSAGE_LIST', message)
   },
-  pushJoin({ commit }, users) {
-    // commit('UPDATE_USER_LIST', users)
-    commit('UPDATE_CLIENT_USER_LIST', users)
+  pushJoin({ commit }, user) {
+    console.log(user)
+    user.status = 1
+    commit('UPDATE_USER_LIST', user)
   },
-  pushLeave({ commit }, clientId) {
-    commit('REMOVE_CLIENT_USERS', clientId)
+  pushLeave({ commit }, user) {
+    user.status = 0
+    commit('UPDATE_USER_LIST', user)
   },
-  joinRoom({ commit }, socket) {
-    commit('JOIN_ROOM', socket)
+  joinRoom({ commit }, user) {
+    commit('JOIN_ROOM', user)
   },
 }
 
 // mutations
 const mutations = {
-  INIT_CONNECT(state, socket) {
+  SET_SOCKET(state, socket) {
     state.socket = socket
+    state.socketConnected = socket.conencted
     state.clientId = socket.id
-    state.clients.add(socket.id)
   },
   CLOSE_CONNECT(state) {
     state.socket = null
     state.clientId = null
   },
+  JOIN_ROOM(state, user) {
+    state.socket.emit('join', user)
+  },
   UPDATE_MESSAGE_LIST(state, message) {
     state.messages.push(message)
   },
-  UPDATE_USER_LIST(state, users) {
-    if (users.length > state.chatUsers.length) {
-      state.chatUsers = users
+  UPDATE_USER_LIST(state, user) {
+    const index = state.chatUsers.findIndex((item) => item.username === user.username)
+    if (index === -1) {
+      state.chatUsers.push(user)
     } else {
-      const online = users.map((item) => item.username)
-      state.chatUsers.forEach((item) => {
-        if (online.includes(item.username)) {
-          item.status = 1
-        } else {
-          item.status = 0
-        }
-      })
+      Vue.set(state.chatUsers, index, user)
     }
-  },
-  UPDATE_USER_STATUS(state, { clientId, status }) {
-    const index = state.chatUsers.findIndex((item) => item.clientId === clientId)
-    if (index) {
-      console.log(index)
-      const user = state.chatUsers[index]
-      if (user) {
-        user.status = status
-        Vue.set(state.chatUsers, index, user)
-      }
-    }
-  },
-  UPDATE_CLIENT_USER_LIST(state, users) {
-    state.clientUsers = users // return online users only for demo
-  },
-  REMOVE_CLIENT_USERS(state, clientId) {
-    state.clientUsers = state.clientUsers.filter((item) => item.clientId !== clientId)
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
-  },
-  JOIN_ROOM(state, socket) {
-    state.socket.emit('join', {
-      username: state.clientId,
-      clientId: state.clientId,
-      status: 1,
-    })
   },
 }
 

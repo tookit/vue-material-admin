@@ -39,34 +39,36 @@ export default {
     ChatToolbar,
     ChatDrawer,
     RegisterForm,
-    LoginForm
+    LoginForm,
   },
   data() {
     return {
-      showDialog: false,
       defaultTab: 'register',
       tabs: [
         {
           text: 'Register',
-          value: 'register'
+          value: 'register',
         },
         {
           text: 'Login',
-          value: 'login'
-        }
-      ]
+          value: 'login',
+        },
+      ],
     }
   },
   computed: {
-    ...mapGetters(['getUsername'])
+    ...mapGetters(['getUsername', 'getSocket']),
+    showDialog() {
+      return this.getSocket === null
+    },
   },
+  created() {},
   methods: {
     handleRegisterSucess() {
       this.$store.dispatch('initSocket')
     },
-    handleLoginSucess() {}
+    handleLoginSucess() {},
   },
-  created() {}
 }
 </script>
 

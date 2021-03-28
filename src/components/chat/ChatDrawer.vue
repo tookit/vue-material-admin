@@ -2,21 +2,13 @@
   <div class="chat_drawer">
     <v-navigation-drawer app>
       <v-btn dark height="64" block color="#017be8" tile>Chat</v-btn>
-      <vue-perfect-scrollbar
-        class="chat_drawer__scrollbar grey lighten-5"
-        :style="computeHeight"
-        ref="scrollbar"
-      >
+      <vue-perfect-scrollbar ref="scrollbar" class="chat_drawer__scrollbar grey lighten-5" :style="computeHeight">
         <v-list two-line class="chat_user__list pa-0">
           <v-subheader>Users</v-subheader>
           <v-divider />
           <v-list-item-group v-model="selectedItem">
-            <template v-for="item in getClientUsers">
-              <v-list-item
-                :key="item.username"
-                @click="handleViewProfile(item)"
-                :value="item"
-              >
+            <template v-for="item in getChatUsers">
+              <v-list-item :key="item.username" :value="item" @click="handleViewProfile(item)">
                 <v-list-item-avatar>
                   <c-avatar
                     :size="32"
@@ -37,21 +29,12 @@
         </v-list>
       </vue-perfect-scrollbar>
     </v-navigation-drawer>
-    <v-navigation-drawer
-      v-model="showProfile"
-      app
-      right
-      hide-overlay
-      clipped
-      clipped-right
-    >
+    <v-navigation-drawer v-model="showProfile" app right hide-overlay clipped clipped-right>
       <div flat>
         <v-toolbar flat class="border-bottom">
           <v-subheader>Profile</v-subheader>
           <v-spacer />
-          <v-btn icon @click="showProfile = false"
-            ><v-icon>mdi-close</v-icon></v-btn
-          >
+          <v-btn icon @click="showProfile = false"><v-icon>mdi-close</v-icon></v-btn>
         </v-toolbar>
         <div v-if="selectedItem">
           <v-card flat>
@@ -102,21 +85,21 @@ import { mapGetters } from 'vuex'
 export default {
   components: {
     CAvatar,
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
   },
   data() {
     return {
       selectedItem: null,
-      showProfile: false
+      showProfile: false,
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt', 'getClientUsers', 'getClientId']),
+    ...mapGetters(['getIconByExt', 'getChatUsers', 'getClientId']),
     computeHeight() {
       return {
-        height: this.height || ''
+        height: this.height || '',
       }
-    }
+    },
   },
   methods: {
     computeColor(item) {
@@ -125,8 +108,8 @@ export default {
     handleViewProfile(item) {
       this.selectedItem = item
       this.showProfile = true
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -58,13 +58,12 @@ const actions = {
       data: data,
     }).then((resp) => {
       commit('SET_LOGIN', resp)
-      dispatch('closeConnection')
       dispatch('fetchProfile')
       return resp
     })
   },
   logout({ commit, dispatch }) {
-    dispatch('closeConnection')
+    dispatch('closeSocket')
     commit('SET_ACCESS_TOKEN', null)
   },
   // get current login user info
@@ -75,9 +74,6 @@ const actions = {
       method: 'get',
     }).then((resp) => {
       commit('SET_LOGIN_PROFILE', resp.data)
-      if (!rootState.socket) {
-        dispatch('initSocket')
-      }
       return resp
     })
   },

@@ -84,6 +84,7 @@ export default {
           .then(() => {
             this.loading = false
             this.$emit('login:success')
+            this.$store.dispatch('initSocket')
           })
           .catch(() => {
             this.loading = false
