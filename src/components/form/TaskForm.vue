@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import VFormBuilder from '@/components/builder/VFormBuilder'
+import { VFormBuilder } from '@tookit/vma'
 import { VTextField, VTextarea, VAutocomplete, VSwitch } from 'vuetify/lib'
 import VEditor from '@/components/editor/VEditor'
 import { mapGetters } from 'vuex'
@@ -32,9 +32,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getCMSCategoryList']),
+    ...mapGetters(['getProjectList']),
     formTitle() {
-      return this.item ? 'Edit Post - ' + this.item.name : 'Create Post'
+      return this.item ? 'Edit Task - ' + this.item.name : 'Create Task'
     },
     formItems() {
       return [
@@ -60,32 +60,24 @@ export default {
           cols: 6,
           element: VAutocomplete,
           props: {
-            name: 'category_id',
+            name: 'project_id',
+            label: 'Project',
+            itemText: 'name',
+            itemValue: 'id',
             outlined: true,
-            items: this.getCMSCategoryList,
+            items: this.getProjectList,
           },
         },
         {
           cols: 6,
           element: VSwitch,
           props: {
+            label: 'Active',
             name: 'is_active',
             inputValue: 0,
             trueValue: 1,
             falseValue: 0,
             outlined: true,
-          },
-        },
-        {
-          cols: 6,
-          element: VAutocomplete,
-          props: {
-            name: 'tags',
-            outlined: true,
-            multiple: true,
-            smallChips: true,
-            clearable: true,
-            items: this.getTagsByType('fiber'),
           },
         },
         {
@@ -137,23 +129,27 @@ export default {
         const data = this.transformData(this.formModel)
         if (this.item && this.item.id) {
           return this.$store
-            .dispatch('updateNews', {
+            .dispatch('updateTask', {
               id: this.item.id,
               data: data,
             })
             .then(() => {
+              this.$emit('form:success')
               this.loading = false
             })
             .catch(() => {
+              this.$emit('form:fail')
               this.loading = false
             })
         } else {
           return this.$store
-            .dispatch('createNews', data)
+            .dispatch('createTask', data)
             .then(() => {
+              this.$emit('form:success')
               this.loading = false
             })
             .catch(() => {
+              this.$emit('form:fail')
               this.loading = false
             })
         }

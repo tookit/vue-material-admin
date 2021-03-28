@@ -6,11 +6,7 @@
           <v-toolbar dark color="primary">Book Room</v-toolbar>
           <v-card>
             <v-card-text class="pa-0">
-              <v-stepper
-                ref="stepper"
-                v-model="step"
-                class="rounded-0 elevation-0"
-              >
+              <v-stepper ref="stepper" v-model="step" class="rounded-0 elevation-0">
                 <v-stepper-header class="elevation-1">
                   <template v-for="item in steps">
                     <v-stepper-step
@@ -47,9 +43,7 @@
             <v-card-actions>
               <v-btn v-show="step > 1" text @click="handleBack">Back</v-btn>
               <v-spacer />
-              <v-btn tile color="primary" @click="handleContinue">{{
-                step === 3 ? 'confirm' : 'next'
-              }}</v-btn>
+              <v-btn tile color="primary" @click="handleContinue">{{ step === 3 ? 'confirm' : 'next' }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -62,10 +56,9 @@
 import FormAccount from '@/components/form/step/FormAccount'
 import FormRoom from '@/components/form/step/FormRoom'
 export default {
-  name: 'PageSteppers',
   components: {
     FormAccount,
-    FormRoom
+    FormRoom,
   },
   data() {
     return {
@@ -75,22 +68,22 @@ export default {
           step: 1,
           complete: false,
           text: 'Account',
-          rules: []
+          rules: [],
         },
         {
           step: 2,
           complete: false,
           text: 'Choose Room',
-          rules: []
+          rules: [],
         },
         {
           step: 3,
           complete: false,
           text: 'Remark & Confim',
-          rules: []
-        }
+          rules: [],
+        },
       ],
-      formValue: []
+      formValue: [],
     }
   },
   computed: {},
@@ -131,7 +124,7 @@ export default {
         step.rules = [
           () => {
             'erro'
-          }
+          },
         ]
         return false
       }
@@ -150,11 +143,11 @@ export default {
         step.rules = [
           () => {
             'erro'
-          }
+          },
         ]
         return false
       }
-    }
-  }
+    },
+  },
 }
 </script>

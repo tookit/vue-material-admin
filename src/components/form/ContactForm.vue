@@ -65,6 +65,7 @@
           :items="countries"
           required
         />
+        <v-editor></v-editor>
       </v-form>
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
@@ -78,8 +79,8 @@
 
 <script>
 import { EMAIL } from '@/util/regex'
-
 export default {
+  components: {},
   data: () => ({
     countries: [
       'Afghanistan',

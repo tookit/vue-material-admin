@@ -46,6 +46,7 @@ export default {
     cms: 'CMS',
     post: 'Post',
     post_list: 'Post List',
+    task_list: 'Task List',
   },
   //media
   media: 'Media',

@@ -116,34 +116,34 @@ export const protectedRoute = [
           },
         ],
       },
-      //cms
+      //task
       {
-        path: '/cms',
+        path: '/task',
         component: RouteWrapper,
-        redirect: '/cms/post/list',
+        redirect: '/task/list',
         meta: {
-          title: 'cms',
+          title: 'task',
           icon: 'mdi-grid',
         },
         children: [
           {
-            path: '/cms/post',
-            name: 'cms.post',
+            path: '/task/list',
+            name: 'task',
             meta: {
-              title: 'post',
+              title: 'task',
               icon: 'mdi-newspaper',
             },
-            redirect: '/cms/post/list',
+            redirect: '/task/list',
             component: RouteWrapper,
             children: [
               {
-                path: '/cms/post/list',
-                name: 'cms.post.list',
+                path: '/task/list',
+                name: 'task.list',
                 meta: {
-                  title: 'post_list',
+                  title: 'task_list',
                   icon: 'mdi-newspaper',
                 },
-                component: () => import('@/views/cms/PostList.vue'),
+                component: () => import('@/views/task/TaskList.vue'),
               },
             ],
           },

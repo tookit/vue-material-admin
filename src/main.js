@@ -8,6 +8,7 @@ import './theme/default.sass'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import '@mdi/font/css/materialdesignicons.css'
+import 'jodit/build/jodit.css'
 
 Vue.config.productionTip = false
 

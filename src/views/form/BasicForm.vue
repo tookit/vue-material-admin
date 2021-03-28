@@ -19,12 +19,12 @@ import PaymentForm from '@/components/form/PaymentForm'
 export default {
   components: {
     ContactForm,
-    PaymentForm
+    PaymentForm,
   },
   data() {
     return {}
   },
   computed: {},
-  methods: {}
+  methods: {},
 }
 </script>

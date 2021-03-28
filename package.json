@@ -18,7 +18,7 @@
     "axios": "0.21.1",
     "core-js": "^3.3.2",
     "date-fns": "^2.16.1",
-    "jodit": "^3.6.6",
+    "jodit": "^3.6.5",
     "lodash.truncate": "^4.4.2",
     "markdown-it-prism": "^2.1.6",
     "nprogress": "^0.2.0",

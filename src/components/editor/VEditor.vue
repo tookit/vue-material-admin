@@ -1,6 +1,6 @@
 <template>
   <div class="v-editor">
-    <iframe ref="editor" />
+    <textarea ref="editor" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          height: 600,
+          height: 400,
         }
       },
     },
@@ -28,7 +28,6 @@ export default {
   data() {
     return {
       selectedItems: [],
-      showDialog: false,
     }
   },
   computed: {},
@@ -40,17 +39,17 @@ export default {
     },
   },
   mounted() {
-    const btns = ['source', 'ul', 'ol', 'paragraph', 'link', 'video', 'table', 'fullsize', 'preview']
+    const btns = ['source', 'ul', 'ol', 'paragraph', 'link', 'image', 'video', 'table', 'fullsize', 'preview']
     const defaultOptions = {
       useSearch: false,
-      height: '600',
+      height: '400',
       defaultActionOnPaste: 'insert_clear_html',
       disablePlugins: 'addnewline,autofocus,color,font,indent,redoundo',
       buttons: btns,
       buttonsSM: btns,
       buttonsMD: btns,
     }
-    const jodit = new Jodit(this.$refs.editor, defaultOptions)
+    const jodit = new Jodit(this.$refs.editor, Object.assign(this.option, defaultOptions))
     this.editor = jodit
     this.editor.value = this.value
     this.editor.events.on('change', (newValue) => this.$emit('input', newValue))
