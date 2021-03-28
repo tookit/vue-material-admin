@@ -12,7 +12,7 @@ const state = {
   access_token: null,
   expires_in: 3600,
   token_type: 'bearer',
-  username: null,
+  username: 'admin',
   avatar: null,
   userColor: '#2196f3',
   status: 'online',
@@ -26,6 +26,18 @@ const getters = {
   getUserStatus: (state) => state.status,
 }
 const actions = {
+  // just for demo
+  //replace you own login logic
+  demoLogin({ commit }, { username, password }) {
+    return new Promise((resolve, reject) => {
+      if (username === 'admin' && password === 'admin') {
+        commit('SET_LOGIN', { access_token: 'demo', expires_in: 0 })
+        return resolve({ message: 'success' })
+      } else {
+        return reject({ message: 'Auth Failed' })
+      }
+    })
+  },
   login({ commit, dispatch }, { username, password }) {
     return request({
       url: '/auth/login',

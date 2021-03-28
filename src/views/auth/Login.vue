@@ -1,29 +1,15 @@
 <template>
-  <v-container class="page_login" fill-height>
+  <v-container class="page-login" fill-height>
     <v-row>
-      <v-col>
-        <v-card class="pa-3 page_login__card" tile>
+      <v-col :cols="12">
+        <v-card class="pa-3 page-login__card" tile>
           <v-card-title>
-            <img
-              src="/static/m.png"
-              alt="Vue Material Admin"
-              height="48"
-              contain
-            />
-            <h1 class="primary--text display-1 page-login_title">
-              Material Admin Template
-            </h1>
+            <img src="/static/m.png" alt="Vue Material Admin" height="48" contain />
+            <div class="primary--text display-1">Material Admin Template</div>
           </v-card-title>
           <v-card-text>
-            <v-alert type="info">
-              {{ __('login_account') }} : admin/admin
-            </v-alert>
-            <v-form
-              ref="form"
-              v-model="formValid"
-              class="my-10"
-              lazy-validation
-            >
+            <v-alert type="success"> {{ __('login_account') }} : admin/admin </v-alert>
+            <v-form ref="form" v-model="formValid" class="my-10" lazy-validation>
               <v-text-field
                 v-model="formModel.username"
                 append-icon="mdi-email"
@@ -47,30 +33,24 @@
                 :rules="formRule.password"
                 required
                 outlined
-                @keyup.enter="login"
+                @keyup.enter="handleLogin"
               />
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-tooltip v-for="item in socialIcons" :key="item.text" bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="primary"
-                  icon
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="handleSocialLogin"
-                >
+              <template #activator="{ on, attrs }">
+                <v-btn color="primary" icon v-bind="attrs" v-on="on" @click="handleSocialLogin">
                   <v-icon v-text="item.icon" />
                 </v-btn>
               </template>
               <span>{{ item.text }}</span>
             </v-tooltip>
             <v-spacer />
-            <v-btn large text @click="login">
+            <v-btn large text @click="handleRegister">
               {{ __('register') }}
             </v-btn>
-            <v-btn large tile color="primary" :loading="loading" @click="login">
+            <v-btn large tile color="primary" :loading="loading" @click="handleLogin">
               {{ __('login') }}
             </v-btn>
           </v-card-actions>
@@ -81,63 +61,70 @@
 </template>
 
 <script>
+const name = 'page-login'
 export default {
-  name: 'PageLogin',
+  name: name,
   data() {
     return {
       loading: false,
       formValid: false,
       formModel: {
-        username: null,
-        password: null
+        username: 'admin',
+        password: 'admin',
       },
       formRule: {
         username: [(v) => !!v || this.__('rule.required', ['username'])],
-        password: [(v) => !!v || this.__('rule.required', ['password'])]
+        password: [(v) => !!v || this.__('rule.required', ['password'])],
       },
       socialIcons: [
         {
           text: 'Google',
-          icon: 'mdi-google'
+          icon: 'mdi-google',
         },
         {
           text: 'Facebook',
-          icon: 'mdi-facebook'
+          icon: 'mdi-facebook',
         },
         {
           text: 'Twitter',
-          icon: 'mdi-twitter'
-        }
-      ]
+          icon: 'mdi-twitter',
+        },
+      ],
     }
   },
-  computed: {
-    prefix() {
-      return ''
-    }
-  },
+  computed: {},
   methods: {
-    login() {
+    handleLogin() {
       if (this.$refs.form.validate()) {
         this.loading = true
         this.$store
-          .dispatch('login', this.formModel)
+          .dispatch('demoLogin', this.formModel)
           .then(() => {
+            const redirect = this.$route.query.redirect
+            const route = redirect ? { path: redirect } : { path: '/' }
+            this.$router.push(route)
             this.loading = false
-            this.$router.push('/dashboard')
           })
           .catch(() => {
+            window._VMA.$emit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Auth Failed',
+              color: 'error',
+            })
             this.loading = false
           })
       }
     },
-    handleSocialLogin() {}
-  }
+    handleRegister() {
+      console.log(this)
+    },
+    handleSocialLogin() {},
+  },
 }
 </script>
 
 <style lang="sass" scoped>
-.page_login
+.page-login
   &__card
   max-width: 600px
   margin: 0 auto
