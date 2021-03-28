@@ -141,7 +141,7 @@ export const protectedRoute = [
                 name: 'task.list',
                 meta: {
                   title: 'task_list',
-                  icon: 'mdi-newspaper',
+                  icon: 'mdi-calendar-account',
                 },
                 component: () => import('@/views/task/TaskList.vue'),
               },

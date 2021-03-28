@@ -39,21 +39,13 @@ export default {
     formItems() {
       return [
         {
-          cols: 6,
+          cols: 12,
           element: VTextField,
           props: {
             name: 'name',
             required: true,
             outlined: true,
             rules: [(v) => !!v || 'Name is required'],
-          },
-        },
-        {
-          cols: 6,
-          element: VTextField,
-          props: {
-            name: 'slug',
-            outlined: true,
           },
         },
         {

@@ -2,7 +2,7 @@
   <div class="admin">
     <app-drawer ref="drawer" class="admin_drawer" @drawer:collapsed="mini = !mini" />
     <app-toolbar class="admin_toolbar" @side-icon-click="handleDrawerVisiable" />
-    <v-main>
+    <v-main class="grey lighten-3">
       <!-- Page Wrapper -->
       <div class="page_wrapper"><router-view /></div>
       <!-- App Footer -->

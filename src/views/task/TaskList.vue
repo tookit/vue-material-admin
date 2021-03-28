@@ -7,7 +7,7 @@
           <v-card tile>
             <v-toolbar flat>
               <v-text-field
-                v-model="filter['filter[username]']"
+                v-model="filter['filter[name]']"
                 text
                 solo
                 flat
