@@ -15,7 +15,13 @@ const getters = {
   getClientId: (state) => state.clientId,
   getSocket: (state) => state.socket,
   getMessages: (state) => state.messages,
-  getChatUsers: (state) => state.chatUsers,
+  getChatUsers: (state) => {
+    return state.chatUsers.map((item) => {
+      let ip = item.ip
+      item.ip = ip ? ip.replace('::ffff:', '') : ''
+      return item
+    })
+  },
   getStatusByName: (state) => (username) => {
     const user = state.chatUsers.find((item) => item.username === username)
     return user.status ? 'online' : 'offline'
@@ -78,6 +84,14 @@ const actions = {
 
 // mutations
 const mutations = {
+  INIT_USER(state, data) {
+    state.chatUsers = data.map((item) => {
+      return {
+        username: item.username,
+        status: 0,
+      }
+    })
+  },
   SET_SOCKET(state, socket) {
     state.socket = socket
     state.socketConnected = socket.conencted

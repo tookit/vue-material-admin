@@ -15,7 +15,7 @@
                     :username="item.username"
                     :status="item.status === 1 ? 'online' : 'offline'"
                     :color="computeColor(item)"
-                    online
+                    :src="computeAvatar(item.username)"
                   />
                 </v-list-item-avatar>
                 <v-list-item-content>
@@ -44,6 +44,7 @@
                 :size="150"
                 :username="selectedItem.username"
                 :color="computeColor(selectedItem)"
+                :src="computeAvatar(selectedItem.username)"
               />
             </v-img>
             <v-card-actions class="justify-space-between">
@@ -94,7 +95,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt', 'getChatUsers', 'getClientId']),
+    ...mapGetters(['getChatUsers', 'getAvatar', 'getUsername']),
     computeHeight() {
       return {
         height: this.height || '',
@@ -104,6 +105,10 @@ export default {
   methods: {
     computeColor(item) {
       return item.master ? '#2196f3' : 'grey'
+    },
+    computeAvatar(username) {
+      const avatar = this.getUsername === username ? this.getAvatar : ''
+      return avatar
     },
     handleViewProfile(item) {
       this.selectedItem = item

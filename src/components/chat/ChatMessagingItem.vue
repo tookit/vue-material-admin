@@ -1,7 +1,7 @@
 <template>
   <div class="messaging_item" :class="rowReverse">
     <div class="messaging_item__avatar">
-      <c-avatar :size="36" :username="username" status="online" />
+      <c-avatar :size="36" :username="username" :src="computeAvatar(username)" status="online" />
     </div>
     <div class="messaging_item__body">
       <div class="pa-2">
@@ -45,6 +45,11 @@ export default {
       return {
         'flex-row-reverse': !this.isMyOwn,
       }
+    },
+  },
+  methods: {
+    computeAvatar(username) {
+      return this.getUsername === username ? this.getAvatar : ''
     },
   },
 }

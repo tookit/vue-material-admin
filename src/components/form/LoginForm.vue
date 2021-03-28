@@ -84,7 +84,10 @@ export default {
           .then(() => {
             this.loading = false
             this.$emit('login:success')
-            this.$store.dispatch('initSocket')
+            this.$store.dispatch('fetchUser', { pageSize: -1 }).then((resp) => {
+              this.$store.commit('INIT_USER', resp.data)
+              this.$store.dispatch('initSocket')
+            })
           })
           .catch(() => {
             this.loading = false

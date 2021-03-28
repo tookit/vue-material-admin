@@ -22,6 +22,7 @@ const getters = {
     return state.access_token
   },
   getAvatar: (state) => state.avatar,
+
   getUsername: (state) => state.username,
   getUserStatus: (state) => state.status,
 }
