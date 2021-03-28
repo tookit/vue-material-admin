@@ -1,9 +1,18 @@
 import request from '@/util/request'
 
-const state = {}
+const state = {
+  categories: [
+    {
+      text: 'Default',
+      value: '1',
+    },
+  ],
+}
 
 // getters
-const getters = {}
+const getters = {
+  getCMSCategoryList: (state) => state.categories,
+}
 
 // actions
 const actions = {

@@ -92,12 +92,12 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-dialog v-model="showDialog" scrollable width="840"> </v-dialog>
   </div>
 </template>
 
 <script>
 import TooltipMixin from '@/mixins/Tooltip'
-import CAvatar from '@/components/avatar/CAvatar'
 
 export default {
   components: {
@@ -106,6 +106,7 @@ export default {
   mixins: [TooltipMixin],
   data() {
     return {
+      showDialog: false,
       search: '',
       loadingItems: false,
       serverItemsLength: 0,
