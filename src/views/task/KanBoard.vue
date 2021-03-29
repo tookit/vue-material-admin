@@ -159,6 +159,6 @@ export default {
     border-bottom: 1px solid #eee
   .sortable-chosen,
   .sortable-ghost
-    border: 1px dotted #333
+    border: 1px dotted var(--v-primary-base)
     background: #eee
 </style>
