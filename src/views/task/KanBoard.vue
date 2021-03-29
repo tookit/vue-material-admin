@@ -23,25 +23,23 @@
               </v-toolbar>
               <v-divider />
               <v-card-text :id="'task-list__' + col.value" class="task-list" :data-status="col.value">
-                <v-list-item-group v-model="selectedItem">
-                  <template v-for="task in getTaskByStatus(col.value)">
-                    <div :key="task.id" :data-id="task.id" class="task-list__item">
-                      <v-list-item :value="task">
-                        <v-list-item-avatar>
-                          <v-icon v-if="!task.owner">mdi-account-circle</v-icon>
-                          <c-avatar v-else :size="32" :username="task.owner" :src="computeAvatar(task.owner)" />
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                          <v-list-item-title> #{{ task.id }} {{ task.name }}</v-list-item-title>
-                          <v-list-item-subtitle>{{ task.description }}</v-list-item-subtitle>
-                        </v-list-item-content>
-                        <v-list-item-action>
-                          <v-icon small @click.stop="handleEditItem(task)">mdi-pencil</v-icon>
-                        </v-list-item-action>
-                      </v-list-item>
-                    </div>
-                  </template>
-                </v-list-item-group>
+                <template v-for="task in getTaskByStatus(col.value)">
+                  <div :key="task.id" :data-id="task.id" class="task-list__item">
+                    <v-list-item :value="task">
+                      <v-list-item-avatar>
+                        <v-icon v-if="!task.owner">mdi-account-circle</v-icon>
+                        <c-avatar v-else :size="32" :username="task.owner" :src="computeAvatar(task.owner)" />
+                      </v-list-item-avatar>
+                      <v-list-item-content>
+                        <v-list-item-title> #{{ task.id }} {{ task.name }}</v-list-item-title>
+                        <v-list-item-subtitle>{{ task.description }}</v-list-item-subtitle>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-icon small @click.stop="handleEditItem(task)">mdi-pencil</v-icon>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </div>
+                </template>
               </v-card-text>
             </v-card>
           </v-col>
@@ -159,8 +157,8 @@ export default {
   padding: 0
   &__item
     border-bottom: 1px solid #eee
-    .sortable-chosen,
-    .sortable-ghost
-      border: 1px dotted #333
-      background: #eee
+  .sortable-chosen,
+  .sortable-ghost
+    border: 1px dotted #333
+    background: #eee
 </style>
