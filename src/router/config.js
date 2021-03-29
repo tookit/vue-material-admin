@@ -81,14 +81,11 @@ export const protectedRoute = [
         path: '/kanboard',
         meta: {
           title: 'kanboard',
-          icon: 'mdi-calendar-check',
+          icon: 'mdi-drag-variant',
         },
         name: 'kanboard',
-        props: (route) => ({
-          type: route.query.type,
-        }),
         component: () => import('@/views/task/KanBoard.vue'),
-      },  
+      },
       {
         path: '/chat',
         meta: {
