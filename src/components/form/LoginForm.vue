@@ -90,6 +90,11 @@ export default {
             })
           })
           .catch(() => {
+            window._VMA.$emit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Auth Failed',
+              color: 'error',
+            })
             this.loading = false
           })
       }

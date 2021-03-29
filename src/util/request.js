@@ -33,7 +33,7 @@ const err = (error) => {
       break
 
     case 401:
-      window._VMA.$emit('AUTH_FAIELD')
+      // window._VMA.$emit('AUTH_FAIELD')
       break
 
     case 403:
@@ -70,7 +70,7 @@ service.interceptors.response.use(({ data, config }) => {
     })
   }
   if (data.error !== undefined) {
-    window._VMA.$emit('API_FAILED', data.error)
+    // window._VMA.$emit('API_FAILED', data.error)
   }
 
   return data
