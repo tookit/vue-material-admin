@@ -2,6 +2,15 @@
   <div class="kanboard">
     <v-container>
       <v-row>
+        <v-col :cols="12">
+          <v-autocomplete
+            v-model="project_id"
+            :items="getProjectList"
+            label="Select Project"
+            @change="handleProjectChange"
+          >
+          </v-autocomplete>
+        </v-col>
         <template v-for="col in getTaskStatus">
           <v-col :key="col.value">
             <v-card :loading="loading">
@@ -19,7 +28,8 @@
                     <div :key="task.id" :data-id="task.id" class="task-list__item">
                       <v-list-item :value="task">
                         <v-list-item-avatar>
-                          <v-icon>mdi-account-circle</v-icon>
+                          <v-icon v-if="!task.owner">mdi-account-circle</v-icon>
+                          <c-avatar v-else :size="32" :username="task.owner" :src="computeAvatar(task.owner)" />
                         </v-list-item-avatar>
                         <v-list-item-content>
                           <v-list-item-title> #{{ task.id }} {{ task.name }}</v-list-item-title>
@@ -46,18 +56,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import CAvatar from '@/components/avatar/CAvatar'
+import CAvatar from '@/components/avatar/CAvatar'
 import TaskForm from '@/components/form/TaskForm'
 import Sortable from 'sortablejs'
 import TooltipMixin from '@/mixins/Tooltip'
 export default {
   name: 'KanBoard',
   components: {
+    CAvatar,
     TaskForm,
   },
   mixins: [TooltipMixin],
   data() {
     return {
+      project_id: 1,
       showDialog: false,
       loading: false,
       items: [],
@@ -77,7 +89,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getTaskStatus']),
+    ...mapGetters(['getTaskStatus', 'getProjectList']),
   },
   created() {
     this.fetchTask()
@@ -99,10 +111,20 @@ export default {
     fetchTask() {
       this.items = []
       this.loading = true
-      this.$store.dispatch('fetchTask').then((resp) => {
+      const query = {
+        'filter[project_id]': this.project_id,
+      }
+      this.$store.dispatch('fetchTask', query).then((resp) => {
         this.items = resp.data
         this.loading = false
       })
+    },
+    computeAvatar(username) {
+      const avatar = this.getUsername === username ? this.getAvatar : ''
+      return avatar
+    },
+    handleProjectChange() {
+      this.fetchTask()
     },
     getTaskByStatus(status) {
       return this.items.filter((item) => item.status === status)
@@ -124,6 +146,7 @@ export default {
     },
     handleFormSuccess() {
       this.fetchTask()
+      this.showDialog = false
     },
   },
 }
