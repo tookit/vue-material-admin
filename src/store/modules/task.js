@@ -1,12 +1,7 @@
 import request from '@/util/request'
 
 const state = {
-  projects: [
-    {
-      text: 'Demo Project',
-      value: 1,
-    },
-  ],
+  projects: [],
   taskStatus: [
     {
       text: 'Todo',
@@ -25,7 +20,14 @@ const state = {
 
 // getters
 const getters = {
-  getProjectList: (state) => state.projects,
+  getProjectList: (state) => {
+    return state.projects.map((item) => {
+      return {
+        text: item.name,
+        value: item.id,
+      }
+    })
+  },
   getTaskStatus: (state) => state.taskStatus,
   getTaskStatusByValue: (state) => (value) => {
     const find = state.taskStatus.find(item.value === value)
@@ -66,6 +68,17 @@ const actions = {
       url: `task/${id}`,
       method: 'put',
       data: data,
+    }).then((resp) => {
+      return resp
+    })
+  },
+  updateTaskStatus(context, { id, status }) {
+    return request({
+      url: `task/${id}`,
+      method: 'put',
+      data: {
+        status: status,
+      },
     }).then((resp) => {
       return resp
     })

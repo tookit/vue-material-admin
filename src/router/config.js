@@ -76,6 +76,19 @@ export const protectedRoute = [
         }),
         component: () => import('@/views/Calendar.vue'),
       },
+      //calendar
+      {
+        path: '/kanboard',
+        meta: {
+          title: 'kanboard',
+          icon: 'mdi-calendar-check',
+        },
+        name: 'kanboard',
+        props: (route) => ({
+          type: route.query.type,
+        }),
+        component: () => import('@/views/task/KanBoard.vue'),
+      },  
       {
         path: '/chat',
         meta: {

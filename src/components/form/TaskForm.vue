@@ -18,7 +18,6 @@ import { VTextField, VTextarea, VAutocomplete, VSwitch } from 'vuetify/lib'
 import VEditor from '@/components/editor/VEditor'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'FormNews',
   components: {
     VFormBuilder,
   },
@@ -54,8 +53,6 @@ export default {
           props: {
             name: 'project_id',
             label: 'Project',
-            itemText: 'name',
-            itemValue: 'id',
             outlined: true,
             items: this.getProjectList,
           },
@@ -99,6 +96,9 @@ export default {
       },
       immediate: true,
     },
+  },
+  created() {
+    this.$store.dispatch('fetchProject')
   },
   methods: {
     mergeData(source, target) {

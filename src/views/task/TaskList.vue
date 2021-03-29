@@ -184,9 +184,7 @@ export default {
       immediate: true,
     },
   },
-  created() {
-    this.$store.dispatch('fetchProject')
-  },
+
   methods: {
     //
     updateFilterQuery(query) {
