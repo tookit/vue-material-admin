@@ -2,7 +2,7 @@
   <v-list two-line class="online_user pa-0">
     <v-subheader>Users</v-subheader>
     <v-divider />
-    <template v-for="item in getClientUsers">
+    <template v-for="item in getChatUsers">
       <v-list-item :key="item.username" @click="handleJoinChat">
         <v-list-item-avatar>
           <c-avatar
@@ -10,7 +10,7 @@
             :username="item.username"
             :status="item.status === 1 ? 'online' : 'offline'"
             :color="item.color"
-            online
+            :src="computeAvatar(item.username)"
           />
         </v-list-item-avatar>
         <v-list-item-content>
@@ -34,11 +34,15 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['getClientUsers']),
+    ...mapGetters(['getChatUsers', 'getAvatar', 'getUsername']),
   },
   methods: {
     handleJoinChat() {
       this.$router.push('/chat')
+    },
+    computeAvatar(username) {
+      const avatar = this.getUsername === username ? this.getAvatar : ''
+      return avatar
     },
   },
 }
