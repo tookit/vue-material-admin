@@ -92,6 +92,7 @@ export default {
     ...mapGetters(['getTaskStatus', 'getProjectList']),
   },
   created() {
+    this.$store.dispatch('fetchProject')
     this.fetchTask()
     this.$nextTick(() => {
       this.getTaskStatus.forEach((item) => {

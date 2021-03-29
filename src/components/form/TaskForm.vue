@@ -14,7 +14,7 @@
 
 <script>
 import { VFormBuilder } from '@tookit/vma'
-import { VTextField, VTextarea, VAutocomplete, VSwitch } from 'vuetify/lib'
+import { VTextField, VTextarea, VAutocomplete } from 'vuetify/lib'
 import VEditor from '@/components/editor/VEditor'
 import { mapGetters } from 'vuex'
 export default {

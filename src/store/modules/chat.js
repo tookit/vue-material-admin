@@ -56,8 +56,9 @@ const actions = {
       commit('CLOSE_CONNECT')
     }
   },
-  pushMessage({ commit, dispatch }, text) {
-    commit('UPDATE_MESSAGE_LIST', text)
+  pushMessage({ commit, dispatch }, message) {
+    dispatch('updateNotification', `New Messsage from ${message.username}: ${message.text}`)
+    commit('UPDATE_MESSAGE_LIST', message)
   },
   sendMessage({ commit, rootState }, text) {
     const message = {

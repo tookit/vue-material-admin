@@ -47,7 +47,7 @@ export default {
     post: 'Post',
     post_list: 'Post List',
     task_list: 'Task List',
-    kanboard: 'Kanboard'
+    kanboard: 'Kanboard',
   },
   //media
   media: 'Media',

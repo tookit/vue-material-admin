@@ -42,6 +42,12 @@ export default {
     dir: '文件夹',
     element: '组件',
     cascader: '级联选择',
+    chat: '聊天',
+    cms: '内容管理',
+    post: '文章',
+    post_list: '文章列表',
+    task_list: '任务列表',
+    kanboard: '看板',
   },
   //media
   media: '媒体',
