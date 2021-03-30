@@ -108,7 +108,6 @@ const mutations = {
     state.messages.push(message)
   },
   UPDATE_USER_LIST(state, users) {
-    console.log(users)
     users.forEach((user) => {
       const index = state.chatUsers.findIndex((item) => item.username === user.username)
       if (index === -1) {
