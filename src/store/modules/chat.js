@@ -69,14 +69,13 @@ const actions = {
     commit('SEND_MESSAGE', message)
     commit('UPDATE_MESSAGE_LIST', message)
   },
-  pushJoin({ commit }, user) {
-    console.log(user)
-    user.status = 1
-    commit('UPDATE_USER_LIST', user)
+  pushJoin({ commit }, users) {
+    users.map((item) => (item.status = 1))
+    commit('UPDATE_USER_LIST', users)
   },
   pushLeave({ commit }, user) {
     user.status = 0
-    commit('UPDATE_USER_LIST', user)
+    commit('UPDATE_USER_LIST', [user])
   },
   joinRoom({ commit }, user) {
     commit('JOIN_ROOM', user)
@@ -108,13 +107,16 @@ const mutations = {
   UPDATE_MESSAGE_LIST(state, message) {
     state.messages.push(message)
   },
-  UPDATE_USER_LIST(state, user) {
-    const index = state.chatUsers.findIndex((item) => item.username === user.username)
-    if (index === -1) {
-      state.chatUsers.push(user)
-    } else {
-      Vue.set(state.chatUsers, index, user)
-    }
+  UPDATE_USER_LIST(state, users) {
+    console.log(users)
+    users.forEach((user) => {
+      const index = state.chatUsers.findIndex((item) => item.username === user.username)
+      if (index === -1) {
+        state.chatUsers.push(user)
+      } else {
+        Vue.set(state.chatUsers, index, user)
+      }
+    })
   },
   SEND_MESSAGE(state, message) {
     state.socket.emit('message', message)
