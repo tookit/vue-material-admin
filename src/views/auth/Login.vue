@@ -8,15 +8,15 @@
             <div class="primary--text display-1">Material Admin Template</div>
           </v-card-title>
           <v-card-text>
-            <v-alert type="success"> {{ __('login_account') }} : admin/admin </v-alert>
+            <v-alert type="success"> {{ $t('login_account') }} : admin/admin </v-alert>
             <v-form ref="form" v-model="formValid" class="my-10" lazy-validation>
               <v-text-field
                 v-model="formModel.username"
                 append-icon="mdi-email"
                 autocomplete="off"
                 name="login"
-                :label="__('username')"
-                :placeholder="__('username')"
+                :label="$t('username')"
+                :placeholder="$t('username')"
                 type="text"
                 required
                 outlined
@@ -27,8 +27,8 @@
                 append-icon="mdi-lock"
                 autocomplete="off"
                 name="password"
-                :label="__('password')"
-                :placeholder="__('password')"
+                :label="$t('password')"
+                :placeholder="$t('password')"
                 type="password"
                 :rules="formRule.password"
                 required
@@ -48,10 +48,10 @@
             </v-tooltip>
             <v-spacer />
             <v-btn large text @click="handleRegister">
-              {{ __('register') }}
+              {{ $t('register') }}
             </v-btn>
             <v-btn large tile color="primary" :loading="loading" @click="handleLogin">
-              {{ __('login') }}
+              {{ $t('login') }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -73,8 +73,8 @@ export default {
         password: 'admin',
       },
       formRule: {
-        username: [(v) => !!v || this.__('rule.required', ['username'])],
-        password: [(v) => !!v || this.__('rule.required', ['password'])],
+        username: [(v) => !!v || this.$t('rule.required', ['username'])],
+        password: [(v) => !!v || this.$t('rule.required', ['password'])],
       },
       socialIcons: [
         {

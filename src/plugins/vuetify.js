@@ -1,15 +1,13 @@
 import Vue from 'vue'
 
 import Vuetify from 'vuetify/lib'
-// locale
-import zhHans from '@/locale/zh-Hans'
-import en from '@/locale/en'
 import store from '../store'
+import i18n from './i18n'
 Vue.use(Vuetify)
 
 export default new Vuetify({
   lang: {
-    locales: { zhHans, en },
+    t: (key, ...params) => i18n.t(key, params),
     current: 'en',
   },
   theme: {

@@ -72,11 +72,12 @@ export default {
 
   methods: {
     filterRouteItem(routes) {
+      console.log(this._i18n)
       return routes
         .filter((item) => item.meta.hidden !== true)
         .map((item) => {
           return {
-            title: this.__('menu.' + item.meta.title),
+            title: this.$t(item.meta.title),
             icon: item.meta.icon,
             path: item.path,
             isNew: item.meta.isNew || false,

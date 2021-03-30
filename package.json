@@ -27,6 +27,7 @@
     "socket.io-client": "^4.0.0",
     "sortablejs": "^1.13.0",
     "vue": "^2.6.10",
+    "vue-i18n": "^8.24.2",
     "vue-perfect-scrollbar": "^0.2.1",
     "vue-router": "^3.4.9",
     "vuetify": "^2.4.8",

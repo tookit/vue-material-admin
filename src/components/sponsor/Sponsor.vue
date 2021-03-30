@@ -1,7 +1,7 @@
 <template>
   <div class="pa-3">
     <v-subheader v-if="drawerWidth !== 64">
-      {{ __('sponsor') }}
+      {{ $t('sponsor') }}
     </v-subheader>
     <a :href="sponsor.href">
       <v-img

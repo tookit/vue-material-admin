@@ -23,26 +23,8 @@
         </template>
         <notification-list v-show="getNotification.length > 0" :items="getNotification" />
       </v-menu>
-      <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
-        <template #activator="{ on }">
-          <v-btn slot="activator" text v-on="on">
-            <v-icon medium>mdi-translate</v-icon>
-            <span class="ml-2"> {{ localeText }} </span>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item-group v-model="$vuetify.lang.current">
-            <v-list-item
-              v-for="item in availableLanguages"
-              :key="item.value"
-              :value="item.value"
-              @click="handleChangeLocale(item)"
-            >
-              <v-list-item-title v-text="item.text" />
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-menu>
+      <!-- locale -->
+      <LocaleSwitch />
       <v-menu offset-y origin="center center" transition="scale-transition">
         <template #activator="{ on }">
           <v-btn slot="activator" icon large text v-on="on">
@@ -82,12 +64,14 @@
 </template>
 <script>
 import NotificationList from '@/components/list/NotificationList'
+import LocaleSwitch from '@/components/locale/LocaleSwitch'
 import CAvatar from '@/components/avatar/CAvatar'
 import Util from '@/util'
 import { mapGetters } from 'vuex'
 export default {
   name: 'AppToolbar',
   components: {
+    LocaleSwitch,
     NotificationList,
     CAvatar,
   },
@@ -118,27 +102,11 @@ export default {
   },
   computed: {
     ...mapGetters(['getAvatar', 'getUsername', 'getNotification']),
-    toolbarColor() {
-      return this.$vuetify.options.extra.mainNav
-    },
-    availableLanguages() {
-      const { locales } = this.$vuetify.lang
-      return Object.keys(locales).map((lang) => {
-        return {
-          text: locales[lang].label,
-          value: lang,
-        }
-      })
-    },
-    localeText() {
-      const find = this.availableLanguages.find((item) => item.value === this.$vuetify.lang.current)
-      return find.text
-    },
     breadcrumbs() {
       const { matched } = this.$route
       return matched.map((route, index) => {
         const to = index === matched.length - 1 ? this.$route.path : route.path || route.redirect
-        const text = this.__('menu.' + route.meta.title)
+        const text = this.$t(route.meta.title)
         return {
           text: text,
           to: to,
@@ -166,9 +134,7 @@ export default {
         this.$router.push('/auth/login')
       }
     },
-    handleChangeLocale({ value }) {
-      this.$vuetify.lang.current = value
-    },
+
     handleSetting() {},
     handleProfile() {},
     handleGoBack() {
