@@ -1,7 +1,7 @@
 const state = {
   mode: 'light',
-  themeColor: '#3f51b5',
-  theme: 'inidigo',
+  themeColor: '#2196f3',
+  theme: 'blue',
   notificatons: [
     {
       title: 'New user registered',
