@@ -1,7 +1,7 @@
 <template>
   <div class="chat_drawer">
     <v-navigation-drawer app>
-      <v-btn dark height="64" block color="#017be8" tile>
+      <v-btn dark height="64" block color="primary" tile>
         <v-icon>mdi-chat</v-icon>
       </v-btn>
       <vue-perfect-scrollbar ref="scrollbar" class="chat_drawer__scrollbar grey lighten-5" :style="computeHeight">
