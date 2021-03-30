@@ -9,12 +9,8 @@
 关于Vue Material Admin 的开发，请关注我的博客 [http://isocked.com], 基于vuetify 2.3.10开发的vuepress主题
 
 ## 计划
-* 重构 媒体/文件管理
-* 重构 邮件管理
-* 重构 聊天
-* 在local环境下增加 模拟REST API
 * 创建一个真实环境的API,详情请见[vma-api](https://github.com/tookit/vma-api), 有助于更好集成生产环境
-* 创建一个websocket chat server用于集成聊天组件
+* 创建一个websocket chat server用于集成聊天组件[chat-server](https://github.com/tookit/vma-chat-serverhttps://github.com/tookit/vma-chat-server)
 
 ## 简介
 Vue Material Admin Template 是一个由[Vue](https://vuejs.org/index.html/) 和 [Vuetifyjs](https://vuetifyjs.com/)构建的后台管理模板,
