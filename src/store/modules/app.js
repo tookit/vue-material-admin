@@ -2,6 +2,7 @@ const state = {
   mode: 'light',
   themeColor: '#2196f3',
   theme: 'blue',
+  locale: 'zh',
   notificatons: [
     {
       title: 'New user registered',
@@ -32,15 +33,10 @@ const state = {
 
 // getters
 const getters = {
-  getTheme: (state) => {
-    return state.theme
-  },
-  getThemeColor: (state) => {
-    return state.themeColor
-  },
-  getNotification: (state) => {
-    return state.notificatons
-  },
+  getLocale: (state) => state.locale,
+  getTheme: (state) => state.theme,
+  getThemeColor: (state) => state.themeColor,
+  getNotification: (state) => state.notificatons,
 }
 
 // actions
@@ -66,6 +62,9 @@ const mutations = {
   },
   setTheme(state, payload) {
     state.theme = payload
+  },
+  SET_LOCALE(state, locale) {
+    state.locale = locale
   },
   UPDATE_NOTIFICATION(state, payload) {
     state.notificatons.push(payload)

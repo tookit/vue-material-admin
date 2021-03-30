@@ -1,5 +1,5 @@
 <template>
-  <v-menu offset-y origin="center center" class="elelvation-1" transition="scale-transition">
+  <v-menu offset-y origin="center center" rounded transition="scale-transition">
     <template #activator="{ on }">
       <v-btn slot="activator" text v-on="on">
         <v-icon medium>mdi-translate</v-icon>
@@ -32,7 +32,6 @@ export default {
   computed: {
     availableLanguages() {
       const { messages } = this._i18n
-      console.log(messages)
       return Object.keys(messages).map((lang) => {
         return {
           text: messages[lang].label,
@@ -45,6 +44,7 @@ export default {
     handleChangeLocale(locale) {
       this._i18n.locale = locale.value
       this.localeText = locale.text
+      this.$store.commit('SET_LOCALE', locale.value)
     },
   },
 }

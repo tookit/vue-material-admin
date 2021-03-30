@@ -72,7 +72,6 @@ export default {
 
   methods: {
     filterRouteItem(routes) {
-      console.log(this._i18n)
       return routes
         .filter((item) => item.meta.hidden !== true)
         .map((item) => {
