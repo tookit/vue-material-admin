@@ -23,8 +23,8 @@ export default {
   name: 'LayoutMedia',
   components: {
     MediaToolbar,
-    MediaDrawer
-  }
+    MediaDrawer,
+  },
 }
 </script>
 

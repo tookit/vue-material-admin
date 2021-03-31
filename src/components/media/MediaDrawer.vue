@@ -1,7 +1,7 @@
 <template>
   <div class="media_drawer">
     <v-navigation-drawer app>
-      <v-btn dark height="64" block color="#017be8" tile>Media Manager</v-btn>
+      <v-btn dark height="64" block color="primary" tile>{{ $t('media') }}</v-btn>
       <v-list class="media-list pa-0">
         <template v-for="item in items">
           <template v-if="item.heading">
@@ -11,10 +11,10 @@
             <v-divider :key="'d' + item.heading" />
           </template>
           <template v-else>
-            <v-list-item link exact :key="item.text" :to="item.to">
+            <v-list-item :key="item.text" link exact :to="item.to">
               <v-list-item-icon v-if="item.icon">
                 <svg class="icon" aria-hidden="true">
-                  <use v-bind:xlink:href="getIconByExt(item.icon)"></use>
+                  <use :xlink:href="getIconByExt(item.icon)"></use>
                 </svg>
               </v-list-item-icon>
               <v-list-item-content>
@@ -35,30 +35,30 @@ export default {
     return {
       items: [
         {
-          heading: 'Type'
+          heading: this.$t('file_type'),
         },
         {
           title: 'Video',
           icon: 'video',
-          to: { path: '/media/video' }
+          to: { path: '/media/video' },
         },
 
         {
           title: 'Image',
           icon: 'jpg',
-          to: { path: '/media/image' }
+          to: { path: '/media/image' },
         },
         {
           title: 'Document',
           icon: 'doc',
-          to: { path: '/media/image' }
-        }
-      ]
+          to: { path: '/media/image' },
+        },
+      ],
     }
   },
   computed: {
-    ...mapGetters(['getIconByExt'])
-  }
+    ...mapGetters(['getIconByExt']),
+  },
 }
 </script>
 
