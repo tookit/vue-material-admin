@@ -1,8 +1,9 @@
 import en from 'vuetify/es5/locale/en'
 
 export default {
-  label: 'English',
+  en: 'English',
   //page login
+  user: 'user',
   login: 'Login',
   register: 'Register',
   username: 'Username',

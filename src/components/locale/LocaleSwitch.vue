@@ -3,7 +3,7 @@
     <template #activator="{ on }">
       <v-btn slot="activator" text v-on="on">
         <v-icon medium>mdi-translate</v-icon>
-        <span class="ml-2"> {{ localeText }} </span>
+        <span class="ml-2"> {{ computeLocaleText(locale) }} </span>
       </v-btn>
     </template>
     <v-list>
@@ -11,7 +11,7 @@
         <v-list-item
           v-for="item in availableLanguages"
           :key="item.value"
-          :value="item"
+          :value="item.value"
           @click="handleChangeLocale(item)"
         >
           <v-list-item-title v-text="item.text" />
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       locale: this._i18n.locale,
-      localeText: 'English',
     }
   },
   computed: {
@@ -34,16 +33,18 @@ export default {
       const { messages } = this._i18n
       return Object.keys(messages).map((lang) => {
         return {
-          text: messages[lang].label,
+          text: messages[lang][lang],
           value: lang,
         }
       })
     },
   },
   methods: {
+    computeLocaleText(locale) {
+      return this.$t(locale)
+    },
     handleChangeLocale(locale) {
       this._i18n.locale = locale.value
-      this.localeText = locale.text
       this.$store.commit('SET_LOCALE', locale.value)
     },
   },

@@ -1,8 +1,9 @@
 import zhHans from 'vuetify/es5/locale/zh-Hans'
 
 export default {
-  label: '简体中文',
+  zh: '简体中文',
   // page login
+  user: '用户',
   login: '登录',
   register: '注册',
   username: '用户名',

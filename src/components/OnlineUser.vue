@@ -1,6 +1,6 @@
 <template>
   <v-list two-line class="online_user pa-0">
-    <v-subheader>Users</v-subheader>
+    <v-subheader>{{ $tc('user', 0) }}</v-subheader>
     <v-divider />
     <template v-for="item in getChatUsers">
       <v-list-item :key="item.username" @click="handleJoinChat">
@@ -36,6 +36,9 @@ export default {
   computed: {
     ...mapGetters(['getChatUsers', 'getAvatar', 'getUsername']),
   },
+  created() {
+    this.$store.dispatch('initSocket')
+  },
   methods: {
     handleJoinChat() {
       this.$router.push('/chat')
@@ -47,5 +50,3 @@ export default {
   },
 }
 </script>
-
-<style></style>
