@@ -52,7 +52,7 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-    <v-toolbar slot="extension" tag="div" dense color="white" light>
+    <v-toolbar v-if="extended" slot="extension" tag="div" dense color="white" light>
       <v-icon>mdi-home</v-icon>
       <v-breadcrumbs :items="breadcrumbs" class="pa-3" />
       <v-spacer></v-spacer>
@@ -75,7 +75,9 @@ export default {
     NotificationList,
     CAvatar,
   },
-  props: {},
+  props: {
+    extended: Boolean,
+  },
   data() {
     return {
       profileMenus: [

@@ -43,6 +43,9 @@
   "task_list": "Task List",
   "kanboard": "Kanboard",
   "file_type": "File Type",
+  "video": "Video",
+  "image": "Image",
+  "document": "Document",
   "rule": {
     "required": "{0} is required"
   },

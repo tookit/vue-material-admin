@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <chat-toolbar class="chat_toolbar" />
+    <app-toolbar class="chat_toolbar" />
     <chat-drawer />
     <v-main>
       <div class="chat_wrapper"><router-view /></div>
@@ -28,15 +28,15 @@
 </template>
 
 <script>
-import ChatToolbar from '@/components/chat/ChatToolbar'
 import ChatDrawer from '@/components/chat/ChatDrawer'
+import AppToolbar from '@/components/AppToolbar'
 import RegisterForm from '@/components/form/RegisterForm'
 import LoginForm from '@/components/form/LoginForm'
 import { mapGetters } from 'vuex'
 export default {
   name: 'LayoutChat',
   components: {
-    ChatToolbar,
+    AppToolbar,
     ChatDrawer,
     RegisterForm,
     LoginForm,

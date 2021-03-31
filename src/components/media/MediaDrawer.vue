@@ -38,20 +38,20 @@ export default {
           heading: this.$t('file_type'),
         },
         {
-          title: 'Video',
+          title: this.$t('video'),
           icon: 'video',
           to: { path: '/media/video' },
         },
 
         {
-          title: 'Image',
+          title: this.$t('image'),
           icon: 'jpg',
           to: { path: '/media/image' },
         },
         {
-          title: 'Document',
+          title: this.$t('document'),
           icon: 'doc',
-          to: { path: '/media/image' },
+          to: { path: '/media/doc' },
         },
       ],
     }

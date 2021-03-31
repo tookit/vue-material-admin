@@ -1,6 +1,6 @@
 <template>
   <div class="media">
-    <media-toolbar class="media_toolbar" />
+    <app-toolbar class="media_toolbar" />
     <media-drawer />
     <v-main>
       <div class="media_wrapper"><router-view /></div>
@@ -16,13 +16,12 @@
 </template>
 
 <script>
-import MediaToolbar from '@/components/media/MediaToolbar'
 import MediaDrawer from '@/components/media/MediaDrawer'
-
+import AppToolbar from '@/components/AppToolbar'
 export default {
   name: 'LayoutMedia',
   components: {
-    MediaToolbar,
+    AppToolbar,
     MediaDrawer,
   },
 }
