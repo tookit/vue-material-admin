@@ -49,4 +49,6 @@ export default {
 .page_wrapper
   min-height: calc(100vh - 112px - 48px)
   padding-top: 35px
+  .container
+    max-width: 1200px
 </style>
