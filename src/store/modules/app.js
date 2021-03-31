@@ -2,6 +2,11 @@ const state = {
   mode: 'light',
   themeColor: '#2196f3',
   theme: 'blue',
+  snackbar: {
+    show: false,
+    text: '',
+    color: '',
+  },
   locale: 'zh',
   notificatons: [
     {
@@ -33,6 +38,7 @@ const state = {
 
 // getters
 const getters = {
+  getSnackbar: (state) => state.snackbar,
   getLocale: (state) => state.locale,
   getTheme: (state) => state.theme,
   getThemeColor: (state) => state.themeColor,
@@ -71,6 +77,14 @@ const mutations = {
   },
   CLEAR_NOTIFICATION(state) {
     state.notificatons = []
+  },
+  SHOW_SNACKBAR(state, { color, text }) {
+    state.snackbar.show = true
+    state.snackbar.color = color
+    state.snackbar.text = text
+  },
+  HIDE_SNACKBAR(state) {
+    state.snackbar.show = false
   },
 }
 

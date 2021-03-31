@@ -4,9 +4,7 @@
       <v-col>
         <v-sheet height="64">
           <v-toolbar flat class="grey lighten-4">
-            <v-btn outlined class="mr-4" @click="setToday">
-              Today
-            </v-btn>
+            <v-btn outlined class="mr-4" @click="setToday"> Today </v-btn>
             <v-btn fab text small @click="prev">
               <v-icon small>mdi-chevron-left</v-icon>
             </v-btn>
@@ -17,21 +15,10 @@
               {{ $refs.calendar.title }}
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn-toggle
-              v-model="type"
-              tile
-              color="deep-purple accent-3"
-              group
-            >
-              <v-btn value="day">
-                Day
-              </v-btn>
-              <v-btn value="week">
-                Week
-              </v-btn>
-              <v-btn value="month">
-                Month
-              </v-btn>
+            <v-btn-toggle v-model="type" tile color="deep-purple accent-3" group>
+              <v-btn value="day"> Day </v-btn>
+              <v-btn value="week"> Week </v-btn>
+              <v-btn value="month"> Month </v-btn>
             </v-btn-toggle>
           </v-toolbar>
         </v-sheet>
@@ -51,23 +38,13 @@
             @click:interval="handleIntervalClick"
             @change="updateRange"
           />
-          <v-menu
-            v-model="selectedOpen"
-            :close-on-content-click="false"
-            :activator="selectedElement"
-            offset-x
-          >
+          <v-menu v-model="selectedOpen" :close-on-content-click="false" :activator="selectedElement" offset-x>
           </v-menu>
         </v-sheet>
       </v-col>
     </v-row>
     <v-dialog v-model="showEventDialog" width="500">
-      <event-form
-        :event="selectedEvent"
-        ref="form"
-        @close="handleCloseDialog"
-        @saved="showEventDialog = false"
-      />
+      <event-form ref="form" :event="selectedEvent" @close="handleCloseDialog" @saved="showEventDialog = false" />
     </v-dialog>
   </v-container>
 </template>
@@ -78,7 +55,7 @@ import EventForm from '@/components/form/EventForm'
 export default {
   name: 'PageCalendar',
   components: {
-    EventForm
+    EventForm,
   },
   data() {
     return {
@@ -89,35 +66,18 @@ export default {
         month: 'Month',
         week: 'Week',
         day: 'Day',
-        '4day': '4 Days'
+        '4day': '4 Days',
       },
       selectedEvent: {},
       selectedElement: null,
       selectedOpen: false,
       events: [],
-      colors: [
-        'blue',
-        'indigo',
-        'deep-purple',
-        'cyan',
-        'green',
-        'orange',
-        'grey darken-1'
-      ],
-      names: [
-        'Meeting',
-        'Holiday',
-        'PTO',
-        'Travel',
-        'Event',
-        'Birthday',
-        'Conference',
-        'Party'
-      ]
+      colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
+      names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
     }
   },
   computed: {
-    ...mapGetters(['getEvents'])
+    ...mapGetters(['getEvents']),
   },
   methods: {
     viewDay({ date }) {
@@ -154,7 +114,7 @@ export default {
         name: '',
         start: new Date(date),
         end: new Date(date),
-        color: 'primary'
+        color: 'primary',
       }
       this.showEventDialog = true
     },
@@ -164,7 +124,7 @@ export default {
         start: new Date(date),
         end: new Date(date),
         color: 'primary',
-        timed: false
+        timed: false,
       }
       this.showEventDialog = true
     },
@@ -174,7 +134,7 @@ export default {
     handleCloseDialog() {
       this.showEventDialog = false
       this.selectedEvent = null
-    }
-  }
+    },
+  },
 }
 </script>

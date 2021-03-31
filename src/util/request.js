@@ -16,42 +16,27 @@ const err = (error) => {
   }
   switch (status) {
     case 400:
-      window._VMA.$emit('SHOW_SNACKBAR', {
-        show: true,
-        text: 'Bad Request ' + data.message,
-        color: 'red',
-      })
+      store.commit('SHOW_SNACKBAR', { text: data.message, color: 'error' })
       break
-
     case 422:
-      window._VMA.$emit('SHOW_SNACKBAR', {
-        show: true,
-        text: message,
-        color: 'red',
-      })
-
+      store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
       break
-
     case 401:
-      // window._VMA.$emit('AUTH_FAIELD')
+      store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
       break
-
     case 403:
-      window._VMA.$emit('ACESS_DENIED')
+      store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
       break
     case 500:
-      window._VMA.$emit('SERVER_ERROR')
+      store.commit('SHOW_SNACKBAR', { text: 'server error', color: 'error' })
       break
-
     default:
       break
   }
-
   return Promise.reject(error)
 }
 
 // request interceptor
-
 service.interceptors.request.use((config) => {
   config.headers['Access-Control-Allow-Origin'] = '*'
   config.headers['Content-Type'] = 'application/json'
@@ -64,13 +49,7 @@ service.interceptors.request.use((config) => {
 
 service.interceptors.response.use(({ data, config }) => {
   if (['put', 'post', 'delete', 'patch'].includes(config.method) && data.meta) {
-    window._VMA.$emit('SHOW_SNACKBAR', {
-      text: data.meta.message,
-      color: 'success',
-    })
-  }
-  if (data.error !== undefined) {
-    // window._VMA.$emit('API_FAILED', data.error)
+    store.commit('SHOW_SNACKBAR', { text: data.meta.message, color: 'success' })
   }
 
   return data

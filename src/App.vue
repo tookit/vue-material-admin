@@ -21,7 +21,7 @@
     <v-snackbar v-model="snackbar.show" :timeout="3000" app top centered :color="snackbar.color">
       {{ snackbar.text }}
       <template #action="{ attrs }">
-        <v-btn icon v-bind="attrs" @click="snackbar.show = false">
+        <v-btn icon v-bind="attrs" @click="$store.commit('HIDE_SNACKBAR')">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>
@@ -32,6 +32,7 @@
 <script>
 import ThemeSettings from '@/components/ThemeSettings'
 import OnlineUser from '@/components/OnlineUser'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     ThemeSettings,
@@ -41,47 +42,25 @@ export default {
     return {
       rightDrawer: false,
       showSetting: true,
-      snackbar: {
-        show: false,
-        text: '',
-        color: '',
-      },
     }
+  },
+  computed: {
+    ...mapGetters(['getSnackbar']),
+    snackbar: {
+      get() {
+        return this.getSnackbar
+      },
+      set(val) {
+        this.$store.commit('UPDATE_SNACKBAR', val)
+      },
+    },
   },
   mounted() {
     if (typeof window !== undefined && window._VMA === undefined) {
       window._VMA = this
     }
   },
-  created() {
-    this.$on('SHOW_SNACKBAR', (e) => {
-      this.snackbar = {
-        show: true,
-        text: e.text,
-        color: e.color,
-      }
-    })
-    this.$on('AUTH_FAIELD', () => {
-      this.snackbar = {
-        show: true,
-        text: 'Auth Failed',
-        color: 'error',
-      }
-      this.$router.push({
-        path: '/auth/login',
-        query: {
-          redirect: this.$route.path,
-        },
-      })
-    })
-    this.$on('SERVER_ERROR', () => {
-      this.snackbar = {
-        show: true,
-        text: 'Server Error',
-        color: 'error',
-      }
-    })
-  },
+  created() {},
   methods: {
     openThemeSettings() {
       this.$vuetify.goTo(0)
