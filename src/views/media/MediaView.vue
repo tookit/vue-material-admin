@@ -281,13 +281,14 @@ export default {
       return item.type === 'dir' ? '#icon-wenjianjia' : this.getIconByExt(item.extension)
     },
     computeSize(size) {
-      return humanReadableFileSize(size)
+      return size ? humanReadableFileSize(size) : ''
     },
     handleRefresh() {
       this.fetchRecord(this.$route.query)
     },
     handleSelectItem(item) {
       if (item.type === 'dir') {
+        this.selectedItem = null
         this.$router.push(this.computePath(item))
       } else {
         this.selectedItem = item
