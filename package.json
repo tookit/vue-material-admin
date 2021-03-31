@@ -1,6 +1,6 @@
 {
   "name": "vma",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@antv/g2plot": "^1.1.25",
     "@mdi/font": "^5.9.55",
-    "@tookit/vma": "^0.6.6",
+    "@tookit/vma": "^0.6.7",
     "axios": "0.21.1",
     "core-js": "^3.3.2",
     "date-fns": "^2.16.1",
