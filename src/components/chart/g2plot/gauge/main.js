@@ -1,6 +1,6 @@
 import Gauge from './main'
 
-Gauge.install = function(Vue) {
+Gauge.install = function (Vue) {
   Vue.component(Gauge.name, Gauge)
 }
 

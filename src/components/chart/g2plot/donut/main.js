@@ -1,6 +1,6 @@
 import Donut from './main'
 
-Donut.install = function(Vue) {
+Donut.install = function (Vue) {
   Vue.component(Donut.name, Donut)
 }
 

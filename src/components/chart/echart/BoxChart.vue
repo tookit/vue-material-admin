@@ -4,14 +4,11 @@
       <div class="layout row ma-0">
         <div class="subheading">{{ title }}</div>
         <v-spacer></v-spacer>
-        <div class="caption">
-          <v-icon>mdi-trending-up</v-icon> {{ subTitle }}
-        </div>
+        <div class="caption"><v-icon>mdi-trending-up</v-icon> {{ subTitle }}</div>
       </div>
     </v-card-title>
     <v-responsive class="white--text">
-      <e-chart :path-option="computeChartOption" height="308px" width="100%">
-      </e-chart>
+      <e-chart :path-option="computeChartOption" height="308px" width="100%"> </e-chart>
     </v-responsive>
   </v-card>
 </template>
@@ -21,27 +18,27 @@ import EChart from '@/components/chart/echart'
 
 export default {
   components: {
-    EChart
+    EChart,
   },
   props: {
     title: String,
     gradient: {
       type: Boolean,
-      default: false
+      default: false,
     },
     subTitle: String,
     icon: String,
     cardColor: {
       type: String,
-      default: 'white'
+      default: 'white',
     },
     iconColor: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     type: String,
     chartColor: Array,
-    data: Array
+    data: Array,
   },
   data() {
     return {
@@ -53,8 +50,8 @@ export default {
         ['grid.left', '0'],
         ['grid.bottom', '0'],
         ['grid.right', '0'],
-        ['color', this.chartColor]
-      ]
+        ['color', this.chartColor],
+      ],
     }
   },
 
@@ -94,15 +91,15 @@ export default {
                   color: new window.echarts.graphic.LinearGradient(0, 0, 0, 1, [
                     {
                       offset: 0,
-                      color: this.chartColor[0]
+                      color: this.chartColor[0],
                     },
                     {
                       offset: 1,
-                      color: this.chartColor[1]
-                    }
-                  ])
-                }
-              }
+                      color: this.chartColor[1],
+                    },
+                  ]),
+                },
+              },
             ])
           }
 
@@ -114,8 +111,8 @@ export default {
           break
       }
       return options
-    }
-  }
+    },
+  },
 }
 </script>
 

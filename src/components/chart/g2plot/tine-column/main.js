@@ -1,6 +1,6 @@
 import TineColumn from './main'
 
-TineColumn.install = function(Vue) {
+TineColumn.install = function (Vue) {
   Vue.component(TineColumn.name, TineColumn)
 }
 

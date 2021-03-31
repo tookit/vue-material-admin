@@ -7,24 +7,24 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     value: {
       type: Number,
-      default: 50
-    }
+      default: 50,
+    },
   },
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
   methods: {
@@ -38,13 +38,13 @@ export default mixins(BaseMixin).extend({
         // donut props
         min: this.min,
         max: this.max,
-        value: this.value
+        value: this.value,
       })
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

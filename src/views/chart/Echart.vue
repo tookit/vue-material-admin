@@ -113,7 +113,7 @@
                 ['series[0].barWidth', '50%'],
                 ['series[1].barWidth', '50%'],
                 ['series[1].type', 'bar'],
-                ['series[1].itemStyle.normal.color', color.shades.white]
+                ['series[1].itemStyle.normal.color', color.shades.white],
               ]"
               height="200px"
               width="100%"
@@ -127,12 +127,7 @@
               </div>
               <v-spacer></v-spacer>
               <div class>
-                <v-progress-circular
-                  :size="100"
-                  :width="15"
-                  :rotate="360"
-                  :value="10"
-                  color="blue"
+                <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
                   >10
                 </v-progress-circular>
               </div>
@@ -158,7 +153,7 @@
                 ['grid.bottom', '0'],
                 ['grid.right', '0'],
                 ['xAxis.show', false],
-                ['yAxis.show', false]
+                ['yAxis.show', false],
               ]"
               height="200px"
               width="100%"
@@ -172,12 +167,7 @@
               </div>
               <v-spacer></v-spacer>
               <div class>
-                <v-progress-circular
-                  :size="100"
-                  :width="15"
-                  :rotate="360"
-                  :value="10"
-                  color="blue"
+                <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
                   >10
                 </v-progress-circular>
               </div>
@@ -206,7 +196,7 @@
                 ['grid.right', '0'],
                 ['yAxis.show', false],
                 ['series[0].areaStyle', {}],
-                ['series[0].smooth', true]
+                ['series[0].smooth', true],
               ]"
               height="200px"
               width="100%"
@@ -220,12 +210,7 @@
               </div>
               <v-spacer></v-spacer>
               <div class>
-                <v-progress-circular
-                  :size="100"
-                  :width="15"
-                  :rotate="360"
-                  :value="10"
-                  color="blue"
+                <v-progress-circular :size="100" :width="15" :rotate="360" :value="10" color="blue"
                   >10
                 </v-progress-circular>
               </div>
@@ -247,8 +232,8 @@
                     color.pink.base,
                     color.green.base,
                     color.teal.base,
-                    color.purple.base
-                  ]
+                    color.purple.base,
+                  ],
                 ],
                 ['legend.orient', 'horizontal'],
                 ['legend.y', 'bottom'],
@@ -256,7 +241,7 @@
                 ['yAxis.show', false],
                 ['series[0].type', 'pie'],
                 ['series[0].avoidLabelOverlap', true],
-                ['series[0].radius', ['50%', '70%']]
+                ['series[0].radius', ['50%', '70%']],
               ]"
               height="350px"
               width="100%"
@@ -278,14 +263,14 @@
                     color.pink.base,
                     color.green.base,
                     color.cyan.base,
-                    color.teal.base
-                  ]
+                    color.teal.base,
+                  ],
                 ],
                 ['legend.orient', 'horizontal'],
                 ['legend.y', 'bottom'],
                 ['xAxis.show', false],
                 ['yAxis.show', false],
-                ['series[0].type', 'pie']
+                ['series[0].type', 'pie'],
               ]"
               height="350px"
               width="100%"
@@ -305,7 +290,7 @@
                     ['color', [color.lightBlue.base, color.purple.base]],
                     ['dataset.source', dataset.monthVisit],
                     ['series[0].type', 'bar'],
-                    ['series[1].type', 'bar']
+                    ['series[1].type', 'bar'],
                   ]"
                   height="350px"
                   width="100%"
@@ -315,7 +300,7 @@
                 <e-chart
                   :path-option="[
                     ['dataset.source', dataset.monthVisit],
-                    ['series[0].type', 'line']
+                    ['series[0].type', 'line'],
                   ]"
                   height="350px"
                   width="100%"
@@ -331,13 +316,7 @@
 
 <script>
 import EChart from '@/components/chart/echart'
-import {
-  StackData,
-  SinData,
-  monthVisitData,
-  campaignData,
-  locationData
-} from '@/api/chart'
+import { StackData, SinData, monthVisitData, campaignData, locationData } from '@/api/chart'
 import Material from 'vuetify/es5/util/colors'
 import MiniChart from '@/components/chart/echart/MiniChart'
 import BoxChart from '@/components/chart/echart/BoxChart'
@@ -345,7 +324,7 @@ export default {
   components: {
     BoxChart,
     MiniChart,
-    EChart
+    EChart,
   },
   data() {
     return {
@@ -356,9 +335,9 @@ export default {
         monthVisit: monthVisitData,
         campaign: campaignData,
         location: locationData,
-        stackData: StackData
+        stackData: StackData,
       },
-      color: Material
+      color: Material,
     }
   },
   created() {
@@ -369,7 +348,7 @@ export default {
     handleTabChange() {
       // make sure the chart resized while parent from hidden to show
       window.dispatchEvent(new Event('resize'))
-    }
-  }
+    },
+  },
 }
 </script>

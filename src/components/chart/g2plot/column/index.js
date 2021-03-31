@@ -7,7 +7,7 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     xField: String,
     yField: String,
@@ -16,8 +16,8 @@ export default mixins(BaseMixin).extend({
     // line width
     size: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
 
   watch: {
@@ -27,18 +27,18 @@ export default mixins(BaseMixin).extend({
           this.chart.changeData(data)
           this.chart.updateConfig({
             width: this.width,
-            height: this.height
+            height: this.height,
           })
           this.chart.render()
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
 
@@ -57,31 +57,31 @@ export default mixins(BaseMixin).extend({
         meta: this.meta,
         label: {
           visible: true,
-          position: 'middle' // option: middle / top / bottom
+          position: 'middle', // option: middle / top / bottom
         },
 
         xField: this.xField,
         yField: this.yField,
         xAxis: {
           title: {
-            visible: false
-          }
+            visible: false,
+          },
         },
         yAxis: {
           title: {
-            visible: false
-          }
+            visible: false,
+          },
         },
         legend: {
-          position: 'top-left'
-        }
+          position: 'top-left',
+        },
       })
 
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

@@ -8,39 +8,39 @@ export default mixins(BaseMixin).extend({
     title: Object,
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     color: {
       type: Array,
       default: () => {
         return ['#39B8FF', '#52619B', '#43E089', '#C0EDF3']
-      }
+      },
     },
     range: {
       type: Array,
       default: () => {
         return [0, 25, 50, 75, 100]
-      }
+      },
     },
     rangeSize: {
       type: Number,
-      default: 24
+      default: 24,
     },
 
     value: {
-      default: 60
+      default: 60,
     },
-    statistic: Object
+    statistic: Object,
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
 
@@ -68,7 +68,7 @@ export default mixins(BaseMixin).extend({
 
         rangeSize: this.rangeSize,
 
-        statistic: this.statistic
+        statistic: this.statistic,
 
         // axis: {
 
@@ -124,10 +124,10 @@ export default mixins(BaseMixin).extend({
       })
 
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

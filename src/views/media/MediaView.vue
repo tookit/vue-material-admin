@@ -37,13 +37,7 @@
               <v-list class="media_manager__list">
                 <v-list-item-group v-model="selectedItem" color="primary">
                   <template v-for="(item, i) in items">
-                    <v-list-item
-                      :key="i"
-                      :value="item"
-                      two-line
-                      exact
-                      @click="handleSelectItem(item)"
-                    >
+                    <v-list-item :key="i" :value="item" two-line exact @click="handleSelectItem(item)">
                       <v-list-item-avatar>
                         <svg class="icon" aria-hidden="true">
                           <use :xlink:href="computeIcon(item)"></use>
@@ -52,20 +46,15 @@
                       <v-list-item-content>
                         <v-list-item-title v-text="item.basename" />
                         <v-list-item-subtitle>
-                          {{
-                            item.type == 'file' ? computeSize(item.size) : ''
-                          }}
+                          {{ item.type == 'file' ? computeSize(item.size) : '' }}
                         </v-list-item-subtitle>
                       </v-list-item-content>
                       <v-list-item-action>
                         <v-menu>
-                          <template v-slot:activator="{ on: menu }">
+                          <template #activator="{ on: menu }">
                             <v-tooltip bottom>
-                              <template v-slot:activator="{ on: tooltip }">
-                                <v-btn
-                                  icon
-                                  v-on="onTooltip({ ...tooltip, ...menu })"
-                                >
+                              <template #activator="{ on: tooltip }">
+                                <v-btn icon v-on="onTooltip({ ...tooltip, ...menu })">
                                   <v-icon>mdi-dots-vertical</v-icon>
                                 </v-btn>
                               </template>
@@ -73,17 +62,11 @@
                             </v-tooltip>
                           </template>
                           <v-list class="pa-0" dense>
-                            <v-list-item
-                              v-for="action in actions"
-                              :key="action.text"
-                              @click.stop="action.click(item)"
-                            >
+                            <v-list-item v-for="action in actions" :key="action.text" @click.stop="action.click(item)">
                               <v-list-item-icon class="mr-2">
                                 <v-icon small>{{ action.icon }}</v-icon>
                               </v-list-item-icon>
-                              <v-list-item-title>{{
-                                action.text
-                              }}</v-list-item-title>
+                              <v-list-item-title>{{ action.text }}</v-list-item-title>
                             </v-list-item>
                           </v-list>
                         </v-menu>
@@ -99,9 +82,7 @@
             <template v-for="item in items">
               <v-col :key="item.basename" :cols="3">
                 <v-card tile @click="handleSelectItem(item)">
-                  <template
-                    v-if="item.type === 'file' && item.extension === 'png'"
-                  >
+                  <template v-if="item.type === 'file' && item.extension === 'png'">
                     <v-img :src="item.url" height="200px"> </v-img>
                   </template>
                   <template v-else>
@@ -118,20 +99,15 @@
                         <v-list-item-content>
                           <v-list-item-title v-text="item.basename" />
                           <v-list-item-subtitle>
-                            {{
-                              item.type == 'file' ? computeSize(item.size) : ''
-                            }}
+                            {{ item.type == 'file' ? computeSize(item.size) : '' }}
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
                           <v-menu>
-                            <template v-slot:activator="{ on: menu }">
+                            <template #activator="{ on: menu }">
                               <v-tooltip bottom>
-                                <template v-slot:activator="{ on: tooltip }">
-                                  <v-btn
-                                    icon
-                                    v-on="onTooltip({ ...tooltip, ...menu })"
-                                  >
+                                <template #activator="{ on: tooltip }">
+                                  <v-btn icon v-on="onTooltip({ ...tooltip, ...menu })">
                                     <v-icon>mdi-dots-vertical</v-icon>
                                   </v-btn>
                                 </template>
@@ -147,9 +123,7 @@
                                 <v-list-item-icon class="mr-2">
                                   <v-icon small>{{ action.icon }}</v-icon>
                                 </v-list-item-icon>
-                                <v-list-item-title>{{
-                                  action.text
-                                }}</v-list-item-title>
+                                <v-list-item-title>{{ action.text }}</v-list-item-title>
                               </v-list-item>
                             </v-list>
                           </v-menu>
@@ -164,29 +138,16 @@
         </v-row>
       </v-container>
     </template>
-    <v-navigation-drawer
-      v-model="showRight"
-      app
-      right
-      hide-overlay
-      clipped
-      clipped-right
-    >
+    <v-navigation-drawer v-model="showRight" app right hide-overlay clipped clipped-right>
       <div v-if="selectedItem">
         <v-toolbar flat class="border-bottom">
           <v-subheader>{{ selectedItem.path }}</v-subheader>
           <v-spacer />
-          <v-btn icon @click="showRight = false"
-            ><v-icon>mdi-close</v-icon></v-btn
-          >
+          <v-btn icon @click="showRight = false"><v-icon>mdi-close</v-icon></v-btn>
         </v-toolbar>
         <div>
           <v-card flat>
-            <template
-              v-if="
-                selectedItem.type === 'file' && selectedItem.extension === 'png'
-              "
-            >
+            <template v-if="selectedItem.type === 'file' && selectedItem.extension === 'png'">
               <v-img :src="item.url" height="200px"> </v-img>
             </template>
             <template v-else>
@@ -233,7 +194,7 @@ export default {
         json: 'mdi-code-json',
         html: 'mdi-language-html5',
         png: 'mdi-image',
-        svg: 'mdi-svg'
+        svg: 'mdi-svg',
       },
       loading: false,
       items: [],
@@ -241,19 +202,19 @@ export default {
         {
           text: 'Share',
           icon: 'mdi-heart',
-          click: this.$emit('file:share')
+          click: this.$emit('file:share'),
         },
         {
           text: 'Download',
           icon: 'mdi-download',
-          click: this.$emit('file:download')
+          click: this.$emit('file:download'),
         },
         {
           text: 'Delete',
           icon: 'mdi-delete',
-          click: this.$emit('file:delete')
-        }
-      ]
+          click: this.$emit('file:delete'),
+        },
+      ],
     }
   },
 
@@ -265,8 +226,8 @@ export default {
           text: 'Root',
           to: `/media/file`,
           exact: true,
-          disabled: false
-        }
+          disabled: false,
+        },
       ]
       const { path } = this.$route.query
       const paths = path ? path.split('/') : []
@@ -278,19 +239,19 @@ export default {
               text: item,
               to: `/media/file?path=${path}`,
               exact: true,
-              disabled: false
+              disabled: false,
             }
           })
       return root.concat(tmp)
-    }
+    },
   },
   watch: {
     '$route.query': {
       handler(query) {
         this.fetchRecord(query)
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     fetchRecord(query) {
@@ -311,15 +272,13 @@ export default {
         ? {
             path: '/media',
             query: {
-              path: item.path
-            }
+              path: item.path,
+            },
           }
         : false
     },
     computeIcon(item) {
-      return item.type === 'dir'
-        ? '#icon-wenjianjia'
-        : this.getIconByExt(item.extension)
+      return item.type === 'dir' ? '#icon-wenjianjia' : this.getIconByExt(item.extension)
     },
     computeSize(size) {
       return humanReadableFileSize(size)
@@ -335,8 +294,8 @@ export default {
         this.showRight = true
         // view file
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

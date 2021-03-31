@@ -7,19 +7,19 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     xField: String,
     yField: String,
     // line width
     size: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
   methods: {
@@ -32,13 +32,13 @@ export default mixins(BaseMixin).extend({
         forceFit: this.forceFit,
         xField: this.xField,
         yField: this.yField,
-        tooltip: this.tooltip
+        tooltip: this.tooltip,
       })
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

@@ -1,6 +1,6 @@
 import Pie from './main'
 
-Pie.install = function(Vue) {
+Pie.install = function (Vue) {
   Vue.component(Pie.name, Pie)
 }
 

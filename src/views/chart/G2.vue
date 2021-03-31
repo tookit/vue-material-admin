@@ -7,9 +7,9 @@
             <v-toolbar-title>{{ chart.column.title.text }}</v-toolbar-title>
             <v-spacer />
             <v-menu>
-              <template v-slot:activator="{ on: menu }">
+              <template #activator="{ on: menu }">
                 <v-tooltip bottom>
-                  <template v-slot:activator="{ on: tooltip }">
+                  <template #activator="{ on: tooltip }">
                     <v-btn icon v-on="{ ...tooltip, ...menu }">
                       <v-icon>mdi-dots-vertical</v-icon>
                     </v-btn>
@@ -18,11 +18,7 @@
                 </v-tooltip>
               </template>
               <v-list class="pa-0" dense>
-                <v-list-item
-                  v-for="action in chart.column.actions"
-                  :key="action.text"
-                  @click="action.click()"
-                >
+                <v-list-item v-for="action in chart.column.actions" :key="action.text" @click="action.click()">
                   <v-list-item-icon class="mr-2">
                     <v-icon small>{{ action.icon }}</v-icon>
                   </v-list-item-icon>
@@ -45,9 +41,9 @@
             <v-toolbar-title>{{ chart.line.title.text }}</v-toolbar-title>
             <v-spacer />
             <v-menu>
-              <template v-slot:activator="{ on: menu }">
+              <template #activator="{ on: menu }">
                 <v-tooltip bottom>
-                  <template v-slot:activator="{ on: tooltip }">
+                  <template #activator="{ on: tooltip }">
                     <v-btn icon v-on="{ ...tooltip, ...menu }">
                       <v-icon>mdi-dots-vertical</v-icon>
                     </v-btn>
@@ -56,11 +52,7 @@
                 </v-tooltip>
               </template>
               <v-list class="pa-0" dense>
-                <v-list-item
-                  v-for="action in chart.line.actions"
-                  :key="action.text"
-                  @click="action.click()"
-                >
+                <v-list-item v-for="action in chart.line.actions" :key="action.text" @click="action.click()">
                   <v-list-item-icon class="mr-2">
                     <v-icon small>{{ action.icon }}</v-icon>
                   </v-list-item-icon>
@@ -132,7 +124,7 @@ export default {
     VG2Gauge,
     VG2Donut,
     VG2Cloud,
-    VG2Bullet
+    VG2Bullet,
   },
   data() {
     return {
@@ -141,50 +133,50 @@ export default {
           data: [
             {
               type: 'Toy',
-              sales: 38
+              sales: 38,
             },
             {
               type: 'Woman Fasion',
-              sales: 52
+              sales: 52,
             },
             {
               type: 'Men Fasion',
-              sales: 61
+              sales: 61,
             },
             {
               type: 'Phone',
-              sales: 145
+              sales: 145,
             },
             {
               type: 'Computer',
-              sales: 48
+              sales: 48,
             },
             {
               type: 'Electronics',
-              sales: 38
+              sales: 38,
             },
             {
               type: 'Watches',
-              sales: 38
+              sales: 38,
             },
             {
               type: 'Bag & Shoes',
-              sales: 38
-            }
+              sales: 38,
+            },
           ],
           xField: 'type',
           yField: 'sales',
           title: {
             visible: true,
-            text: 'Basic column chart'
+            text: 'Basic column chart',
           },
           colorField: 'type',
           actions: [
             {
               text: 'Show Lengend',
-              click: this.showColumnLengend
-            }
-          ]
+              click: this.showColumnLengend,
+            },
+          ],
         },
         line: {
           data: [
@@ -196,140 +188,140 @@ export default {
             { year: '1996', value: 6 },
             { year: '1997', value: 7 },
             { year: '1998', value: 9 },
-            { year: '1999', value: 13 }
+            { year: '1999', value: 13 },
           ],
           xField: 'year',
           yField: 'value',
           title: {
             visible: true,
-            text: 'Basic line chart'
+            text: 'Basic line chart',
           },
           actions: [
             {
               text: 'Show Lengend',
-              click: this.showColumnLengend
-            }
-          ]
+              click: this.showColumnLengend,
+            },
+          ],
         },
         gauge: {
           title: {
             visible: true,
-            text: 'Gauge'
-          }
+            text: 'Gauge',
+          },
         },
         donut: {
           data: [
             {
               type: 'United States',
-              value: 27
+              value: 27,
             },
             {
               type: 'China',
-              value: 25
+              value: 25,
             },
             {
               type: 'Russia',
-              value: 18
+              value: 18,
             },
             {
               type: 'France',
-              value: 15
+              value: 15,
             },
             {
               type: 'Spanish',
-              value: 10
+              value: 10,
             },
             {
               type: 'Other',
-              value: 5
-            }
+              value: 5,
+            },
           ],
           title: {
             visible: true,
-            text: 'Donut chart'
-          }
+            text: 'Donut chart',
+          },
         },
         cloud: {
           title: {
             visible: true,
-            text: 'Tag Cloud'
+            text: 'Tag Cloud',
           },
           data: [
             {
               weight: 12,
-              word: 'VMA'
+              word: 'VMA',
             },
             {
               weight: 9,
-              word: 'Vue'
+              word: 'Vue',
             },
             {
               weight: 8,
-              word: 'Material'
+              word: 'Material',
             },
             {
               weight: 8,
-              word: 'Chart'
+              word: 'Chart',
             },
             {
               weight: 8,
-              word: 'vuex'
+              word: 'vuex',
             },
             {
               weight: 8,
-              word: 'G2'
+              word: 'G2',
             },
 
             {
               weight: 3,
-              word: 'Echart'
+              word: 'Echart',
             },
             {
               weight: 10,
-              word: 'Laravel'
+              word: 'Laravel',
             },
             {
               weight: 6,
-              word: 'Data Vis'
-            }
-          ]
+              word: 'Data Vis',
+            },
+          ],
         },
         bullet: {
           title: {
             visible: true,
-            text: 'Bullet'
+            text: 'Bullet',
           },
           data: [
             {
               title: 'GUI',
               measures: [83],
-              targets: [90]
+              targets: [90],
             },
             {
               title: 'REST API',
               measures: [13],
-              targets: [90]
+              targets: [90],
             },
             {
               title: 'Websocket',
               measures: [45],
-              targets: [80]
+              targets: [80],
             },
             {
               title: 'SSR',
               measures: [83],
-              targets: [70]
-            }
-          ]
-        }
-      }
+              targets: [70],
+            },
+          ],
+        },
+      },
     }
   },
   methods: {
     //column
     showColumnLengend() {
       this.chart.column.colorField = 'type'
-    }
-  }
+    },
+  },
 }
 </script>

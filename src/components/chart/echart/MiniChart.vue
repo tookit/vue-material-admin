@@ -5,13 +5,11 @@
         <div>
           <div class="subheading pb-2">{{ title }}</div>
           <span class="grey--text"
-            >{{ subTitle }}
-            <v-icon small :color="iconColor">{{ icon }}</v-icon></span
+            >{{ subTitle }} <v-icon small :color="iconColor">{{ icon }}</v-icon></span
           >
         </div>
         <div>
-          <e-chart :path-option="computeChartOption" height="68px" width="100%">
-          </e-chart>
+          <e-chart :path-option="computeChartOption" height="68px" width="100%"> </e-chart>
         </div>
       </div>
     </v-card-text>
@@ -22,37 +20,37 @@
 import EChart from '@/components/chart/echart'
 export default {
   components: {
-    EChart
+    EChart,
   },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     subTitle: {
       type: String,
-      default: ''
+      default: '',
     },
     icon: {
       type: String,
-      default: ''
+      default: '',
     },
     iconColor: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     type: {
       type: String,
-      default: 'line'
+      default: 'line',
     },
     chartColor: {
       type: String,
-      default: ''
+      default: '',
     },
     data: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -60,19 +58,19 @@ export default {
         ['dataset.source', this.data],
         ['xAxis.show', false],
         ['yAxis.show', false],
-        ['color', [this.chartColor]]
-      ]
+        ['color', [this.chartColor]],
+      ],
     }
   },
   computed: {
     computeChartOption() {
       return this.defaultOption
-    }
+    },
   },
 
   watch: {
     type: {
-      handler: function(newVal) {
+      handler: function (newVal) {
         switch (newVal) {
           case 'bar':
             this.defaultOption.push(['series[0].type', 'bar'])
@@ -86,9 +84,9 @@ export default {
         }
         return this.defaultOption
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 }
 </script>
 
