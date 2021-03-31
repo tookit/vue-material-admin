@@ -1,6 +1,6 @@
 <template>
   <v-list two-line class="online_user pa-0">
-    <v-subheader>{{ $tc('user', 0) }}</v-subheader>
+    <v-subheader>{{ $tc('user', 2) }}</v-subheader>
     <v-divider />
     <template v-for="item in getChatUsers">
       <v-list-item :key="item.username" @click="handleJoinChat">

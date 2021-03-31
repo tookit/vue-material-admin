@@ -3,7 +3,7 @@ import en from 'vuetify/es5/locale/en'
 export default {
   en: 'English',
   //page login
-  user: 'user',
+  user: 'user|users',
   login: 'Login',
   register: 'Register',
   username: 'Username',
