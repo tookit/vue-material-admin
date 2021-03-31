@@ -10,28 +10,28 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
 
     radius: {
       tyep: Number,
-      default: 0.8
+      default: 0.8,
     },
 
     angleField: {
       type: String,
-      default: 'value'
+      default: 'value',
     },
 
     colorField: {
       type: String,
-      default: 'type'
-    }
+      default: 'type',
+    },
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
 
@@ -52,14 +52,14 @@ export default mixins(BaseMixin).extend({
 
         angleField: this.angleField,
 
-        colorField: this.colorField
+        colorField: this.colorField,
       })
 
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

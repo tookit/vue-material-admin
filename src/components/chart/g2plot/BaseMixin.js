@@ -101,12 +101,12 @@ export default {
     forceFit: Boolean,
 
     width: {
-      type: Number
+      type: Number,
     },
 
     height: {
-      type: Number
-    }
+      type: Number,
+    },
   },
 
   render(h) {
@@ -114,22 +114,22 @@ export default {
       'div',
 
       {
-        class: 'g2-canvas'
+        class: 'g2-canvas',
       },
 
       [
         h('div', {
           class: 'canvas',
 
-          ref: 'canvas'
+          ref: 'canvas',
         }),
 
         h('span', {
           class: 'loading',
 
-          ref: 'loading'
-        })
+          ref: 'loading',
+        }),
       ]
     )
-  }
+  },
 }

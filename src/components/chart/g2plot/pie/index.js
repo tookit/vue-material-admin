@@ -7,7 +7,7 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     angleField: String,
     colorField: String,
@@ -15,13 +15,13 @@ export default mixins(BaseMixin).extend({
     // line width
     size: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
   methods: {
@@ -37,29 +37,29 @@ export default mixins(BaseMixin).extend({
         meta: this.meta,
         label: {
           visible: true,
-          type: 'outer-center'
+          type: 'outer-center',
         },
         legend: {
-          position: 'bottom-center'
+          position: 'bottom-center',
         },
         angleField: this.angleField,
         colorField: this.colorField,
         xAxis: {
           title: {
-            visible: false
-          }
+            visible: false,
+          },
         },
         yAxis: {
           title: {
-            visible: false
-          }
-        }
+            visible: false,
+          },
+        },
       })
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

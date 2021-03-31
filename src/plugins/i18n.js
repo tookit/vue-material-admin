@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 import store from '../store'
-import zhHans from '@/locale/zh-Hans'
-import en from '@/locale/en'
+import zhHans from '@/locale/zh-Hans.json'
+import en from '@/locale/en.json'
 const translation = {
   zh: zhHans,
   en: en,

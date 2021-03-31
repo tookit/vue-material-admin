@@ -7,7 +7,7 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     xField: String,
     yField: String,
@@ -16,19 +16,19 @@ export default mixins(BaseMixin).extend({
       default: () => {
         return {
           type: 'dateTime',
-          tickCount: 5
+          tickCount: 5,
         }
-      }
+      },
     },
     // line width
     size: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
   methods: {
@@ -43,17 +43,17 @@ export default mixins(BaseMixin).extend({
         title: this.title,
         label: {
           visible: true,
-          position: 'middle' // option: middle / top / bottom
+          position: 'middle', // option: middle / top / bottom
         },
         xField: xField,
         yField: yField,
-        xAxis: this.xAxis
+        xAxis: this.xAxis,
       })
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

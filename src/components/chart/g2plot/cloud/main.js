@@ -1,6 +1,6 @@
 import Cloud from './main'
 
-Cloud.install = function(Vue) {
+Cloud.install = function (Vue) {
   Vue.component(Cloud.name, Cloud)
 }
 

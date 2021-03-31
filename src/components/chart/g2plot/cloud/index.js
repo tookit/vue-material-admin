@@ -13,14 +13,14 @@ export default mixins(BaseMixin).extend({
      */
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
-    xField: String
+    xField: String,
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
 
@@ -33,8 +33,7 @@ export default mixins(BaseMixin).extend({
         padding: this.padding,
         forceFit: this.forceFit,
         title: this.title,
-        maskImage:
-          'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*07tdTIOmvlYAAAAAAAAAAABkARQnAQ',
+        maskImage: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*07tdTIOmvlYAAAAAAAAAAABkARQnAQ',
         wordStyle: {
           rotation: [-Math.PI / 2, Math.PI / 2],
           rotationSteps: 4,
@@ -44,9 +43,9 @@ export default mixins(BaseMixin).extend({
           },
           active: {
             shadowColor: '#333333',
-            shadowBlur: 10
+            shadowBlur: 10,
           },
-          gridSize: 8
+          gridSize: 8,
         },
         shape: 'circle',
         backgroundColor: '#fff',
@@ -54,11 +53,11 @@ export default mixins(BaseMixin).extend({
         //   console.log(e)
         // },
         tooltip: {
-          visible: true
+          visible: true,
         },
         onWordCloudClick: (e) => {
           console.log(e)
-        }
+        },
       })
 
       this.chart.render()
@@ -75,14 +74,14 @@ export default mixins(BaseMixin).extend({
         '#9270CA',
         '#FF9D4D',
         '#269A99',
-        '#FF99C3'
+        '#FF99C3',
       ]
 
       return arr[Math.floor(Math.random() * (arr.length - 1))]
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

@@ -7,24 +7,24 @@ export default mixins(BaseMixin).extend({
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     xField: String,
     yField: String,
     // line width
     stackField: {
       type: String,
-      default: 'type'
+      default: 'type',
     },
     color: [Object, Array],
     columnStyle: Object,
     events: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
   methods: {
@@ -41,36 +41,36 @@ export default mixins(BaseMixin).extend({
         color: this.color,
         label: {
           visible: true,
-          position: 'middle' // option: middle / top / bottom
+          position: 'middle', // option: middle / top / bottom
         },
         columnStyle: this.columnStyle,
         legend: {
-          position: 'top-left'
+          position: 'top-left',
         },
         xField: this.xField,
         yField: this.yField,
         xAxis: {
           title: {
-            visible: false
-          }
+            visible: false,
+          },
         },
         yAxis: {
           title: {
-            visible: false
-          }
+            visible: false,
+          },
         },
         interactions: [
           {
-            type: 'slider'
-          }
+            type: 'slider',
+          },
         ],
-        events: this.events
+        events: this.events,
       })
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

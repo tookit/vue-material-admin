@@ -7,24 +7,12 @@
           <v-divider />
           <v-card-text>
             <v-timeline>
-              <v-timeline-item
-                v-for="(item, i) in changelogs"
-                :key="i"
-                :color="item.color"
-                small
-              >
-                <template v-slot:opposite>
-                  <span
-                    :class="`headline font-weight-bold ${item.color}--text`"
-                    v-text="item.tag"
-                  />
+              <v-timeline-item v-for="(item, i) in changelogs" :key="i" :color="item.color" small>
+                <template #opposite>
+                  <span :class="`headline font-weight-bold ${item.color}--text`" v-text="item.tag" />
                 </template>
                 <div class="py-4">
-                  <h2
-                    :class="
-                      `headline font-weight-light mb-4 ${item.color}--text`
-                    "
-                  >
+                  <h2 :class="`headline font-weight-light mb-4 ${item.color}--text`">
                     {{ item.version }}
                   </h2>
                   <div v-for="log in item.logs" :key="log">
@@ -54,8 +42,8 @@ export default {
             '* update calendar (a7e2f9f)',
             '* add event in calendar (f1d67b9)',
             '* update work flow (79d77b9)',
-            '* docs: update readme (a30b6bd)'
-          ]
+            '* docs: update readme (a30b6bd)',
+          ],
         },
         {
           version: '0.2.0',
@@ -66,8 +54,8 @@ export default {
             '* update compose email component (5d7069d)',
             '* fixed mail inbox issue (17309cb)',
             '* fixed mail menu (b188dcf)',
-            '* add error message when auth failed (f5e2bf8)'
-          ]
+            '* add error message when auth failed (f5e2bf8)',
+          ],
         },
         {
           version: '0.3.0',
@@ -76,11 +64,11 @@ export default {
           logs: [
             '*  fixed redirect issue (b48e070)',
             '* update media layout (3565dcb',
-            '* fixed mail inbox issue (17309cb)'
-          ]
-        }
-      ]
+            '* fixed mail inbox issue (17309cb)',
+          ],
+        },
+      ],
     }
-  }
+  },
 }
 </script>

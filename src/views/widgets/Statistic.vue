@@ -4,44 +4,20 @@
       <v-col cols="12"><v-subheader>Social</v-subheader></v-col>
       <!-- mini statistic start -->
       <v-col cols="3">
-        <mini-statistic-card
-          icon="mdi-facebook"
-          title="100+"
-          sub-title="Likes"
-          color="indigo"
-        />
+        <mini-statistic-card icon="mdi-facebook" title="100+" sub-title="Likes" color="indigo" />
       </v-col>
       <v-col cols="3">
-        <mini-statistic-card
-          icon="mdi-google"
-          title="150+"
-          sub-title="Connections"
-          color="red"
-        />
+        <mini-statistic-card icon="mdi-google" title="150+" sub-title="Connections" color="red" />
       </v-col>
       <v-col cols="3">
-        <mini-statistic-card
-          icon="mdi-twitter"
-          title="200+"
-          sub-title="Followers"
-          color="light-blue"
-        />
+        <mini-statistic-card icon="mdi-twitter" title="200+" sub-title="Followers" color="light-blue" />
       </v-col>
       <v-col cols="3">
-        <mini-statistic-card
-          icon="mdi-instagram"
-          title="50+"
-          sub-title="Shots"
-          color="purple"
-        />
+        <mini-statistic-card icon="mdi-instagram" title="50+" sub-title="Shots" color="purple" />
       </v-col>
       <!-- linear statistic  end -->
       <v-col cols="12"><v-subheader>Linear Trending</v-subheader></v-col>
-      <v-col
-        v-for="(item, index) in trending"
-        :key="'trending' + index"
-        cols="4"
-      >
+      <v-col v-for="(item, index) in trending" :key="'trending' + index" cols="4">
         <linear-statistic-card
           :title="item.subheading"
           :sub-title="item.caption"
@@ -52,11 +28,7 @@
       </v-col>
       <!-- circle statistic  end -->
       <v-col cols="12"><v-subheader>Circle Trending</v-subheader></v-col>
-      <v-col
-        v-for="(item, index) in trending2"
-        :key="'c-trending' + index"
-        cols="4"
-      >
+      <v-col v-for="(item, index) in trending2" :key="'c-trending' + index" cols="4">
         <circle-statistic-card
           :title="item.subheading"
           :sub-title="item.headline"
@@ -78,7 +50,7 @@ export default {
   components: {
     MiniStatisticCard,
     CircleStatisticCard,
-    LinearStatisticCard
+    LinearStatisticCard,
   },
   data() {
     return {
@@ -90,12 +62,12 @@ export default {
           percent: 15,
           icon: {
             label: 'mdi-trending-up',
-            color: 'success'
+            color: 'success',
           },
           linear: {
             value: 15,
-            color: 'success'
-          }
+            color: 'success',
+          },
         },
         {
           subheading: 'Revenue',
@@ -104,12 +76,12 @@ export default {
           percent: 10,
           icon: {
             label: 'mdi-trending-down',
-            color: 'error'
+            color: 'error',
           },
           linear: {
             value: 15,
-            color: 'error'
-          }
+            color: 'error',
+          },
         },
         {
           subheading: 'Orders',
@@ -118,13 +90,13 @@ export default {
           percent: 50,
           icon: {
             label: 'mdi-arrow-up',
-            color: 'info'
+            color: 'info',
           },
           linear: {
             value: 50,
-            color: 'info'
-          }
-        }
+            color: 'info',
+          },
+        },
       ],
       trending2: [
         {
@@ -134,12 +106,12 @@ export default {
           percent: 15,
           icon: {
             label: 'mdi-email',
-            color: 'info'
+            color: 'info',
           },
           linear: {
             value: 15,
-            color: 'info'
-          }
+            color: 'info',
+          },
         },
         {
           subheading: 'Tasks',
@@ -148,12 +120,12 @@ export default {
           percent: 90,
           icon: {
             label: 'mdi-view-list',
-            color: 'primary'
+            color: 'primary',
           },
           linear: {
             value: 90,
-            color: 'success'
-          }
+            color: 'success',
+          },
         },
         {
           subheading: 'Issues',
@@ -162,15 +134,15 @@ export default {
           percent: 100,
           icon: {
             label: 'mdi-bug',
-            color: 'primary'
+            color: 'primary',
           },
           linear: {
             value: 100,
-            color: 'error'
-          }
-        }
-      ]
+            color: 'error',
+          },
+        },
+      ],
     }
-  }
+  },
 }
 </script>

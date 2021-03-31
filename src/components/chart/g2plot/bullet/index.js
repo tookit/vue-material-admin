@@ -19,22 +19,22 @@ export default mixins(BaseMixin).extend({
      */
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     rangeColors: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
 
     rangeMax: {
       type: Number,
-      default: 100
-    }
+      default: 100,
+    },
   },
 
   data() {
     return {
-      chart: null
+      chart: null,
     }
   },
 
@@ -48,14 +48,14 @@ export default mixins(BaseMixin).extend({
         padding: this.padding,
         forceFit: this.forceFit,
         rangeMax: rangeMax,
-        rangeColors: rangeColors
+        rangeColors: rangeColors,
       })
 
       this.chart.render()
-    }
+    },
   },
 
   mounted() {
     this.drawChart()
-  }
+  },
 })

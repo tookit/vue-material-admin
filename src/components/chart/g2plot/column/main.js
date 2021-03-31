@@ -1,6 +1,6 @@
 import Column from './main'
 
-Column.install = function(Vue) {
+Column.install = function (Vue) {
   Vue.component(Column.name, Column)
 }
 
