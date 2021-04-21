@@ -17,7 +17,7 @@
       </v-app-bar>
       <v-flex class="mail-reply--content">
         <vue-perfect-scrollbar class="mail-reply--scrollbar">
-          <v-card style="min-height:100vh">
+          <v-card style="min-height: 100vh">
             <v-card-text class="pa-4">
               <div class="mail-reply--item">
                 <div class="layout column">
@@ -29,24 +29,11 @@
                   </h4>
                   <v-divider class="my-4"></v-divider>
                   <div class="py-3">
-                    <v-alert
-                      outlined
-                      color="primary"
-                      icon="attach_file"
-                      :value="true"
-                    >
-                      Weekly Report
-                    </v-alert>
+                    <v-alert outlined color="primary" icon="attach_file" :value="true"> Weekly Report </v-alert>
                   </div>
                   <v-card>
                     <v-card-text class="pa-0">
-                      <v-textarea
-                        class=""
-                        counter
-                        placeholder="Your reply here"
-                        full-width
-                        multi-line
-                      ></v-textarea>
+                      <v-textarea class="" counter placeholder="Your reply here" full-width multi-line></v-textarea>
                     </v-card-text>
                     <v-toolbar dense text>
                       <v-btn icon> <v-icon>attach_file</v-icon> </v-btn>
@@ -78,21 +65,21 @@ export default {
       {
         href: '#',
         title: 'Delete',
-        click: e => {
+        click: (e) => {
           console.log(e)
         },
       },
       {
         href: 'Mark as read',
         title: 'Mark as read',
-        click: e => {
+        click: (e) => {
           console.log(e)
         },
       },
       {
         href: 'Spam',
         title: 'Spam',
-        click: e => {
+        click: (e) => {
           console.log(e)
         },
       },

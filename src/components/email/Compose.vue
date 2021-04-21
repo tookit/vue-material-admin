@@ -22,7 +22,7 @@
               item-value="name"
               multiple
             >
-              <template v-slot:selection="data">
+              <template #selection="data">
                 <v-chip
                   v-bind="data.attrs"
                   :input-value="data.selected"
@@ -36,7 +36,7 @@
                   {{ data.item.name }}
                 </v-chip>
               </template>
-              <template v-slot:item="data">
+              <template #item="data">
                 <template v-if="typeof data.item !== 'object'">
                   <v-list-item-content v-text="data.item"></v-list-item-content>
                 </template>
@@ -45,26 +45,22 @@
                     <img :src="data.item.avatar" />
                   </v-list-item-avatar>
                   <v-list-item-content>
-                    <v-list-item-title
-                      v-html="data.item.name"
-                    ></v-list-item-title>
-                    <v-list-item-subtitle
-                      v-html="data.item.group"
-                    ></v-list-item-subtitle>
+                    <v-list-item-title v-html="data.item.name"></v-list-item-title>
+                    <v-list-item-subtitle v-html="data.item.group"></v-list-item-subtitle>
                   </v-list-item-content>
                 </template>
               </template>
             </v-autocomplete>
           </v-col>
           <v-col :cols="12">
-            <v-text-field filled label="Subject" v-model="formModel.subject" />
+            <v-text-field v-model="formModel.subject" filled label="Subject" />
           </v-col>
           <v-col :cols="12">
             <v-textarea
+              v-model="formModel.message"
               label="Message"
               placeholder="message"
               filled
-              v-model="formModel.message"
               counter
               max="120"
               full-width
@@ -85,19 +81,19 @@ export default {
       users: [
         {
           name: 'Michael',
-          avatar: 'https://randomuser.me/api/portraits/men/92.jpg'
+          avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
         },
         {
           name: 'John Doe',
-          avatar: 'https://randomuser.me/api/portraits/men/11.jpg'
-        }
+          avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+        },
       ],
       formModel: {
         subject: 'Plan for this week',
         message: '',
-        to: ['Michael']
-      }
+        to: ['Michael'],
+      },
     }
-  }
+  },
 }
 </script>
