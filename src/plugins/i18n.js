@@ -13,4 +13,6 @@ const i18n = new VueI18n({
   messages: translation, // set locale messages
 })
 
+store.commit('SET_TRANSLATION', translation)
+
 export default i18n

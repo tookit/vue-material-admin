@@ -59,7 +59,6 @@
     "vue": "^2.6.12",
     "vue-cli-plugin-vuetify": "^2.0.3",
     "vue-template-compiler": "^2.6.12",
-    "vuetify": "^2.4.5",
     "vuetify-loader": "^1.7.2"
   }
 }

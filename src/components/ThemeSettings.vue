@@ -6,13 +6,7 @@
     <v-container>
       <v-row column>
         <v-col>
-          <v-select
-            v-model="$vuetify.lang.current"
-            placeholder="Language"
-            label="Language"
-            :items="availableLanguages"
-            @change="changeLocale"
-          />
+
           <v-subheader class="px-1 my-2">Color Option</v-subheader>
           <div class="color-option">
             <v-item-group v-model="theme">
@@ -55,6 +49,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
+      locale: this._i18n.locale,
       sideBarOption: 'light',
       colors: colors,
     }
@@ -92,15 +87,6 @@ export default {
         },
       ]
     },
-    availableLanguages() {
-      const { locales } = this.$vuetify.lang
-      return Object.keys(locales).map((lang) => {
-        return {
-          text: locales[lang].label,
-          value: lang,
-        }
-      })
-    },
     theme: {
       get() {
         return this.getTheme
@@ -120,9 +106,6 @@ export default {
     updateTheme() {},
   },
   methods: {
-    changeLocale(lang) {
-      this.$vuetify.lang.current = lang
-    },
     handleChangeColor(option) {
       this.theme = option.key
       const color = this.colors[option.key].base

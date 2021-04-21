@@ -9,7 +9,7 @@
     <v-list>
       <v-list-item-group v-model="locale">
         <v-list-item
-          v-for="item in availableLanguages"
+          v-for="item in getAvailableLanguages"
           :key="item.value"
           :value="item.value"
           @click="handleChangeLocale(item)"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -29,15 +30,7 @@ export default {
     }
   },
   computed: {
-    availableLanguages() {
-      const { messages } = this._i18n
-      return Object.keys(messages).map((lang) => {
-        return {
-          text: messages[lang][lang],
-          value: lang,
-        }
-      })
-    },
+    ...mapGetters(['getAvailableLanguages']),
   },
   methods: {
     computeLocaleText(locale) {

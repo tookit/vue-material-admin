@@ -8,6 +8,7 @@ const state = {
     color: '',
   },
   locale: 'zh',
+  translation: null,
   notificatons: [
     {
       title: 'New user registered',
@@ -43,6 +44,15 @@ const getters = {
   getTheme: (state) => state.theme,
   getThemeColor: (state) => state.themeColor,
   getNotification: (state) => state.notificatons,
+  getAvailableLanguages: (state) => {
+    const translation = state.translation
+    return Object.keys(translation).map((lang) => {
+      return {
+        text: translation[lang][lang],
+        value: lang,
+      }
+    })
+  },
 }
 
 // actions
@@ -69,6 +79,11 @@ const mutations = {
   setTheme(state, payload) {
     state.theme = payload
   },
+
+  SET_TRANSLATION(state, translation) {
+    state.translation = translation
+  },
+
   SET_LOCALE(state, locale) {
     state.locale = locale
   },
