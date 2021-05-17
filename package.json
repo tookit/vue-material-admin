@@ -30,7 +30,7 @@
     "vue-i18n": "^8.24.2",
     "vue-perfect-scrollbar": "^0.2.1",
     "vue-router": "^3.4.9",
-    "vuetify": "^2.4.10",
+    "vuetify": "^2.5.0",
     "vuex": "^3.1.1",
     "vuex-persist": "^2.1.2"
   },
