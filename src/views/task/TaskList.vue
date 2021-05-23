@@ -32,13 +32,7 @@
             <v-card-text>
               <v-row>
                 <v-col :cols="4">
-                  <v-autocomplete
-                    v-model="filter['filter[project_id]']"
-                    item-text="name"
-                    item-value="id"
-                    :items="getProjectList"
-                    label="Project"
-                  />
+                  <v-autocomplete v-model="filter['filter[project_id]']" :items="getProjectList" label="Project" />
                 </v-col>
                 <v-col :cols="4">
                   <v-autocomplete v-model="filter['filter[status]']" :items="getTaskStatus" label="Status" />

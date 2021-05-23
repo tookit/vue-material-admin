@@ -113,10 +113,15 @@ export default {
       const query = {
         'filter[project_id]': this.project_id,
       }
-      this.$store.dispatch('fetchTask', query).then((resp) => {
-        this.items = resp.data
-        this.loading = false
-      })
+      this.$store
+        .dispatch('fetchTask', query)
+        .then((resp) => {
+          this.items = resp.data
+          this.loading = false
+        })
+        .catch(() => {
+          this.loading = false
+        })
     },
     computeAvatar(username) {
       const avatar = this.getUsername === username ? this.getAvatar : ''

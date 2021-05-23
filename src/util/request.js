@@ -14,6 +14,7 @@ const err = (error) => {
   for (let field in errors) {
     message.push(errors[field])
   }
+  console.log(data)
   switch (status) {
     case 400:
       store.commit('SHOW_SNACKBAR', { text: data.message, color: 'error' })
@@ -22,7 +23,7 @@ const err = (error) => {
       store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
       break
     case 401:
-      store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
+      store.commit('SHOW_SNACKBAR', { text: data.message, color: 'error' })
       break
     case 403:
       store.commit('SHOW_SNACKBAR', { text: message, color: 'error' })
