@@ -1,0 +1,39 @@
+// Outline Card
+.v-card--variant-outlined {
+    border-color: rgba(var(--v-theme-borderLight));
+    .v-divider {
+        border-color: rgba(var(--v-theme-borderLight));
+    }
+}
+
+.v-card-text {
+    padding: $card-text-spacer;
+}
+
+.v-card-actions {
+    padding: 0.625rem $card-text-spacer $card-text-spacer;
+}
+
+.v-card {
+    width: 100%;
+    overflow: visible;
+    &.withbg {
+        background-color: rgb(var(--v-theme-background));
+    }
+    &.w-auto {
+        width: auto !important;
+    }
+    &.overflow-hidden {
+        overflow: hidden;
+    }
+}
+
+.v-card-item {
+    padding: $card-item-spacer-xy;
+}
+
+.card-hover-border {
+    &:hover {
+        border: 1px solid rgb(var(--v-theme-primary));
+    }
+}

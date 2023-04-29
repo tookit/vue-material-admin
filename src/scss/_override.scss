@@ -1,0 +1,21 @@
+html {
+    .bg-success {
+        color: white !important;
+    }
+
+    .bg-primary {
+        color: $white !important;
+    }
+
+    .bg-secondary {
+        color: $white !important;
+    }
+
+    .bg-warning {
+        color: $white !important;
+    }
+}
+.border,
+.v-divider {
+    border-color: rgba(var(--v-border-color), 1) !important;
+}

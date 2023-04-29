@@ -1,0 +1,138 @@
+/*This is for the logo*/
+.leftSidebar {
+    box-shadow: none !important;
+    border-right: 1px solid rgb(var(--v-theme-borderColor));
+    .logo {
+        padding-left: 7px;
+    }
+
+    .mini-icon {
+        display: none;
+    }
+
+    .mini-text {
+        display: block;
+    }
+}
+
+/*This is for the Vertical sidebar*/
+.scrollnavbar {
+    height: calc(100vh - 80px);
+
+    .userbottom {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    .smallCap {
+        padding: 3px 12px !important;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-top: 24px;
+        color: rgb(var(--v-theme-textPrimary));
+
+        &:first-child {
+            margin-top: 0 !important;
+        }
+    }
+
+    /*General Menu css*/
+    .v-list-group__items .v-list-item,
+    .v-list-item {
+        border-radius: $border-radius-root + 4;
+        padding-inline-start: calc(12px + var(--indent-padding) / 10) !important;
+
+        margin: 0 0 2px;
+
+        &:hover {
+            color: rgb(var(--v-theme-primary));
+        }
+
+        .v-list-item__prepend {
+            margin-inline-end: 13px;
+        }
+
+        .v-list-item__append {
+            font-size: 0.875rem;
+
+            .v-icon {
+                margin-inline-start: 13px;
+            }
+        }
+
+        .v-list-item-title {
+            font-size: 0.875rem;
+        }
+    }
+    .v-list {
+        color: rgb(var(--v-theme-textSecondary));
+
+        > .v-list-item.v-list-item--active,
+        .v-list-item--active > .v-list-item__overlay {
+            background: rgb(var(--v-theme-primary));
+            color: white !important;
+        }
+
+        > .v-list-group {
+            position: relative;
+
+            > .v-list-item--active,
+            > .v-list-item--active:hover {
+                background: rgb(var(--v-theme-primary));
+                color: white;
+            }
+
+            .v-list-group__items .v-list-item.v-list-item--active,
+            .v-list-group__items .v-list-item.v-list-item--active > .v-list-item__overlay {
+                background: transparent;
+                color: rgb(var(--v-theme-primary));
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    .mini-sidebar {
+        .logo {
+            width: 40px;
+            overflow: hidden;
+            padding-left: 0;
+        }
+
+        .mini-icon {
+            display: block;
+        }
+
+        .mini-text {
+            display: none;
+        }
+
+        .v-list {
+            padding: 14px !important;
+        }
+
+        .leftSidebar:hover {
+            box-shadow: $box-shadow !important;
+
+            .mini-icon {
+                display: none;
+            }
+
+            .mini-text {
+                display: block;
+            }
+        }
+
+        .v-navigation-drawer--expand-on-hover:hover {
+            .logo {
+                width: 100%;
+            }
+
+            .v-list .v-list-group__items,
+            .hide-menu {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    // eslint 保存格式化
+    "eslint.enable": true,
+    "eslint.run": "onType",
+    "eslint.options": {
+      "extensions": [".js", ".ts", ".jsx", ".tsx", ".vue"]
+    },
+    // 编辑器保存格式化
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.fixAll.eslint": true
+    },
+    // .ts 文件格式化程序
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // .vue 文件格式化程序
+    "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // 操作时作为单词分隔符的字符
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    // 一个制表符等于的空格数
+    "editor.tabSize": 2,
+    // 行尾字符
+    "files.eol": "\n",
+    // 保存到额时候用使用 prettier进行格式化
+    "editor.formatOnSave": true,
+    
+    // // 不要有分号
+    // "prettier.semi": false,
+    // // 使用单引号
+    // "prettier.singleQuote": true,
+    // // 默认使用prittier作为格式化工具
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // // 一行的字符数，如果超过会进行换行，默认为80
+    // "prettier.printWidth": 200,
+    // // 尾随逗号问题，设置为none 不显示 逗号
+    // "prettier.trailingComma": "none"
+  }
+  

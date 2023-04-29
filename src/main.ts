@@ -1,0 +1,18 @@
+import { createApp } from 'vue';
+import App from './App.vue';
+import { router } from './router';
+import vuetify from './plugins/vuetify';
+import i18n from '@/plugins/i18n';
+import '@/scss/style.scss';
+import PerfectScrollbar from 'vue3-perfect-scrollbar';
+import VueApexCharts from 'vue3-apexcharts';
+import VueTablerIcons from 'vue-tabler-icons';
+import store from './store';
+const app = createApp(App);
+app.use(router);
+app.use(PerfectScrollbar);
+app.use(VueTablerIcons);
+app.use(VueApexCharts);
+app.use(store);
+app.use(i18n);
+app.use(vuetify).mount('#app');

@@ -1,0 +1,31 @@
+.month-table {
+    &.custom-px-0 {
+        thead {
+            tr {
+                th:first-child {
+                    padding-left: 0 !important;
+                }
+                th:last-child {
+                    padding-right: 0 !important;
+                }
+            }
+        }
+        tr.month-item {
+            td:first-child {
+                padding-left: 0 !important;
+            }
+            td:last-child {
+                padding-right: 0 !important;
+            }
+        }
+    }
+    tr.month-item {
+        td {
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+        }
+        &:hover {
+            background: transparent !important;
+        }
+    }
+}
