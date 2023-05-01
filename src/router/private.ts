@@ -11,26 +11,7 @@ const PrivateRoutes = {
       path: '/',
       component: () => import('@/views/dashboard/index.vue')
     },
-    {
-      name: 'Typography',
-      path: '/ui/typography',
-      component: () => import('@/views/components/Typography.vue')
-    },
-    {
-      name: 'Shadow',
-      path: '/ui/shadow',
-      component: () => import('@/views/components/Shadow.vue')
-    },
-    {
-      name: 'Icons',
-      path: '/icons',
-      component: () => import('@/views/pages/Icons.vue')
-    },
-    {
-      name: 'Starter',
-      path: '/sample-page',
-      component: () => import('@/views/pages/SamplePage.vue')
-    },
+
     {
       name: 'Form',
       path: '/form',
@@ -40,6 +21,11 @@ const PrivateRoutes = {
       name: 'Table',
       path: '/user-table',
       component: () => import('@/views/tables/user-table.vue')
+    },
+    {
+      name: 'Chart',
+      path: '/Chart',
+      component: () => import('@/views/charts/chart.vue')
     }
   ]
 };

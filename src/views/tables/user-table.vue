@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, reactive, watchEffect, toRaw } from 'vue';
+import { ref, reactive, watchEffect } from 'vue';
 import { VDataTable } from 'vuetify/lib/labs/VDataTable/index';
 import { fetchUsers } from '@/api/user';
 import { useUserStore } from '@/store/user';
@@ -7,15 +7,19 @@ import { User } from '@/api/type';
 import UserForm from '@/components/forms/UserForm.vue';
 const searchQuery = ref('');
 const selectedRole = ref();
-const selectedPlan = ref();
 const selectedStatus = ref();
 const rowPerPage = ref(10);
 const currentPage = ref(1);
 const totalPage = ref(1);
 const totalUsers = ref(0);
+const showFilter = ref(true);
 const showDialog = ref(false);
 const users = ref<User[]>([]);
 const userStore = useUserStore();
+const filters = reactive({
+  role: '',
+  status: ''
+});
 const selectedUser = reactive<User>({
   id: 0,
   username: '',
@@ -42,20 +46,19 @@ const headers = reactive([
 ]);
 
 const loading = ref(true);
-const loadData = async () => {
+const loadData = async (params) => {
   users.value = [];
   loading.value = true;
-  const { data } = await fetchUsers({});
+  const { data } = await fetchUsers(params);
   loading.value = false;
   users.value = data;
 };
 watchEffect(loadData);
-const showFilter = ref(true);
 const handleApplyFilter = () => {
-  loadData();
+  loadData(filters);
 };
 const handleRefreshItem = () => {
-  loadData();
+  loadData(filters);
 };
 const handleCreateItem = () => {
   showDialog.value = true;
@@ -64,8 +67,15 @@ const handleEditItem = (row) => {
   Object.assign(selectedUser, row);
   showDialog.value = true;
 };
-const handleClear = () => {};
-const handleResetFilter = () => {};
+const handleClear = () => {
+  filters.role = '';
+  filters.status = '';
+};
+const handleResetFilter = () => {
+  filters.role = '';
+  filters.status = '';
+  loadData({});
+};
 </script>
 
 <template>
@@ -76,7 +86,7 @@ const handleResetFilter = () => {};
           <VCardItem class="py-0">
             <VToolbar flat>
               <VTextField
-                :prepend-icon="showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
+                :prepend-icon="!showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
                 append-icon="mdi-magnify"
                 placeholder="Type something"
                 hide-details
@@ -96,14 +106,14 @@ const handleResetFilter = () => {};
               </VBtn>
             </VToolbar>
           </VCardItem>
-          <VSheet color="#FBFBFB">
+          <VSheet color="#FBFBFB" v-show="showFilter">
             <VCardText>
               <VRow>
                 <VCol :cols="4">
-                  <VAutocomplete :items="roles" label="Role" />
+                  <VAutocomplete v-model="filters.role" :items="roles" label="Role" />
                 </VCol>
                 <VCol :cols="4">
-                  <VAutocomplete :items="status" label="Status" />
+                  <VAutocomplete v-model="filters.status" :items="status" label="Status" />
                 </VCol>
               </VRow>
             </VCardText>
@@ -115,10 +125,9 @@ const handleResetFilter = () => {};
           </VSheet>
           <VCardText class="pa-0 pb-5">
             <VDivider />
-            <VDataTable :headers="headers" :items="users" :loading="loading" show-select hover>
+            <VDataTable :headers="headers" :items="users" :loading="loading" hover>
               <template v-slot:item="{ item }">
                 <tr>
-                  <td></td>
                   <td>{{ item.columns.id }}</td>
                   <td>
                     <VAvatar>

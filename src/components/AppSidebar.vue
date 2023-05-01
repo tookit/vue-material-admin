@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from '@/components/Logo.vue';
-import { reactive } from '@vue/reactivity';
+import { reactive, computed } from 'vue';
 const items = [
   { type: 'subheader', title: 'Apps' },
   {
@@ -55,6 +55,16 @@ const items = [
       exact: true
     },
     value: '/user-table'
+  },
+  {
+    title: 'Chart',
+    props: {
+      prependIcon: 'mdi-chart-box-outline',
+      link: true,
+      to: '/chart',
+      exact: true
+    },
+    value: '/chart'
   }
 ];
 
@@ -71,6 +81,16 @@ const handleDrawerWidth = () => {
   drawerProps.railWidth = railWidth == 64 ? 256 : 64;
   drawerProps.icon = drawerProps.railWidth === 256 ? 'mdi-arrow-left  ' : 'mdi-arrow-right';
 };
+
+const menus = computed(() => {
+  if (drawerProps.railWidth === 256) {
+    return items;
+  } else {
+    return items.filter((item) => {
+      return item.type !== 'subheader';
+    });
+  }
+});
 </script>
 
 <template>
@@ -80,7 +100,7 @@ const handleDrawerWidth = () => {
       <VToolbarTitle>Materiv</VToolbarTitle>
     </VToolbar>
     <div class="app-drawer__inner">
-      <VList :items="items" active-color="primary" />
+      <VList :items="menus" active-color="primary" />
     </div>
     <VBtn
       class="btn-collapse"
@@ -98,6 +118,5 @@ const handleDrawerWidth = () => {
   position: absolute;
   inset-block-start: 50%;
   transform: translateY(-50%);
-  // left: 244px;
 }
 </style>
