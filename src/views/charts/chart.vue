@@ -196,8 +196,6 @@ import ApexChartStocksPrices from '@/components/charts/apex-chart/ApexChartStock
 </template>
 
 <style lang="scss">
-// @use '@core/scss/template/libs/apex-chart.scss';
-
 .date-picker-wrapper {
   inline-size: 10.5rem;
 }
