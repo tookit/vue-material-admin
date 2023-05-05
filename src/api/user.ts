@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { LoginRespose, User } from './type';
+import { ILoginRespose, IUser } from './type';
 
 /**
  * Login
  */
-export async function login(params: object): Promise<LoginRespose> {
+export async function login(params: object): Promise<ILoginRespose> {
   const options = {
     method: 'POST',
     url: '/api/login',
@@ -25,5 +25,5 @@ export async function fetchUsers(params: object) {
       'Content-Type': 'application/json'
     }
   };
-  return axios.request<Array<User>>(options);
+  return axios.request<Array<IUser>>(options);
 }
