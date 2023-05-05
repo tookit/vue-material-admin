@@ -13,6 +13,16 @@ const items = [
     },
     value: '/'
   },
+  {
+    title: 'Calendar',
+    props: {
+      prependIcon: 'mdi-calendar-blank-outline',
+      link: true,
+      to: '/calendar',
+      exact: true
+    },
+    value: '/calendar'
+  },
   { type: 'subheader', title: 'Auth' },
   {
     title: 'Login',

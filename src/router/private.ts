@@ -26,6 +26,11 @@ const PrivateRoutes = {
       name: 'Chart',
       path: '/Chart',
       component: () => import('@/views/charts/chart.vue')
+    },
+    {
+      name: 'Calendar',
+      path: '/calendar',
+      component: () => import('@/views/apps/Calendar.vue')
     }
   ]
 };

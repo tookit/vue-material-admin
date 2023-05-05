@@ -6,6 +6,7 @@ interface IModel {
   user: User;
 }
 const props = defineProps<IModel>();
+const emit = defineEmits(['form:cancel']);
 const formRules = reactive({
   username: [
     (value: string) => {
@@ -29,9 +30,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
 };
 const handleCancel = () => {
-  defineEmits<{
-    (e: 'form:cancel'): void;
-  }>();
+  emit('form:cancel');
 };
 
 watch(props, () => {
