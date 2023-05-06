@@ -71,3 +71,6 @@ const calendarOptions = {
     </FullCalendar>
   </div>
 </template>
+<style lang="scss">
+@use '@/scss/full-calendar';
+</style>
