@@ -45,9 +45,15 @@ export const useUserStore = defineStore('user', {
       this.token = token;
     },
     async login(params) {
-      const { data } = await login(params);
-      const { access_token } = data;
-      this.setToken(access_token);
+      try {
+        const response = await login(params);
+        const { data } = response;
+        const { access_token } = data;
+        this.setToken(access_token);
+        return Promise.resolve(response);
+      } catch (e) {
+        return Promise.reject(e);
+      }
     }
   },
   // Data persistence destination

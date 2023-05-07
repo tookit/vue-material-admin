@@ -28,9 +28,16 @@ const router = useRouter();
 const submiting = ref(false);
 const handleSubmit = (e) => {
   e.preventDefault();
-  userStore.login(formModel);
   submiting.value = true;
-  router.replace(route.query.to ? String(route.query.to) : '/');
+  userStore
+    .login(formModel)
+    .then(() => {
+      router.replace(route.query.to ? String(route.query.to) : '/');
+    })
+    .catch((err) => {
+      console.log(err);
+      submiting.value = false;
+    });
 };
 </script>
 
@@ -39,11 +46,23 @@ const handleSubmit = (e) => {
     <VRow class="d-flex mb-3">
       <VCol cols="12">
         <VLabel class="font-weight-bold mb-1">Username</VLabel>
-        <VTextField variant="outlined" color="primary" name="username" :rules="formRules.username" v-model="formModel.username" />
+        <VTextField
+          variant="outlined"
+          color="primary"
+          name="username"
+          :rules="formRules.username"
+          v-model="formModel.username"
+        />
       </VCol>
       <VCol cols="12">
         <VLabel class="font-weight-bold mb-1">Password</VLabel>
-        <VTextField variant="outlined" type="password" color="primary" :rules="formRules.password" v-model="formModel.password" />
+        <VTextField
+          variant="outlined"
+          type="password"
+          color="primary"
+          :rules="formRules.password"
+          v-model="formModel.password"
+        />
       </VCol>
       <VCol cols="12" class="pt-0">
         <div class="d-flex flex-wrap align-center ml-n2">
@@ -56,7 +75,9 @@ const handleSubmit = (e) => {
         </div>
       </VCol>
       <VCol cols="12" class="pt-0">
-        <VBtn :loading="submiting" type="submit" color="primary" size="large" block flat @click="handleSubmit">Sign in</VBtn>
+        <VBtn :loading="submiting" type="submit" color="primary" size="large" block flat @click="handleSubmit"
+          >Sign in</VBtn
+        >
       </VCol>
     </VRow>
   </VForm>
