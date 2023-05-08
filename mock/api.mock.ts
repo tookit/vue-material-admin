@@ -21,7 +21,6 @@ export const login = defineMock({
           errorCode: '400',
           errorMessage: 'Auth Failed.'
         };
-    console.log(req);
     res.statusCode = isAuthenticated(username, password) ? 200 : 400;
     res.end(JSON.stringify(data));
   }
@@ -42,11 +41,11 @@ const users = Mock.mock({
 
 export const fetchUsers = defineMock({
   url: '/api/user',
-  body: users.data,
   delay: 2000,
   response(req, res, next) {
     const { query, body, params, headers } = req;
-    res.end();
+    const data = users.data;
+    res.end(JSON.stringify(data));
   }
 });
 
@@ -178,9 +177,9 @@ const events = {
 
 export const fetchEvents = defineMock({
   url: '/api/event',
-  body: events.data,
   delay: 2000,
   response(req, res, next) {
-    res.end();
+    const data = events.data;
+    res.end(JSON.stringify(data));
   }
 });

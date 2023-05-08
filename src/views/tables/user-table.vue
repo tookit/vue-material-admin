@@ -3,7 +3,7 @@ import { ref, reactive, watchEffect } from 'vue';
 import { VDataTable } from 'vuetify/lib/labs/VDataTable/index';
 import { fetchUsers } from '@/api/user';
 import { useUserStore } from '@/store/user';
-import { User } from '@/api/type';
+import { IUser } from '@/api/type';
 import UserForm from '@/components/forms/UserForm.vue';
 const searchQuery = ref('');
 const selectedRole = ref();
@@ -14,13 +14,13 @@ const totalPage = ref(1);
 const totalUsers = ref(0);
 const showFilter = ref(true);
 const showDialog = ref(false);
-const users = ref<User[]>([]);
+const users = ref<IUser[]>([]);
 const userStore = useUserStore();
 const filters = reactive({
   role: '',
   status: ''
 });
-const selectedUser = reactive<User>({
+const selectedUser = reactive<IUser>({
   id: 0,
   username: '',
   email: '',
@@ -32,11 +32,6 @@ const selectedUser = reactive<User>({
 const roles = userStore.getRoles;
 const status = userStore.getStatusOptions;
 const headers = reactive([
-  {
-    title: 'ID',
-    key: 'id',
-    sortable: false
-  },
   { title: 'Avatar', key: 'avatar' },
   { title: 'Username', key: 'username' },
   { title: 'Role', key: 'role' },
@@ -99,10 +94,10 @@ const handleResetFilter = () => {
                 @click:clear="handleClear"
               />
               <VBtn icon @click="handleRefreshItem">
-                <v-icon>mdi-refresh</v-icon>
+                <VIcon>mdi-refresh</VIcon>
               </VBtn>
               <VBtn icon @click="handleCreateItem">
-                <v-icon>mdi-plus</v-icon>
+                <VIcon>mdi-plus</VIcon>
               </VBtn>
             </VToolbar>
           </VCardItem>
@@ -119,37 +114,23 @@ const handleResetFilter = () => {
             </VCardText>
             <VCardActions>
               <VSpacer />
-              <VBtn text @click="handleResetFilter">Reset</VBtn>
+              <VBtn @click="handleResetFilter">Reset</VBtn>
               <VBtn color="primary" variant="outlined" @click="handleApplyFilter">Apply</VBtn>
             </VCardActions>
           </VSheet>
           <VCardText class="pa-0 pb-5">
             <VDivider />
-            <VDataTable :headers="headers" :items="users" :loading="loading" hover>
-              <template v-slot:item="{ item }">
-                <tr>
-                  <td>{{ item.columns.id }}</td>
-                  <td>
-                    <VAvatar>
-                      <VImg :src="String(item.columns.avatar)" />
-                    </VAvatar>
-                  </td>
-                  <td>{{ item.columns.username }}</td>
-                  <td>{{ item.columns.role }}</td>
-                  <td>{{ item.columns.email }}</td>
-                  <td>{{ item.columns.status }}</td>
-                  <td>
-                    <VBtn
-                      variant="plain"
-                      density="compact"
-                      icon="mdi-pencil-outline"
-                      @click="handleEditItem(item.columns)"
-                    >
-                    </VBtn>
-                    <VBtn variant="plain" density="compact" icon="mdi-trash-can-outline"> </VBtn>
-                    <VBtn variant="plain" density="compact" icon="mdi-dots-vertical"> </VBtn>
-                  </td>
-                </tr>
+            <VDataTable :headers="headers" :items="users" hover show-select>
+              <template #item.avatar="{ item }">
+                <VAvatar>
+                  <VImg :src="String(item.columns.avatar)" />
+                </VAvatar>
+              </template>
+              <template #item.action="{ item }">
+                <VBtn variant="plain" density="compact" icon="mdi-pencil-outline" @click="handleEditItem(item.columns)">
+                </VBtn>
+                <VBtn variant="plain" density="compact" icon="mdi-trash-can-outline"> </VBtn>
+                <VBtn variant="plain" density="compact" icon="mdi-dots-vertical"> </VBtn>
               </template>
             </VDataTable>
           </VCardText>
