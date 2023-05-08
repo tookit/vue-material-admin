@@ -1,9 +1,5 @@
 <script lang="ts" setup>
 import FullCalendar from '@fullcalendar/vue3';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import { INITIAL_EVENTS, createEventId } from './event-utils';
 import { ref } from 'vue';
 import { blankEvent, useCalendar } from '@/composable/useCalendar';
 import { useCalendarStore } from '@/store/event';
