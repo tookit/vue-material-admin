@@ -1,0 +1,14 @@
+import axios from 'axios';
+import { ICalendarEvent } from './type';
+
+export async function fetchEvents(params: object) {
+  const options = {
+    method: 'GET',
+    url: '/api/event',
+    data: params,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  return axios.request<Array<ICalendarEvent>>(options);
+}

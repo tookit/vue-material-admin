@@ -10,8 +10,7 @@ import {
 } from '@fullcalendar/core/internal-common';
 import type { Ref } from 'vue';
 import { ref, watch, onMounted } from 'vue';
-import type { IEvent as Event, INewEvent as NewEvent } from '@/api/type';
-// import { useThemeConfig } from '@core/composable/useThemeConfig';
+import type { ICalendarEvent, IEvent as Event, INewEvent as NewEvent } from '@/api/type';
 import { useCalendarStore } from '@/store/event';
 
 export const blankEvent = {
@@ -92,10 +91,10 @@ export const useCalendar = (
     store
       .fetchEvents()
       .then((r) => {
+        console.log(r);
         successCallback(
-          r.data.map((e: Event) => ({
+          r.data.map((e: ICalendarEvent) => ({
             ...e,
-
             // Convert string representation of date to Date object
             start: new Date(e.start),
             end: new Date(e.end)
