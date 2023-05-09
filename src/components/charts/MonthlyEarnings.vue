@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme();
 const primary = theme.current.value.colors.primary;
-const secondary = theme.current.value.colors.secondary;
+const secondary = theme.current.value.colors.info;
 
 /* Chart */
 const areachartOptions = computed(() => {
@@ -57,7 +57,7 @@ const areaChart = {
     <VCardItem>
       <div class="d-flex align-center justify-space-between pt-sm-2">
         <VCardTitle class="text-h5">Monthly Earnings</VCardTitle>
-        <VBtn size="large" icon class="bg-secondary">
+        <VBtn size="large" icon>
           <VAvatar size="large" class="text-white">
             <CurrencyDollarIcon size="25" />
           </VAvatar>

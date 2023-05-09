@@ -4,7 +4,7 @@ import { computed } from 'vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme();
 const primary = theme.current.value.colors.primary;
-const secondary = theme.current.value.colors.secondary;
+const secondary = theme.current.value.colors.warning;
 const select = ref('March 2023');
 const items = ref(['March 2023', 'April 2023', 'May 2023']);
 const chartOptions = computed(() => {
