@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme();
 const primary = theme.current.value.colors.primary;
-const lightprimary = theme.current.value.colors.lightprimary;
+const secondary = theme.current.value.colors.secondary;
 const chartOptions = computed(() => {
   return {
     labels: ['series-1', 'series-2', 'series-3'],
@@ -15,7 +15,7 @@ const chartOptions = computed(() => {
         show: false
       }
     },
-    colors: [primary, lightprimary, '#F9F9FD'],
+    colors: [primary, secondary, '#F9F9FD'],
     plotOptions: {
       pie: {
         startAngle: 0,

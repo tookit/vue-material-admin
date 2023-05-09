@@ -1,6 +1,5 @@
 import type { ThemeInstance } from 'vuetify';
 import { hexToRgb } from '@/utils';
-
 // 👉 Colors variables
 const colorVariables = (themeColors: ThemeInstance['themes']['value']['colors']) => {
   const themeSecondaryTextColor = `rgba(${hexToRgb(themeColors.colors['on-surface'])},${
