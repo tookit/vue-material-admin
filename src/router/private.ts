@@ -11,7 +11,6 @@ const PrivateRoutes = {
       path: '/',
       component: () => import('@/views/dashboard/index.vue')
     },
-
     {
       name: 'Form',
       path: '/form',

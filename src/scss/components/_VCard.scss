@@ -17,9 +17,6 @@
 .v-card {
     width: 100%;
     overflow: visible;
-    &.withbg {
-        background-color: rgb(var(--v-theme-background));
-    }
     &.w-auto {
         width: auto !important;
     }

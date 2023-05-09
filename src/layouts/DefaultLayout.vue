@@ -5,6 +5,7 @@ import AppToolbar from '@/components/AppToolbar.vue';
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 const route = useRoute();
+console.log(route.meta);
 const items = computed(() => {
   return [
     {
@@ -42,9 +43,6 @@ const items = computed(() => {
   background-color: #fbfbfb;
   .app-container {
     max-width: 1440px;
-  }
-  .page-wrapper {
-    min-height: 100vh;
   }
 }
 </style>

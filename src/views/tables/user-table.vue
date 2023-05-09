@@ -82,17 +82,18 @@ const handleResetFilter = () => {
             <VToolbar flat style="background-color: #fff">
               <VTextField
                 :prepend-icon="!showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
-                append-icon="mdi-magnify"
                 placeholder="Type something"
                 hide-details
                 clearable
                 variant="plain"
                 class="search"
                 @keyup.enter="handleApplyFilter"
-                @click:append="handleApplyFilter"
                 @click:prepend="showFilter = !showFilter"
                 @click:clear="handleClear"
               />
+              <VBtn icon @click="handleApplyFilter">
+                <VIcon>mdi-magnify</VIcon>
+              </VBtn>
               <VBtn icon @click="handleRefreshItem">
                 <VIcon>mdi-refresh</VIcon>
               </VBtn>

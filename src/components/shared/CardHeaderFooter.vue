@@ -1,24 +1,24 @@
 <script setup lang="ts">
 const props = defineProps({
-    title: String
+  title: String
 });
 </script>
 
 <template>
-    <!-- -------------------------------------------------------------------- -->
-    <!-- Card with Header & Footer -->
-    <!-- -------------------------------------------------------------------- -->
-    <v-card variant="outlined" elevation="0" class="withbg">
-        <v-card-item>
-            <v-card-title class="text-18">{{ title }}</v-card-title>
-        </v-card-item>
-        <v-divider></v-divider>
-        <v-card-text>
-            <slot />
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-            <slot name="footer" />
-        </v-card-actions>
-    </v-card>
+  <!-- -------------------------------------------------------------------- -->
+  <!-- Card with Header & Footer -->
+  <!-- -------------------------------------------------------------------- -->
+  <VCard variant="outlined" elevation="0">
+    <VCardItem>
+      <VCardTitle class="text-18">{{ title }}</VCardTitle>
+    </VCardItem>
+    <VDivider />
+    <VCardText>
+      <slot />
+    </VCardText>
+    <VDivider />
+    <VCardActions>
+      <slot name="footer" />
+    </VCardActions>
+  </VCard>
 </template>

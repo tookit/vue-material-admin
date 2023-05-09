@@ -1,0 +1,15 @@
+$theme-colors-name: (
+  "primary",
+  "secondary",
+  "error",
+  "info",
+  "success",
+  "warning"
+) !default;
+
+// [/^bg-light-(\w+)$/, ([, w]) => ({ backgroundColor: `rgba(var(--v-theme-${w}), var(--v-activated-opacity))` })],
+@each $color-name in $theme-colors-name {
+  .bg-light-#{$color-name} {
+    background-color: rgba(var(--v-theme-#{$color-name}), var(--v-activated-opacity)) !important;
+  }
+}

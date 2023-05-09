@@ -9,7 +9,7 @@ import LoginForm from '@/components/forms/LoginForm.vue';
       <VRow>
         <VCol cols="12" class="pa-0">
           <div class="h-100vh d-flex justify-center align-center">
-            <VCard rounded="md" elevation="10" class="px-sm-1 px-0 withbg mx-auto" max-width="500">
+            <VCard rounded="md" elevation="10" class="px-sm-1 px-0 mx-auto" max-width="500">
               <VCardItem class="pa-sm-8">
                 <div class="d-flex justify-center py-4">
                   <Logo :height="32" />

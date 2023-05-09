@@ -53,7 +53,7 @@ const areaChart = {
 };
 </script>
 <template>
-  <VCard elevation="10" class="withbg">
+  <VCard elevation="10">
     <VCardItem>
       <div class="d-flex align-center justify-space-between pt-sm-2">
         <VCardTitle class="text-h5">Monthly Earnings</VCardTitle>

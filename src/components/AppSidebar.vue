@@ -110,11 +110,12 @@ const menus = computed(() => {
       <VToolbarTitle>Materiv</VToolbarTitle>
     </VToolbar>
     <div class="app-drawer__inner">
-      <VList :items="menus" active-color="primary" />
+      <VList :items="menus" active-color="primary" class="pa-0" />
     </div>
     <VBtn
       class="btn-collapse"
       rounded="lg"
+      color="white"
       size="x-small"
       :icon="drawerProps.icon"
       @click="handleDrawerWidth"

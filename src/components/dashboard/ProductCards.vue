@@ -4,7 +4,7 @@ import { productsCard } from '@/data/dashboard/dashboardData';
 <template>
   <VRow>
     <VCol cols="12" lg="3" sm="6" v-for="card in productsCard" :key="card.title">
-      <VCard elevation="10" class="withbg" rounded="md">
+      <VCard elevation="10" rounded="md">
         <RouterLink :to="card.link">
           <VImg :src="card.photo" height="100%" class="rounded-t-md" />
         </RouterLink>
@@ -21,7 +21,10 @@ import { productsCard } from '@/data/dashboard/dashboardData';
           <div class="d-flex align-center justify-space-between mt-1">
             <div>
               <span class="text-h6" v-text="'$' + card.price"></span>
-              <span class="text-body-1 ml-2 text-medium-emphasis text-decoration-line-through" v-text="'$' + card.salesPrice"></span>
+              <span
+                class="text-body-1 ml-2 text-medium-emphasis text-decoration-line-through"
+                v-text="'$' + card.salesPrice"
+              ></span>
             </div>
             <VRating density="compact" color="warning" size="small" v-model="card.rating" readonly></VRating>
           </div>

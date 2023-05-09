@@ -9,7 +9,7 @@ const theme: VuetifyOptions['theme'] = {
       dark: false,
       colors: {
         primary: staticPrimaryColor,
-        'on-primary': '#  ',
+        'on-primary': '#fff',
         secondary: '#A8AAAE',
         'on-secondary': '#fff',
         success: '#28C76F',
