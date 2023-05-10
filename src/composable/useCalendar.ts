@@ -2,18 +2,14 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import {
-  c as CalendarApi,
-  a as CalendarOptions,
-  d as EventApi,
-  k as EventSourceFunc
-} from '@fullcalendar/core/internal-common';
+import type { CalendarApi, CalendarOptions, EventApi, EventSourceFunc } from '@fullcalendar/core';
 import type { Ref } from 'vue';
 import { ref, watch, onMounted } from 'vue';
 import type { ICalendarEvent, IEvent as Event, INewEvent as NewEvent } from '@/api/type';
 import { useCalendarStore } from '@/store/event';
 
 export const blankEvent = {
+  id: '',
   title: '',
   start: '',
   end: '',
@@ -32,8 +28,8 @@ export const blankEvent = {
 };
 
 export const useCalendar = (
-  event: Ref<Event | NewEvent>
-  // isEventHandlerSidebarActive: Ref<boolean>
+  event: Ref<Event | NewEvent>,
+  showDialog: Ref<boolean>
   // isLeftSidebarOpen: Ref<boolean>
 ) => {
   // 👉 themeConfig
@@ -91,7 +87,6 @@ export const useCalendar = (
     store
       .fetchEvents()
       .then((r) => {
-        console.log(r);
         successCallback(
           r.data.map((e: ICalendarEvent) => ({
             ...e,
@@ -241,17 +236,15 @@ export const useCalendar = (
     },
 
     eventClick({ event: clickedEvent }) {
-      console.log(event);
       // * Only grab required field otherwise it goes in infinity loop
       // ! Always grab all fields rendered by form (even if it get `undefined`) otherwise due to Vue3/Composition API you might get: "object is not extensible"
       event.value = extractEventDataFromEventApi(clickedEvent);
-
+      showDialog.value = true;
       // isEventHandlerSidebarActive.value = true;
     },
 
     // customButtons
     dateClick(info) {
-      console.log(info);
       event.value = { ...event.value, start: String(new Date(info.date)) };
 
       // isEventHandlerSidebarActive.value = true;

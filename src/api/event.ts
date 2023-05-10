@@ -5,7 +5,7 @@ export async function fetchEvents(params: object) {
   const options = {
     method: 'GET',
     url: '/api/event',
-    data: params,
+    params: params,
     headers: {
       'Content-Type': 'application/json'
     }

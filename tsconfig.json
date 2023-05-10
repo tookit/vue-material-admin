@@ -28,6 +28,7 @@
     "skipLibCheck": true,
     "types": [
       "vite/client",
+      "unplugin-vue-define-options/macros-global"
     ]
   },
   "include": [
@@ -36,6 +37,7 @@
     "shims.d.ts",
     "src/**/*",
     "src/**/*.vue",
+    "auto-imports.d.ts",
     "themeConfig.ts"
   ],
   "exclude": [

@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify from 'vite-plugin-vuetify';
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
+// @ts-expect-error Known error: https://github.com/sxzz/unplugin-vue-macros/issues/257#issuecomment-1410752890
+import DefineOptions from 'unplugin-vue-define-options/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +14,7 @@ export default defineConfig({
       autoImport: true
       //styles: "expose",
     }),
+    DefineOptions(),
     mockDevServerPlugin({
       include: 'mock/**/*.mock.{ts,js,cjs,mjs,json,json5}'
     })

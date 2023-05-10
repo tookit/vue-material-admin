@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive, defineEmits, watch } from 'vue';
 import { useUserStore } from '@/store/user';
-import { User } from '@/api/type';
+import { IUser } from '@/api/type';
 interface IModel {
-  user: User;
+  user: IUser;
 }
 const props = defineProps<IModel>();
 const emit = defineEmits(['form:cancel']);
@@ -15,7 +15,7 @@ const formRules = reactive({
     }
   ]
 });
-const formModel = reactive<User>({
+const formModel = reactive<IUser>({
   id: props.user.id,
   username: props.user.username,
   email: props.user.email,

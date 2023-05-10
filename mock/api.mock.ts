@@ -7,6 +7,7 @@ const isAuthenticated = (username, password) => {
 
 export const login = defineMock({
   url: '/api/login',
+  method: 'POST',
   delay: 2000,
   response(req, res, next) {
     const { body } = req;
@@ -41,6 +42,7 @@ const users = Mock.mock({
 
 export const fetchUsers = defineMock({
   url: '/api/user',
+  method: 'GET',
   delay: 2000,
   response(req, res, next) {
     const { query, body, params, headers } = req;
@@ -177,9 +179,15 @@ const events = {
 
 export const fetchEvents = defineMock({
   url: '/api/event',
+  method: 'GET',
   delay: 2000,
   response(req, res, next) {
-    const data = events.data;
+    const { query } = req;
+    const data = events.data.filter((event) => {
+      const calendars = query.calendars.split(',');
+      return calendars.includes(event.extendedProps.calendar);
+    });
+
     res.end(JSON.stringify(data));
   }
 });
