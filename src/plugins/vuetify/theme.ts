@@ -1,6 +1,6 @@
 import type { VuetifyOptions } from 'vuetify';
 
-export const staticPrimaryColor = '#7367F0';
+export const staticPrimaryColor = '#ea5455';
 
 const theme: VuetifyOptions['theme'] = {
   defaultTheme: 'light',

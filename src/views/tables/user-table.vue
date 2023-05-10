@@ -8,7 +8,7 @@ import UserForm from '@/components/forms/UserForm.vue';
 const searchQuery = ref('');
 const selectedRole = ref();
 const selectedStatus = ref();
-const rowPerPage = ref(10);
+const itemsPerPage = ref(10);
 const currentPage = ref(1);
 const totalPage = ref(1);
 const totalUsers = ref(0);
@@ -77,7 +77,7 @@ const handleResetFilter = () => {
   <section>
     <VRow>
       <VCol cols="12">
-        <VCard :loading="loading">
+        <VCard>
           <VCardItem class="py-0">
             <VToolbar flat style="background-color: #fff">
               <VTextField
@@ -121,7 +121,15 @@ const handleResetFilter = () => {
           </VSheet>
           <VCardText class="pa-0 pb-5">
             <VDivider />
-            <VDataTable :headers="headers" :items="users" hover show-select>
+            <VDataTable
+              :headers="headers"
+              :items="users"
+              v-model:items-per-page="itemsPerPage"
+              :loading="loading"
+              @update:options="loadData"
+              hover
+              show-select
+            >
               <template #item.avatar="{ item }">
                 <VAvatar>
                   <VImg :src="String(item.columns.avatar)" />
