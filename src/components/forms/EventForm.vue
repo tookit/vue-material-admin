@@ -6,7 +6,7 @@ interface IModel {
   event: IEvent;
 }
 const props = defineProps<IModel>();
-const emit = defineEmits(['form:cancel']);
+const emit = defineEmits(['form:cancel', 'form:update', 'form:store']);
 
 const formModel = reactive<IEvent>({
   ...props.event
@@ -16,6 +16,11 @@ const eventStore = useCalendarStore();
 const submiting = ref(false);
 const handleSubmit = (e) => {
   e.preventDefault();
+  if (formModel.id) {
+    emit('form:update', formModel);
+  } else {
+    emit('form:store', formModel);
+  }
 };
 const handleCancel = () => {
   emit('form:cancel');

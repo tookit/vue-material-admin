@@ -62,7 +62,7 @@ const prevMonth =
     ? new Date(date.getFullYear() - 1, 0, 1)
     : new Date(date.getFullYear(), date.getMonth() - 1, 1);
 
-const events = {
+let events = {
   data: [
     {
       id: '1',
@@ -189,5 +189,31 @@ export const fetchEvents = defineMock({
     });
 
     res.end(JSON.stringify(data));
+  }
+});
+
+// export const addEvents = defineMock({
+//   url: '/api/event',
+//   method: 'POST',
+//   delay: 2000,
+//   response(req, res, next) {
+//     const { query, body } = req;
+//     events.data.push(body)
+//     res.end(JSON.stringify(data));
+//   }
+// });
+
+export const updateEvent = defineMock({
+  url: '/api/event/:eventId',
+  method: 'PUT',
+  delay: 2000,
+  response(req, res, next) {
+    const { params, body } = req;
+    const eventId = params.eventId;
+    let event = events.data.find((item) => {
+      return item.id === eventId;
+    });
+
+    res.end(JSON.stringify(body));
   }
 });

@@ -1,7 +1,7 @@
 import type { IEvent, INewEvent } from '@/api/type';
 import axios from '@/plugins/axios';
 import { defineStore } from 'pinia';
-import { fetchEvents } from '@/api/event';
+import { fetchEvents, updateEvent } from '@/api/event';
 
 export const useCalendarStore = defineStore('calendar', {
   // arrow function recommended for full type inference
@@ -35,10 +35,10 @@ export const useCalendarStore = defineStore('calendar', {
       return fetchEvents({ calendars: this.selectedCalendars.join(',') });
     },
     async addEvent(event: INewEvent) {
-      return axios.post('/apps/calendar/events', { event });
+      return fetchEvents({ calendars: this.selectedCalendars.join(',') });
     },
     async updateEvent(event: IEvent) {
-      return axios.post(`/apps/calendar/events/${event.id}`, { event });
+      return updateEvent(event);
     },
     async removeEvent(eventId: string) {
       return axios.delete(`/apps/calendar/events/${eventId}`);

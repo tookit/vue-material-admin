@@ -34,6 +34,10 @@ const handleAddEvent = () => {
   showDialog.value = true;
   event.value = structuredClone(blankEvent);
 };
+const handleEventUpdate = (e) => {
+  updateEvent(e);
+  showDialog.value = false;
+};
 </script>
 
 <template>
@@ -78,7 +82,7 @@ const handleAddEvent = () => {
       </VLayout>
     </VCard>
     <VDialog v-model="showDialog" width="auto" eager persistent>
-      <EventForm :event="event" @form:cancel="showDialog = false" />
+      <EventForm :event="event" @form:cancel="showDialog = false" @form:update="handleEventUpdate" />
     </VDialog>
   </div>
 </template>

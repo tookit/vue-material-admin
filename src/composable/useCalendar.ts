@@ -175,7 +175,7 @@ export const useCalendar = (
         'description'
       ] as (keyof Event['extendedProps'])[];
 
-      updateEventInCalendar(r.data.event, propsToUpdate, extendedPropsToUpdate);
+      updateEventInCalendar(r.data, propsToUpdate, extendedPropsToUpdate);
     });
   };
 
