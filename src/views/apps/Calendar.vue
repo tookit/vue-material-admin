@@ -7,12 +7,17 @@ import AppDateTimePicker from '@/components/AppDateTimePicker.vue';
 import EventForm from '@/components/forms/EventForm.vue';
 
 const showDialog = ref(false);
+const loading = ref(false);
 
 // 👉 Store
 const store = useCalendarStore();
 // 👉 Event
 const event = ref(structuredClone(blankEvent));
-const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, showDialog);
+const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(
+  event,
+  showDialog,
+  loading
+);
 const checkAll = computed({
   /*
     GET: Return boolean `true` => if length of options matches length of selected filters => Length matches when all events are selected
@@ -66,7 +71,7 @@ const handleAddEvent = () => {
           </div>
         </VNavigationDrawer>
         <VMain>
-          <VCard flat>
+          <VCard flat :loading="loading">
             <FullCalendar class="demo-app-calendar" :options="calendarOptions" ref="refCalendar"> </FullCalendar>
           </VCard>
         </VMain>

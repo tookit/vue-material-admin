@@ -29,7 +29,8 @@ export const blankEvent = {
 
 export const useCalendar = (
   event: Ref<Event | NewEvent>,
-  showDialog: Ref<boolean>
+  showDialog: Ref<boolean>,
+  loading: Ref<boolean>
   // isLeftSidebarOpen: Ref<boolean>
 ) => {
   // 👉 themeConfig
@@ -83,7 +84,7 @@ export const useCalendar = (
   const fetchEvents: EventSourceFunc = (info, successCallback) => {
     // If there's no info => Don't make useless API call
     if (!info) return;
-
+    loading.value = true;
     store
       .fetchEvents()
       .then((r) => {
@@ -95,9 +96,11 @@ export const useCalendar = (
             end: new Date(e.end)
           }))
         );
+        loading.value = false;
       })
       .catch((e) => {
         console.error('Error occurred while fetching calendar events', e);
+        loading.value = false;
       });
   };
 
