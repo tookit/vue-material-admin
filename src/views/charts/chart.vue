@@ -9,6 +9,7 @@ import ApexChartMobileComparison from '@/components/charts/apex-chart/ApexChartM
 import ApexChartNewTechnologiesData from '@/components/charts/apex-chart/ApexChartNewTechnologiesData.vue';
 import ApexChartStatistics from '@/components/charts/apex-chart/ApexChartStatistics.vue';
 import ApexChartStocksPrices from '@/components/charts/apex-chart/ApexChartStocksPrices.vue';
+import AppDateTimePicker from '@/components/AppDateTimePicker.vue';
 </script>
 
 <template>

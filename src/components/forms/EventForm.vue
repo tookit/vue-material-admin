@@ -6,7 +6,7 @@ interface IModel {
   event: IEvent;
 }
 const props = defineProps<IModel>();
-const emit = defineEmits(['form:cancel', 'form:update', 'form:store']);
+const emit = defineEmits(['form:cancel', 'form:update', 'form:store', 'form:error']);
 
 const formModel = reactive<IEvent>({
   ...props.event
@@ -16,10 +16,29 @@ const eventStore = useCalendarStore();
 const submiting = ref(false);
 const handleSubmit = (e) => {
   e.preventDefault();
+  submiting.value = true;
   if (formModel.id) {
-    emit('form:update', formModel);
+    eventStore
+      .updateEvent(formModel)
+      .then(() => {
+        emit('form:update', formModel);
+        submiting.value = false;
+      })
+      .catch((err) => {
+        emit('form:error');
+        submiting.value = false;
+      });
   } else {
-    emit('form:store', formModel);
+    eventStore
+      .addEvent(formModel)
+      .then(() => {
+        emit('form:store', formModel);
+        submiting.value = false;
+      })
+      .catch((err) => {
+        emit('form:error');
+        submiting.value = false;
+      });
   }
 };
 const handleCancel = () => {
@@ -90,7 +109,7 @@ watch(props, () => {
     </VCardText>
     <VCardActions>
       <VBtn @click="handleCancel">Cancel</VBtn>
-      <VBtn color="primary" @click="handleSubmit">Submit</VBtn>
+      <VBtn color="primary" @click="handleSubmit" :loading="submiting">Submit</VBtn>
     </VCardActions>
   </VCard>
 </template>

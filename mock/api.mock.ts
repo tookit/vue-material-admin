@@ -1,6 +1,5 @@
 import Mock from 'mockjs';
 import { defineMock } from 'vite-plugin-mock-dev-server';
-
 const isAuthenticated = (username, password) => {
   return username === 'admin' && password === '123456';
 };
@@ -192,16 +191,28 @@ export const fetchEvents = defineMock({
   }
 });
 
-// export const addEvents = defineMock({
-//   url: '/api/event',
-//   method: 'POST',
-//   delay: 2000,
-//   response(req, res, next) {
-//     const { query, body } = req;
-//     events.data.push(body)
-//     res.end(JSON.stringify(data));
-//   }
-// });
+export const addEvents = defineMock({
+  url: '/api/event',
+  method: 'POST',
+  delay: 2000,
+  response(req, res, next) {
+    const blankEvent = {
+      id: '',
+      title: '',
+      start: '',
+      end: '',
+      allDay: false,
+      url: '',
+      extendedProps: {
+        calendar: ''
+      }
+    };
+    const { body } = req;
+    const event = Object.assign(blankEvent, body);
+    events.data.push(event);
+    res.end(JSON.stringify(event));
+  }
+});
 
 export const updateEvent = defineMock({
   url: '/api/event/:eventId',
@@ -213,7 +224,6 @@ export const updateEvent = defineMock({
     let event = events.data.find((item) => {
       return item.id === eventId;
     });
-
     res.end(JSON.stringify(body));
   }
 });

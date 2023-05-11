@@ -13,8 +13,6 @@ import { VInput, makeVInputProps } from 'vuetify/lib/components/VInput/VInput';
 // @ts-expect-error There won't be declaration file for it
 import { filterInputAttrs } from 'vuetify/lib/util/helpers';
 
-// import { useThemeConfig } from '@core/composable/useThemeConfig';
-
 const props = defineProps({
   autofocus: Boolean,
   counter: [Boolean, Number, String] as PropType<true | number | string>,
@@ -86,7 +84,6 @@ const onClear = (el: MouseEvent) => {
   });
 };
 
-// const { theme } = useThemeConfig();
 const vuetifyTheme = useTheme();
 
 const vuetifyThemesName = Object.keys(vuetifyTheme.themes.value);

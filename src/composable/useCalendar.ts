@@ -124,9 +124,8 @@ export const useCalendar = (
     // ---Set event properties except date related
     // Docs: https://fullcalendar.io/docs/Event-setProp
     // dateRelatedProps => ['start', 'end', 'allDay']
-    for (let index = 0; index < propsToUpdate.length; index++) {
-      const propName = propsToUpdate[index];
-
+    for (const element of propsToUpdate) {
+      const propName = element;
       existingEvent.setProp(propName, updatedEventData[propName]);
     }
 
@@ -136,8 +135,8 @@ export const useCalendar = (
 
     // --- Set event's extendedProps
     // ? Docs: https://fullcalendar.io/docs/Event-setExtendedProp
-    for (let index = 0; index < extendedPropsToUpdate.length; index++) {
-      const propName = extendedPropsToUpdate[index];
+    for (const element of extendedPropsToUpdate) {
+      const propName = element;
 
       existingEvent.setExtendedProp(propName, updatedEventData.extendedProps[propName]);
     }
@@ -146,7 +145,6 @@ export const useCalendar = (
   // 👉 Remove event in calendar [UI]
   const removeEventInCalendar = (eventId: string) => {
     const _event = calendarApi.value?.getEventById(eventId);
-
     if (_event) _event.remove();
   };
 
@@ -159,31 +157,19 @@ export const useCalendar = (
 
   // 👉 Add event
   const addEvent = (_event: NewEvent) => {
-    store.addEvent(_event).then(() => {
-      refetchEvents();
-    });
+    refetchEvents();
   };
 
   // 👉 Update event
   const updateEvent = (_event: Event) => {
-    store.updateEvent(_event).then((r) => {
-      const propsToUpdate = ['id', 'title', 'url'] as (keyof Event)[];
-      const extendedPropsToUpdate = [
-        'calendar',
-        'guests',
-        'location',
-        'description'
-      ] as (keyof Event['extendedProps'])[];
-
-      updateEventInCalendar(r.data, propsToUpdate, extendedPropsToUpdate);
-    });
+    const propsToUpdate = ['id', 'title', 'url'] as (keyof Event)[];
+    const extendedPropsToUpdate = ['calendar', 'guests', 'location', 'description'] as (keyof Event['extendedProps'])[];
+    updateEventInCalendar(_event, propsToUpdate, extendedPropsToUpdate);
   };
 
   // 👉 Remove event
   const removeEvent = (eventId: string) => {
-    store.removeEvent(eventId).then(() => {
-      removeEventInCalendar(eventId);
-    });
+    removeEventInCalendar(eventId);
   };
 
   // 👉 Calendar options
