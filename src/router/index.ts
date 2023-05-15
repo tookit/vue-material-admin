@@ -7,7 +7,7 @@ export const router = createRouter({
   routes: [
     {
       path: '/:pathMatch(.*)*',
-      component: () => import('@/views/pages/Error404.vue')
+      component: () => import('@/views/pages/NotFound.vue')
     },
     PrivateRoutes,
     PublicRoutes

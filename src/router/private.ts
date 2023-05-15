@@ -24,12 +24,17 @@ const PrivateRoutes = {
     {
       name: 'Chart',
       path: '/Chart',
-      component: () => import('@/views/charts/chart.vue')
+      component: () => import('@/views/charts/Chart.vue')
     },
     {
       name: 'Calendar',
       path: '/calendar',
       component: () => import('@/views/apps/Calendar.vue')
+    },
+    {
+      name: 'Chat',
+      path: '/chat',
+      component: () => import('@/views/apps/Chat.vue')
     }
   ]
 };

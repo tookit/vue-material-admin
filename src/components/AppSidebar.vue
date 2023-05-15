@@ -14,6 +14,16 @@ const items = [
     value: '/'
   },
   {
+    title: 'Chat',
+    props: {
+      prependIcon: 'mdi-chat-plus-box-outline',
+      link: true,
+      to: '/chat',
+      exact: true
+    },
+    value: '/chat'
+  },
+  {
     title: 'Calendar',
     props: {
       prependIcon: 'mdi-calendar-blank-outline',

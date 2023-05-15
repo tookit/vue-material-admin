@@ -229,14 +229,11 @@ export const useCalendar = (
       // ! Always grab all fields rendered by form (even if it get `undefined`) otherwise due to Vue3/Composition API you might get: "object is not extensible"
       event.value = extractEventDataFromEventApi(clickedEvent);
       showDialog.value = true;
-      // isEventHandlerSidebarActive.value = true;
     },
 
     // customButtons
     dateClick(info) {
       event.value = { ...event.value, start: String(new Date(info.date)) };
-
-      // isEventHandlerSidebarActive.value = true;
     },
 
     /*
