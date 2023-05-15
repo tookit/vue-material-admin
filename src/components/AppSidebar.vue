@@ -16,7 +16,7 @@ const items = [
   {
     title: 'Chat',
     props: {
-      prependIcon: 'mdi-chat-plus-box-outline',
+      prependIcon: 'mdi-chat',
       link: true,
       to: '/chat',
       exact: true

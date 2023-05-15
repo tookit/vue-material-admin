@@ -9,13 +9,20 @@ export interface ILoginRespose {
   data: IAccessToken;
 }
 
+export type UserStatus = 'active' | 'inactive' | 'pending' | 'blocked';
+
 export interface IUser {
   id: number;
   username: string;
+  company: string;
+  country: string;
+  contact: string;
+  currentPlan: string;
   email: string;
   avatar: string;
+  billing: string;
   role: string;
-  status: string;
+  status: UserStatus;
 }
 
 export interface ICalendarEvent {
@@ -41,7 +48,7 @@ export type INewEvent = Except<IEvent, 'id'>;
 
 export type ChatStatus = 'online' | 'offline' | 'busy' | 'away';
 
-export interface ChatContact {
+export interface IChatContact {
   id: number;
   fullName: string;
   role: string;
@@ -50,7 +57,7 @@ export interface ChatContact {
   status: ChatStatus;
 }
 
-export interface ChatMessage {
+export interface IChatMessage {
   message: string;
   time: string;
   senderId: number;
@@ -65,22 +72,22 @@ export interface Chat {
   id: number;
   userId: number;
   unseenMsgs: number;
-  messages: ChatMessage[];
+  messages: IChatMessage[];
 }
 
 // ℹ️ This is chat type received in response of user chat
 export interface ChatOut {
   id: Chat['id'];
   unseenMsgs: Chat['unseenMsgs'];
-  messages: ChatMessage[];
-  lastMessage: ChatMessage;
+  messages: IChatMessage[];
+  lastMessage: IChatMessage;
 }
 
-export interface ChatContactWithChat extends ChatContact {
+export interface ChatContactWithChat extends IChatContact {
   chat: ChatOut;
 }
 
 export type ActiveChat = {
   chat?: Chat;
-  contact: ChatContact;
+  contact: IChatContact;
 } | null;
