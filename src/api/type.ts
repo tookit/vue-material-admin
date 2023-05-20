@@ -68,26 +68,38 @@ export interface IChatMessage {
   };
 }
 
-export interface Chat {
+export interface IChat {
   id: number;
   userId: number;
+  user?: IUser;
   unseenMsgs: number;
   messages: IChatMessage[];
 }
 
 // ℹ️ This is chat type received in response of user chat
-export interface ChatOut {
-  id: Chat['id'];
-  unseenMsgs: Chat['unseenMsgs'];
+export interface IChatOut {
+  id: IChat['id'];
+  unseenMsgs: IChat['unseenMsgs'];
   messages: IChatMessage[];
   lastMessage: IChatMessage;
 }
 
 export interface ChatContactWithChat extends IChatContact {
-  chat: ChatOut;
+  chat: IChatOut;
 }
 
 export type ActiveChat = {
-  chat?: Chat;
+  chat?: IChat;
   contact: IChatContact;
 } | null;
+
+export type IChatInit = {
+  chats: IChat[];
+  contacts: IChatContact[];
+  profileUser: IChatContact & {
+    settings: {
+      isTwoStepAuthVerificationEnabled: boolean;
+      isNotificationsOn: boolean;
+    };
+  };
+};

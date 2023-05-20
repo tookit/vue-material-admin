@@ -2,7 +2,7 @@ import Mock from 'mockjs';
 import { defineMock } from 'vite-plugin-mock-dev-server';
 import { IUser } from '../src/api/type';
 
-const users: IUser[] = [
+export const users: IUser[] = [
   {
     id: 1,
     username: 'Galen Slixby',
@@ -654,6 +654,10 @@ const users: IUser[] = [
     billing: 'Manual - Credit Card'
   }
 ];
+
+export const findUserById = (id: number) => {
+  return users.find((item) => item.id === id);
+};
 
 export const fetchUsers = defineMock({
   url: '/api/user',
