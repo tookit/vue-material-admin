@@ -2,6 +2,7 @@
 import { watchEffect } from 'vue';
 import { useChatStore } from '@/store/chat';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
+import ChatMessage from '@/components/chat/ChatMessage.vue';
 const store = useChatStore();
 watchEffect(() => {
   store.initChat();
@@ -36,7 +37,7 @@ const handleSentMsg = () => {};
           <template v-for="contact in store.chatContacts">
             <VListItem>
               <template v-slot:prepend>
-                <ChatAvatar :username="contact.fullName" />
+                <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" />
               </template>
               <VListItemTitle class="ml-3">{{ contact.fullName }}</VListItemTitle>
               <VListItemSubtitle class="ml-3">{{ contact.role }}</VListItemSubtitle>
@@ -69,7 +70,9 @@ const handleSentMsg = () => {};
             <VBtn icon="mdi-magnify" size="36" density="comfortable"></VBtn>
           </VToolbar>
           <VDivider />
-          <div class="chat-container"></div>
+          <div class="chat-container">
+            <ChatMessage></ChatMessage>
+          </div>
           <VForm class="chat-log-message-form mb-5 mx-5">
             <VTextField
               variant="solo"
@@ -79,12 +82,12 @@ const handleSentMsg = () => {};
               autofocus
             >
               <template #append-inner>
-                <VBtn density="comfortable" icon="mdi-image-outline" variant="text"> </VBtn>
-                <VBtn density="comfortable" class="mx-2" icon="mdi-phone-outline" variant="text"> </VBtn>
+                <VBtn height="36" width="36" density="comfortable" icon="mdi-image-outline" variant="text"> </VBtn>
+                <VBtn height="36" width="36" density="comfortable" class="mx-2" icon="mdi-phone-outline" variant="text">
+                </VBtn>
                 <VBtn @click="handleSentMsg"> Send </VBtn>
               </template>
             </VTextField>
-
             <input ref="refInputEl" type="file" name="file" accept=".jpeg,.png,.jpg,GIF" hidden />
           </VForm>
         </VSheet>
@@ -96,11 +99,11 @@ const handleSentMsg = () => {};
 .chat {
   &-sheet {
     min-height: calc(100vh - 64px - 62px - 16px - 24px - 64px);
-    background-color: #fbfbfb;
+    background-color: aliceblue;
   }
   &-container {
     min-height: calc(100vh - 64px - 62px - 16px - 24px - 64px - 64px - 64px);
-    background-color: #fbfbfb;
+    padding: 24px;
   }
 }
 </style>

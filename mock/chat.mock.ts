@@ -22,7 +22,7 @@ const contacts: IChatContact[] = [
     fullName: 'Gavin Griffith',
     role: 'Frontend Developer',
     about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-3.png',
     status: 'offline'
   },
   {
@@ -31,7 +31,7 @@ const contacts: IChatContact[] = [
     role: 'UI/UX Designer',
     about:
       'Toffee caramels jelly-o tart gummi bears cake I love ice cream lollipop. Sweet liquorice croissant candy danish dessert icing. Cake macaroon gingerbread toffee sweet.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-5.png',
     status: 'busy'
   },
   {
@@ -40,7 +40,7 @@ const contacts: IChatContact[] = [
     role: 'Town planner',
     about:
       'Soufflé soufflé caramels sweet roll. Jelly lollipop sesame snaps bear claw jelly beans sugar plum sugar plum.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-6.png',
     status: 'busy'
   },
   {
@@ -49,7 +49,7 @@ const contacts: IChatContact[] = [
     role: 'Data scientist',
     about:
       'Chupa chups candy canes chocolate bar marshmallow liquorice muffin. Lemon drops oat cake tart liquorice tart cookie. Jelly-o cookie tootsie roll halvah.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-6.png',
     status: 'online'
   },
   {
@@ -57,7 +57,7 @@ const contacts: IChatContact[] = [
     fullName: 'Bryan Murray',
     role: 'Dietitian',
     about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-6.png',
     status: 'busy'
   },
   {
@@ -66,7 +66,7 @@ const contacts: IChatContact[] = [
     role: 'Marketing executive',
     about:
       'Toffee caramels jelly-o tart gummi bears cake I love ice cream lollipop. Sweet liquorice croissant candy danish dessert icing. Cake macaroon gingerbread toffee sweet.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-6.png',
     status: 'online'
   },
   {
@@ -75,7 +75,7 @@ const contacts: IChatContact[] = [
     role: 'Special educational needs teacher',
     about:
       'Biscuit powder oat cake donut brownie ice cream I love soufflé. I love tootsie roll I love powder tootsie roll.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-6.png',
     status: 'online'
   },
   {
@@ -93,7 +93,7 @@ const contacts: IChatContact[] = [
     role: 'Designer, television/film set',
     about:
       'Gummies gummi bears I love candy icing apple pie I love marzipan bear claw. I love tart biscuit I love candy canes pudding chupa chups liquorice croissant.',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-1.png',
     status: 'offline'
   },
   {
@@ -101,7 +101,7 @@ const contacts: IChatContact[] = [
     fullName: 'Blake Carter',
     role: 'Building surveyor',
     about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
-    avatar: '',
+    avatar: '/assets/images/avatars/avatar-2.png',
     status: 'away'
   }
 ];
@@ -285,6 +285,9 @@ const chats: IChat[] = [
 
 const chatWithUsers = chats.map((item) => {
   item.user = findUserById(item.userId);
+  item.messages.map((msg) => {
+    msg.sender = findUserById(msg.senderId);
+  });
   return item;
 });
 

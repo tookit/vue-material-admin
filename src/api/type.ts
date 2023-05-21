@@ -61,6 +61,7 @@ export interface IChatMessage {
   message: string;
   time: string;
   senderId: number;
+  sender?: IUser;
   feedback: {
     isSent: boolean;
     isDelivered: boolean;
