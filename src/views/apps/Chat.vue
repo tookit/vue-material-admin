@@ -1,13 +1,18 @@
 <script lang="ts" setup>
-import { watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useChatStore } from '@/store/chat';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
 import ChatMessage from '@/components/chat/ChatMessage.vue';
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 const store = useChatStore();
 watchEffect(() => {
   store.initChat();
 });
+let messages = ref([]);
 const handleSentMsg = () => {};
+const handleViewChat = (chat) => {
+  messages.value = chat.messages;
+};
 </script>
 <template>
   <VSheet elevation="10">
@@ -21,7 +26,7 @@ const handleSentMsg = () => {};
           <VListSubheader>Recent</VListSubheader>
           <VDivider />
           <template v-for="chat in store.chats">
-            <VListItem>
+            <VListItem @click="handleViewChat(chat)" :value="chat.id">
               <template v-slot:prepend>
                 <ChatAvatar
                   :username="chat.user ? chat.user.username : ''"
@@ -46,9 +51,8 @@ const handleSentMsg = () => {};
           </template>
         </VList>
       </VNavigationDrawer>
-
       <VMain>
-        <VSheet class="chat-sheet">
+        <VSheet class="chat-sheet fill-height">
           <VToolbar class="px-5" style="background-color: #fff" flat tag="div">
             <!-- avatar -->
             <VList class="pa-0">
@@ -71,9 +75,17 @@ const handleSentMsg = () => {};
           </VToolbar>
           <VDivider />
           <div class="chat-container">
-            <ChatMessage></ChatMessage>
+            <PerfectScrollbar tag="div" class="chat-scroll">
+              <ChatMessage
+                v-for="msg in messages"
+                :avatar="msg.sender ? msg.sender.avatar : ''"
+                :username="msg.sender ? msg.sender.username : ''"
+                :sent-at="msg.time"
+                :message="msg.message"
+              />
+            </PerfectScrollbar>
           </div>
-          <VForm class="chat-log-message-form mb-5 mx-5">
+          <VForm class="chat-form mb-5 mx-5">
             <VTextField
               variant="solo"
               class="chat-message-input"
@@ -85,7 +97,7 @@ const handleSentMsg = () => {};
                 <VBtn height="36" width="36" density="comfortable" icon="mdi-image-outline" variant="text"> </VBtn>
                 <VBtn height="36" width="36" density="comfortable" class="mx-2" icon="mdi-phone-outline" variant="text">
                 </VBtn>
-                <VBtn @click="handleSentMsg"> Send </VBtn>
+                <VBtn @click="handleSentMsg">Send</VBtn>
               </template>
             </VTextField>
             <input ref="refInputEl" type="file" name="file" accept=".jpeg,.png,.jpg,GIF" hidden />
@@ -98,12 +110,14 @@ const handleSentMsg = () => {};
 <style lang="scss">
 .chat {
   &-sheet {
-    min-height: calc(100vh - 64px - 62px - 16px - 24px - 64px);
-    background-color: aliceblue;
+    background-color: #f8f7fa;
   }
   &-container {
     min-height: calc(100vh - 64px - 62px - 16px - 24px - 64px - 64px - 64px);
     padding: 24px;
+    .chat-scroll {
+      height: calc(100vh - 64px - 62px - 16px - 24px - 64px - 64px - 64px - 48px);
+    }
   }
 }
 </style>

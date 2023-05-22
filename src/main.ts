@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify/index';
 import i18n from '@/plugins/i18n';
 import '@/scss/style.scss';
 import PerfectScrollbar from 'vue3-perfect-scrollbar';
+import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css';
 import VueApexCharts from 'vue3-apexcharts';
 import VueTablerIcons from 'vue-tabler-icons';
 import store from './store';
