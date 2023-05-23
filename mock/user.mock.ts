@@ -5,16 +5,16 @@ import { IUser } from '../src/api/type';
 export const users: IUser[] = [
   {
     id: 1,
-    username: 'Galen Slixby',
-    company: 'Yotz PVT LTD',
-    role: 'editor',
-    country: 'El Salvador',
+    username: 'admin',
+    company: 'isocked.com',
+    role: 'admin',
+    country: 'China',
     contact: '(479) 232-9151',
-    email: 'gslixby0@abc.net.au',
+    email: 'wangqiangshen@gmail.com',
     currentPlan: 'enterprise',
     status: 'inactive',
     billing: 'Auto Debit',
-    avatar: '/assets/images/avatars/avatar-1.png'
+    avatar: '/assets/images/users/avatar-1.jpg'
   },
   {
     id: 2,

@@ -115,7 +115,7 @@ const chats: IChat[] = [
       {
         message: 'Hi',
         time: 'Mon Dec 10 2018 07:45:00 GMT+0000 (GMT)',
-        senderId: 11,
+        senderId: 2,
         feedback: {
           isSent: true,
           isDelivered: true,
@@ -125,7 +125,7 @@ const chats: IChat[] = [
       {
         message: 'Hello. How can I help You?',
         time: 'Mon Dec 11 2018 07:45:15 GMT+0000 (GMT)',
-        senderId: 2,
+        senderId: 1,
         feedback: {
           isSent: true,
           isDelivered: true,
@@ -135,7 +135,7 @@ const chats: IChat[] = [
       {
         message: 'Can I get details of my last transaction I made last month? 🤔',
         time: 'Mon Dec 11 2018 07:46:10 GMT+0000 (GMT)',
-        senderId: 11,
+        senderId: 2,
         feedback: {
           isSent: true,
           isDelivered: true,
@@ -145,7 +145,7 @@ const chats: IChat[] = [
       {
         message: 'We need to check if we can provide you such information.',
         time: 'Mon Dec 11 2018 07:45:15 GMT+0000 (GMT)',
-        senderId: 2,
+        senderId: 1,
         feedback: {
           isSent: true,
           isDelivered: true,
@@ -165,7 +165,7 @@ const chats: IChat[] = [
       {
         message: 'If it takes long you can mail me at my mail address.',
         time: String(dayBeforePreviousDay),
-        senderId: 11,
+        senderId: 1,
         feedback: {
           isSent: true,
           isDelivered: false,
@@ -176,7 +176,7 @@ const chats: IChat[] = [
   },
   {
     id: 2,
-    userId: 1,
+    userId: 11,
     unseenMsgs: 1,
     messages: [
       {

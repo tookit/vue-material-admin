@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ChatAvatar from './ChatAvatar.vue';
+import { useUserStore } from '@/store';
 interface Props {
   avatar?: string;
   username?: string;
@@ -14,10 +15,14 @@ const props = withDefaults(defineProps<Props>(), {
   message: '',
   sentAt: ''
 });
+const userStore = useUserStore();
+const isMySelf = (username) => {
+  return username === userStore.username;
+};
 </script>
 
 <template>
-  <div class="message d-flex">
+  <div :class="{ 'd-flex': true, message: true, 'flex-row-reverse': !isMySelf(props.username) }">
     <ChatAvatar class="message-avatar" :avatar="props.avatar" :username="props.username" />
     <div class="message-item">
       <p class="message-item__text elevation-1">{{ props.message }}</p>
@@ -29,7 +34,13 @@ const props = withDefaults(defineProps<Props>(), {
   </div>
 </template>
 <style lang="scss">
+.message.flex-row-reverse {
+  .message-avatar {
+    margin-left: 16px;
+  }
+}
 .message {
+  margin-bottom: 8px;
   &-avatar {
     margin-right: 16px;
   }

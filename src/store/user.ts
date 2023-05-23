@@ -35,6 +35,9 @@ export const useUserStore = defineStore('user', {
     getRoles(state) {
       return state.roles;
     },
+    getUsername(state) {
+      return state.username;
+    },
     getStatusOptions(state) {
       return state.statusOptions;
     }
@@ -44,11 +47,15 @@ export const useUserStore = defineStore('user', {
     setToken(token: string) {
       this.token = token;
     },
+    setUsername(username: string) {
+      this.username = username;
+    },
     async login(params) {
       try {
         const response = await login(params);
         const { data } = response;
         const { access_token } = data;
+        this.setUsername(params.username);
         this.setToken(access_token);
         return Promise.resolve(response);
       } catch (e) {
