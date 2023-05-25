@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import AccountSetting from './AccountSetting.vue';
 const activeTab = ref('security');
 const tabs = [
   { title: 'Account', icon: 'mdi-account-alert', tab: 'account' },
@@ -15,16 +16,28 @@ const tabs = [
     <VRow>
       <VCol cols="12">
         <VCard>
+          <VCardText>
+            <div class="v-flex">
+              <div class="">
+                <VAvatar class="cursor-pointer" size="160">
+                  <VImg src="/assets/images/users/user.jpg" />
+                </VAvatar>
+              </div>
+            </div>
+          </VCardText>
           <VTabs v-model="activeTab" color="primary">
             <VTab v-for="item in tabs" :key="item.icon" :value="item.tab">
               <VIcon size="20" start :icon="item.icon" />
               {{ item.title }}
             </VTab>
           </VTabs>
+        </VCard>
+
+        <VCard class="mt-5">
           <VCardText>
             <VWindow v-model="activeTab" class="disable-tab-transition" :touch="false">
               <!-- Account -->
-              <VWindowItem value="account"> account </VWindowItem>
+              <VWindowItem value="account"> <AccountSetting /> </VWindowItem>
 
               <!-- Security -->
               <VWindowItem value="security"> security </VWindowItem>
