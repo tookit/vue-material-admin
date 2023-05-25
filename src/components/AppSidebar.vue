@@ -67,7 +67,7 @@ const items = [
   },
   { type: 'subheader', title: 'Tables' },
   {
-    title: 'User Table',
+    title: 'Table',
     props: {
       prependIcon: 'mdi-view-list-outline',
       link: true,

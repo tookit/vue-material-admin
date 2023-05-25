@@ -16,18 +16,19 @@ const props = withDefaults(defineProps<Props>(), {
   sentAt: ''
 });
 const userStore = useUserStore();
-const isMySelf = (username) => {
-  return username === userStore.username;
+const isMySelf = () => {
+  console.log(userStore.username);
+  return props.username === userStore.username;
 };
 </script>
 
 <template>
-  <div :class="{ 'd-flex': true, message: true, 'flex-row-reverse': !isMySelf(props.username) }">
+  <div :class="{ 'd-flex': true, message: true, 'flex-row-reverse': !isMySelf() }">
     <ChatAvatar class="message-avatar" :avatar="props.avatar" :username="props.username" />
     <div class="message-item">
       <p class="message-item__text elevation-1">{{ props.message }}</p>
       <div class="message-item__meta">
-        <VIcon icon="mdi-check" size="24" color="success" />
+        <VIcon icon="mdi-check-all" size="24" color="success" />
         <span class="ml-3 text-body-1">{{ props.sentAt }}</span>
       </div>
     </div>

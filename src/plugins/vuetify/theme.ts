@@ -22,6 +22,7 @@ const theme: VuetifyOptions['theme'] = {
         background: '#F8F7FA',
         'on-background': '#2F2B3D',
         'on-surface': '#2F2B3D',
+        'on-surface-variant': '#FFF',
         'grey-50': '#FAFAFA',
         'grey-100': '#F5F5F5',
         'grey-200': '#EEEEEE',

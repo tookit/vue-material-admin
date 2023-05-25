@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { IChatMessage } from '@/api/type';
 import { ref, watchEffect } from 'vue';
 import { useChatStore } from '@/store/chat';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
@@ -8,7 +9,7 @@ const store = useChatStore();
 watchEffect(() => {
   store.initChat();
 });
-let messages = ref([]);
+let messages: Ref<IChatMessage[]> = ref([]);
 const handleSentMsg = () => {};
 const handleViewChat = (chat) => {
   messages.value = chat.messages;
@@ -39,6 +40,7 @@ const handleViewChat = (chat) => {
             <VDivider />
           </template>
           <VListSubheader>Contacts</VListSubheader>
+          <VDivider />
           <template v-for="contact in store.chatContacts">
             <VListItem>
               <template v-slot:prepend>
@@ -53,7 +55,7 @@ const handleViewChat = (chat) => {
       </VNavigationDrawer>
       <VMain>
         <VSheet class="chat-sheet fill-height">
-          <VToolbar class="px-5" style="background-color: #fff" flat tag="div">
+          <VToolbar class="px-5" flat tag="div">
             <!-- avatar -->
             <VList class="pa-0">
               <VListItem class="px-0">

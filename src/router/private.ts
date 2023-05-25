@@ -9,17 +9,17 @@ const PrivateRoutes = {
     {
       name: 'Dashboard',
       path: '/',
-      component: () => import('@/views/dashboard/index.vue')
+      component: () => import('@/views/dashboard/Index.vue')
     },
     {
       name: 'Form',
       path: '/form',
-      component: () => import('@/views/forms/form-layout.vue')
+      component: () => import('@/views/forms/FormLayout.vue')
     },
     {
       name: 'Table',
       path: '/user-table',
-      component: () => import('@/views/tables/user-table.vue')
+      component: () => import('@/views/tables/UserTable.vue')
     },
     {
       name: 'Chart',
@@ -35,6 +35,16 @@ const PrivateRoutes = {
       name: 'Chat',
       path: '/chat',
       component: () => import('@/views/apps/Chat.vue')
+    },
+    {
+      name: 'Profile',
+      path: '/profile',
+      component: () => import('@/views/profile/UserProfile.vue')
+    },
+    {
+      name: 'Setting',
+      path: '/setting',
+      component: () => import('@/views/setting/UserSetting.vue')
     }
   ]
 };

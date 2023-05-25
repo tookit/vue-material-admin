@@ -23,10 +23,15 @@ const filters = reactive({
 const selectedUser = reactive<IUser>({
   id: 0,
   username: '',
+  company: '',
+  country: '',
+  contact: '',
+  currentPlan: 'free',
   email: '',
   avatar: '',
+  billing: '',
   role: '',
-  status: ''
+  status: 'active'
 });
 // 👉 search filters
 const roles = userStore.getRoles;
