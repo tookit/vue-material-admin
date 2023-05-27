@@ -99,7 +99,7 @@ const handleDrawerWidth = () => {
   const railWidth = drawerProps.railWidth;
   drawerProps.rail = !rail;
   drawerProps.railWidth = railWidth == 64 ? 256 : 64;
-  drawerProps.icon = drawerProps.railWidth === 256 ? 'mdi-arrow-left  ' : 'mdi-arrow-right';
+  drawerProps.icon = drawerProps.railWidth === 256 ? 'mdi-arrow-expand-left  ' : 'mdi-arrow-expand-right';
 };
 
 const menus = computed(() => {
@@ -120,7 +120,7 @@ const menus = computed(() => {
       <VToolbarTitle>Materiv</VToolbarTitle>
     </VToolbar>
     <div class="app-drawer__inner">
-      <VList :items="menus" active-color="primary" class="pa-0" />
+      <VList :items="menus" active-color="primary" class="pa-0 menu-list" />
     </div>
     <VBtn
       class="btn-collapse"
@@ -139,5 +139,10 @@ const menus = computed(() => {
   position: absolute;
   inset-block-start: 50%;
   transform: translateY(-50%);
+}
+.menu-list {
+  .v-list-item__prepend > .v-icon {
+    margin-inline-end: 16px;
+  }
 }
 </style>

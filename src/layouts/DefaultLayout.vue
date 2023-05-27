@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import { computed } from 'vue';
+import { RouterView, useRoute } from 'vue-router';
 import AppSidebar from '@/components/AppSidebar.vue';
 import AppToolbar from '@/components/AppToolbar.vue';
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
 const route = useRoute();
-console.log(route.meta);
 const items = computed(() => {
-  return [
-    {
-      title: 'Home',
-      href: '/'
-    },
-    {
-      title: route.name,
-      href: route.path
-    }
-  ];
+  return route.matched.map((item) => {
+    return {
+      title: String(item.name),
+      href: item.path
+    };
+  });
 });
 </script>
 
@@ -40,7 +34,7 @@ const items = computed(() => {
 
 <style lang="scss">
 .app-main {
-  background-color: #fbfbfb;
+  background-color: var(--v-theme-background);
   .app-container {
     max-width: 1440px;
   }

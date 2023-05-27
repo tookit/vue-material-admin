@@ -17,11 +17,21 @@ const tabs = [
       <VCol cols="12">
         <VCard>
           <VCardText>
-            <div class="v-flex">
-              <div class="">
-                <VAvatar class="cursor-pointer" size="160">
+            <div class="d-flex">
+              <div class="mr-10">
+                <VAvatar class="cursor-pointer" size="160" rounded="0">
                   <VImg src="/assets/images/users/user.jpg" />
                 </VAvatar>
+              </div>
+              <div class="flex-1-0">
+                <div class="user-meta d-flex flex-column">
+                  <h3>Michael Wang</h3>
+                  <div class="d-flex">
+                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-account">Developer</VBtn>
+                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-map-marker">Shenzhen</VBtn>
+                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-email">tookit@gmail.com</VBtn>
+                  </div>
+                </div>
               </div>
             </div>
           </VCardText>

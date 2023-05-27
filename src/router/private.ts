@@ -1,5 +1,6 @@
 const PrivateRoutes = {
-  path: '/main',
+  path: '/',
+  name: 'Home',
   meta: {
     requiresAuth: true
   },
