@@ -5,74 +5,74 @@ export default {
     variant: 'text',
     density: 'comfortable',
     VIcon: {
-      size: 22,
-    },
+      size: 22
+    }
   },
   VAlert: {
     density: 'comfortable',
     VBtn: {
-      color: undefined,
-    },
+      color: undefined
+    }
   },
   VBadge: {
     // set v-badge default color to primary
-    color: 'primary',
+    color: 'primary'
   },
   VBtn: {
     // set v-btn default color to primary
-    color: 'primary',
+    color: 'primary'
   },
   VChip: {
-    size: 'small',
+    size: 'small'
   },
   VExpansionPanel: {
     expandIcon: 'tabler-chevron-right',
-    collapseIcon: 'tabler-chevron-right',
+    collapseIcon: 'tabler-chevron-right'
   },
   VExpansionPanelTitle: {
     expandIcon: 'tabler-chevron-right',
-    collapseIcon: 'tabler-chevron-right',
+    collapseIcon: 'tabler-chevron-right'
   },
   VList: {
     density: 'comfortable',
     VCheckboxBtn: {
-      density: 'compact',
-    },
+      density: 'compact'
+    }
   },
   VPagination: {
     activeColor: 'primary',
     density: 'comfortable',
-    variant: 'tonal',
+    variant: 'tonal'
   },
   VTabs: {
     // set v-tabs default color to primary
     color: 'primary',
     density: 'comfortable',
     VSlideGroup: {
-      showArrows: true,
-    },
+      showArrows: true
+    }
   },
   VTooltip: {
     // set v-tooltip default location to top
-    location: 'top',
+    location: 'top'
   },
   VCheckboxBtn: {
-    color: 'primary',
+    color: 'primary'
   },
   VCheckbox: {
     // set v-checkbox default color to primary
     color: 'primary',
     density: 'comfortable',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VRadioGroup: {
     color: 'primary',
     density: 'comfortable',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VRadio: {
     density: 'comfortable',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VSelect: {
     variant: 'outlined',
@@ -81,8 +81,8 @@ export default {
     hideDetails: 'auto',
     VChip: {
       color: 'primary',
-      label: true,
-    },
+      label: true
+    }
   },
   VRangeSlider: {
     // set v-range-slider default color to primary
@@ -92,21 +92,21 @@ export default {
     thumbSize: 7,
     density: 'comfortable',
     thumbLabel: true,
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VRating: {
     // set v-rating default color to primary
-    color: 'warning',
+    color: 'warning'
   },
   VProgressCircular: {
     // set v-progress-circular default color to primary
-    color: 'primary',
+    color: 'primary'
   },
   VProgressLinear: {
     height: 12,
     roundedBar: true,
     rounded: true,
-    bgColor: 'rgb(var(--v-theme-on-surface))',
+    bgColor: 'rgb(var(--v-theme-on-surface))'
   },
   VSlider: {
     // set v-slider default color to primary
@@ -114,13 +114,13 @@ export default {
     trackColor: 'rgb(var(--v-theme-on-surface),0.06)',
     hideDetails: 'auto',
     thumbSize: 7,
-    trackSize: 6,
+    trackSize: 6
   },
   VTextField: {
     variant: 'outlined',
     density: 'compact',
     color: 'primary',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VAutocomplete: {
     variant: 'outlined',
@@ -128,12 +128,12 @@ export default {
     density: 'compact',
     hideDetails: 'auto',
     menuProps: {
-      contentClass: 'app-autocomplete__content v-autocomplete__content',
+      contentClass: 'app-autocomplete__content v-autocomplete__content'
     },
     VChip: {
       color: 'primary',
-      label: true,
-    },
+      label: true
+    }
   },
   VCombobox: {
     variant: 'outlined',
@@ -142,37 +142,37 @@ export default {
     hideDetails: 'auto',
     VChip: {
       color: 'primary',
-      label: true,
-    },
+      label: true
+    }
   },
   VFileInput: {
     variant: 'outlined',
     density: 'compact',
     color: 'primary',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VTextarea: {
     variant: 'outlined',
     density: 'compact',
     color: 'primary',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VSwitch: {
     // set v-switch default color to primary
     inset: true,
     color: 'primary',
-    hideDetails: 'auto',
+    hideDetails: 'auto'
   },
   VTimeline: {
-    lineThickness: 1,
+    lineThickness: 1
   },
 
   VDataTable: {
     VDataTableFooter: {
       VBtn: {
         density: 'comfortable',
-        color: 'default',
-      },
-    },
-  },
-}
+        color: 'default'
+      }
+    }
+  }
+};

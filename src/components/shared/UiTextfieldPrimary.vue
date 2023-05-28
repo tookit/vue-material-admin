@@ -5,5 +5,5 @@
 </script>
 
 <template>
-    <v-text-field color="primary"><slot /></v-text-field>
+  <v-text-field color="primary"><slot /></v-text-field>
 </template>

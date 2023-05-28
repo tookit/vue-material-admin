@@ -19,8 +19,8 @@ const handleEvents = (events) => {
   currentEvents = events;
 };
 const handleDateSelect = (selectInfo) => {
-  let title = prompt('Please enter a new title for your event');
-  let calendarApi = selectInfo.view.calendar;
+  const title = prompt('Please enter a new title for your event');
+  const calendarApi = selectInfo.view.calendar;
   calendarApi.unselect(); // clear date selection
   if (title) {
     calendarApi.addEvent({

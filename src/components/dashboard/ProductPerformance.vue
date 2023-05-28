@@ -30,7 +30,9 @@ import { productPerformance } from '@/data/dashboard/dashboardData';
               <h6 class="text-body-1 text-muted">{{ item.pname }}</h6>
             </td>
             <td>
-              <v-chip :class="'text-body-1 bg-' + item.statuscolor" color="white" size="small">{{ item.status }}</v-chip>
+              <v-chip :class="'text-body-1 bg-' + item.statuscolor" color="white" size="small">{{
+                item.status
+              }}</v-chip>
             </td>
             <td>
               <h6 class="text-h6 text-right">{{ item.budget }}</h6>

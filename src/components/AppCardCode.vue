@@ -53,10 +53,18 @@ const isCodeShown = ref(false);
           <div class="d-flex justify-end">
             <VBtnToggle v-model="preferredCodeLanguage" mandatory variant="outlined" density="compact">
               <VBtn size="x-small" value="ts" :color="preferredCodeLanguage === 'ts' ? 'primary' : 'default'">
-                <VIcon size="x-large" icon="custom-typescript" :color="preferredCodeLanguage === 'ts' ? 'primary' : 'secondary'" />
+                <VIcon
+                  size="x-large"
+                  icon="custom-typescript"
+                  :color="preferredCodeLanguage === 'ts' ? 'primary' : 'secondary'"
+                />
               </VBtn>
               <VBtn size="x-small" value="js" :color="preferredCodeLanguage === 'js' ? 'primary' : 'default'">
-                <VIcon size="x-large" icon="custom-javascript" :color="preferredCodeLanguage === 'js' ? 'primary' : 'secondary'" />
+                <VIcon
+                  size="x-large"
+                  icon="custom-javascript"
+                  :color="preferredCodeLanguage === 'js' ? 'primary' : 'secondary'"
+                />
               </VBtn>
             </VBtnToggle>
           </div>

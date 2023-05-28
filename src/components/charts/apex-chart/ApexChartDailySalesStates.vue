@@ -13,11 +13,16 @@ interface YRange {
   max: number;
 }
 
+interface ChartPoint {
+  x: string;
+  y: number;
+}
+
 const generateDataHeat = (count: number, yrange: YRange) => {
   let i = 0;
-  const series = [];
+  const series: ChartPoint[] = [];
   while (i < count) {
-    const x: string = `w${(i + 1).toString()}`;
+    const x = `w${(i + 1).toString()}`;
     const y: number = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
     series.push({ x, y });
     i += 1;

@@ -12,7 +12,7 @@ const prevMonth =
     ? new Date(date.getFullYear() - 1, 0, 1)
     : new Date(date.getFullYear(), date.getMonth() - 1, 1);
 
-let events: ICalendarEvent[] = [
+const events: ICalendarEvent[] = [
   {
     id: '1',
     url: '',
@@ -170,7 +170,7 @@ export const updateEvent = defineMock({
   response(req, res, next) {
     const { params, body } = req;
     const eventId = params.eventId;
-    let event = events.find((item) => {
+    const event = events.find((item) => {
       return item.id === eventId;
     });
     res.end(JSON.stringify(body));

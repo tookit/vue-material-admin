@@ -9,7 +9,7 @@ const store = useChatStore();
 watchEffect(() => {
   store.initChat();
 });
-let messages: Ref<IChatMessage[]> = ref([]);
+const messages: Ref<IChatMessage[]> = ref([]);
 const handleSentMsg = () => {};
 const handleViewChat = (chat) => {
   messages.value = chat.messages;
