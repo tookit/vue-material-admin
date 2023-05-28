@@ -16,12 +16,7 @@ const formRules = reactive({
   ]
 });
 const formModel = reactive<IUser>({
-  id: props.user.id,
-  username: props.user.username,
-  email: props.user.email,
-  avatar: props.user.avatar,
-  role: props.user.role,
-  status: props.user.status
+  ...props.user
 });
 
 const userStore = useUserStore();

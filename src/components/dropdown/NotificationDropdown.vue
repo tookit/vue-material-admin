@@ -4,7 +4,7 @@ import Notification from '@/components/Notification.vue';
 import avatar3 from '@/assets/images/avatars/avatar-3.png';
 import avatar4 from '@/assets/images/avatars/avatar-4.png';
 import avatar5 from '@/assets/images/avatars/avatar-5.png';
-import paypal from '@/assets/images/svg/paypal.svg';
+import paypal from '@/assets/svg/paypal.svg';
 
 const notifications = [
   {
