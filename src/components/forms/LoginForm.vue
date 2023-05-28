@@ -67,7 +67,7 @@ const handleSubmit = (e) => {
       <VCol cols="12" class="pt-0">
         <div class="d-flex flex-wrap align-center ml-n2">
           <VCheckbox v-model="checkbox" color="primary" hide-details>
-            <template v-slot:label class="text-body-1">Remeber this Device</template>
+            <template v-slot:label>Remeber this Device</template>
           </VCheckbox>
           <div class="ml-sm-auto">
             <RouterLink to="/" class="text-primary text-decoration-none">Forgot Password ?</RouterLink>

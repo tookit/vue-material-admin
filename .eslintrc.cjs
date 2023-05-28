@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     'comma-dangle': 'off',
     'vue/valid-v-slot': 'off',
+    'vue/multi-word-component-names': 'off',
     '@typescript-eslint/comma-dangle': 'off',
     'prettier/prettier': ['error', { endOfLine: 'lf' }]
   }
