@@ -5,13 +5,7 @@ import { fetchUsers } from '@/api/user';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';
 import UserForm from '@/components/forms/UserForm.vue';
-const searchQuery = ref('');
-const selectedRole = ref();
-const selectedStatus = ref();
 const itemsPerPage = ref(10);
-const currentPage = ref(1);
-const totalPage = ref(1);
-const totalUsers = ref(0);
 const showFilter = ref(true);
 const showDialog = ref(false);
 const users = ref<IUser[]>([]);
@@ -46,12 +40,17 @@ const headers = reactive([
 ]);
 
 const loading = ref(true);
-const loadData = async (params) => {
+const loadData = (params) => {
   users.value = [];
   loading.value = true;
-  const { data } = await fetchUsers(params);
-  loading.value = false;
-  users.value = data;
+  fetchUsers(params)
+    .then(({ data }) => {
+      loading.value = false;
+      users.value = data;
+    })
+    .catch(() => {
+      loading.value = false;
+    });
 };
 watchEffect(loadData);
 const handleApplyFilter = () => {

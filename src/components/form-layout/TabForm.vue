@@ -1,121 +1,45 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-const tab = ref('personal-info');
-const firstName = ref('');
-const lastName = ref('');
-const country = ref();
-const birthDate = ref('');
-const phoneNo = ref<number>();
-const countryList = ['USA', 'Canada', 'UK', 'Denmark', 'Germany', 'Iceland', 'Israel', 'Mexico'];
-const languageList = ['English', 'German', 'French', 'Spanish', 'Portuguese', 'Russian', 'Korean'];
-const username = ref('');
-const email = ref('');
-const password = ref('');
-const cPassword = ref('');
-const twitterLink = ref('');
-const facebookLink = ref('');
-const googlePlusLink = ref('');
-const linkedInLink = ref('');
-const instagramLink = ref('');
-const quoraLink = ref('');
-const languages = ref('');
-const isPasswordVisible = ref(false);
-const isCPasswordVisible = ref(false);
+import { ref, reactive } from 'vue';
+import BasicAccountForm from '../forms/BasicAccountForm.vue';
+import BasicSecurityForm from '../forms/BasicSecurityForm.vue';
+import BasicConnectionForm from '../forms/BasicConnectionForm.vue';
+const activeTab = ref('personal-info');
+const tabs = [
+  { title: 'Account', icon: 'mdi-account-alert', tab: 'account' },
+  { title: 'Security', icon: 'mdi-lock', tab: 'security' },
+  { title: 'Connections', icon: 'mdi-link', tab: 'connection' }
+];
+const account = reactive({
+  firstName: '',
+  lastName: '',
+  country: 'China',
+  lang: '',
+  phoneNo: 0,
+  birthDate: ''
+});
 </script>
 
 <template>
-  <VTabs v-model="tab">
-    <VTab value="personal-info"> Personal Info </VTab>
-    <VTab value="account-details"> Account Details </VTab>
-    <VTab value="social-links"> Social Links </VTab>
+  <VTabs v-model="activeTab" color="primary">
+    <VTab v-for="item in tabs" :key="item.icon" :value="item.tab">
+      <VIcon size="20" start :icon="item.icon" />
+      {{ item.title }}
+    </VTab>
   </VTabs>
   <VDivider />
 
   <VCard flat>
     <VCardText>
-      <VWindow v-model="tab">
-        <VWindowItem value="personal-info">
-          <VForm class="mt-2">
-            <VRow>
-              <VCol md="6" cols="12">
-                <VTextField v-model="firstName" label="First name" />
-              </VCol>
-
-              <VCol md="6" cols="12">
-                <VTextField v-model="lastName" label="Last name" />
-              </VCol>
-
-              <VCol cols="12" md="6">
-                <VSelect v-model="country" :items="countryList" label="Country" />
-              </VCol>
-
-              <VCol cols="12" md="6">
-                <VSelect v-model="languages" :items="languageList" label="Language" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="birthDate" label="Birth Date" placeholder="YYYY-MM-DD" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="phoneNo" type="number" label="Phone No." />
-              </VCol>
-            </VRow>
-          </VForm>
+      <VWindow v-model="activeTab">
+        <VWindowItem value="account">
+          <BasicAccountForm :account="account" />
+        </VWindowItem>
+        <VWindowItem value="security">
+          <BasicSecurityForm />
         </VWindowItem>
 
-        <VWindowItem value="account-details">
-          <VForm class="mt-2">
-            <VRow>
-              <VCol cols="12" md="6">
-                <VTextField v-model="username" label="Username" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="email" label="Email" suffix="@example.com" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField
-                  v-model="password"
-                  label="Password"
-                  :type="isPasswordVisible ? 'text' : 'password'"
-                  :append-inner-icon="isPasswordVisible ? 'tabler-eye' : 'tabler-eye-off'"
-                  @click:append-inner="isPasswordVisible = !isPasswordVisible"
-                />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField
-                  v-model="cPassword"
-                  label="Confirm Password"
-                  :type="isCPasswordVisible ? 'text' : 'password'"
-                  :append-inner-icon="isCPasswordVisible ? 'tabler-eye' : 'tabler-eye-off'"
-                  @click:append-inner="isCPasswordVisible = !isCPasswordVisible"
-                />
-              </VCol>
-            </VRow>
-          </VForm>
-        </VWindowItem>
-
-        <VWindowItem value="social-links">
-          <VForm class="mt-2">
-            <VRow>
-              <VCol cols="12" md="6">
-                <VTextField v-model="twitterLink" append-inner-icon="mdi-twitter" label="Twitter" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="facebookLink" append-inner-icon="mdi-facebook" label="Facebook" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="googlePlusLink" append-inner-icon="mdi-google-plus" label="Google+" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="linkedInLink" append-inner-icon="mdi-linkedin" label="LinkedIn" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="instagramLink" append-inner-icon="mdi-instagram" label="Instagram" />
-              </VCol>
-              <VCol cols="12" md="6">
-                <VTextField v-model="quoraLink" append-inner-icon="mdi-quora" label="Quora" />
-              </VCol>
-            </VRow>
-          </VForm>
+        <VWindowItem value="connection">
+          <BasicConnectionForm />
         </VWindowItem>
       </VWindow>
     </VCardText>

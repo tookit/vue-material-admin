@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.03 61.5">
-    <path d="M71.73,61.5H91L69.16,24.68h-19C57.44,37,64.57,49.15,71.73,61.5Z" style="fill:#605c60;fill-rule:evenodd" />
+    <path d="M71.73,61.5H91L69.16,24.68h-19C57.44,37,64.57,49.15,71.73,61.5Z"
+        style="fill:var(--v-theme-primary, #FF965D);fill-rule:evenodd" />
     <path
         d="M0,61.09H18.88q18-30.3,36-60.64L54.62,0H36.19Q18.15,30.54,0,61.09ZM45.48,24.68h0Q34.5,43.13,23.57,61.5H42.16c4.19-7,8.37-14.13,12.59-21.21-3.1-5.22-6.16-10.39-9.27-15.61Z"
-        style="fill:#6200ee;fill-rule:evenodd" />
+        style="fill:var(--v-theme-secondary, #304FFD);fill-rule:evenodd" />
 </svg>

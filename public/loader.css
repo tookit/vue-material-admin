@@ -8,7 +8,7 @@
   width: 48px;
   height: 48px;
   border: 5px solid;
-  border-color: var(--initial-loader-color, #FF3D00)  transparent;
+  border-color: var(--initial-loader-color, #304FFD)  transparent;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;

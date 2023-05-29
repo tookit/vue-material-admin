@@ -25,11 +25,11 @@ const tabs = [
               </div>
               <div class="flex-1-0">
                 <div class="user-meta d-flex flex-column">
-                  <h3>Michael Wang</h3>
+                  <h3 class="font-weight-light">Michael Wang</h3>
                   <div class="d-flex">
-                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-account">Developer</VBtn>
-                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-map-marker">Shenzhen</VBtn>
-                    <VBtn class="pl-0" variant="plain" prepend-icon="mdi-email">tookit@gmail.com</VBtn>
+                    <VBtn class="pl-0" variant="plain" color="grey" prepend-icon="mdi-account">Developer</VBtn>
+                    <VBtn class="pl-0" variant="plain" color="grey" prepend-icon="mdi-map-marker">Shenzhen</VBtn>
+                    <VBtn class="pl-0" variant="plain" color="grey" prepend-icon="mdi-email">tookit@gmail.com</VBtn>
                   </div>
                 </div>
               </div>

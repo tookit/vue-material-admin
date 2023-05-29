@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, defineEmits, watch } from 'vue';
+import { reactive, defineEmits, watch } from 'vue';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';
 interface IModel {
@@ -20,7 +20,6 @@ const formModel = reactive<IUser>({
 });
 
 const userStore = useUserStore();
-const submiting = ref(false);
 const handleSubmit = (e) => {
   e.preventDefault();
 };

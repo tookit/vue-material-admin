@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
         emit('form:update', formModel);
         submiting.value = false;
       })
-      .catch((err) => {
+      .catch(() => {
         emit('form:error');
         submiting.value = false;
       });
@@ -35,7 +35,7 @@ const handleSubmit = (e) => {
         emit('form:store', formModel);
         submiting.value = false;
       })
-      .catch((err) => {
+      .catch(() => {
         emit('form:error');
         submiting.value = false;
       });
@@ -63,7 +63,6 @@ watch(props, () => {
             <VLabel class="font-weight-bold mb-1">Title</VLabel>
             <VTextField v-model="formModel.title" variant="outlined" color="primary" name="title" />
           </VCol>
-
           <VCol cols="12">
             <VLabel class="font-weight-bold mb-1">Calendar</VLabel>
             <VSelect
