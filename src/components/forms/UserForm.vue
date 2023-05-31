@@ -42,7 +42,7 @@ watch(props, () => {
       <VForm>
         <VRow class="d-flex mb-3">
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Username</VLabel>
+            <VLabel class="mb-1">Username</VLabel>
             <VTextField
               v-model="formModel.username"
               :rules="formRules.username"
@@ -52,7 +52,7 @@ watch(props, () => {
             />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Email</VLabel>
+            <VLabel class="mb-1">Email</VLabel>
             <VTextField
               v-model="formModel.email"
               :rules="formRules.username"
@@ -62,7 +62,7 @@ watch(props, () => {
             />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Role</VLabel>
+            <VLabel class="mb-1">Role</VLabel>
             <VAutocomplete
               v-model="formModel.role"
               :items="userStore.roles"
@@ -72,7 +72,7 @@ watch(props, () => {
             />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Status</VLabel>
+            <VLabel class="mb-1">Status</VLabel>
             <VAutocomplete
               v-model="formModel.status"
               :items="userStore.statusOptions"
@@ -85,8 +85,8 @@ watch(props, () => {
       </VForm>
     </VCardText>
     <VCardActions>
+      <VBtn type="submit" variant="outlined" color="primary" @click="handleSubmit">Submit</VBtn>
       <VBtn @click="handleCancel">Cancel</VBtn>
-      <VBtn color="primary" @click="handleSubmit">Submit</VBtn>
     </VCardActions>
   </VCard>
 </template>

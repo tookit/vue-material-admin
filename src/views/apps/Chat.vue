@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { VSkeletonLoader } from 'vuetify/lib/labs/VSkeletonLoader/index';
 import { IChatMessage } from '@/api/type';
 import { ref, watchEffect } from 'vue';
 import { useChatStore } from '@/store/chat';
@@ -6,11 +7,26 @@ import ChatAvatar from '@/components/chat/ChatAvatar.vue';
 import ChatMessage from '@/components/chat/ChatMessage.vue';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 const store = useChatStore();
+const loading = ref(true);
 watchEffect(() => {
-  store.initChat();
+  store
+    .initChat()
+    .then((resp) => {
+      console.log(resp);
+      loading.value = false;
+    })
+    .catch((err) => {
+      console.log(err);
+      loading.value = false;
+    });
 });
 const messages: Ref<IChatMessage[]> = ref([]);
-const handleSentMsg = () => {};
+const handleSentMsg = () => {
+  console.log('here');
+};
+const handleViewProfile = () => {
+  console.log('here');
+};
 const handleViewChat = (chat) => {
   messages.value = chat.messages;
 };
@@ -19,14 +35,15 @@ const handleViewChat = (chat) => {
   <VSheet elevation="10">
     <VLayout class="chat">
       <VNavigationDrawer :width="360" absolute touchless location="start">
-        <VToolbar style="background-color: #fff" flat tag="div">
+        <VToolbar flat tag="div">
           <VTextField class="mx-5" append-inner-icon="mdi-magnify"></VTextField>
         </VToolbar>
         <VDivider />
-        <VList lines="two">
+        <VList lines="two" class="pa-0">
           <VListSubheader>Recent</VListSubheader>
           <VDivider />
-          <template v-for="chat in store.chats">
+          <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
+          <template v-for="chat in store.chats" :key="chat.id">
             <VListItem @click="handleViewChat(chat)" :value="chat.id">
               <template v-slot:prepend>
                 <ChatAvatar
@@ -41,8 +58,9 @@ const handleViewChat = (chat) => {
           </template>
           <VListSubheader>Contacts</VListSubheader>
           <VDivider />
-          <template v-for="contact in store.chatContacts">
-            <VListItem>
+          <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
+          <template v-for="contact in store.chatContacts" :key="contact.id">
+            <VListItem @click="handleViewProfile">
               <template v-slot:prepend>
                 <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" />
               </template>
@@ -79,7 +97,8 @@ const handleViewChat = (chat) => {
           <div class="chat-container">
             <PerfectScrollbar tag="div" class="chat-scroll">
               <ChatMessage
-                v-for="msg in messages"
+                v-for="(msg, key) in messages"
+                :key="key"
                 :avatar="msg.sender ? msg.sender.avatar : ''"
                 :username="msg.sender ? msg.sender.username : ''"
                 :sent-at="msg.time"
@@ -111,9 +130,6 @@ const handleViewChat = (chat) => {
 </template>
 <style lang="scss">
 .chat {
-  &-sheet {
-    background-color: #f8f7fa;
-  }
   &-container {
     min-height: calc(100vh - 64px - 62px - 16px - 24px - 64px - 64px - 64px);
     padding: 24px;

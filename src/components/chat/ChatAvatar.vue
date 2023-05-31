@@ -25,9 +25,9 @@ const computeAvatarText = (value) => {
     bordered
     :color="status === 'online' ? 'success' : 'primary'"
   >
-    <VAvatar class="cursor-pointer" color="surface-variant">
+    <VAvatar class="cursor-pointer" :color="avatar ? '' : 'surface-variant'">
       <VImg :src="avatar" v-if="avatar" />
-      <span v-else>{{ computeAvatarText(username) }}</span>
+      <span v-else>{{ computeAvatarText(props.username) }}</span>
     </VAvatar>
   </VBadge>
 </template>

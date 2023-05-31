@@ -45,7 +45,7 @@ const handleSubmit = (e) => {
   <VForm>
     <VRow class="d-flex mb-3">
       <VCol cols="12">
-        <VLabel class="font-weight-bold mb-1">Username</VLabel>
+        <VLabel class="mb-1">Username</VLabel>
         <VTextField
           variant="outlined"
           color="primary"
@@ -55,7 +55,7 @@ const handleSubmit = (e) => {
         />
       </VCol>
       <VCol cols="12">
-        <VLabel class="font-weight-bold mb-1">Password</VLabel>
+        <VLabel class="mb-1">Password</VLabel>
         <VTextField
           variant="outlined"
           type="password"

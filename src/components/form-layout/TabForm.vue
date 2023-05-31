@@ -27,7 +27,6 @@ const account = reactive({
     </VTab>
   </VTabs>
   <VDivider />
-
   <VCard flat>
     <VCardText>
       <VWindow v-model="activeTab">
@@ -37,18 +36,15 @@ const account = reactive({
         <VWindowItem value="security">
           <BasicSecurityForm />
         </VWindowItem>
-
         <VWindowItem value="connection">
           <BasicConnectionForm />
         </VWindowItem>
       </VWindow>
     </VCardText>
-
     <VDivider />
-
     <VCardText class="d-flex gap-4">
       <VBtn>Submit</VBtn>
-      <VBtn color="secondary" variant="tonal"> Cancel </VBtn>
+      <VBtn variant="tonal"> Cancel </VBtn>
     </VCardText>
   </VCard>
 </template>

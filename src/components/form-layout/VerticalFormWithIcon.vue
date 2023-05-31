@@ -61,7 +61,7 @@ const formModel = reactive({
       </VCol>
       <VCol cols="12" class="d-flex gap-4">
         <VBtn type="submit" color="primary"> Submit </VBtn>
-        <VBtn type="reset" color="secondary" variant="tonal"> Reset </VBtn>
+        <VBtn type="reset" variant="tonal"> Reset </VBtn>
       </VCol>
     </VRow>
   </VForm>

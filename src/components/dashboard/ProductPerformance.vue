@@ -8,11 +8,11 @@ import { productPerformance } from '@/data/dashboard/dashboardData';
       <v-table class="month-table">
         <thead>
           <tr>
-            <th class="text-subtitle-1 font-weight-bold">Id</th>
-            <th class="text-subtitle-1 font-weight-bold">Assigned</th>
-            <th class="text-subtitle-1 font-weight-bold">Name</th>
-            <th class="text-subtitle-1 font-weight-bold">Priority</th>
-            <th class="text-subtitle-1 font-weight-bold text-right">Budget</th>
+            <th class="text-subtitle-1">Id</th>
+            <th class="text-subtitle-1">Assigned</th>
+            <th class="text-subtitle-1">Name</th>
+            <th class="text-subtitle-1">Priority</th>
+            <th class="text-subtitle-1 text-right">Budget</th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@ import { productPerformance } from '@/data/dashboard/dashboardData';
             </td>
             <td>
               <div class="">
-                <h6 class="text-subtitle-1 font-weight-bold">{{ item.name }}</h6>
+                <h6 class="text-subtitle-1">{{ item.name }}</h6>
                 <div class="text-13 mt-1 text-muted">{{ item.post }}</div>
               </div>
             </td>

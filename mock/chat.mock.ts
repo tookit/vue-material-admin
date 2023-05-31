@@ -295,7 +295,7 @@ export const fetchChats = defineMock({
   url: '/api/chat/init',
   method: 'GET',
   delay: 2000,
-  response(req, res, next) {
+  response(req, res) {
     const { query, body, params, headers } = req;
     const data = {
       chats: chatWithUsers,

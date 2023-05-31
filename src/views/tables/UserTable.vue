@@ -40,6 +40,11 @@ const headers = reactive([
 ]);
 
 const loading = ref(true);
+const computeAvatarText = (value) => {
+  if (!value) return '';
+  const nameArray = value.split(' ');
+  return nameArray.map((word) => word.charAt(0).toUpperCase()).join('');
+};
 const loadData = (params) => {
   users.value = [];
   loading.value = true;
@@ -81,9 +86,9 @@ const handleResetFilter = () => {
   <section>
     <VRow>
       <VCol cols="12">
-        <VCard>
+        <VCard :loading="loading">
           <VCardItem class="py-0">
-            <VToolbar flat style="background-color: #fff">
+            <VToolbar flat>
               <VTextField
                 :prepend-icon="!showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
                 placeholder="Type something"
@@ -95,13 +100,13 @@ const handleResetFilter = () => {
                 @click:prepend="showFilter = !showFilter"
                 @click:clear="handleClear"
               />
-              <VBtn icon @click="handleApplyFilter">
+              <VBtn icon @click="handleApplyFilter" density="comfortable">
                 <VIcon>mdi-magnify</VIcon>
               </VBtn>
-              <VBtn icon @click="handleRefreshItem">
+              <VBtn icon @click="handleRefreshItem" density="comfortable">
                 <VIcon>mdi-refresh</VIcon>
               </VBtn>
-              <VBtn icon @click="handleCreateItem">
+              <VBtn icon @click="handleCreateItem" density="comfortable">
                 <VIcon>mdi-plus</VIcon>
               </VBtn>
             </VToolbar>
@@ -135,8 +140,9 @@ const handleResetFilter = () => {
               show-select
             >
               <template #item.avatar="{ item }">
-                <VAvatar>
-                  <VImg :src="String(item.columns.avatar)" />
+                <VAvatar :color="item.columns.avatar ? '' : 'surface-variant'">
+                  <VImg :src="String(item.columns.avatar)" v-if="item.columns.avatar" />
+                  <span v-else>{{ computeAvatarText(item.columns.username) }}</span>
                 </VAvatar>
               </template>
               <template #item.action="{ item }">

@@ -60,11 +60,11 @@ watch(props, () => {
       <VForm>
         <VRow class="d-flex mb-3">
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Title</VLabel>
+            <VLabel class="mb-1">Title</VLabel>
             <VTextField v-model="formModel.title" variant="outlined" color="primary" name="title" />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Calendar</VLabel>
+            <VLabel class="mb-1">Calendar</VLabel>
             <VSelect
               v-model="formModel.extendedProps.calendar"
               :items="eventStore.availableCalendars"
@@ -76,26 +76,26 @@ watch(props, () => {
             />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Start Date</VLabel>
+            <VLabel class="mb-1">Start Date</VLabel>
             <VTextField v-model="formModel.start" variant="outlined" color="primary" name="start" type="datetime" />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">End Date</VLabel>
+            <VLabel class="mb-1">End Date</VLabel>
             <VTextField v-model="formModel.end" variant="outlined" color="primary" name="end" type="datetime" />
           </VCol>
           <VCol cols="12">
             <VSwitch v-model="formModel.allDay" label="All day" />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Event URL</VLabel>
+            <VLabel class="mb-1">Event URL</VLabel>
             <VTextField v-model="formModel.url" variant="outlined" color="primary" name="url" type="url" />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Location</VLabel>
+            <VLabel class="mb-1">Location</VLabel>
             <VTextField v-model="formModel.extendedProps.location" variant="outlined" color="primary" name="location" />
           </VCol>
           <VCol cols="12">
-            <VLabel class="font-weight-bold mb-1">Description</VLabel>
+            <VLabel class="mb-1">Description</VLabel>
             <VTextarea
               v-model="formModel.extendedProps.description"
               variant="outlined"
