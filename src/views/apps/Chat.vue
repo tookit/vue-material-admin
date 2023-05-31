@@ -1,13 +1,28 @@
 <script lang="ts" setup>
 import { VSkeletonLoader } from 'vuetify/lib/labs/VSkeletonLoader/index';
-import { IChatMessage } from '@/api/type';
-import { ref, watchEffect } from 'vue';
+import { IChatMessage, IUser } from '@/api/type';
+import { ref, watchEffect, reactive } from 'vue';
 import { useChatStore } from '@/store/chat';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
 import ChatMessage from '@/components/chat/ChatMessage.vue';
+import VerticalProfileCard from '@/components/card/VerticalProfileCard.vue';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 const store = useChatStore();
 const loading = ref(true);
+const showDialog = ref(false);
+const selectedUser = reactive<IUser>({
+  id: 0,
+  username: '',
+  company: '',
+  country: '',
+  contact: '',
+  currentPlan: 'free',
+  email: '',
+  avatar: '',
+  billing: '',
+  role: '',
+  status: 'active'
+});
 watchEffect(() => {
   store
     .initChat()
@@ -24,8 +39,9 @@ const messages: Ref<IChatMessage[]> = ref([]);
 const handleSentMsg = () => {
   console.log('here');
 };
-const handleViewProfile = () => {
-  console.log('here');
+const handleViewProfile = (contact) => {
+  Object.assign(selectedUser, contact);
+  showDialog.value = true;
 };
 const handleViewChat = (chat) => {
   messages.value = chat.messages;
@@ -60,7 +76,7 @@ const handleViewChat = (chat) => {
           <VDivider />
           <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
           <template v-for="contact in store.chatContacts" :key="contact.id">
-            <VListItem @click="handleViewProfile">
+            <VListItem @click="handleViewProfile(contact)">
               <template v-slot:prepend>
                 <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" />
               </template>
@@ -126,6 +142,9 @@ const handleViewChat = (chat) => {
         </VSheet>
       </VMain>
     </VLayout>
+    <VDialog v-model="showDialog" width="640px" eager>
+      <VerticalProfileCard :user="selectedUser" @form:cancel="showDialog = false" />
+    </VDialog>
   </VSheet>
 </template>
 <style lang="scss">

@@ -33,6 +33,17 @@ const items = [
     },
     value: '/calendar'
   },
+  { type: 'subheader', title: 'Widgets' },
+  {
+    title: 'Card',
+    props: {
+      prependIcon: 'mdi-card',
+      link: true,
+      to: '/widget/card',
+      exact: true
+    },
+    value: '/widget/card'
+  },
   { type: 'subheader', title: 'Auth' },
   {
     title: 'Login',
@@ -76,6 +87,7 @@ const items = [
     },
     value: '/user-table'
   },
+  { type: 'subheader', title: 'Chart' },
   {
     title: 'Chart',
     props: {
