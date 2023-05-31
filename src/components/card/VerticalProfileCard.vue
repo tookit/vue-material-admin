@@ -33,12 +33,8 @@ const computeAvatarText = (value) => {
 
 <template>
   <VCard>
-    <VCardTitle>User Profile</VCardTitle>
     <VCardText>
-      <VAvatar size="160" class="cursor-pointer" :color="user.avatar ? '' : 'surface-variant'">
-        <VImg :src="user.avatar" v-if="user.avatar" />
-        <span v-else>{{ computeAvatarText(user.username) }}</span>
-      </VAvatar>
+      <ChatAvatar :username="user.username" :avatar="user.avatar" status="online" size="160" />
     </VCardText>
   </VCard>
 </template>

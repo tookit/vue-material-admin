@@ -65,6 +65,7 @@ const handleViewChat = (chat) => {
                 <ChatAvatar
                   :username="chat.user ? chat.user.username : ''"
                   :avatar="chat.user ? chat.user.avatar : ''"
+                  size="40"
                 />
               </template>
               <VListItemTitle class="ml-3">{{ chat.user ? chat.user.username : '' }}</VListItemTitle>
@@ -78,7 +79,7 @@ const handleViewChat = (chat) => {
           <template v-for="contact in store.chatContacts" :key="contact.id">
             <VListItem @click="handleViewProfile(contact)">
               <template v-slot:prepend>
-                <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" />
+                <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" size="40" />
               </template>
               <VListItemTitle class="ml-3">{{ contact.fullName }}</VListItemTitle>
               <VListItemSubtitle class="ml-3">{{ contact.role }}</VListItemSubtitle>

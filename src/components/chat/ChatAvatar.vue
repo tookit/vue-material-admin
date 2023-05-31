@@ -3,6 +3,7 @@ interface Props {
   avatar?: string;
   username?: string;
   status?: string;
+  size: string | number;
 }
 const props = withDefaults(defineProps<Props>(), {
   avatar: '',
@@ -25,7 +26,7 @@ const computeAvatarText = (value) => {
     bordered
     :color="status === 'online' ? 'success' : 'primary'"
   >
-    <VAvatar class="cursor-pointer" :color="avatar ? '' : 'surface-variant'">
+    <VAvatar :size="props.size" class="cursor-pointer" :color="avatar ? '' : 'surface-variant'">
       <VImg :src="avatar" v-if="avatar" />
       <span v-else>{{ computeAvatarText(props.username) }}</span>
     </VAvatar>
