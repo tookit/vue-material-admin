@@ -33,8 +33,52 @@ const computeAvatarText = (value) => {
 
 <template>
   <VCard>
-    <VCardText>
+    <VToolbar tag="div">
+      <VSpacer />
+      <VBtn icon="mdi-dots-vertical"> </VBtn>
+    </VToolbar>
+    <VCardText class="text-center">
       <ChatAvatar :username="user.username" :avatar="user.avatar" status="online" size="160" />
+      <div class="mt-5">
+        <h3>{{ user.username }}</h3>
+        <p>{{ user.role }}</p>
+      </div>
     </VCardText>
+    <VCardItem>
+      <div class="justify-space-evenly d-flex">
+        <VBtn>Message</VBtn>
+        <VBtn>Contact</VBtn>
+      </div>
+    </VCardItem>
+    <VCardItem>
+      <VList>
+        <v-list-subheader>Profile</v-list-subheader>
+        <VListItem>
+          <template v-slot:prepend>
+            <v-icon icon="mdi-email"></v-icon>
+          </template>
+          <VListItemTitle>{{ user.email }}</VListItemTitle>
+        </VListItem>
+        <VListItem>
+          <template v-slot:prepend>
+            <v-icon icon="mdi-phone"></v-icon>
+          </template>
+          <VListItemTitle>{{ user.contact }}</VListItemTitle>
+        </VListItem>
+        <VListItem>
+          <template v-slot:prepend>
+            <v-icon icon="mdi-city"></v-icon>
+          </template>
+          <VListItemTitle>{{ user.country }}</VListItemTitle>
+        </VListItem>
+        <VListItem>
+          <template v-slot:prepend>
+            <v-icon icon="mdi-domain"></v-icon>
+          </template>
+          <VListItemTitle>{{ user.company }}</VListItemTitle>
+        </VListItem>
+      </VList>
+    </VCardItem>
+    <VCardActions> </VCardActions>
   </VCard>
 </template>

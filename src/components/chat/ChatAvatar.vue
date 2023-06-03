@@ -23,7 +23,7 @@ const computeAvatarText = (value) => {
     location="bottom right"
     offset-x="3"
     offset-y="0"
-    bordered
+    rounded
     :color="status === 'online' ? 'success' : 'primary'"
   >
     <VAvatar :size="props.size" class="cursor-pointer" :color="avatar ? '' : 'surface-variant'">
