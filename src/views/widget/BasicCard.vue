@@ -40,7 +40,7 @@ const user = reactive<IUser>({
       </VCard>
     </VCol>
     <VCol lg="4">
-      <VCard class="mx-auto" max-width="374">
+      <VCard>
         <VImg cover height="250" src="/assets/images/bg/cooking.png"></VImg>
         <VCardItem>
           <VCardTitle>Cafe Badilico</VCardTitle>
@@ -58,18 +58,15 @@ const user = reactive<IUser>({
           <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
         </VCardText>
         <VDivider class="mx-4 mb-1" />
-        <VCardTitle>Tonight's availability</VCardTitle>
-        <div class="px-4">
+        <VCardText>
+          <VCardSubtitle class="px-0">Tonight's availability</VCardSubtitle>
           <VChipGroup>
-            <VChip>5:30PM</VChip>
-
-            <VChip>7:30PM</VChip>
-
-            <VChip>8:00PM</VChip>
-
-            <VChip>9:00PM</VChip>
+            <VChip prepend-icon="mdi-clock">5:30PM</VChip>
+            <VChip prepend-icon="mdi-clock">7:30PM</VChip>
+            <VChip prepend-icon="mdi-clock">8:00PM</VChip>
+            <VChip prepend-icon="mdi-clock">9:00PM</VChip>
           </VChipGroup>
-        </div>
+        </VCardText>
         <VCardActions>
           <VBtn variant="text"> Reserve </VBtn>
         </VCardActions>

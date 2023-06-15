@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, reactive, watchEffect } from 'vue';
-import { VDataTable } from 'vuetify/lib/labs/VDataTable/index';
+import { VDataTable } from 'vuetify/labs/VDataTable';
 import { fetchUsers } from '@/api/user';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';

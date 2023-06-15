@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, defineEmits, watch } from 'vue';
+import { reactive, watch } from 'vue';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';
 interface IModel {

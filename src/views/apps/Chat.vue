@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { VSkeletonLoader } from 'vuetify/lib/labs/VSkeletonLoader/index';
+import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
 import { IChatMessage, IUser } from '@/api/type';
 import { ref, watchEffect, reactive } from 'vue';
 import { useChatStore } from '@/store/chat';
