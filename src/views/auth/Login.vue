@@ -4,8 +4,8 @@ import Logo from '@/components/Logo.vue';
 import LoginForm from '@/components/forms/LoginForm.vue';
 </script>
 <template>
-  <div class="page-auth">
-    <div class="page-auth-wrapper">
+  <div class="auth">
+    <div class="auth-wrapper">
       <VCard rounded="md" elevation="10" class="login-card" max-width="500">
         <VCardItem class="pa-sm-8">
           <div class="d-flex justify-center py-4">

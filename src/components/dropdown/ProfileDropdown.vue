@@ -46,7 +46,7 @@ const items = [
       </VBtn>
     </template>
     <VSheet rounded="md" width="200" elevation="10" class="mt-2">
-      <VList :items="items" lines="one" density="compact" class="pa-0" active-color="primary" />
+      <VList :items="items" lines="one" density="compact" class="pa-0" color="primary" />
       <div class="pt-4 pb-4 px-5 text-center">
         <VBtn to="/auth/login" color="primary" variant="outlined" block>Logout</VBtn>
       </div>
