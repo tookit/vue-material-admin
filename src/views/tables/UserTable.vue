@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref, reactive, watchEffect } from 'vue';
-import { VDataTable } from 'vuetify/labs/VDataTable';
 import { fetchUsers } from '@/api/user';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';
@@ -86,7 +85,7 @@ const handleResetFilter = () => {
   <section>
     <VRow>
       <VCol cols="12">
-        <VCard :loading="loading">
+        <VCard>
           <VCardItem class="py-0">
             <VToolbar flat>
               <VTextField
@@ -140,14 +139,13 @@ const handleResetFilter = () => {
               show-select
             >
               <template #item.avatar="{ item }">
-                <VAvatar :color="item.columns.avatar ? '' : 'surface-variant'">
-                  <VImg :src="String(item.columns.avatar)" v-if="item.columns.avatar" />
-                  <span v-else>{{ computeAvatarText(item.columns.username) }}</span>
+                <VAvatar :color="item.avatar ? '' : 'surface-variant'">
+                  <VImg :src="String(item.avatar)" v-if="item.avatar" />
+                  <span v-else>{{ computeAvatarText(item.username) }}</span>
                 </VAvatar>
               </template>
               <template #item.action="{ item }">
-                <VBtn variant="plain" density="compact" icon="mdi-pencil-outline" @click="handleEditItem(item.columns)">
-                </VBtn>
+                <VBtn variant="plain" density="compact" icon="mdi-pencil-outline" @click="handleEditItem(item)"> </VBtn>
                 <VBtn variant="plain" density="compact" icon="mdi-trash-can-outline"> </VBtn>
                 <VBtn variant="plain" density="compact" icon="mdi-dots-vertical"> </VBtn>
               </template>

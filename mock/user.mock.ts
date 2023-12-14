@@ -78,7 +78,7 @@ export const users: IUser[] = [
     email: 'shalstead5@shinystat.com',
     currentPlan: 'company',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -91,7 +91,7 @@ export const users: IUser[] = [
     email: 'bgallemore6@boston.com',
     currentPlan: 'company',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -182,7 +182,7 @@ export const users: IUser[] = [
     email: 'mkraused@stanford.edu',
     currentPlan: 'team',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -195,7 +195,7 @@ export const users: IUser[] = [
     email: 'zmcclevertye@soundcloud.com',
     currentPlan: 'enterprise',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -208,7 +208,7 @@ export const users: IUser[] = [
     email: 'bemblinf@wired.com',
     currentPlan: 'company',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -221,7 +221,7 @@ export const users: IUser[] = [
     email: 'bmylesg@amazon.com',
     currentPlan: 'basic',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -247,7 +247,7 @@ export const users: IUser[] = [
     email: 'tbruntjeni@sitemeter.com',
     currentPlan: 'enterprise',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {
@@ -325,7 +325,7 @@ export const users: IUser[] = [
     email: 'amiccoo@whitehouse.gov',
     currentPlan: 'enterprise',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -364,7 +364,7 @@ export const users: IUser[] = [
     email: 'bkildayr@mashable.com',
     currentPlan: 'team',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {
@@ -390,7 +390,7 @@ export const users: IUser[] = [
     email: 'imallindinet@shinystat.com',
     currentPlan: 'team',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {
@@ -455,7 +455,7 @@ export const users: IUser[] = [
     email: 'smacgilfoyley@bigcartel.com',
     currentPlan: 'company',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Paypal'
   },
   {
@@ -468,7 +468,7 @@ export const users: IUser[] = [
     email: 'brosebothamz@tripadvisor.com',
     currentPlan: 'team',
     status: 'inactive',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Paypal'
   },
   {
@@ -507,7 +507,7 @@ export const users: IUser[] = [
     email: 'twidmore12@bravesites.com',
     currentPlan: 'team',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Credit Card'
   },
   {
@@ -533,7 +533,7 @@ export const users: IUser[] = [
     email: 'ebaldetti14@theguardian.com',
     currentPlan: 'team',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Cash'
   },
   {
@@ -546,7 +546,7 @@ export const users: IUser[] = [
     email: 'brossiter15@craigslist.org',
     currentPlan: 'team',
     status: 'inactive',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Credit Card'
   },
   {
@@ -559,7 +559,7 @@ export const users: IUser[] = [
     email: 'mmcnirlan16@hc360.com',
     currentPlan: 'basic',
     status: 'inactive',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Credit Card'
   },
   {
@@ -572,7 +572,7 @@ export const users: IUser[] = [
     email: 'vkoschek17@abc.net.au',
     currentPlan: 'team',
     status: 'active',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {
@@ -598,7 +598,7 @@ export const users: IUser[] = [
     email: 'soffner19@mac.com',
     currentPlan: 'enterprise',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {
@@ -624,7 +624,7 @@ export const users: IUser[] = [
     email: 'owind1b@yandex.ru',
     currentPlan: 'basic',
     status: 'pending',
-    avatar: '',
+    avatar: ' ',
     billing: 'Manual - Credit Card'
   },
   {
@@ -637,7 +637,7 @@ export const users: IUser[] = [
     email: 'pdurber1c@gov.uk',
     currentPlan: 'team',
     status: 'inactive',
-    avatar: '',
+    avatar: ' ',
     billing: 'Auto Debit'
   },
   {

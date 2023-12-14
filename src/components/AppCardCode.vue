@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   noPadding: true
 });
 
-const preferredCodeLanguage = 'ts';
+const preferredCodeLanguage = ref('ts');
 const isCodeShown = ref(false);
 </script>
 

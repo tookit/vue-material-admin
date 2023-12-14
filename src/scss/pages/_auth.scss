@@ -1,4 +1,9 @@
-.authentication{
+.page-auth{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     &::before{
         content: "";
         position: absolute;
@@ -10,4 +15,5 @@
         bottom: 0;
         background: var(--v-theme-background);
     }
+
 }

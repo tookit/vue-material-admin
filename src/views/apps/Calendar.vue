@@ -13,11 +13,7 @@ const loading = ref(false);
 const store = useCalendarStore();
 // 👉 Event
 const event = ref(structuredClone(blankEvent));
-const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(
-  event,
-  showDialog,
-  loading
-);
+const { refCalendar, calendarOptions, updateEvent, jumpToDate } = useCalendar(event, showDialog, loading);
 const checkAll = computed({
   /*
     GET: Return boolean `true` => if length of options matches length of selected filters => Length matches when all events are selected
