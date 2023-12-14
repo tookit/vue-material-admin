@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { UserIcon, MailIcon, ListCheckIcon } from 'vue-tabler-icons';
 const items = [
   {
     title: 'Profile',
     props: {
-      prependIcon: UserIcon,
+      prependIcon: 'mdi-account-outline',
       link: true,
       to: '/profile',
       exact: true
@@ -14,7 +13,7 @@ const items = [
   {
     title: 'Message',
     props: {
-      prependIcon: MailIcon,
+      prependIcon: 'mdi-message-badge-outline',
       link: true,
       to: '/message',
       exact: true
@@ -24,7 +23,7 @@ const items = [
   {
     title: 'Task',
     props: {
-      prependIcon: ListCheckIcon,
+      prependIcon: 'mdi-check',
       link: true,
       to: '/task',
       exact: true

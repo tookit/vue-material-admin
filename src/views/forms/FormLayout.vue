@@ -11,16 +11,14 @@ import TabForm from '@/components/form-layout/TabForm.vue';
     <VRow>
       <VCol cols="12" md="6">
         <!-- 👉 Horizontal Form -->
-        <VCard>
+        <VCard class="form-card">
           <VCardItem> <VCardTitle>Horizontal Form</VCardTitle> </VCardItem>
-          <VCardText>
-            <HorizontalForm />
-          </VCardText>
+          <VCardText><HorizontalForm /> </VCardText>
         </VCard>
       </VCol>
       <VCol cols="12" md="6">
         <!-- 👉 Horizontal Form With Icons-->
-        <VCard>
+        <VCard class="form-card">
           <VCardItem> <VCardTitle>Horizontal Form with Icons</VCardTitle> </VCardItem>
           <VCardText>
             <HorizontalFormWithIcon />
@@ -29,7 +27,7 @@ import TabForm from '@/components/form-layout/TabForm.vue';
       </VCol>
       <VCol cols="12" md="6">
         <!-- 👉 Horizontal Form With Icons-->
-        <VCard>
+        <VCard class="form-card">
           <VCardItem><VCardTitle>Vertical Form</VCardTitle></VCardItem>
           <VCardText>
             <VerticalForm />
@@ -38,7 +36,7 @@ import TabForm from '@/components/form-layout/TabForm.vue';
       </VCol>
       <VCol cols="12" md="6">
         <!-- 👉 Horizontal Form With Icons-->
-        <VCard>
+        <VCard class="form-card">
           <VCardItem><VCardTitle>Vertical Form With Icon</VCardTitle></VCardItem>
           <VCardText>
             <VerticalFormWithIcon />
@@ -46,13 +44,18 @@ import TabForm from '@/components/form-layout/TabForm.vue';
         </VCard>
       </VCol>
       <VCol cols="12" md="12">
-        <VCard>
-          <VCardItem><VCardTitle>Form With Tab</VCardTitle></VCardItem>
-          <VCardText>
-            <TabForm />
-          </VCardText>
-        </VCard>
+        <VSheet class="pa-4">
+          <TabForm />
+        </VSheet>
       </VCol>
     </VRow>
   </div>
 </template>
+<style lang="scss">
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+}
+</style>

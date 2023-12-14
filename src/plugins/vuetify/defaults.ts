@@ -22,6 +22,10 @@ export default {
     // set v-btn default color to primary
     color: 'primary'
   },
+  VCard: {
+    elevation: 10,
+    rounded: 'lg'
+  },
   VChip: {
     size: 'small'
   },

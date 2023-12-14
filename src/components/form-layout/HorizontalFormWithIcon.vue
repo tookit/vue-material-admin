@@ -93,8 +93,8 @@ const formModel = reactive({
       </VCol>
 
       <!-- 👉 submit and reset button -->
-      <VCol offset-md="3" cols="12" md="9" class="d-flex gap-4">
-        <VBtn type="submit" color="primary"> Submit </VBtn>
+      <VCol offset-md="3" cols="12" md="9" class="d-flex">
+        <VBtn type="submit" color="primary" class="mr-4"> Submit </VBtn>
         <VBtn variant="tonal" type="reset"> Reset </VBtn>
       </VCol>
     </VRow>

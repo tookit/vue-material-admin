@@ -16,7 +16,7 @@ const items = [
   {
     title: 'Chat',
     props: {
-      prependIcon: 'mdi-chat',
+      prependIcon: 'mdi-chat-outline',
       link: true,
       to: '/chat',
       exact: true
@@ -37,7 +37,7 @@ const items = [
   {
     title: 'Card',
     props: {
-      prependIcon: 'mdi-card',
+      prependIcon: 'mdi-widgets-outline',
       link: true,
       to: '/widget/card',
       exact: true
@@ -80,7 +80,7 @@ const items = [
   {
     title: 'Table',
     props: {
-      prependIcon: 'mdi-view-list-outline',
+      prependIcon: 'mdi-table',
       link: true,
       to: '/user-table',
       exact: true

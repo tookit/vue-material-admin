@@ -60,7 +60,7 @@ const formModel = reactive({
         <VCheckbox v-model="formModel.remember" label="Remember me" />
       </VCol>
       <VCol cols="12" class="d-flex gap-4">
-        <VBtn type="submit" color="primary"> Submit </VBtn>
+        <VBtn type="submit" color="primary" class="mr-4"> Submit </VBtn>
         <VBtn type="reset" variant="tonal"> Reset </VBtn>
       </VCol>
     </VRow>

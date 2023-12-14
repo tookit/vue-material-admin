@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { BellIcon } from 'vue-tabler-icons';
 declare const block: readonly ['top', 'bottom'];
 declare const inline: readonly ['start', 'end', 'left', 'right'];
 type Tblock = (typeof block)[number];
@@ -42,7 +41,7 @@ defineEmits<{
   <VBadge :model-value="!!props.badgeProps" v-bind="props.badgeProps">
     <VBtn icon variant="text" color="default" size="small" class="mr-3">
       <VBadge :model-value="!!props.notifications.length" color="error" content="4">
-        <VIcon :icon="BellIcon" size="24" />
+        <VIcon icon="mdi-bell-outline" size="24" />
       </VBadge>
 
       <VMenu activator="parent" width="380px" :location="props.location" offset="14px">
