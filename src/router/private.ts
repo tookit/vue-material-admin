@@ -15,12 +15,12 @@ const PrivateRoutes = {
     {
       name: 'Form',
       path: '/form',
-      component: () => import('@/views/forms/FormLayout.vue')
+      component: () => import('@/views/forms/FormView.vue')
     },
     {
       name: 'Table',
       path: '/user-table',
-      component: () => import('@/views/tables/UserTable.vue')
+      component: () => import('@/views/tables/TableView.vue')
     },
     {
       name: 'Chart',
@@ -30,17 +30,17 @@ const PrivateRoutes = {
     {
       name: 'Calendar',
       path: '/calendar',
-      component: () => import('@/views/apps/Calendar.vue')
+      component: () => import('@/views/apps/CalendarView.vue')
     },
     {
       name: 'Chat',
       path: '/chat',
-      component: () => import('@/views/apps/Chat.vue')
+      component: () => import('@/views/apps/ChatView.vue')
     },
     {
       name: 'Profile',
       path: '/profile',
-      component: () => import('@/views/profile/UserProfile.vue')
+      component: () => import('@/views/profile/ProfileView.vue')
     },
     {
       name: 'Card',
@@ -50,7 +50,7 @@ const PrivateRoutes = {
     {
       name: 'Setting',
       path: '/setting',
-      component: () => import('@/views/setting/UserSetting.vue')
+      component: () => import('@/views/setting/SettingView.vue')
     }
   ]
 };

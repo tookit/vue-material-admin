@@ -25,15 +25,15 @@ import LoginForm from '@/components/forms/LoginForm.vue';
 <style lang="scss">
 .login-card {
   overflow: visible;
-}
-.login-card::before {
-  content: '';
-  background: url(/assets/svg/dot2.svg);
-  width: 6rem;
-  height: 6rem;
-  position: absolute;
-  bottom: -2rem;
-  left: -2rem;
-  z-index: 0;
+  &::before {
+    content: '';
+    background: url(/assets/svg/dot2.svg);
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    bottom: -2rem;
+    left: -2rem;
+    z-index: 0;
+  }
 }
 </style>

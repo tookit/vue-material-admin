@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw';
+import { http, delay, HttpResponse } from 'msw';
 const isAuthenticated = (username, password) => {
   return username === 'admin' && password === '123456';
 };
@@ -6,6 +6,7 @@ const isAuthenticated = (username, password) => {
 export const handlerAuth = [
   http.post('/api/auth/login', async ({ request }) => {
     const { username, password } = (await request.json()) as { username: string; password: string };
+    console.log(username, password);
     const statusCode = isAuthenticated(username, password) ? 200 : 400;
     const data = isAuthenticated(username, password)
       ? {
@@ -16,7 +17,7 @@ export const handlerAuth = [
           errorCode: '400',
           errorMessage: 'Auth Failed.'
         };
-
+    await delay(1000);
     return HttpResponse.json(data, { status: statusCode });
   })
 ];

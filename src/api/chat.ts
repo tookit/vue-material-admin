@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { IChatInit } from './type';
+// import useMyFetch from '@/composable/useRequest';
 
 /**
- * Login
+ * Init Chat
  */
 export async function initChat() {
   const options = {
