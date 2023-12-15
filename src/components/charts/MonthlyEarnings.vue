@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme();
-const primary = theme.current.value.colors.primary;
+// const primary = theme.current.value.colors.primary;
 const secondary = theme.current.value.colors.info;
 
 /* Chart */
@@ -53,24 +53,22 @@ const areaChart = {
 };
 </script>
 <template>
-  <VCard elevation="10">
+  <VCard>
     <VCardItem>
       <div class="d-flex align-center justify-space-between pt-sm-2">
         <VCardTitle class="text-h5">Monthly Earnings</VCardTitle>
         <VBtn size="large" icon>
-          <VAvatar size="large" class="text-white">
-            <CurrencyDollarIcon size="25" />
-          </VAvatar>
+          <VIcon icon="mdi-currency-usd" color="white" />
+          <!-- <CurrencyDollarIcon size="25" />
+             -->
         </VBtn>
       </div>
       <VRow>
         <VCol cols="12">
           <div class="mt-2">
-            <h3 class="text-h3">$6,820</h3>
+            <h3 class="text-h5">$6,820</h3>
             <div class="mt-1">
-              <VAvatar class="bg-lighterror text-accent" size="25">
-                <ArrowDownRightIcon size="20" />
-              </VAvatar>
+              <VIcon icon="mdi-arrow-up-right" color="success" />
               <span class="text-subtitle-1 ml-2 font-weight-bold">+9%</span>
               <span class="text-subtitle-1 text-muted ml-2">last year</span>
             </div>

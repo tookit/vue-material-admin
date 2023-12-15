@@ -53,9 +53,7 @@ const Chart = [38, 40, 25];
           <div class="mt-6">
             <h3 class="text-h3">$36,358</h3>
             <div class="mt-1">
-              <VAvatar class="bg-lightsuccess text-success" size="25">
-                <ArrowUpLeftIcon size="20" />
-              </VAvatar>
+              <VIcon icon="mdi-arrow-up-left" color="success" />
               <span class="text-subtitle-1 ml-2 font-weight-bold">+9%</span>
               <span class="text-subtitle-1 text-muted ml-2">last year</span>
             </div>

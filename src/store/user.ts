@@ -6,7 +6,7 @@ export interface IUserState {
   expire_in: number;
   username: string;
   avatar: string;
-  permissions: any[];
+  permissions: [];
 }
 /** User Store */
 export const useUserStore = defineStore('user', {

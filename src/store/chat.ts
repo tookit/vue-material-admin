@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { initChat } from '@/api/chat';
-import { IChat, IChatContact, IChatMessage } from '@/api/type';
+import { IChat, IChatContact } from '@/api/type';
 
 export const useChatStore = defineStore('chat', {
   // ℹ️ arrow function recommended for full type inference
@@ -23,7 +23,7 @@ export const useChatStore = defineStore('chat', {
       try {
         const response = await initChat();
         const { data } = response;
-        const { chats, contacts, profileUser } = data;
+        const { chats, contacts } = data;
         this.setChats(chats);
         this.setChatContacts(contacts);
         this.setProfile(this.profile);
@@ -31,10 +31,6 @@ export const useChatStore = defineStore('chat', {
       } catch (e) {
         return Promise.reject(e);
       }
-    },
-
-    async getChat(userId: IChatContact['id']) {},
-
-    async sendMsg(message: IChatMessage['message']) {}
+    }
   }
 });

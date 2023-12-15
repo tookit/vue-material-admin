@@ -7,7 +7,7 @@ import { ILoginRespose, IUser } from './type';
 export async function login(params: object): Promise<ILoginRespose> {
   const options = {
     method: 'POST',
-    url: '/api/login',
+    url: '/api/auth/login',
     data: params,
     headers: {
       'Content-Type': 'application/json'

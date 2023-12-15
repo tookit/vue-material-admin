@@ -1,6 +1,8 @@
-import { defineMock } from 'vite-plugin-mock-dev-server';
-import { IChatContact, IChat } from '../src/api/type';
-import { findUserById } from './user.mock';
+import { http, HttpResponse } from 'msw';
+
+import { IChatContact, IChat } from '@/api/type';
+import { findUserById } from './user';
+
 const previousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
 const dayBeforePreviousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000 * 2);
 const profileUser = {
@@ -291,31 +293,13 @@ const chatWithUsers = chats.map((item) => {
   return item;
 });
 
-export const fetchChats = defineMock({
-  url: '/api/chat/init',
-  method: 'GET',
-  delay: 2000,
-  response(req, res) {
-    const { query, body, params, headers } = req;
+export const handlerChat = [
+  http.get('/api/chat/init', async () => {
     const data = {
       chats: chatWithUsers,
       contacts,
       profile: profileUser
     };
-    res.end(JSON.stringify(data));
-  }
-});
-
-export const getChatById = defineMock({
-  url: '/api/chat/:chatId',
-  method: 'GET',
-  delay: 2000,
-  response(req, res, next) {
-    const { params, body } = req;
-    const chatId = params.chatId;
-    const record = chats.find((item) => {
-      return item.id === chatId;
-    });
-    res.end(JSON.stringify(record));
-  }
-});
+    return HttpResponse.json(data, { status: 200 });
+  })
+];

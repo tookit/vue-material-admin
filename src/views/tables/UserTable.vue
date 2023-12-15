@@ -44,6 +44,15 @@ const computeAvatarText = (value) => {
   const nameArray = value.split(' ');
   return nameArray.map((word) => word.charAt(0).toUpperCase()).join('');
 };
+const computeStatusColor = (status) => {
+  const statusMap = {
+    inactive: 'default',
+    active: 'success',
+    pendeing: 'warn'
+  };
+  return statusMap[status];
+};
+
 const loadData = (params) => {
   users.value = [];
   loading.value = true;
@@ -66,9 +75,18 @@ const handleRefreshItem = () => {
 const handleCreateItem = () => {
   showDialog.value = true;
 };
+const handleViewItem = () => {
+  // showDialog.value = true;
+  console.log('view');
+};
 const handleEditItem = (row) => {
   Object.assign(selectedUser, row);
   showDialog.value = true;
+};
+
+const handleDeleteItem = () => {
+  // showDialog.value = true;
+  console.log('view');
 };
 const handleClear = () => {
   filters.role = '';
@@ -139,15 +157,29 @@ const handleResetFilter = () => {
               show-select
             >
               <template #item.avatar="{ item }">
-                <VAvatar :color="item.avatar ? '' : 'surface-variant'">
+                <VAvatar :color="item.avatar ? '' : 'surface-variant'" class="ma-3">
                   <VImg :src="String(item.avatar)" v-if="item.avatar" />
                   <span v-else>{{ computeAvatarText(item.username) }}</span>
                 </VAvatar>
               </template>
+              <template #item.status="{ item }">
+                <VChip :color="computeStatusColor(item.status)">{{ item.status }}</VChip>
+              </template>
               <template #item.action="{ item }">
                 <VBtn variant="plain" density="compact" icon="mdi-pencil-outline" @click="handleEditItem(item)"> </VBtn>
                 <VBtn variant="plain" density="compact" icon="mdi-trash-can-outline"> </VBtn>
-                <VBtn variant="plain" density="compact" icon="mdi-dots-vertical"> </VBtn>
+                <VMenu :close-on-content-click="false">
+                  <template v-slot:activator="{ props }">
+                    <VBtn variant="plain" density="compact" icon="mdi-dots-vertical" v-bind="props"> </VBtn>
+                  </template>
+                  <VSheet rounded="md" width="200" elevation="10" class="mt-2">
+                    <VList lines="one" density="compact" class="pa-0" color="primary">
+                      <VListItem @click="handleViewItem">View</VListItem>
+                      <VListItem @click="handleEditItem">Edit</VListItem>
+                      <VListItem @click="handleDeleteItem">Delete</VListItem>
+                    </VList>
+                  </VSheet>
+                </VMenu>
               </template>
             </VDataTable>
           </VCardText>

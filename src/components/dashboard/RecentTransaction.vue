@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CircleIcon } from 'vue-tabler-icons';
 import { recentTransaction } from '@/data/dashboard/dashboardData';
 </script>
 <template>
@@ -13,7 +12,7 @@ import { recentTransaction } from '@/data/dashboard/dashboardData';
               <h6 class="text-body-1 textSecondary text-no-wrap">{{ list.title }}</h6>
             </VCol>
             <VCol cols="1" sm="1" class="px-0 text-center pt-0 pb-1">
-              <CircleIcon size="13" :class="'text-' + list.textcolor" />
+              <VIcon icon="mdi-circle" size="13" :class="'text-' + list.textcolor" />
               <div v-if="list.line" class="line mx-auto bg-grey100"></div>
             </VCol>
             <VCol cols="7" sm="8" class="pt-0">

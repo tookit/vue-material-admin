@@ -10,9 +10,7 @@ import { productsCard } from '@/data/dashboard/dashboardData';
         </RouterLink>
         <div class="d-flex justify-end mr-4 mt-n5">
           <VBtn size="40" icon class="bg-primary d-flex">
-            <VAvatar size="30" class="text-white">
-              <BasketIcon size="15" />
-            </VAvatar>
+            <VIcon icon="mdi-basket" />
             <VTooltip activator="parent" location="bottom">Add To Cart </VTooltip>
           </VBtn>
         </div>

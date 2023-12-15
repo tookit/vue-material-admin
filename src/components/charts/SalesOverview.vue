@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme();
 const primary = theme.current.value.colors.primary;
@@ -82,7 +81,7 @@ const chartOptions = computed(() => {
 });
 </script>
 <template>
-  <VCard elevation="10" class="withbg">
+  <VCard>
     <VCardItem>
       <div class="d-sm-flex align-center justify-space-between pt-sm-2">
         <div><VCardTitle class="text-h5">Sales Overview</VCardTitle></div>
@@ -91,8 +90,7 @@ const chartOptions = computed(() => {
         </div>
       </div>
       <div class="mt-6">
-        <apexchart type="bar" height="370px" :options="chartOptions.chartOptions" :series="chartOptions.series">
-        </apexchart>
+        <apexchart type="bar" height="342px" :options="chartOptions.chartOptions" :series="chartOptions.series" />
       </div>
     </VCardItem>
   </VCard>

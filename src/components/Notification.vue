@@ -38,7 +38,7 @@ defineEmits<{
 </script>
 
 <template>
-  <VBadge :model-value="!!props.badgeProps" v-bind="props.badgeProps">
+  <VBadge :model-value="!!props.badgeProps">
     <VBtn icon variant="text" color="default" size="small" class="mr-3">
       <VBadge :model-value="!!props.notifications.length" color="error" content="4">
         <VIcon icon="mdi-bell-outline" size="24" />

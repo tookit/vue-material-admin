@@ -1,5 +1,6 @@
-import { defineMock } from 'vite-plugin-mock-dev-server';
-import { ICalendarEvent, IEvent } from '../src/api/type';
+import { http, HttpResponse } from 'msw';
+
+import { ICalendarEvent } from '@/api/type';
 
 const date = new Date();
 const nextDay = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -125,26 +126,15 @@ const events: ICalendarEvent[] = [
   }
 ];
 
-export const fetchEvents = defineMock({
-  url: '/api/event',
-  method: 'GET',
-  delay: 2000,
-  response(req, res, next) {
-    const { query } = req;
-    const data = events.filter((event) => {
-      const calendars = query.calendars.split(',');
-      return calendars.includes(event.extendedProps.calendar);
-    });
+export const handlerEvent = [
+  // get current user info
+  http.get('/api/event', async ({ params }) => {
+    const data = events;
+    console.log(params);
+    return HttpResponse.json(data, { status: 200 });
+  }),
 
-    res.end(JSON.stringify(data));
-  }
-});
-
-export const addEvents = defineMock({
-  url: '/api/event',
-  method: 'POST',
-  delay: 2000,
-  response(req, res, next) {
+  http.post('/api/event', async ({ request }) => {
     const blankEvent = {
       id: '',
       title: '',
@@ -156,23 +146,9 @@ export const addEvents = defineMock({
         calendar: ''
       }
     };
-    const { body } = req;
+    const body = request.json();
     const event = Object.assign(blankEvent, body);
     events.push(event);
-    res.end(JSON.stringify(event));
-  }
-});
-
-export const updateEvent = defineMock({
-  url: '/api/event/:eventId',
-  method: 'PUT',
-  delay: 2000,
-  response(req, res, next) {
-    const { params, body } = req;
-    const eventId = params.eventId;
-    const event = events.find((item) => {
-      return item.id === eventId;
-    });
-    res.end(JSON.stringify(body));
-  }
-});
+    return HttpResponse.json(events, { status: 201 });
+  })
+];

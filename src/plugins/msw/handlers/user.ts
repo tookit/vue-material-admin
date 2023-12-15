@@ -1,6 +1,6 @@
-import Mock from 'mockjs';
-import { defineMock } from 'vite-plugin-mock-dev-server';
-import { IUser } from '../src/api/type';
+import { http, HttpResponse } from 'msw';
+
+import { IUser } from '@/api/type';
 
 export const users: IUser[] = [
   {
@@ -12,7 +12,7 @@ export const users: IUser[] = [
     contact: '(479) 232-9151',
     email: 'wangqiangshen@gmail.com',
     currentPlan: 'enterprise',
-    status: 'inactive',
+    status: 'active',
     billing: 'Auto Debit',
     avatar: '/assets/images/users/avatar-1.jpg'
   },
@@ -655,16 +655,26 @@ export const users: IUser[] = [
   }
 ];
 
-export const findUserById = (id: number) => {
+export const findUserById = (id) => {
   return users.find((item) => item.id === id);
 };
 
-export const fetchUsers = defineMock({
-  url: '/api/user',
-  method: 'GET',
-  delay: 2000,
-  response(req, res, next) {
-    const { query, body, params, headers } = req;
-    res.end(JSON.stringify(users));
-  }
-});
+export const handlerUser = [
+  // get current user info
+  http.get('/api/me', async ({ request }) => {
+    const data = users;
+    console.log(request.json());
+    return HttpResponse.json(data[0], { status: 200 });
+  }),
+
+  http.get('/api/user', async () => {
+    const data = users;
+    return HttpResponse.json(data, { status: 200 });
+  }),
+
+  http.get('/api/user/:id', async ({ params }) => {
+    const data = findUserById(params.id);
+    console.log(`Captured a "DELETE /posts/${params.id}" request`);
+    return HttpResponse.json(data, { status: 200 });
+  })
+];
