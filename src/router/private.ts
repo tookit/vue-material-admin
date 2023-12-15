@@ -10,7 +10,7 @@ const PrivateRoutes = {
     {
       name: 'Dashboard',
       path: '/',
-      component: () => import('@/views/dashboard/Index.vue')
+      component: () => import('@/views/dashboard/IndexView.vue')
     },
     {
       name: 'Form',
@@ -25,7 +25,7 @@ const PrivateRoutes = {
     {
       name: 'Chart',
       path: '/Chart',
-      component: () => import('@/views/charts/Chart.vue')
+      component: () => import('@/views/charts/ChartView.vue')
     },
     {
       name: 'Calendar',
