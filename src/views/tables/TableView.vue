@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { ref, reactive, watchEffect } from 'vue';
-import { fetchUsers } from '@/api/user';
+import { ref, reactive } from 'vue';
 import { useUserStore } from '@/store/user';
 import { IUser } from '@/api/type';
 import UserForm from '@/components/forms/UserForm.vue';
+import useMyFetch from '@/composable/useRequest';
 const itemsPerPage = ref(10);
 const showFilter = ref(true);
 const showDialog = ref(false);
@@ -53,19 +53,12 @@ const computeStatusColor = (status) => {
   return statusMap[status];
 };
 
-const loadData = (params) => {
-  users.value = [];
-  loading.value = true;
-  fetchUsers(params)
-    .then(({ data }) => {
-      loading.value = false;
-      users.value = data;
-    })
-    .catch(() => {
-      loading.value = false;
-    });
+const loadData = async (params) => {
+  const { isFetching, error, data } = await useMyFetch('/api/user').get().json();
+  console.log(isFetching, error, data, params);
+  loading.value = isFetching.value;
+  users.value = data.value;
 };
-watchEffect(loadData);
 const handleApplyFilter = () => {
   loadData(filters);
 };
@@ -86,7 +79,7 @@ const handleEditItem = (row) => {
 
 const handleDeleteItem = () => {
   // showDialog.value = true;
-  console.log('view');
+  console.log('delete');
 };
 const handleClear = () => {
   filters.role = '';

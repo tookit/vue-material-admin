@@ -8,7 +8,7 @@ import { IChatInit } from './type';
 export async function initChat() {
   const options = {
     method: 'get',
-    url: '/api/chat/init',
+    url: '/api/chat',
     delay: 2000,
     headers: {
       'Content-Type': 'application/json'

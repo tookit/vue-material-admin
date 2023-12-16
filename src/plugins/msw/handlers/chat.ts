@@ -293,8 +293,9 @@ const chatWithUsers = chats.map((item) => {
   return item;
 });
 
+console.log(chatWithUsers);
 export const handlerChat = [
-  http.get('/api/chat/init', async () => {
+  http.get('/api/chat', async () => {
     const data = {
       chats: chatWithUsers,
       contacts,
