@@ -2,7 +2,7 @@
 // import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
 import { IChatMessage, IUser } from '@/api/type';
 import { ref, watchEffect, reactive } from 'vue';
-import { useChatStore } from '@/store/chat';
+import { useChatStore } from '@/store/chatStore';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
 import ChatMessage from '@/components/chat/ChatMessage.vue';
 import VerticalProfileCard from '@/components/card/VerticalProfileCard.vue';

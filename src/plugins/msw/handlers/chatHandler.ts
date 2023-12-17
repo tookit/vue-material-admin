@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 
 import { IChatContact, IChat } from '@/api/type';
-import { findUserById } from './user';
+import { findUserById } from './userHandler';
 
 const previousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
 const dayBeforePreviousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000 * 2);
@@ -293,7 +293,6 @@ const chatWithUsers = chats.map((item) => {
   return item;
 });
 
-console.log(chatWithUsers);
 export const handlerChat = [
   http.get('/api/chat', async () => {
     const data = {

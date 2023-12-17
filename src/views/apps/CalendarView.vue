@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import FullCalendar from '@fullcalendar/vue3';
 import { ref, computed } from 'vue';
 import { blankEvent, useCalendar } from '@/composable/useCalendar';
-import { useCalendarStore } from '@/store/event';
+import { useCalendarStore } from '@/store/eventStore';
 import AppDateTimePicker from '@/components/AppDateTimePicker.vue';
 import EventForm from '@/components/forms/EventForm.vue';
+import FullCalendar from '@fullcalendar/vue3';
 
 const showDialog = ref(false);
 const loading = ref(false);

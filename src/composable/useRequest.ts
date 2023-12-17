@@ -1,11 +1,11 @@
 import { createFetch } from '@vueuse/core';
 import { useSnackbarStore } from '@/store';
-const snackbarStore = useSnackbarStore();
 
 const useMyFetch = createFetch({
   baseUrl: 'http://localhost:9527',
   combination: 'overwrite',
   options: {
+    immediate: false,
     // beforeFetch in pre-configured instance will only run when the newly spawned instance do not pass beforeFetch
     beforeFetch({ options }) {
       const myToken = window.localStorage.getItem('token');
@@ -16,6 +16,7 @@ const useMyFetch = createFetch({
     },
     onFetchError(ctx) {
       // ctx.data can be null when 5xx response
+      const snackbarStore = useSnackbarStore();
       const { response } = ctx;
       const statusCode = response?.status;
       switch (statusCode) {

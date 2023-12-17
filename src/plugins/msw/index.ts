@@ -1,8 +1,8 @@
 import { setupWorker } from 'msw/browser';
-import { handlerAuth } from '@/plugins/msw/handlers/auth';
-import { handlerUser } from '@/plugins/msw/handlers/user';
-import { handlerEvent } from '@/plugins/msw/handlers/event';
-import { handlerChat } from './handlers/chat';
+import { handlerAuth } from '@/plugins/msw/handlers/authHandler';
+import { handlerUser } from '@/plugins/msw/handlers/userHandler';
+import { handlerEvent } from '@/plugins/msw/handlers/eventHandler';
+import { handlerChat } from './handlers/chatHandler';
 
 const worker = setupWorker(...handlerAuth, ...handlerUser, ...handlerEvent, ...handlerChat);
 

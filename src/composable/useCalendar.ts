@@ -6,7 +6,7 @@ import type { CalendarApi, CalendarOptions, EventApi, EventSourceFunc } from '@f
 import type { Ref } from 'vue';
 import { ref, watch, onMounted } from 'vue';
 import type { ICalendarEvent, IEvent as Event, INewEvent as NewEvent } from '@/api/type';
-import { useCalendarStore } from '@/store/event';
+import { useCalendarStore } from '@/store/eventStore';
 
 export const blankEvent = {
   id: '',

@@ -23,6 +23,7 @@ export interface IUser {
   billing: string;
   role: string;
   status: UserStatus;
+  access_token?: string;
 }
 
 export interface ICalendarEvent {

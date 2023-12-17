@@ -112,3 +112,4 @@ watch(props, () => {
     </VCardActions>
   </VCard>
 </template>
+@/store/eventStore

@@ -1,29 +1,13 @@
-import axios from 'axios';
-import { ILoginRespose, IUser } from './type';
+// import { ILoginRespose, IUser } from './type';
+import useMyFetch from '@/composable/useRequest';
 
 /**
  * Login
  */
-export async function login(params: object): Promise<ILoginRespose> {
-  const options = {
-    method: 'POST',
-    url: '/api/auth/login',
-    data: params,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-  return await axios.request(options);
+export async function login(params: object) {
+  return await useMyFetch('/api/auth/login').post(params).json();
 }
 
-export async function fetchUsers(params: object) {
-  const options = {
-    method: 'GET',
-    url: '/api/user',
-    data: params,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-  return axios.request<Array<IUser>>(options);
+export async function fetchMe() {
+  return await useMyFetch('/api/me').get().json();
 }

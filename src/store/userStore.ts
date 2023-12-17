@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { login } from '@/api/user';
+import { fetchMe } from '@/api/user';
 
 export interface IUserState {
   token: string;
@@ -40,6 +40,9 @@ export const useUserStore = defineStore('user', {
     },
     getStatusOptions(state) {
       return state.statusOptions;
+    },
+    getAccessToken(state) {
+      return state.token;
     }
   },
   // Actions
@@ -50,16 +53,14 @@ export const useUserStore = defineStore('user', {
     setUsername(username: string) {
       this.username = username;
     },
-    async login(params) {
+    async getProfile(): Promise<boolean> {
       try {
-        const response = await login(params);
-        const { data } = response;
-        const { access_token } = data;
-        this.setUsername(params.username);
-        this.setToken(access_token);
-        return Promise.resolve(response);
+        const { data } = await fetchMe();
+        console.log(data);
+        // set user profile
+        return Promise.resolve(true);
       } catch (e) {
-        return Promise.reject(e);
+        return Promise.reject(false);
       }
     }
   },

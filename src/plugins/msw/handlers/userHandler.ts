@@ -14,7 +14,8 @@ export const users: IUser[] = [
     currentPlan: 'enterprise',
     status: 'active',
     billing: 'Auto Debit',
-    avatar: '/assets/images/users/avatar-1.jpg'
+    avatar: '/assets/images/users/avatar-1.jpg',
+    access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTB9.txWLuN4QT5PqTtgHmlOiNerIu5Do51PpYOiZutkyXYg'
   },
   {
     id: 2,
@@ -661,9 +662,8 @@ export const findUserById = (id) => {
 
 export const handlerUser = [
   // get current user info
-  http.get('/api/me', async ({ request }) => {
+  http.get('/api/me', async () => {
     const data = users;
-    console.log(request.json());
     return HttpResponse.json(data[0], { status: 200 });
   }),
 

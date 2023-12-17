@@ -69,3 +69,4 @@ watch(props, () => {
     <VCardActions> </VCardActions>
   </VCard>
 </template>
+@/store/userStore

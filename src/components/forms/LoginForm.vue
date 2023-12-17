@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store/userStore';
 import { useRoute, useRouter } from 'vue-router';
-import useMyFetch from '@/composable/useRequest';
+import { login } from '@/api/user';
 const checkbox = ref(true);
 const formRules = reactive({
   username: [
@@ -31,11 +31,8 @@ const formValid = ref(false);
 const handleSubmit = async () => {
   if (formValid.value === true) {
     submiting.value = true;
-    const { isFetching, error, data } = await useMyFetch('/api/auth/login').post(formModel).json();
+    const { isFetching, data } = await login(formModel);
     submiting.value = isFetching.value;
-    if (error.value) {
-      console.log(error);
-    }
     if (data.value) {
       userStore.setToken(data.value.access_token);
       router.replace(route.query.to ? String(route.query.to) : '/');
