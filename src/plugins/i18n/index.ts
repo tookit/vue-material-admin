@@ -9,7 +9,7 @@ const messages = Object.fromEntries(
 
 export default createI18n({
   legacy: false,
-  locale: 'en',
+  locale: 'zhHans',
   fallbackLocale: 'en',
   messages
 });

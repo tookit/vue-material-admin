@@ -14,7 +14,7 @@ import LoginForm from '@/components/forms/LoginForm.vue';
           </div>
           <LoginForm />
           <div class="d-flex align-center justify-center">
-            <RouterLink to="/auth/register" class="text-primary text-decoration-none"> Create an account</RouterLink>
+            <a href="/auth/register" class="text-primary text-decoration-none"> {{ $t('Create account') }}</a>
           </div>
         </VCardItem>
       </VCard>
