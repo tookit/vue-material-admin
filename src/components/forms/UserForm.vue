@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, watch } from 'vue';
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store';
 import { IUser } from '@/api/type';
 interface IModel {
   user: IUser;

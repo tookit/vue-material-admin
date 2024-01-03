@@ -35,6 +35,7 @@ export const useCalendarStore = defineStore('calendar', {
       return fetchEvents({ calendars: this.selectedCalendars.join(',') });
     },
     async addEvent(event: INewEvent) {
+      console.log(event);
       return fetchEvents({ calendars: this.selectedCalendars.join(',') });
     },
     async updateEvent(event: IEvent) {

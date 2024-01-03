@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store';
 import { IUser } from '@/api/type';
 import UserForm from '@/components/forms/UserForm.vue';
 import useMyFetch from '@/composable/useRequest';

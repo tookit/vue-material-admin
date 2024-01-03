@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, watch } from 'vue';
-import { useUserStore } from '@/store/user';
+// import { useUserStore } from '@/store';
 import { IUser } from '@/api/type';
 import ChatAvatar from '../chat/ChatAvatar.vue';
 interface IModel {
@@ -12,7 +12,7 @@ const formModel = reactive<IUser>({
   ...props.user
 });
 
-const userStore = useUserStore();
+// const userStore = useUserStore();
 watch(props, () => {
   Object.assign(formModel, props.user);
 });
@@ -69,4 +69,3 @@ watch(props, () => {
     <VCardActions> </VCardActions>
   </VCard>
 </template>
-@/store/userStore

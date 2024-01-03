@@ -1,5 +1,10 @@
 import axios from 'axios';
+import useMyFetch from '@/composable/useRequest';
 import { ICalendarEvent, IEvent } from './type';
+
+export async function getEevents() {
+  return await useMyFetch('/api/event').get().json();
+}
 
 export async function fetchEvents(params: object) {
   const options = {

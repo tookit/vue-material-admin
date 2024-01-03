@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue';
-import { useCalendarStore } from '@/store/event';
+import { useCalendarStore } from '@/store';
 import { IEvent } from '@/api/type';
 interface IModel {
   event: IEvent;

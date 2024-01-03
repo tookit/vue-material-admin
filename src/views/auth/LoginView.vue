@@ -8,10 +8,10 @@ import LoginForm from '@/components/forms/LoginForm.vue';
     <div class="auth-wrapper">
       <VCard rounded="md" elevation="10" class="login-card" max-width="500">
         <VCardItem class="pa-sm-8">
-          <div class="d-flex justify-center py-4">
+          <div class="d-flex flex-column align-center justify-center py-4">
             <Logo :height="32" />
+            <h3>Vue Material Admin</h3>
           </div>
-          <h3 class="text-center">Vue Material Admin</h3>
           <LoginForm />
           <div class="d-flex align-center justify-center">
             <RouterLink to="/auth/register" class="text-primary text-decoration-none"> Create an account</RouterLink>

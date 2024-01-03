@@ -88,6 +88,7 @@ export const useCalendar = (
     store
       .fetchEvents()
       .then((r) => {
+        console.log(r);
         successCallback(
           r.data.map((e: ICalendarEvent) => ({
             ...e,
@@ -157,6 +158,7 @@ export const useCalendar = (
 
   // 👉 Add event
   const addEvent = (_event: NewEvent) => {
+    console.log(_event);
     refetchEvents();
   };
 

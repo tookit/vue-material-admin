@@ -5,7 +5,6 @@ import YearlyBreakup from '@/components/charts/YearlyBreakup.vue';
 import MonthlyEarning from '@/components/charts/MonthlyEarnings.vue';
 import RecentTransaction from '@/components/dashboard/RecentTransaction.vue';
 import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
-import ProductCards from '@/components/dashboard/ProductCards.vue';
 </script>
 <template>
   <VRow>
@@ -31,10 +30,6 @@ import ProductCards from '@/components/dashboard/ProductCards.vue';
         <!-- Product performence -->
         <VCol cols="12" lg="8">
           <ProductPerformance />
-        </VCol>
-        <!-- Product Cards -->
-        <VCol cols="12">
-          <ProductCards />
         </VCol>
       </VRow>
     </VCol>

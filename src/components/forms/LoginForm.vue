@@ -34,7 +34,8 @@ const handleSubmit = async () => {
     const { isFetching, data } = await login(formModel);
     submiting.value = isFetching.value;
     if (data.value) {
-      userStore.setToken(data.value.access_token);
+      const { access_token } = data.value;
+      userStore.setToken(access_token);
       router.replace(route.query.to ? String(route.query.to) : '/');
     }
   }
