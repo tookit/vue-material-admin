@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import Logo from '@/components/Logo.vue';
 import { reactive, computed } from 'vue';
+import { useLocale } from 'vuetify';
+
+const { t } = useLocale();
 const items = [
-  { type: 'subheader', title: 'Apps' },
+  { type: 'subheader', title: t('apps') },
   {
-    title: 'Dashboard',
+    title: t('dashboard'),
     props: {
       prependIcon: 'mdi-view-dashboard-outline',
       link: true,
@@ -14,7 +17,7 @@ const items = [
     value: '/'
   },
   {
-    title: 'Chat',
+    title: t('chat'),
     props: {
       prependIcon: 'mdi-chat-outline',
       link: true,
@@ -24,7 +27,7 @@ const items = [
     value: '/chat'
   },
   {
-    title: 'Calendar',
+    title: t('calendar'),
     props: {
       prependIcon: 'mdi-calendar-blank-outline',
       link: true,
@@ -33,9 +36,9 @@ const items = [
     },
     value: '/calendar'
   },
-  { type: 'subheader', title: 'Widgets' },
+  { type: 'subheader', title: t('widgets') },
   {
-    title: 'Card',
+    title: t('card'),
     props: {
       prependIcon: 'mdi-widgets-outline',
       link: true,
@@ -44,9 +47,9 @@ const items = [
     },
     value: '/widget/card'
   },
-  { type: 'subheader', title: 'Auth' },
+  { type: 'subheader', title: t('auth') },
   {
-    title: 'Login',
+    title: t('login'),
     props: {
       prependIcon: 'mdi-login-variant',
       link: true,
@@ -56,7 +59,7 @@ const items = [
     value: '/auth/login'
   },
   {
-    title: 'Register',
+    title: t('register'),
     props: {
       prependIcon: 'mdi-account-arrow-right-outline',
       link: true,
@@ -65,9 +68,9 @@ const items = [
     },
     value: '/auth/register'
   },
-  { type: 'subheader', title: 'Forms' },
+  { type: 'subheader', title: t('form') },
   {
-    title: 'Form',
+    title: t('form'),
     props: {
       prependIcon: 'mdi-form-textbox',
       link: true,
@@ -76,9 +79,9 @@ const items = [
     },
     value: '/form'
   },
-  { type: 'subheader', title: 'Tables' },
+  { type: 'subheader', title: t('table') },
   {
-    title: 'Table',
+    title: t('table'),
     props: {
       prependIcon: 'mdi-table',
       link: true,
@@ -87,9 +90,9 @@ const items = [
     },
     value: '/user-table'
   },
-  { type: 'subheader', title: 'Chart' },
+  { type: 'subheader', title: t('chart') },
   {
-    title: 'Chart',
+    title: t('chart'),
     props: {
       prependIcon: 'mdi-chart-box-outline',
       link: true,

@@ -13,8 +13,8 @@ import RegisterForm from '@/components/forms/RegisterForm.vue';
           <div class="text-body-1 text-muted text-center mb-3">Vue Material Admin</div>
           <RegisterForm />
           <h5 class="text-muted text-center mt-3">
-            Already have an Account?
-            <RouterLink to="/auth/login" class="text-primary text-decoration-none"> Sign In</RouterLink>
+            {{ $t('have_account') }} ?
+            <a href="/auth/login" class="text-primary text-decoration-none"> {{ $t('sign_in') }}</a>
           </h5>
         </VCardItem>
       </VCard>

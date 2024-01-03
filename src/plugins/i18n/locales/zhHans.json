@@ -1,11 +1,70 @@
 {
   "UI Elements": "UI元素",
+  "apps": "应用",
+  "dashboard": "仪表盘",
+  "chat": "聊天",
+  "calendar": "日历",
+  "card": "卡片",
+  "widgets": "组件",
+  "auth": "认证",
+  "login": "登录",
+  "register": "注册",
+  "form": "表单",
+  "table": "表格",
+  "chart": "图表",
   "Create account": "创建账户",
   "password": "密码",
   "username": "用户名",
-  "sign in": "登录",
+  "email": "邮箱",
+  "sign_in": "登录",
+  "sign_up": "注册",
   "remember": "记住",
-  "forgot password": "忘记密码",
+  "forget_pass": "忘记密码",
   "username required": "请输入用户名",
-  "password required": "请输入密码"
+  "password required": "请输入密码",
+  "have_account": "已经有账户",
+  "$vuetify": {
+    "loading": "加载中",
+    "open": "打开",
+    "badge": "徽章",
+    "dataIterator": {
+      "loadingText": "加载中"
+    },
+    "dataFooter": {
+      "pageText": "{0}-{1} 共 {2}",
+      "firstPage": "首页",
+      "lastPage": "尾页",
+      "prevPage": "上一页",
+      "nextPage": "下一页",
+      "itemsPerPageText": "每页数目：",
+      "itemsPerPageAll": "所有"
+    },
+    "pagination": {
+      "ariaLabel": {
+        "root": "root",
+        "previous": "previous",
+        "next": "next",
+        "currentPage": "currentPage",
+        "page": "page"
+      }
+    },
+    "input": {
+      "clear": "clear",
+      "appendAction": "appendAction",
+      "prependAction": "prependAction",
+      "counterSize": "counterSize"
+    },
+    "fileInput": {
+      "counterSize": "counterSize"
+    },
+    "rating": {
+      "ariaLabel": {
+        "item": "item"
+      }
+    }
+  },
+  "10": "10",
+  "25": "25",
+  "50": "50",
+  "100": "100"
 }

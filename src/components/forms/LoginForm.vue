@@ -74,13 +74,13 @@ const handleSubmit = async () => {
             <template v-slot:label>{{ $t('remember') }}</template>
           </VCheckbox>
           <div class="ml-sm-auto">
-            <RouterLink to="/" class="text-primary text-decoration-none">{{ $t('forgot password') }} ?</RouterLink>
+            <RouterLink to="/" class="text-primary text-decoration-none">{{ $t('forget_pass') }} ?</RouterLink>
           </div>
         </div>
       </VCol>
       <VCol cols="12" class="pt-0">
         <VBtn :loading="submiting" type="submit" color="primary" block flat @click="handleSubmit">{{
-          $t('sign in')
+          $t('sign_in')
         }}</VBtn>
       </VCol>
     </VRow>
