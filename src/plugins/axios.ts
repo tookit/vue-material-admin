@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { router } from '@/router';
+import { useSnackbarStore } from '@/store';
 
 const axiosIns = axios.create({
   // You can add your headers here
@@ -34,21 +35,23 @@ axiosIns.interceptors.response.use(
     return response;
   },
   (error) => {
-    // Handle error
-    if (error.response.status === 401) {
-      // ℹ️ Logout user and redirect to login page
-      // Remove "userData" from localStorage
-      localStorage.removeItem('userData');
-
-      // Remove "accessToken" from localStorage
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('userAbilities');
-
-      // If 401 response returned from api
-      router.push('/login');
-    } else {
-      return Promise.reject(error);
+    const statusCode = error.response.status;
+    const snackbarStore = useSnackbarStore();
+    switch (statusCode) {
+      case 401:
+        // Remove "accessToken" from localStorage
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userAbilities');
+        // If 401 response returned from api
+        router.push('/auth/login');
+        break;
+      case 400:
+        snackbarStore.showMessage('Auth Failed');
+        break;
+      default:
+        break;
     }
+    return Promise.reject(error);
   }
 );
 

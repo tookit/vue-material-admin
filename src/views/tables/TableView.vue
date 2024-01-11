@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
+import { useLocale } from 'vuetify';
 import { useUserStore } from '@/store';
 import { IUser } from '@/api/type';
+import { fetchUser } from '@/api/user';
 import UserForm from '@/components/forms/UserForm.vue';
-import useMyFetch from '@/composable/useRequest';
+
+const { t } = useLocale();
 const itemsPerPage = ref(10);
 const showFilter = ref(true);
 const showDialog = ref(false);
@@ -13,13 +16,17 @@ const filters = reactive({
   role: '',
   status: ''
 });
+const pagination = reactive({
+  page: 1,
+  pageSize: 10
+});
+
 const selectedUser = reactive<IUser>({
   id: 0,
   username: '',
   company: '',
   country: '',
   contact: '',
-  currentPlan: 'free',
   email: '',
   avatar: '',
   billing: '',
@@ -30,12 +37,12 @@ const selectedUser = reactive<IUser>({
 const roles = userStore.getRoles;
 const status = userStore.getStatusOptions;
 const headers = reactive([
-  { title: 'Avatar', key: 'avatar' },
-  { title: 'Username', key: 'username' },
-  { title: 'Role', key: 'role' },
-  { title: 'Email', key: 'email' },
-  { title: 'Status', key: 'status' },
-  { title: 'Actions', key: 'action' }
+  { title: t('avatar'), key: 'avatar' },
+  { title: t('username'), key: 'username' },
+  { title: t('role'), key: 'role' },
+  { title: t('email'), key: 'email' },
+  { title: t('status'), key: 'status' },
+  { title: t('action'), key: 'action' }
 ]);
 
 const loading = ref(true);
@@ -53,23 +60,23 @@ const computeStatusColor = (status) => {
   return statusMap[status];
 };
 
-const loadData = async (params) => {
-  const { isFetching, error, data } = await useMyFetch('/api/user').get().json();
-  console.log(isFetching, error, data, params);
-  loading.value = isFetching.value;
-  users.value = data.value;
+const loadData = async () => {
+  loading.value = true;
+  const params = { filter: filters, ...pagination };
+  const { data } = await fetchUser(params);
+  users.value = data;
+  loading.value = false;
 };
 const handleApplyFilter = () => {
-  loadData(filters);
+  loadData();
 };
 const handleRefreshItem = () => {
-  loadData(filters);
+  loadData();
 };
 const handleCreateItem = () => {
   showDialog.value = true;
 };
 const handleViewItem = () => {
-  // showDialog.value = true;
   console.log('view');
 };
 const handleEditItem = (row) => {
@@ -88,7 +95,7 @@ const handleClear = () => {
 const handleResetFilter = () => {
   filters.role = '';
   filters.status = '';
-  loadData({});
+  loadData();
 };
 </script>
 
@@ -125,17 +132,17 @@ const handleResetFilter = () => {
             <VCardText>
               <VRow>
                 <VCol :cols="4">
-                  <VAutocomplete v-model="filters.role" :items="roles" label="Role" />
+                  <VAutocomplete v-model="filters.role" :items="roles" :label="t('role')" />
                 </VCol>
                 <VCol :cols="4">
-                  <VAutocomplete v-model="filters.status" :items="status" label="Status" />
+                  <VAutocomplete v-model="filters.status" :items="status" :label="t('status')" />
                 </VCol>
               </VRow>
             </VCardText>
             <VCardActions>
               <VSpacer />
-              <VBtn @click="handleResetFilter">Reset</VBtn>
-              <VBtn color="primary" variant="outlined" @click="handleApplyFilter">Apply</VBtn>
+              <VBtn @click="handleResetFilter">{{ t('reset') }}</VBtn>
+              <VBtn color="primary" variant="outlined" @click="handleApplyFilter">{{ t('apply') }}</VBtn>
             </VCardActions>
           </VSheet>
           <VCardText class="pa-0 pb-5">
@@ -167,9 +174,9 @@ const handleResetFilter = () => {
                   </template>
                   <VSheet rounded="md" width="200" elevation="10" class="mt-2">
                     <VList lines="one" density="compact" class="pa-0" color="primary">
-                      <VListItem @click="handleViewItem">View</VListItem>
-                      <VListItem @click="handleEditItem">Edit</VListItem>
-                      <VListItem @click="handleDeleteItem">Delete</VListItem>
+                      <VListItem @click="handleViewItem">{{ t('view') }}</VListItem>
+                      <VListItem @click="handleEditItem">{{ t('edit') }}</VListItem>
+                      <VListItem @click="handleDeleteItem">{{ t('delete') }}</VListItem>
                     </VList>
                   </VSheet>
                 </VMenu>
@@ -192,4 +199,3 @@ const handleResetFilter = () => {
   }
 }
 </style>
-@/store/userStore

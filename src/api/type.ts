@@ -1,5 +1,9 @@
 import type { Except } from 'type-fest';
 
+export interface ApiResp<T = never> {
+  data: T;
+}
+
 export interface IAccessToken {
   access_token: string;
   expire_in: number;
@@ -7,6 +11,14 @@ export interface IAccessToken {
 
 export interface ILoginRespose {
   data: IAccessToken;
+}
+
+export interface IUserProfile {
+  data: IUser;
+}
+
+export interface IUserResp {
+  data: IUser[];
 }
 
 export type UserStatus = 'active' | 'inactive' | 'pending' | 'blocked';
@@ -17,7 +29,6 @@ export interface IUser {
   company: string;
   country: string;
   contact: string;
-  currentPlan: string;
   email: string;
   avatar: string;
   billing: string;

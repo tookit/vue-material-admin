@@ -34,12 +34,16 @@ const formValid = ref(false);
 const handleSubmit = async () => {
   if (formValid.value === true) {
     submiting.value = true;
-    const { isFetching, data } = await login(formModel);
-    submiting.value = isFetching.value;
-    if (data.value) {
-      const { access_token } = data.value;
+    try {
+      const { data } = await login(formModel);
+      const { access_token } = data;
+      submiting.value = false;
+
       userStore.setToken(access_token);
       router.replace(route.query.to ? String(route.query.to) : '/');
+    } catch (error) {
+      submiting.value = false;
+      console.log(error);
     }
   }
 };

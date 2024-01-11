@@ -1,10 +1,32 @@
-import { ILoginRespose, IUser } from './type';
+import { IAccessToken, IUser } from './type';
+import axiosIns from '@/plugins/axios';
+
 import useMyFetch from '@/composable/useRequest';
 
 export async function login(params: object) {
-  return await useMyFetch<ILoginRespose>('/api/auth/login').post(params).json();
+  const options = {
+    method: 'POST',
+    url: `/api/auth/login`,
+    data: params,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  return axiosIns.request<IAccessToken>(options);
 }
 
 export async function fetchMe() {
-  return await useMyFetch<IUser>('/api/me').get().json;
+  return await useMyFetch('/api/me').get().json<IUser>();
+}
+
+export async function fetchUser(params) {
+  const options = {
+    method: 'GET',
+    url: `/api/user`,
+    params: params,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  return axiosIns.request<Array<IUser>>(options);
 }

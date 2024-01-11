@@ -23,9 +23,19 @@
   "username required": "请输入用户名",
   "password required": "请输入密码",
   "have_account": "已经有账户",
+  "view": "查看",
+  "edit": "编辑",
+  "delete": "删除",
+  "role": "角色",
+  "status": "状态",
+  "apply": "应用",
+  "reset": "重置",
+  "avatar": "图像",
+  "action": "操作",
   "$vuetify": {
     "loading": "加载中",
     "open": "打开",
+    "close": "关闭",
     "badge": "徽章",
     "dataIterator": {
       "loadingText": "加载中"

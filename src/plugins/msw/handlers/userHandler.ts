@@ -1,5 +1,4 @@
-import { http, HttpResponse } from 'msw';
-
+import { http, HttpResponse, delay } from 'msw';
 import { IUser } from '@/api/type';
 
 export const users: IUser[] = [
@@ -11,7 +10,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(479) 232-9151',
     email: 'wangqiangshen@gmail.com',
-    currentPlan: 'enterprise',
     status: 'active',
     billing: 'Auto Debit',
     avatar: '/assets/images/users/avatar-1.jpg',
@@ -25,7 +23,6 @@ export const users: IUser[] = [
     country: 'Albania',
     contact: '(472) 607-9137',
     email: 'hredmore1@imgur.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-2.png',
     billing: 'Manual - Paypal'
@@ -38,7 +35,6 @@ export const users: IUser[] = [
     country: 'Russia',
     contact: '(321) 264-4599',
     email: 'msicely2@who.int',
-    currentPlan: 'enterprise',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-1.png',
     billing: 'Manual - Cash'
@@ -51,7 +47,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(923) 690-6806',
     email: 'crisby3@wordpress.com',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-3.png',
     billing: 'Manual - Credit Card'
@@ -64,7 +59,6 @@ export const users: IUser[] = [
     country: 'Pakistan',
     contact: '(669) 914-1078',
     email: 'mhurran4@yahoo.co.jp',
-    currentPlan: 'enterprise',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-1.png',
     billing: 'Auto Debit'
@@ -77,7 +71,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(958) 973-3093',
     email: 'shalstead5@shinystat.com',
-    currentPlan: 'company',
     status: 'active',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -90,7 +83,6 @@ export const users: IUser[] = [
     country: 'Canada',
     contact: '(825) 977-8152',
     email: 'bgallemore6@boston.com',
-    currentPlan: 'company',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -103,7 +95,6 @@ export const users: IUser[] = [
     country: 'France',
     contact: '(187) 440-0934',
     email: 'kliger7@vinaora.com',
-    currentPlan: 'enterprise',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-4.png',
     billing: 'Manual - Cash'
@@ -116,7 +107,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(978) 146-5443',
     email: 'fscotfurth8@dailymotion.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-2.png',
     billing: 'Manual - Cash'
@@ -129,7 +119,6 @@ export const users: IUser[] = [
     country: 'Jamaica',
     contact: '(589) 284-6732',
     email: 'jbellany9@kickstarter.com',
-    currentPlan: 'company',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-5.png',
     billing: 'Manual - Cash'
@@ -142,7 +131,6 @@ export const users: IUser[] = [
     country: 'United States',
     contact: '(176) 532-6824',
     email: 'jwharltona@oakley.com',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-6.png',
     billing: 'Manual - Cash'
@@ -155,7 +143,6 @@ export const users: IUser[] = [
     country: 'Peru',
     contact: '(234) 464-0600',
     email: 'shallamb@hugedomains.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-7.png',
     billing: 'Manual - Cash'
@@ -168,7 +155,6 @@ export const users: IUser[] = [
     country: 'Philippines',
     contact: '(907) 284-5083',
     email: 'ypottiec@privacy.gov.au',
-    currentPlan: 'basic',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-8.png',
     billing: 'Manual - Cash'
@@ -181,7 +167,6 @@ export const users: IUser[] = [
     country: 'Democratic Republic of the Congo',
     contact: '(167) 135-7392',
     email: 'mkraused@stanford.edu',
-    currentPlan: 'team',
     status: 'active',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -194,7 +179,6 @@ export const users: IUser[] = [
     country: 'France',
     contact: '(317) 409-6565',
     email: 'zmcclevertye@soundcloud.com',
-    currentPlan: 'enterprise',
     status: 'active',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -207,7 +191,6 @@ export const users: IUser[] = [
     country: 'Spain',
     contact: '(590) 606-1056',
     email: 'bemblinf@wired.com',
-    currentPlan: 'company',
     status: 'active',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -220,7 +203,6 @@ export const users: IUser[] = [
     country: 'Poland',
     contact: '(553) 225-9905',
     email: 'bmylesg@amazon.com',
-    currentPlan: 'basic',
     status: 'active',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -233,7 +215,6 @@ export const users: IUser[] = [
     country: 'Yemen',
     contact: '(901) 916-9287',
     email: 'bbinerh@mozilla.com',
-    currentPlan: 'team',
     status: 'active',
     avatar: 'avatar7',
     billing: 'Manual - Cash'
@@ -246,7 +227,6 @@ export const users: IUser[] = [
     country: 'France',
     contact: '(524) 586-6057',
     email: 'tbruntjeni@sitemeter.com',
-    currentPlan: 'enterprise',
     status: 'active',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -259,7 +239,6 @@ export const users: IUser[] = [
     country: 'Honduras',
     contact: '(569) 683-1292',
     email: 'wburlandj@uiuc.edu',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-8.png',
     billing: 'Manual - Cash'
@@ -272,7 +251,6 @@ export const users: IUser[] = [
     country: 'USA',
     contact: '(829) 537-0057',
     email: 'irena.dubrovna@wayne.com',
-    currentPlan: 'team',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-6.png',
     billing: 'Manual - Cash'
@@ -285,7 +263,6 @@ export const users: IUser[] = [
     country: 'Ukraine',
     contact: '(593) 624-0222',
     email: 'jlysterl@guardian.co.uk',
-    currentPlan: 'company',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-9.png',
     billing: 'Auto Debit'
@@ -298,7 +275,6 @@ export const users: IUser[] = [
     country: 'Poland',
     contact: '(254) 845-4107',
     email: 'kskitterelm@ainyx.com',
-    currentPlan: 'basic',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-3.png',
     billing: 'Manual - Cash'
@@ -311,7 +287,6 @@ export const users: IUser[] = [
     country: 'Brazil',
     contact: '(700) 783-7498',
     email: 'chatherleighn@washington.edu',
-    currentPlan: 'team',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-2.png',
     billing: 'Manual - Cash'
@@ -324,7 +299,6 @@ export const users: IUser[] = [
     country: 'France',
     contact: '(227) 598-1841',
     email: 'amiccoo@whitehouse.gov',
-    currentPlan: 'enterprise',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -337,7 +311,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(582) 516-1324',
     email: 'hhassonp@bizjournals.com',
-    currentPlan: 'basic',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-4.png',
     billing: 'Auto Debit'
@@ -350,7 +323,6 @@ export const users: IUser[] = [
     country: 'Zambia',
     contact: '(137) 467-5393',
     email: 'gjacombsq@jigsy.com',
-    currentPlan: 'enterprise',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-5.png',
     billing: 'Auto Debit'
@@ -363,7 +335,6 @@ export const users: IUser[] = [
     country: 'Portugal',
     contact: '(412) 476-0854',
     email: 'bkildayr@mashable.com',
-    currentPlan: 'team',
     status: 'active',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -376,7 +347,6 @@ export const users: IUser[] = [
     country: 'Sweden',
     contact: '(170) 683-1520',
     email: 'cpinyons@behance.net',
-    currentPlan: 'team',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-7.png',
     billing: 'Auto Debit'
@@ -389,7 +359,6 @@ export const users: IUser[] = [
     country: 'Slovenia',
     contact: '(332) 803-1983',
     email: 'imallindinet@shinystat.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -402,7 +371,6 @@ export const users: IUser[] = [
     country: 'Moldova',
     contact: '(551) 379-7460',
     email: 'gmeinekenu@hc360.com',
-    currentPlan: 'basic',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-1.png',
     billing: 'Auto Debit'
@@ -415,7 +383,6 @@ export const users: IUser[] = [
     country: 'Philippines',
     contact: '(974) 829-0911',
     email: 'rsnowballv@indiegogo.com',
-    currentPlan: 'basic',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-8.png',
     billing: 'Auto Debit'
@@ -428,7 +395,6 @@ export const users: IUser[] = [
     country: 'North Korea',
     contact: '(841) 889-3339',
     email: 'remerw@blogtalkradio.com',
-    currentPlan: 'basic',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-5.png',
     billing: 'Manual - Paypal'
@@ -441,7 +407,6 @@ export const users: IUser[] = [
     country: 'Indonesia',
     contact: '(764) 885-7351',
     email: 'ofibbensx@booking.com',
-    currentPlan: 'company',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-4.png',
     billing: 'Manual - Paypal'
@@ -454,7 +419,6 @@ export const users: IUser[] = [
     country: 'Japan',
     contact: '(350) 589-8520',
     email: 'smacgilfoyley@bigcartel.com',
-    currentPlan: 'company',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Paypal'
@@ -467,7 +431,6 @@ export const users: IUser[] = [
     country: 'Belarus',
     contact: '(882) 933-2180',
     email: 'brosebothamz@tripadvisor.com',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: ' ',
     billing: 'Manual - Paypal'
@@ -480,7 +443,6 @@ export const users: IUser[] = [
     country: 'Canada',
     contact: '(610) 343-1024',
     email: 'shebblethwaite10@arizona.edu',
-    currentPlan: 'company',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-1.png',
     billing: 'Manual - Paypal'
@@ -493,7 +455,6 @@ export const users: IUser[] = [
     country: 'Croatia',
     contact: '(365) 277-2986',
     email: 'mpiccard11@vimeo.com',
-    currentPlan: 'enterprise',
     status: 'inactive',
     avatar: '/assets/images/avatars/avatar-8.png',
     billing: 'Auto Debit'
@@ -506,7 +467,6 @@ export const users: IUser[] = [
     country: 'Finland',
     contact: '(531) 731-0928',
     email: 'twidmore12@bravesites.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Credit Card'
@@ -519,7 +479,6 @@ export const users: IUser[] = [
     country: 'Ukraine',
     contact: '(312) 104-2638',
     email: 'fdesporte13@omniture.com',
-    currentPlan: 'company',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-6.png',
     billing: 'Manual - Credit Card'
@@ -532,7 +491,6 @@ export const users: IUser[] = [
     country: 'Haiti',
     contact: '(315) 329-3578',
     email: 'ebaldetti14@theguardian.com',
-    currentPlan: 'team',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Cash'
@@ -545,7 +503,6 @@ export const users: IUser[] = [
     country: 'Indonesia',
     contact: '(323) 175-6741',
     email: 'brossiter15@craigslist.org',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: ' ',
     billing: 'Manual - Credit Card'
@@ -558,7 +515,6 @@ export const users: IUser[] = [
     country: 'Indonesia',
     contact: '(242) 952-0916',
     email: 'mmcnirlan16@hc360.com',
-    currentPlan: 'basic',
     status: 'inactive',
     avatar: ' ',
     billing: 'Manual - Credit Card'
@@ -571,7 +527,6 @@ export const users: IUser[] = [
     country: 'Guatemala',
     contact: '(531) 758-8335',
     email: 'vkoschek17@abc.net.au',
-    currentPlan: 'team',
     status: 'active',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -584,7 +539,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(659) 385-6808',
     email: 'cperot18@goo.ne.jp',
-    currentPlan: 'team',
     status: 'pending',
     avatar: '/assets/images/avatars/avatar-3.png',
     billing: 'Manual - Paypal'
@@ -597,7 +551,6 @@ export const users: IUser[] = [
     country: 'Poland',
     contact: '(200) 586-2264',
     email: 'soffner19@mac.com',
-    currentPlan: 'enterprise',
     status: 'pending',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -610,7 +563,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(478) 199-0020',
     email: 'kcourtliff1a@bbc.co.uk',
-    currentPlan: 'basic',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-1.png',
     billing: 'Manual - Credit Card'
@@ -623,7 +575,6 @@ export const users: IUser[] = [
     country: 'Ukraine',
     contact: '(344) 262-7270',
     email: 'owind1b@yandex.ru',
-    currentPlan: 'basic',
     status: 'pending',
     avatar: ' ',
     billing: 'Manual - Credit Card'
@@ -636,7 +587,6 @@ export const users: IUser[] = [
     country: 'Sweden',
     contact: '(694) 676-1275',
     email: 'pdurber1c@gov.uk',
-    currentPlan: 'team',
     status: 'inactive',
     avatar: ' ',
     billing: 'Auto Debit'
@@ -649,7 +599,6 @@ export const users: IUser[] = [
     country: 'China',
     contact: '(397) 294-5153',
     email: 'bkrabbe1d@home.pl',
-    currentPlan: 'company',
     status: 'active',
     avatar: '/assets/images/avatars/avatar-2.png',
     billing: 'Manual - Credit Card'
@@ -667,8 +616,24 @@ export const handlerUser = [
     return HttpResponse.json(data[0], { status: 200 });
   }),
 
-  http.get('/api/user', async () => {
-    const data = users;
+  http.get('/api/user', async ({ request }) => {
+    let data = users;
+    const { searchParams } = new URL(request.url);
+    const role = searchParams.get('filter[role]') ?? null;
+    const status = searchParams.get('filter[status]') ?? null;
+    if (role) {
+      console.log(role);
+
+      data = users.filter((item) => {
+        return item.role === role;
+      });
+    }
+    if (status) {
+      data = users.filter((item) => {
+        return item.status === status;
+      });
+    }
+    await delay(2000);
     return HttpResponse.json(data, { status: 200 });
   }),
 

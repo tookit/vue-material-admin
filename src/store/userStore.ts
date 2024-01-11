@@ -53,11 +53,15 @@ export const useUserStore = defineStore('user', {
     setUsername(username: string) {
       this.username = username;
     },
+    setProfile(profile) {
+      this.username = profile.username;
+      this.avatar = profile.avatar;
+    },
     async getProfile(): Promise<boolean> {
       try {
         const { data } = await fetchMe();
-        console.log(data);
         // set user profile
+        this.setProfile(data.value);
         return Promise.resolve(true);
       } catch (e) {
         return Promise.reject(false);
