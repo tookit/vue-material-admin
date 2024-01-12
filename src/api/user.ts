@@ -1,8 +1,6 @@
 import { IAccessToken, IUser } from './type';
 import axiosIns from '@/plugins/axios';
 
-import useMyFetch from '@/composable/useRequest';
-
 export async function login(params: object) {
   const options = {
     method: 'POST',
@@ -16,7 +14,14 @@ export async function login(params: object) {
 }
 
 export async function fetchMe() {
-  return await useMyFetch('/api/me').get().json<IUser>();
+  const options = {
+    method: 'GET',
+    url: `/api/me`,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  return axiosIns.request<IUser>(options);
 }
 
 export async function fetchUser(params) {

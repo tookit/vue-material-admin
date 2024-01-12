@@ -150,5 +150,10 @@ export const handlerEvent = [
     const event = Object.assign(blankEvent, body);
     events.push(event);
     return HttpResponse.json(events, { status: 201 });
+  }),
+
+  http.put('/api/event/:id', async ({ params }) => {
+    const event = events.find((item) => item.id === params.id);
+    return HttpResponse.json(event, { status: 200 });
   })
 ];

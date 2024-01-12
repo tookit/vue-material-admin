@@ -1,10 +1,5 @@
-import axios from 'axios';
-import useMyFetch from '@/composable/useRequest';
+import axiosIns from '@/plugins/axios';
 import { ICalendarEvent, IEvent } from './type';
-
-export async function getEevents() {
-  return await useMyFetch('/api/event').get().json();
-}
 
 export async function fetchEvents(params: object) {
   const options = {
@@ -15,7 +10,7 @@ export async function fetchEvents(params: object) {
       'Content-Type': 'application/json'
     }
   };
-  return axios.request<Array<ICalendarEvent>>(options);
+  return axiosIns.request<Array<ICalendarEvent>>(options);
 }
 
 export async function updateEvent(event: IEvent) {
@@ -27,5 +22,5 @@ export async function updateEvent(event: IEvent) {
       'Content-Type': 'application/json'
     }
   };
-  return axios.request<IEvent>(options);
+  return axiosIns.request<IEvent>(options);
 }

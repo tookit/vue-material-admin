@@ -1,6 +1,5 @@
-import axios from 'axios';
+import axiosIns from '@/plugins/axios';
 import { IChatInit } from './type';
-// import useMyFetch from '@/composable/useRequest';
 
 /**
  * Init Chat
@@ -14,5 +13,5 @@ export async function initChat() {
       'Content-Type': 'application/json'
     }
   };
-  return await axios.request<IChatInit>(options);
+  return await axiosIns.request<IChatInit>(options);
 }

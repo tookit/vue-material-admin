@@ -61,7 +61,7 @@ export const useUserStore = defineStore('user', {
       try {
         const { data } = await fetchMe();
         // set user profile
-        this.setProfile(data.value);
+        this.setProfile(data);
         return Promise.resolve(true);
       } catch (e) {
         return Promise.reject(false);
