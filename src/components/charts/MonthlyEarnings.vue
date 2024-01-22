@@ -55,12 +55,10 @@ const areaChart = {
 <template>
   <VCard>
     <VCardItem>
-      <div class="d-flex align-center justify-space-between pt-sm-2">
-        <VCardTitle class="text-h5">Monthly Earnings</VCardTitle>
+      <div class="d-flex align-center justify-space-between">
+        <VCardTitle class="text-h5">{{ $t('monthly_earnings') }}</VCardTitle>
         <VBtn size="large" icon>
           <VIcon icon="mdi-currency-usd" color="white" />
-          <!-- <CurrencyDollarIcon size="25" />
-             -->
         </VBtn>
       </div>
       <VRow>
@@ -70,7 +68,7 @@ const areaChart = {
             <div class="mt-1">
               <VIcon icon="mdi-arrow-up-right" color="success" />
               <span class="text-subtitle-1 ml-2 font-weight-bold">+9%</span>
-              <span class="text-subtitle-1 text-muted ml-2">last year</span>
+              <span class="text-subtitle-1 text-muted ml-2">{{ $t('last_year') }}</span>
             </div>
           </div>
         </VCol>

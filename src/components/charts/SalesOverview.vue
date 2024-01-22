@@ -83,8 +83,10 @@ const chartOptions = computed(() => {
 <template>
   <VCard>
     <VCardItem>
-      <div class="d-sm-flex align-center justify-space-between pt-sm-2">
-        <div><VCardTitle class="text-h5">Sales Overview</VCardTitle></div>
+      <div class="d-sm-flex align-center justify-space-between">
+        <div>
+          <VCardTitle class="text-h5">{{ $t('sales_overview') }}</VCardTitle>
+        </div>
         <div class="my-sm-0 my-2">
           <VSelect v-model="select" :items="items" variant="outlined" density="compact" hide-details></VSelect>
         </div>

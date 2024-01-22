@@ -46,7 +46,7 @@ const Chart = [38, 40, 25];
   <VCard elevation="10">
     <VCardItem>
       <div class="d-sm-flex align-center justify-space-between pt-sm-2">
-        <VCardTitle class="text-h5">Yearly Breakup</VCardTitle>
+        <VCardTitle class="text-h5">{{ $t('yearly_breakup') }}</VCardTitle>
       </div>
       <VRow>
         <VCol cols="7" sm="7">
@@ -55,7 +55,7 @@ const Chart = [38, 40, 25];
             <div class="mt-1">
               <VIcon icon="mdi-arrow-up-left" color="success" />
               <span class="text-subtitle-1 ml-2 font-weight-bold">+9%</span>
-              <span class="text-subtitle-1 text-muted ml-2">last year</span>
+              <span class="text-subtitle-1 text-muted ml-2">{{ $t('last_year') }}</span>
             </div>
             <div class="d-flex align-center mt-sm-10 mt-8">
               <h6 class="text-subtitle-1 text-muted">

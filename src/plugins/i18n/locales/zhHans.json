@@ -32,6 +32,10 @@
   "reset": "重置",
   "avatar": "图像",
   "action": "操作",
+  "sales_overview": "销售统计",
+  "yearly_breakup": "年度统计",
+  "monthly_earnings": "月度收入",
+  "last_year": "去年",
   "$vuetify": {
     "loading": "加载中",
     "open": "打开",
