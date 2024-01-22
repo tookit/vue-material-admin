@@ -35,6 +35,8 @@
   "sales_overview": "销售统计",
   "yearly_breakup": "年度统计",
   "monthly_earnings": "月度收入",
+  "recent_transactions": "最近交易",
+  "recent_task": "最近任务",
   "last_year": "去年",
   "$vuetify": {
     "loading": "加载中",

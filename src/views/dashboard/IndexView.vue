@@ -4,7 +4,7 @@ import SalesOverview from '@/components/charts/SalesOverview.vue';
 import YearlyBreakup from '@/components/charts/YearlyBreakup.vue';
 import MonthlyEarning from '@/components/charts/MonthlyEarnings.vue';
 import RecentTransaction from '@/components/dashboard/RecentTransaction.vue';
-import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
+import RecentTask from '@/components/dashboard/RecentTask.vue';
 </script>
 <template>
   <VRow>
@@ -29,7 +29,7 @@ import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
         </VCol>
         <!-- Product performence -->
         <VCol cols="12" lg="8">
-          <ProductPerformance />
+          <RecentTask />
         </VCol>
       </VRow>
     </VCol>

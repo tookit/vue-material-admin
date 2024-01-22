@@ -2,10 +2,10 @@
 import { productPerformance } from '@/data/dashboard/dashboardData';
 </script>
 <template>
-  <v-card elevation="10" class="">
-    <v-card-item class="pa-6">
-      <v-card-title class="text-h5 pt-sm-2 pb-7">Recent Transactions</v-card-title>
-      <v-table class="month-table">
+  <VCard>
+    <VCardItem>
+      <VCardTitle>{{ $t('recent_task') }}</VCardTitle>
+      <VTable class="month-table">
         <thead>
           <tr>
             <th class="text-subtitle-1">Id</th>
@@ -39,7 +39,7 @@ import { productPerformance } from '@/data/dashboard/dashboardData';
             </td>
           </tr>
         </tbody>
-      </v-table>
-    </v-card-item>
-  </v-card>
+      </VTable>
+    </VCardItem>
+  </VCard>
 </template>

@@ -2,9 +2,9 @@
 import { recentTransaction } from '@/data/dashboard/dashboardData';
 </script>
 <template>
-  <VCard elevation="10">
-    <VCardItem class="pb-0">
-      <VCardTitle class="text-h5 pt-sm-2">Recent Transactions</VCardTitle>
+  <VCard>
+    <VCardItem>
+      <VCardTitle>{{ $t('recent_transactions') }}</VCardTitle>
       <div class="recent-transaction mt-10 px-3">
         <div v-for="list in recentTransaction" :key="list.title">
           <VRow class="d-flex mb-4">
