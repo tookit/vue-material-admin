@@ -13,3 +13,7 @@ $theme-colors-name: (
     background-color: rgba(var(--v-theme-#{$color-name}), var(--v-activated-opacity)) !important;
   }
 }
+
+.bg-transparent {
+  background-color: transparent;
+}

@@ -105,7 +105,7 @@ const handleResetFilter = () => {
       <VCol cols="12">
         <VCard>
           <VCardItem class="py-0">
-            <VToolbar flat>
+            <VToolbar tag="div" color="transparent" flat>
               <VTextField
                 :prepend-icon="!showFilter ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
                 placeholder="Type something"
