@@ -50,7 +50,7 @@ watch(props, () => {
           <template v-slot:prepend>
             <v-icon icon="mdi-phone"></v-icon>
           </template>
-          <VListItemTitle>{{ user.contact }}</VListItemTitle>
+          <VListItemTitle>{{ user.phone }}</VListItemTitle>
         </VListItem>
         <VListItem>
           <template v-slot:prepend>

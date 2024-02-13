@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useSnackbarStore } from '@/store/';
+import { useSnackbarStore } from '@/store';
 const store = useSnackbarStore();
 const { showSnackbar, message, color } = storeToRefs(store);
 </script>

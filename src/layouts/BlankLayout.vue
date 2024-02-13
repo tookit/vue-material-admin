@@ -1,8 +1,8 @@
-// ===============================|| Blank Layout ||=============================== //
+<!-- // ===============================|| Blank Layout ||=============================== // -->
 <template>
-  <v-app>
+  <VApp>
     <RouterView />
-  </v-app>
+  </VApp>
 </template>
 <script setup lang="ts">
 import { RouterView } from 'vue-router';

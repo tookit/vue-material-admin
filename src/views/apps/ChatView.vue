@@ -14,12 +14,12 @@ const selectedUser = reactive<IUser>({
   id: 0,
   username: '',
   company: '',
+  job: '',
   country: '',
-  contact: '',
-  currentPlan: 'free',
+  city: '',
+  phone: '',
   email: '',
   avatar: '',
-  billing: '',
   role: '',
   status: 'active'
 });
@@ -27,11 +27,9 @@ watchEffect(() => {
   store
     .initChat()
     .then((resp) => {
-      console.log(resp);
       loading.value = false;
     })
     .catch((err) => {
-      console.log(err);
       loading.value = false;
     });
 });
@@ -51,7 +49,7 @@ const handleViewChat = (chat) => {
   <VSheet elevation="10">
     <VLayout class="chat">
       <VNavigationDrawer :width="360" absolute touchless location="start">
-        <VToolbar flat tag="div">
+        <VToolbar flat tag="div" color="transparent">
           <VTextField class="mx-5" append-inner-icon="mdi-magnify"></VTextField>
         </VToolbar>
         <VDivider />
@@ -79,10 +77,10 @@ const handleViewChat = (chat) => {
           <template v-for="contact in store.chatContacts" :key="contact.id">
             <VListItem @click="handleViewProfile(contact)">
               <template v-slot:prepend>
-                <ChatAvatar :username="contact.fullName" :avatar="contact.avatar" size="40" />
+                <ChatAvatar :username="contact.username" :avatar="contact.avatar" size="40" />
               </template>
-              <VListItemTitle class="ml-3">{{ contact.fullName }}</VListItemTitle>
-              <VListItemSubtitle class="ml-3">{{ contact.role }}</VListItemSubtitle>
+              <VListItemTitle class="ml-3">{{ contact.username }}</VListItemTitle>
+              <VListItemSubtitle class="ml-3">{{ contact.job }}</VListItemSubtitle>
             </VListItem>
             <VDivider />
           </template>
@@ -90,19 +88,19 @@ const handleViewChat = (chat) => {
       </VNavigationDrawer>
       <VMain>
         <VSheet class="chat-sheet fill-height">
-          <VToolbar class="px-5" flat tag="div">
+          <VToolbar class="px-5" flat tag="div" color="transparent">
             <!-- avatar -->
             <VList class="pa-0">
               <VListItem class="px-0">
                 <template v-slot:prepend>
                   <VBadge dot location="bottom right" offset-x="3" offset-y="0" bordered>
                     <VAvatar class="cursor-pointer">
-                      <VImg src="/assets/images/users/user.jpg" />
+                      <VImg src="/assets/images/users/avatar-1.jpg" />
                     </VAvatar>
                   </VBadge>
                 </template>
-                <VListItemTitle class="ml-3">Lucy</VListItemTitle>
-                <VListItemSubtitle class="ml-3">Design</VListItemSubtitle>
+                <VListItemTitle class="ml-3">Michael</VListItemTitle>
+                <VListItemSubtitle class="ml-3">Wang</VListItemSubtitle>
               </VListItem>
             </VList>
             <VSpacer />

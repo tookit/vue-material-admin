@@ -130,7 +130,7 @@ const menus = computed(() => {
 
 <template>
   <VNavigationDrawer :rail-width="drawerProps.railWidth" :rail="drawerProps.rail" :border="true" :elevation="1">
-    <VToolbar class="px-3">
+    <VToolbar class="px-3" color="transparent">
       <Logo :height="26" />
       <VToolbarTitle>Materiv</VToolbarTitle>
     </VToolbar>

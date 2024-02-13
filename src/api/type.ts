@@ -27,11 +27,12 @@ export interface IUser {
   id: number;
   username: string;
   company: string;
+  job: string;
   country: string;
-  contact: string;
+  city: string;
+  phone: string;
   email: string;
   avatar: string;
-  billing: string;
   role: string;
   status: UserStatus;
   access_token?: string;
@@ -62,7 +63,7 @@ export type ChatStatus = 'online' | 'offline' | 'busy' | 'away';
 
 export interface IChatContact {
   id: number;
-  fullName: string;
+  username: string;
   role: string;
   about: string;
   avatar: string;

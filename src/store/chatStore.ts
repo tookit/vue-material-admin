@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia';
 import { initChat } from '@/api/chat';
-import { IChat, IChatContact } from '@/api/type';
+import { IChat, IUser } from '@/api/type';
 
 export const useChatStore = defineStore('chat', {
   // ℹ️ arrow function recommended for full type inference
   state: () => ({
     chats: [] as IChat[],
-    chatContacts: [] as IChatContact[],
+    chatContacts: [] as IUser[],
     profile: null
   }),
   actions: {

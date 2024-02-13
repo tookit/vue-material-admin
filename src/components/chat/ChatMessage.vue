@@ -24,7 +24,7 @@ const isMySelf = () => {
 
 <template>
   <div :class="{ 'd-flex': true, message: true, 'flex-row-reverse': !isMySelf() }">
-    <ChatAvatar class="message-avatar" :avatar="props.avatar" :username="props.username" size="24" />
+    <ChatAvatar :size="36" class="message-avatar" :avatar="props.avatar" :username="props.username" />
     <div class="message-item">
       <p class="message-item__text elevation-1">{{ props.message }}</p>
       <div class="message-item__meta">
