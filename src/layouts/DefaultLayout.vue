@@ -5,7 +5,6 @@ import AppSidebar from '@/components/AppSidebar.vue';
 import AppToolbar from '@/components/AppToolbar.vue';
 const route = useRoute();
 const { t } = useLocale();
-const routeName = String(route.name).toLowerCase();
 </script>
 
 <template>
@@ -18,7 +17,7 @@ const routeName = String(route.name).toLowerCase();
     <VMain class="app-main">
       <VContainer class="app-container">
         <div class="page-wrapper">
-          <h3 class="page-title">{{ t(routeName) }}</h3>
+          <h3 class="page-title">{{ t(String(route.name).toLocaleLowerCase()) }}</h3>
           <RouterView />
         </div>
       </VContainer>

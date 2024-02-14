@@ -2,7 +2,6 @@ import type { IEvent, INewEvent } from '@/api/type';
 import axios from '@/plugins/axios';
 import { defineStore } from 'pinia';
 import { fetchEvents, updateEvent } from '@/api/event';
-
 export const useCalendarStore = defineStore('calendar', {
   // arrow function recommended for full type inference
   state: () => ({
@@ -25,10 +24,10 @@ export const useCalendarStore = defineStore('calendar', {
       },
       {
         color: 'info',
-        label: 'ETC'
+        label: 'meeting'
       }
     ],
-    selectedCalendars: ['Personal', 'Business', 'Family', 'Holiday', 'ETC']
+    selectedCalendars: ['Personal', 'Business', 'Family', 'Holiday', 'Meeting']
   }),
   actions: {
     async fetchEvents() {

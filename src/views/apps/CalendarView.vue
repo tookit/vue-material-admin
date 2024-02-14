@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { useLocale } from 'vuetify';
 import { blankEvent, useCalendar } from '@/composable/useCalendar';
 import { useCalendarStore } from '@/store/eventStore';
 import AppDateTimePicker from '@/components/AppDateTimePicker.vue';
 import EventForm from '@/components/forms/EventForm.vue';
 import FullCalendar from '@fullcalendar/vue3';
+
+const { t } = useLocale();
 
 const showDialog = ref(false);
 const loading = ref(false);
@@ -41,8 +44,8 @@ const handleEventUpdate = (e) => {
     <VCard>
       <VLayout>
         <VNavigationDrawer :width="292" absolute touchless location="start" class="calendar-add-event-drawer">
-          <div style="margin: 23.5px">
-            <VBtn block prepend-icon="mdi-plus" @click="handleAddEvent"> Add event </VBtn>
+          <div class="ma-6">
+            <VBtn block prepend-icon="mdi-plus" @click="handleAddEvent"> {{ $t('add_event') }} </VBtn>
           </div>
           <VDivider />
           <div class="d-flex align-center justify-center pa-2 mb-3">
@@ -55,7 +58,7 @@ const handleEventUpdate = (e) => {
           </div>
           <VDivider />
           <div class="pa-7">
-            <VListSubheader>FILTER</VListSubheader>
+            <VListSubheader>{{ $t('filter') }}</VListSubheader>
             <div class="d-flex flex-column calendars-checkbox">
               <VCheckbox v-model="checkAll" label="View all" />
               <VCheckbox
@@ -64,7 +67,7 @@ const handleEventUpdate = (e) => {
                 v-model="store.selectedCalendars"
                 :value="calendar.label"
                 :color="calendar.color"
-                :label="calendar.label"
+                :label="t(calendar.label.toLowerCase())"
                 hide-details
               />
             </div>

@@ -54,7 +54,7 @@ const handleViewChat = (chat) => {
         </VToolbar>
         <VDivider />
         <VList lines="two" class="pa-0">
-          <VListSubheader>Recent</VListSubheader>
+          <VListSubheader>{{ $t('recent') }}</VListSubheader>
           <VDivider />
           <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
           <template v-for="chat in store.chats" :key="chat.id">
@@ -71,7 +71,7 @@ const handleViewChat = (chat) => {
             </VListItem>
             <VDivider />
           </template>
-          <VListSubheader>Contacts</VListSubheader>
+          <VListSubheader>{{ $t('contact') }}</VListSubheader>
           <VDivider />
           <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
           <template v-for="contact in store.chatContacts" :key="contact.id">
@@ -90,7 +90,7 @@ const handleViewChat = (chat) => {
         <VSheet class="chat-sheet fill-height">
           <VToolbar class="px-5" flat tag="div" color="transparent">
             <!-- avatar -->
-            <VList class="pa-0">
+            <VList>
               <VListItem class="px-0">
                 <template v-slot:prepend>
                   <VBadge dot location="bottom right" offset-x="3" offset-y="0" bordered>
