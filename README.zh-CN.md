@@ -15,7 +15,8 @@ Vuetify is Awesome.
 [Discrod channel](https://discord.gg/7f6TVx)
 
 ## Demo
-[http://vma.isocked.com/#/dashboard]
+[Vuetify2 version](https://vma.isocked.com/#/auth/login)
+[Vuetify3 version](https://vma3.isocked.com/#/auth/login)
 
 
 ## Preview
