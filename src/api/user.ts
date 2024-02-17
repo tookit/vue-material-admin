@@ -1,4 +1,4 @@
-import { IAccessToken, IUser } from './type';
+import { IAccessToken, IErrorResp, IUser } from './type';
 import axiosIns from '@/plugins/axios';
 
 export async function login(params: object) {
@@ -21,7 +21,7 @@ export async function fetchMe() {
       'Content-Type': 'application/json'
     }
   };
-  return axiosIns.request<IUser>(options);
+  return axiosIns.request<IUser | IErrorResp>(options);
 }
 
 export async function fetchUser(params) {

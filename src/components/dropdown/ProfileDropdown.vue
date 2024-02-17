@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
 const items = [
   {
     title: 'Profile',
@@ -31,6 +33,14 @@ const items = [
     to: '/task'
   }
 ];
+const router = useRouter();
+
+const handleLogout = () => {
+  router.push({
+    path: '/auth/login'
+  });
+  sessionStorage.clear();
+};
 </script>
 
 <template>
@@ -47,7 +57,7 @@ const items = [
     <VSheet rounded="md" width="200" elevation="10" class="mt-2">
       <VList :items="items" lines="one" density="compact" class="pa-0" color="primary" />
       <div class="pt-4 pb-4 px-5 text-center">
-        <VBtn to="/auth/login" color="primary" variant="outlined" block>Logout</VBtn>
+        <VBtn color="primary" variant="outlined" block @click="handleLogout">Logout</VBtn>
       </div>
     </VSheet>
   </VMenu>

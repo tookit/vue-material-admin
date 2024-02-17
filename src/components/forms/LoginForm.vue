@@ -38,7 +38,6 @@ const handleSubmit = async () => {
       const { data } = await login(formModel);
       const { access_token } = data;
       submiting.value = false;
-
       userStore.setToken(access_token);
       router.replace(route.query.to ? String(route.query.to) : '/');
     } catch (error) {

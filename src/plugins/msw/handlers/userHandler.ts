@@ -5,11 +5,21 @@ export const findUserById = (id) => {
   return users.find((item) => item.id === id);
 };
 
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTB9.txWLuN4QT5PqTtgHmlOiNerIu5Do51PpYOiZutkyXYg';
+
 export const handlerUser = [
   // get current user info
-  http.get('/api/me', async () => {
+  http.get('/api/me', async ({ request }) => {
+    const authHeader = request.headers.get('Authorization');
+    const token = authHeader?.replace('Bearer ', '');
+    console.log(token);
     const data = users;
-    return HttpResponse.json(data[0], { status: 200 });
+
+    if (token === TOKEN) {
+      return HttpResponse.json(data[0], { status: 200 });
+    } else {
+      return HttpResponse.json(data[0], { status: 401 });
+    }
   }),
 
   http.get('/api/user', async ({ request }) => {
@@ -18,8 +28,6 @@ export const handlerUser = [
     const role = searchParams.get('filter[role]') ?? null;
     const status = searchParams.get('filter[status]') ?? null;
     if (role) {
-      console.log(role);
-
       data = users.filter((item) => {
         return item.role === role;
       });

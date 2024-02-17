@@ -1,3 +1,4 @@
+import { fetchMe } from '@/api/user';
 import { useUserStore } from '@/store/userStore';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import PrivateRoutes from './private';
@@ -29,10 +30,11 @@ router.beforeEach(async (to) => {
     return true;
   } else {
     const userStore = useUserStore();
-    const resp = await userStore.getProfile();
-    if (resp) {
+    try {
+      const resp = await fetchMe();
+      console.log(resp);
       return true;
-    } else {
+    } catch (error) {
       return { name: 'Login' };
     }
   }

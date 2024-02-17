@@ -12,17 +12,16 @@ const axiosIns = axios.create({
 
 // ℹ️ Add request interceptor to send the authorization header on each subsequent request after login
 axiosIns.interceptors.request.use((config) => {
-  // Retrieve token from localStorage
-  const token = localStorage.getItem('accessToken');
-
+  // Retrieve token from sessionStorage
+  const vma = sessionStorage.getItem('vma');
   // If token is found
-  if (token) {
+  if (vma) {
     // Get request headers and if headers is undefined assign blank object
     config.headers = config.headers || {};
-
+    const { token } = JSON.parse(vma);
     // Set authorization header
     // ℹ️ JSON.parse will convert token to string
-    config.headers.Authorization = token ? `Bearer ${JSON.parse(token)}` : '';
+    config.headers.Authorization = token ? `Bearer ${token}` : '';
   }
 
   // Return modified config
@@ -39,7 +38,7 @@ axiosIns.interceptors.response.use(
     const snackbarStore = useSnackbarStore();
     switch (statusCode) {
       case 401:
-        // Remove "accessToken" from localStorage
+        // Remove "accessToken" from sessionStorage
         localStorage.removeItem('accessToken');
         localStorage.removeItem('userAbilities');
         // If 401 response returned from api
