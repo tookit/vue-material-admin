@@ -24,7 +24,7 @@ export const useCalendarStore = defineStore('calendar', {
       },
       {
         color: 'info',
-        label: 'meeting'
+        label: 'Meeting'
       }
     ],
     selectedCalendars: ['Personal', 'Business', 'Family', 'Holiday', 'Meeting']

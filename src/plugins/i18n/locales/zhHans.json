@@ -46,17 +46,30 @@
   "contact": "联系人",
   "add_event": "添加事件",
   "filter": "过滤",
-  "view all": "所有",
+  "view_all": "查看所有",
   "personal": "个人",
   "business": "商业",
   "family": "家庭",
   "holiday": "节日",
   "meeting": "会议",
+  "profile": "资料",
   "$vuetify": {
     "loading": "加载中",
     "open": "打开",
     "close": "关闭",
     "badge": "徽章",
+    "datePicker": {
+      "itemsSelected": "'{0} selected'",
+      "range": {
+        "title": "Select dates",
+        "header": "Enter dates"
+      },
+      "title": "Select date",
+      "header": "Enter date",
+      "input": {
+        "placeholder": "Enter date"
+      }
+    },
     "dataIterator": {
       "loadingText": "加载中"
     },

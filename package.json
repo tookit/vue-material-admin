@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@braks/vue-flow": "0.4.38",
+    "@date-io/dayjs": "^3.0.0",
     "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
     "@fullcalendar/interaction": "^6.1.10",
@@ -21,6 +22,7 @@
     "apexcharts": "3.45.2",
     "axios": "^1.6.7",
     "date-fns": "^3.3.1",
+    "dayjs": "^1.11.10",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "prismjs": "^1.29.0",

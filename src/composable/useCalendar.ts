@@ -48,7 +48,7 @@ export const useCalendar = (
     Holiday: 'success',
     Personal: 'error',
     Family: 'warning',
-    ETC: 'info'
+    Meeting: 'info'
   };
 
   // ℹ️ Extract event data from event API
@@ -88,7 +88,6 @@ export const useCalendar = (
     store
       .fetchEvents()
       .then((r) => {
-        console.log(r);
         successCallback(
           r.data.map((e: ICalendarEvent) => ({
             ...e,
@@ -184,42 +183,40 @@ export const useCalendar = (
     },
     events: fetchEvents,
 
-    // ❗ We need this to be true because when its false and event is allDay event and end date is same as start data then Full calendar will set end to null
     forceEventDuration: true,
 
     /*
     Enable dragging and resizing event
     Docs: https://fullcalendar.io/docs/editable
-  */
+    */
     editable: true,
 
     /*
     Enable resizing event from start
     Docs: https://fullcalendar.io/docs/eventResizableFromStart
-  */
+    */
     eventResizableFromStart: true,
 
     /*
     Automatically scroll the scroll-containers during event drag-and-drop and date selecting
     Docs: https://fullcalendar.io/docs/dragScroll
-  */
+    */
     dragScroll: true,
 
     /*
     Max number of events within a given day
     Docs: https://fullcalendar.io/docs/dayMaxEvents
-  */
+    */
     dayMaxEvents: 2,
 
     /*
     Determines if day names and week names are clickable
     Docs: https://fullcalendar.io/docs/navLinks
-  */
+    */
     navLinks: true,
 
     eventClassNames({ event: calendarEvent }) {
       const colorName = calendarsColor[calendarEvent._def.extendedProps.calendar as keyof typeof calendarsColor];
-
       return [
         // Background Color
         `bg-light-${colorName} text-${colorName}`
@@ -229,6 +226,7 @@ export const useCalendar = (
     eventClick({ event: clickedEvent }) {
       // * Only grab required field otherwise it goes in infinity loop
       // ! Always grab all fields rendered by form (even if it get `undefined`) otherwise due to Vue3/Composition API you might get: "object is not extensible"
+      console.log(event);
       event.value = extractEventDataFromEventApi(clickedEvent);
       showDialog.value = true;
     },

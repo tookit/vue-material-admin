@@ -352,6 +352,18 @@
   dependencies:
     statuses "^2.0.1"
 
+"@date-io/core@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@date-io/core/-/core-3.0.0.tgz#9fd2375383b5791b7211dfce3e576211f9ddce5e"
+  integrity sha512-S3j+IAQVBYNkQzchVVhX40eBkGDreBpScy9RXwTS5j2+k07+62pMVPisQ44Gq76Rqy5AOG/EZXCwBpY/jbemvA==
+
+"@date-io/dayjs@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@date-io/dayjs/-/dayjs-3.0.0.tgz#46cf595d10639fe00b89e8c23cbcac22c0d542bb"
+  integrity sha512-vy7DSwoQiPA2L0stRqW3le7lcEBMjoMMEmbpCNkyoX3xXizKInFvhbnOBmCyusIQ7tL/WsNC4X5bVgdNWX0JLA==
+  dependencies:
+    "@date-io/core" "^3.0.0"
+
 "@esbuild/android-arm64@0.19.8":
   version "0.19.8"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.19.8.tgz#fb7130103835b6d43ea499c3f30cfb2b2ed58456"
@@ -1887,6 +1899,11 @@ date-fns@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.3.1.tgz#7581daca0892d139736697717a168afbb908cfed"
   integrity sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==
+
+dayjs@^1.11.10:
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 de-indent@^1.0.2:
   version "1.0.2"

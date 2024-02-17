@@ -20,7 +20,7 @@ watch(props, () => {
 
 <template>
   <VCard>
-    <VToolbar tag="div">
+    <VToolbar tag="div" color="transparent">
       <VSpacer />
       <VBtn icon="mdi-dots-vertical"> </VBtn>
     </VToolbar>
@@ -39,7 +39,7 @@ watch(props, () => {
     </VCardItem>
     <VCardItem>
       <VList>
-        <v-list-subheader>Profile</v-list-subheader>
+        <v-list-subheader>{{ $t('profile') }}</v-list-subheader>
         <VListItem>
           <template v-slot:prepend>
             <v-icon icon="mdi-email"></v-icon>

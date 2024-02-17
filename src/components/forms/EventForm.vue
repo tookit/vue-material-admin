@@ -2,6 +2,7 @@
 import { ref, reactive, watch } from 'vue';
 import { useCalendarStore } from '@/store';
 import { IEvent } from '@/api/type';
+import AppDatePicker from '../picker/AppDatePicker.vue';
 interface IModel {
   event: IEvent;
 }
@@ -14,6 +15,7 @@ const formModel = reactive<IEvent>({
 
 const eventStore = useCalendarStore();
 const submiting = ref(false);
+const showMenu = ref(false);
 const handleSubmit = (e) => {
   e.preventDefault();
   submiting.value = true;
@@ -52,7 +54,7 @@ watch(props, () => {
 
 <template>
   <VCard width="640px">
-    <VToolbar tag="div">
+    <VToolbar tag="div" color="transparent">
       <VToolbarTitle>Event Form</VToolbarTitle>
       <VBtn icon="mdi-close" @click="$emit('form:cancel')"></VBtn>
     </VToolbar>
@@ -77,11 +79,25 @@ watch(props, () => {
           </VCol>
           <VCol cols="12">
             <VLabel class="mb-1">Start Date</VLabel>
-            <VTextField v-model="formModel.start" variant="outlined" color="primary" name="start" type="datetime" />
+            <VMenu v-model="showMenu">
+              <template v-slot:activator="{ props: menu }">
+                <VTextField
+                  v-model="formModel.start"
+                  v-bind="menu"
+                  variant="outlined"
+                  color="primary"
+                  name="start"
+                  type="datetime"
+                  :append-inner-icon="showMenu === true ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                />
+              </template>
+              <VDatePicker v-model="formModel.start" width="100%" />
+            </VMenu>
           </VCol>
           <VCol cols="12">
             <VLabel class="mb-1">End Date</VLabel>
-            <VTextField v-model="formModel.end" variant="outlined" color="primary" name="end" type="datetime" />
+            <AppDatePicker v-model="formModel.end" />
+            <!-- <VTextField v-model="formModel.end" variant="outlined" color="primary" name="end" type="datetime" />1 -->
           </VCol>
           <VCol cols="12">
             <VSwitch v-model="formModel.allDay" label="All day" />
@@ -106,10 +122,9 @@ watch(props, () => {
         </VRow>
       </VForm>
     </VCardText>
-    <VCardActions>
-      <VBtn @click="handleCancel">Cancel</VBtn>
+    <div class="d-flex justify-end pa-3">
+      <VBtn @click="handleCancel" variant="plain">Cancel</VBtn>
       <VBtn color="primary" @click="handleSubmit" :loading="submiting">Submit</VBtn>
-    </VCardActions>
+    </div>
   </VCard>
 </template>
-@/store/eventStore

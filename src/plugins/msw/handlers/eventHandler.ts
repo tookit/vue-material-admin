@@ -66,7 +66,7 @@ const events: ICalendarEvent[] = [
     end: new Date(date.getFullYear(), date.getMonth() + 1, -12).toUTCString(),
     allDay: true,
     extendedProps: {
-      calendar: 'ETC'
+      calendar: 'Metting'
     }
   },
   {

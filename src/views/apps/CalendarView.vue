@@ -60,7 +60,7 @@ const handleEventUpdate = (e) => {
           <div class="pa-7">
             <VListSubheader>{{ $t('filter') }}</VListSubheader>
             <div class="d-flex flex-column calendars-checkbox">
-              <VCheckbox v-model="checkAll" label="View all" />
+              <VCheckbox v-model="checkAll" :label="t('view_all')" />
               <VCheckbox
                 v-for="calendar in store.availableCalendars"
                 :key="calendar.label"
