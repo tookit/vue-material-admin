@@ -25,11 +25,12 @@ const selectedUser = reactive<IUser>({
   id: 0,
   username: '',
   company: '',
+  job: '',
   country: '',
-  contact: '',
+  city: '',
+  phone: '',
   email: '',
   avatar: '',
-  billing: '',
   role: '',
   status: 'active'
 });
