@@ -1,12 +1,12 @@
 import { useUserStore } from '@/store/userStore';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import PrivateRoutes from './private';
 import PublicRoutes from './public';
 
 const whiteList = ['Login', 'Register', 'Forget', 'Reset'];
 
 export const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   scrollBehavior(to) {
     if (to.hash) return { el: to.hash, behavior: 'smooth', top: 60 };
 
