@@ -1,20 +1,22 @@
 import { http, HttpResponse, delay } from 'msw';
 import { users } from './db';
 
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTB9.txWLuN4QT5PqTtgHmlOiNerIu5Do51PpYOiZutkyXYg';
+
 export const findUserById = (id) => {
   return users.find((item) => item.id === id);
 };
 
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTB9.txWLuN4QT5PqTtgHmlOiNerIu5Do51PpYOiZutkyXYg';
+export const getToken = (request) => {
+  const authHeader = request.headers.get('Authorization');
+  return authHeader?.replace('Bearer ', '');
+};
 
 export const handlerUser = [
   // get current user info
   http.get('/api/me', async ({ request }) => {
-    const authHeader = request.headers.get('Authorization');
-    const token = authHeader?.replace('Bearer ', '');
-    console.log(token);
+    const token = getToken(request);
     const data = users;
-
     if (token === TOKEN) {
       return HttpResponse.json(data[0], { status: 200 });
     } else {
