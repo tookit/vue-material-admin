@@ -7,7 +7,6 @@ export const avatarText = (value: string) => {
   return nameArray.map((word) => word.charAt(0).toUpperCase()).join('');
 };
 
-// TODO: Try to implement this: https://twitter.com/fireship_dev/status/1565424801216311297
 export const kFormatter = (num: number) => {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
 
