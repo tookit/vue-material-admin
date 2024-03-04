@@ -22,8 +22,8 @@ const formRules = reactive({
   ]
 });
 const formModel = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 });
 
 const userStore = useUserStore();

@@ -15,11 +15,11 @@ Vuetify is Awesome.
 [Discrod channel](https://discord.gg/7f6TVx)
 
 ## Demo
-[Vuetify2 version](https://vma.isocked.com/#/auth/login)
-[Vuetify3 version](https://vma3.isocked.com/#/auth/login)
+- [Vuetify2 version](https://v2.isocked.com/#/auth/login)
+- [Vuetify3 version](https://vma.isocked.com/#/auth/login)
 
 ## Preview
-![Preivew](http://doc.isocked.com/img/preview.png)
+![Preivew](https://vma.isocked.com/vma_preview.webp)
 
 ## Documentation
 
