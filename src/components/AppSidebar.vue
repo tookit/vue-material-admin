@@ -156,8 +156,14 @@ const menus = computed(() => {
   transform: translateY(-50%);
 }
 .menu-list {
+  .v-list-subheader__text {
+    text-transform: uppercase;
+  }
   .v-list-item__prepend > .v-icon {
     margin-inline-end: 16px;
+  }
+  .v-list-item-title {
+    text-transform: capitalize;
   }
 }
 </style>

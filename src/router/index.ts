@@ -1,13 +1,13 @@
 import { fetchMe } from '@/api/user';
-import { useUserStore } from '@/store/userStore';
-import { createRouter, createWebHashHistory } from 'vue-router';
+// import { useUserStore } from '@/store/userStore';
+import { createRouter, createWebHistory } from 'vue-router';
 import PrivateRoutes from './private';
 import PublicRoutes from './public';
 
 const whiteList = ['Login', 'Register', 'Forget', 'Reset'];
 
 export const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to) {
     if (to.hash) return { el: to.hash, behavior: 'smooth', top: 60 };
 
@@ -29,7 +29,7 @@ router.beforeEach(async (to) => {
   if (whiteList.includes(routeName)) {
     return true;
   } else {
-    const userStore = useUserStore();
+    // const userStore = useUserStore();
     try {
       const resp = await fetchMe();
       console.log(resp);
