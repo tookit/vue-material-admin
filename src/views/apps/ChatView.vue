@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-// import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
-import { IChatMessage, IUser } from '@/api/type';
 import { ref, watchEffect, reactive } from 'vue';
+import { useLocale } from 'vuetify';
+import { IChatMessage, IUser } from '@/api/type';
 import { useChatStore } from '@/store/chatStore';
 import ChatAvatar from '@/components/chat/ChatAvatar.vue';
 import ChatMessage from '@/components/chat/ChatMessage.vue';
 import VerticalProfileCard from '@/components/card/VerticalProfileCard.vue';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 const store = useChatStore();
+const { t } = useLocale();
 const loading = ref(true);
 const showDialog = ref(false);
 const selectedUser = reactive<IUser>({
@@ -54,7 +55,7 @@ const handleViewChat = (chat) => {
         </VToolbar>
         <VDivider />
         <VList lines="two" class="pa-0">
-          <VListSubheader>{{ $t('recent') }}</VListSubheader>
+          <VListSubheader>{{ t('recent') }}</VListSubheader>
           <VDivider />
           <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
           <template v-for="chat in store.chats" :key="chat.id">
@@ -71,7 +72,7 @@ const handleViewChat = (chat) => {
             </VListItem>
             <VDivider />
           </template>
-          <VListSubheader>{{ $t('contact') }}</VListSubheader>
+          <VListSubheader>{{ t('contact') }}</VListSubheader>
           <VDivider />
           <VSkeletonLoader v-if="loading" type="list-item-avatar"></VSkeletonLoader>
           <template v-for="contact in store.chatContacts" :key="contact.id">
