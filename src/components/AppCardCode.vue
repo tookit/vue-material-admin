@@ -77,12 +77,3 @@ const isCodeShown = ref(false);
     </VExpandTransition>
   </VCard>
 </template>
-
-<style lang="scss">
-// @use '@/styles/variables/_vuetify.scss';
-
-// :not(pre) > code[class*='language-'],
-// pre[class*='language-'] {
-//   border-radius: vuetify.$card-border-radius;
-// }
-</style>

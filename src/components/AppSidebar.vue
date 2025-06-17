@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import Logo from '@/components/Logo.vue';
 import { reactive, computed } from 'vue';
 import { useLocale } from 'vuetify';
+import Logo from '@/components/Logo.vue';
 
 const { t } = useLocale();
-const items = [
+
+interface NavItem {
+  type?: 'subheader';
+  title: string;
+  props?: Record<string, any>;
+  value?: string;
+}
+
+const items: NavItem[] = [
   { type: 'subheader', title: t('apps') },
   {
     title: t('dashboard'),
@@ -103,7 +111,13 @@ const items = [
   }
 ];
 
-const drawerProps = reactive({
+interface DrawerProps {
+  rail: boolean;
+  railWidth: number;
+  icon: string;
+}
+
+const drawerProps = reactive<DrawerProps>({
   rail: false,
   railWidth: 256,
   icon: 'mdi-arrow-left'
@@ -117,7 +131,7 @@ const handleDrawerWidth = () => {
   drawerProps.icon = drawerProps.railWidth === 256 ? 'mdi-arrow-expand-left  ' : 'mdi-arrow-expand-right';
 };
 
-const menus = computed(() => {
+const menus = computed<NavItem[]>(() => {
   if (drawerProps.railWidth === 256) {
     return items;
   } else {

@@ -45,7 +45,7 @@ const handleEventUpdate = (e) => {
       <VLayout>
         <VNavigationDrawer :width="292" absolute touchless location="start" class="calendar-add-event-drawer">
           <div class="ma-6">
-            <VBtn block prepend-icon="mdi-plus" @click="handleAddEvent"> {{ $t('add_event') }} </VBtn>
+            <VBtn block prepend-icon="mdi-plus" @click="handleAddEvent"> {{ t('add_event') }} </VBtn>
           </div>
           <VDivider />
           <div class="d-flex align-center justify-center pa-2 mb-3">
@@ -58,7 +58,7 @@ const handleEventUpdate = (e) => {
           </div>
           <VDivider />
           <div class="pa-7">
-            <VListSubheader>{{ $t('filter') }}</VListSubheader>
+            <VListSubheader>{{ t('filter') }}</VListSubheader>
             <div class="d-flex flex-column calendars-checkbox">
               <VCheckbox v-model="checkAll" :label="t('view_all')" />
               <VCheckbox
