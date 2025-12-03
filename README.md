@@ -38,7 +38,7 @@ Vue Material Admin is a modern, production-ready admin template built with [Vue 
 
 ## Documentation
 
-- 🚀 [Quick Start Guide](./QUICKSTART.md) - Get started in minutes!
+- 🚀 [Quick Start Guide](./QUICKSTART.md) - Get started in minutes!d
 - 📖 [Official Documentation](http://doc.isocked.com/)
 - 📝 [Changelog](./CHANGELOG.md)
 

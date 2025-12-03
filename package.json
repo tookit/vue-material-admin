@@ -59,5 +59,10 @@
     "vite-plugin-vue-devtools": "^7.6.10",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.1.10"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
