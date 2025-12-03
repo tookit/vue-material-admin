@@ -1,4 +1,5 @@
 import type { ThemeInstance } from 'vuetify';
+import type { ApexOptions } from 'apexcharts';
 import { hexToRgb } from '@/utils';
 // 👉 Colors variables
 const colorVariables = (themeColors: ThemeInstance['themes']['value']['colors']) => {
@@ -18,7 +19,7 @@ const colorVariables = (themeColors: ThemeInstance['themes']['value']['colors'])
   return { themeSecondaryTextColor, themeDisabledTextColor, themeBorderColor, themePrimaryTextColor };
 };
 
-export const getScatterChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getScatterChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const scatterColors = {
     series1: '#ff9f43',
     series2: '#7367f0',
@@ -74,7 +75,7 @@ export const getScatterChartConfig = (themeColors: ThemeInstance['themes']['valu
     }
   };
 };
-export const getLineChartSimpleConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getLineChartSimpleConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const { themeBorderColor, themeDisabledTextColor } = colorVariables(themeColors);
 
   return {
@@ -144,7 +145,7 @@ export const getLineChartSimpleConfig = (themeColors: ThemeInstance['themes']['v
   };
 };
 
-export const getBarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getBarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const { themeBorderColor, themeDisabledTextColor } = colorVariables(themeColors);
 
   return {
@@ -158,8 +159,7 @@ export const getBarChartConfig = (themeColors: ThemeInstance['themes']['value'][
       bar: {
         borderRadius: 8,
         barHeight: '30%',
-        horizontal: true,
-        startingShape: 'rounded'
+        horizontal: true
       }
     },
     grid: {
@@ -187,7 +187,7 @@ export const getBarChartConfig = (themeColors: ThemeInstance['themes']['value'][
   };
 };
 
-export const getCandlestickChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getCandlestickChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const candlestickColors = {
     series1: '#28c76f',
     series2: '#ea5455'
@@ -238,7 +238,7 @@ export const getCandlestickChartConfig = (themeColors: ThemeInstance['themes']['
     }
   };
 };
-export const getRadialBarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getRadialBarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const radialBarColors = {
     series1: '#fdd835',
     series2: '#32baff',
@@ -312,7 +312,7 @@ export const getRadialBarChartConfig = (themeColors: ThemeInstance['themes']['va
   };
 };
 
-export const getDonutChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getDonutChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const donutColors = {
     series1: '#fdd835',
     series2: '#00d4bd',
@@ -406,7 +406,7 @@ export const getDonutChartConfig = (themeColors: ThemeInstance['themes']['value'
   };
 };
 
-export const getAreaChartSplineConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getAreaChartSplineConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const areaColors = {
     series3: '#e0cffe',
     series2: '#b992fe',
@@ -487,7 +487,7 @@ export const getAreaChartSplineConfig = (themeColors: ThemeInstance['themes']['v
   };
 };
 
-export const getColumnChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getColumnChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const columnColors = {
     series1: '#826af9',
     series2: '#d2b0ff',
@@ -573,7 +573,7 @@ export const getColumnChartConfig = (themeColors: ThemeInstance['themes']['value
   };
 };
 
-export const getHeatMapChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getHeatMapChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const { themeSecondaryTextColor, themeDisabledTextColor } = colorVariables(themeColors);
 
   return {
@@ -632,7 +632,7 @@ export const getHeatMapChartConfig = (themeColors: ThemeInstance['themes']['valu
   };
 };
 
-export const getRadarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']) => {
+export const getRadarChartConfig = (themeColors: ThemeInstance['themes']['value']['colors']): ApexOptions => {
   const radarColors = {
     series1: '#9b88fa',
     series2: '#ffa1a1'

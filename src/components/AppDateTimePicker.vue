@@ -1,41 +1,35 @@
 <script setup lang="ts">
 import FlatPickr from 'vue-flatpickr-component';
-import { ref, computed, onMounted, nextTick, PropType, useAttrs } from 'vue';
+import { ref, computed, onMounted, nextTick, PropType } from 'vue';
 import { useTheme } from 'vuetify';
 import { useFocus } from '@vueuse/core';
 
-// @ts-expect-error There won't be declaration file for it
-import { VField, filterFieldProps, makeVFieldProps } from 'vuetify/lib/components/VField/VField';
-
-// @ts-expect-error There won't be declaration file for it
-import { VInput, makeVInputProps } from 'vuetify/lib/components/VInput/VInput';
-
-// @ts-expect-error There won't be declaration file for it
-import { filterInputAttrs } from 'vuetify/lib/util/helpers';
-
 const props = defineProps({
-  autofocus: Boolean,
-  counter: [Boolean, Number, String] as PropType<true | number | string>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  counterValue: Function as PropType<(value: any) => number>,
-  prefix: String,
-  placeholder: String,
-  persistentPlaceholder: Boolean,
-  persistentCounter: Boolean,
-  suffix: String,
-  type: {
-    type: String,
-    default: 'text'
+  // Support string dates to match existing usage, plus Date/number/array
+  modelValue: {
+    type: [String, Number, Array, Object] as PropType<null | string | number | Date | (string | number | Date)[]>,
+    default: null
   },
-  modelModifiers: Object as PropType<Record<string, boolean>>,
-  ...makeVInputProps({
-    density: 'compact',
-    hideDetails: 'auto'
-  }),
-  ...makeVFieldProps({
-    variant: 'outlined',
-    color: 'primary'
-  })
+  label: String,
+  id: String,
+  prefix: String,
+  suffix: String,
+  placeholder: String,
+  density: { type: String as PropType<'default' | 'comfortable' | 'compact'>, default: 'compact' },
+  hideDetails: { type: [Boolean, String] as PropType<boolean | 'auto'>, default: 'auto' },
+  variant: {
+    type: String as PropType<'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled' | 'solo-inverted' | 'underlined'>,
+    default: 'outlined'
+  },
+  color: { type: String, default: 'primary' },
+  // Additional styling passthroughs
+  class: [String, Array, Object] as PropType<string | string[] | Record<string, boolean>>,
+  style: [String, Object] as PropType<string | Record<string, string>>,
+  // Whether to mark the field as dirty
+  dirty: Boolean,
+  // Flatpickr config object
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  config: { type: Object as PropType<Record<string, any>>, default: () => ({}) }
 });
 
 const emit = defineEmits<Emit>();
@@ -53,15 +47,6 @@ defineOptions({
   inheritAttrs: false
 });
 
-const attrs = useAttrs();
-
-const [rootAttrs, compAttrs] = filterInputAttrs(attrs);
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { modelValue: _, ...inputProps } = VInput.filterProps(props);
-const fieldProps = filterFieldProps(props);
-console.log(filterFieldProps(props), VInput.filterProps(props));
-
 const refFlatPicker = ref();
 const { focused } = useFocus(refFlatPicker);
 const isCalendarOpen = ref(false);
@@ -69,9 +54,13 @@ const isInlinePicker = ref(false);
 const isReadonly = ref(false);
 
 // flat picker prop manipulation
-if (compAttrs.config && compAttrs.config.inline) {
-  isInlinePicker.value = compAttrs.config.inline;
-  Object.assign(compAttrs, { altInputClass: 'inlinePicker' });
+const compAttrs = ref<Record<string, unknown>>({});
+if (props.config) {
+  compAttrs.value = { ...props.config };
+  if ((props.config as Record<string, unknown>).inline) {
+    isInlinePicker.value = Boolean((props.config as Record<string, unknown>).inline);
+    Object.assign(compAttrs.value, { altInputClass: 'inlinePicker' });
+  }
 }
 
 // v-field clear prop
@@ -111,7 +100,7 @@ const emitModelValue = (val: string) => {
 };
 
 const elementId = computed(() => {
-  const _elementIdToken = fieldProps.id || fieldProps.label;
+  const _elementIdToken = props.id || props.label;
 
   return _elementIdToken ? `app-picker-field-${_elementIdToken}-${Math.random().toString(36).slice(2, 7)}` : undefined;
 });
@@ -120,17 +109,11 @@ const elementId = computed(() => {
 <template>
   <div class="app-picker-field">
     <!-- v-input -->
-    <VLabel
-      v-if="fieldProps.label"
-      class="mb-1 text-body-2 text-high-emphasis"
-      :for="elementId"
-      :text="fieldProps.label"
-    />
+    <VLabel v-if="props.label" class="mb-1 text-body-2 text-high-emphasis" :for="elementId" :text="props.label" />
 
     <VInput
-      v-bind="{ ...inputProps, ...rootAttrs }"
-      :model-value="modelValue"
       :hide-details="props.hideDetails"
+      :density="props.density"
       :class="[
         {
           'v-text-field--prefixed': props.prefix,
@@ -145,7 +128,8 @@ const elementId = computed(() => {
       <template #default="{ id, isDirty, isValid, isDisabled }">
         <!-- v-field -->
         <VField
-          v-bind="{ ...fieldProps, label: undefined }"
+          :variant="props.variant"
+          :color="props.color"
           :id="id.value"
           role="textbox"
           :active="focused || isDirty.value || isCalendarOpen"
@@ -163,7 +147,7 @@ const elementId = computed(() => {
                 v-bind="compAttrs"
                 :id="elementId"
                 ref="refFlatPicker"
-                :model-value="modelValue"
+                :model-value="props.modelValue"
                 :placeholder="props.placeholder"
                 class="flat-picker-custom-style"
                 :disabled="isReadonly"
@@ -175,7 +159,7 @@ const elementId = computed(() => {
               <!-- simple input for inline prop -->
               <input
                 v-if="isInlinePicker"
-                :value="modelValue"
+                :value="props.modelValue"
                 :placeholder="props.placeholder"
                 class="flat-picker-custom-style"
                 type="text"
@@ -191,7 +175,7 @@ const elementId = computed(() => {
       v-if="isInlinePicker"
       v-bind="compAttrs"
       ref="refFlatPicker"
-      :model-value="modelValue"
+      :model-value="props.modelValue"
       @update:model-value="emitModelValue"
       @on-open="isCalendarOpen = true"
       @on-close="isCalendarOpen = false"
@@ -201,8 +185,8 @@ const elementId = computed(() => {
 
 <style lang="scss">
 /* stylelint-disable no-descending-specificity */
-@use 'flatpickr/dist/flatpickr.css';
 @use '@/scss/mixins';
+@import url('flatpickr/dist/flatpickr.css');
 
 .flat-picker-custom-style {
   position: absolute;
