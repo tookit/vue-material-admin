@@ -31,7 +31,7 @@
     "vue-i18n": "^10.0.5",
     "vue-prism-component": "^2.0.0",
     "vue-router": "^4.4.5",
-    "vue3-apexcharts": "^1.6.0",
+    "vue3-apexcharts": "^1.10.0",
     "vue3-perfect-scrollbar": "^2.0.0",
     "vuetify": "^3.11.0",
     "yup": "^1.4.0"
