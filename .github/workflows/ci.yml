@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+concurrency:
+  group: ci-${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check vue-tsc availability
+        id: check_vuetsc
+        run: |
+          node -e "const p=require('./package.json'); process.exit(p.devDependencies && p.devDependencies['vue-tsc'] || p.dependencies && p.dependencies['vue-tsc'] ? 0 : 1)"
+        continue-on-error: true
+
+      - name: Type check
+        if: steps.check_vuetsc.outcome == 'success'
+        run: yarn vue-tsc --noEmit
+
+      - name: Check lint script availability
+        id: check_lint
+        run: |
+          node -e "const p=require('./package.json'); process.exit(p.scripts && p.scripts['lint'] ? 0 : 1)"
+        continue-on-error: true
+
+      - name: Lint
+        if: steps.check_lint.outcome == 'success'
+        run: yarn lint
+
+      - name: Build
+        env:
+          CI: true
+        run: yarn build
+
+      - name: Upload build artifact (PR only)
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.node-version }}
+          path: dist

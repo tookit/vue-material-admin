@@ -1,50 +1,55 @@
-import { fileURLToPath, URL } from 'url';
+import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify from 'vite-plugin-vuetify';
 import VueDevTools from 'vite-plugin-vue-devtools';
-// import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
 import DefineOptions from 'unplugin-vue-define-options/vite';
-// import MswPlugin from 'unplugin-msw/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    VueDevTools(),
     vue(),
     vuetify({
       autoImport: true
-      //styles: "expose",
     }),
-    DefineOptions()
-
-    // mockDevServerPlugin({
-    //   include: 'mock/**/*.mock.{ts,js,cjs,mjs,json,json5}'
-    // })
+    DefineOptions(),
+    VueDevTools()
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue']
   },
   css: {
     preprocessorOptions: {
-      scss: {}
+      scss: {
+        api: 'modern-compiler'
+      }
     }
   },
   server: {
     host: true,
-    port: 9527
-    // proxy: {
-    //   '/api': {
-    //     target: '',
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace(/^\/api/, '/api/v1')
-    //   }
-    // }
+    port: 9527,
+    strictPort: false,
+    open: false
+  },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+          'vuetify-vendor': ['vuetify'],
+          'chart-vendor': ['apexcharts', 'vue3-apexcharts']
+        }
+      }
+    }
   },
   optimizeDeps: {
-    exclude: ['vuetify'],
-    entries: ['./src/**/*.vue']
+    include: ['vue', 'vue-router', 'pinia', 'vuetify'],
+    exclude: []
   }
 });
